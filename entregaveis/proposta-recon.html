@@ -212,6 +212,60 @@
   .phase .gate{display:inline-flex;align-items:center;gap:7px;margin-top:11px;font-size:12.5px;
     background:var(--surface-2);color:var(--emerald);padding:5px 12px;border-radius:999px;font-weight:600}
 
+  /* ============ PHASE CARDS (prático) ============ */
+  .summary-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:var(--surface);
+    border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);margin-top:40px}
+  @media(max-width:720px){.summary-strip{grid-template-columns:1fr}}
+  .summary-strip .ss{padding:22px 26px;border-right:1px solid var(--line-soft)}
+  .summary-strip .ss:last-child{border-right:none}
+  @media(max-width:720px){.summary-strip .ss{border-right:none;border-bottom:1px solid var(--line-soft)}
+    .summary-strip .ss:last-child{border-bottom:none}}
+  .summary-strip .ss b{font-family:"Iowan Old Style",Georgia,serif;font-size:26px;color:var(--ink);
+    display:block;letter-spacing:-.02em}
+  .summary-strip .ss span{font-size:13px;color:var(--ink-faint)}
+
+  .pcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;
+    box-shadow:var(--shadow);margin-bottom:18px}
+  .pcard-head{display:flex;align-items:center;gap:16px;padding:18px 26px;border-bottom:1px solid var(--line-soft);
+    background:var(--surface-2)}
+  .pcard-head .pnum{flex:none;width:40px;height:40px;border-radius:10px;background:var(--pine);color:var(--brass-bright);
+    display:grid;place-items:center;font-family:"Iowan Old Style",Georgia,serif;font-weight:700;font-size:17px}
+  .pcard-head h4{font-family:"Iowan Old Style",Georgia,serif;font-size:21px;font-weight:600;margin:0}
+  .pcard-head .dur{margin-left:auto;text-align:right;font-family:"SF Mono",ui-monospace,Menlo,monospace;
+    font-size:12.5px;color:var(--ink-faint);white-space:nowrap;line-height:1.5}
+  .pcard-head .dur b{color:var(--emerald);font-size:14px}
+  .pcard-body{display:grid;grid-template-columns:1.25fr 1fr}
+  @media(max-width:760px){.pcard-body{grid-template-columns:1fr}}
+  .pcol{padding:22px 26px}
+  .pcol+.pcol{border-left:1px solid var(--line-soft)}
+  @media(max-width:760px){.pcol+.pcol{border-left:none;border-top:1px solid var(--line-soft)}}
+  .pcol.change{background:color-mix(in srgb,var(--brass) 7%,var(--surface))}
+  .pcol .mini{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;
+    color:var(--ink-faint);margin-bottom:12px;display:block}
+  .pcol.change .mini{color:var(--brass)}
+  .pcol ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px}
+  .pcol ul li{font-size:14.5px;color:var(--ink-soft);padding-left:20px;position:relative;line-height:1.45}
+  .pcol ul li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--ink-faint)}
+  .pcol.change ul li{color:var(--ink);font-weight:500}
+  .pcol.change ul li::before{background:var(--brass);width:7px;height:7px;top:7px}
+  .pcard-foot{padding:13px 26px;border-top:1px solid var(--line-soft);display:flex;flex-wrap:wrap;
+    align-items:center;gap:8px}
+  .pcard-foot .fl{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);
+    font-weight:600;margin-right:4px}
+  .chip{display:inline-flex;align-items:center;font-size:12.5px;padding:4px 12px;border-radius:999px;
+    background:var(--surface-2);border:1px solid var(--line);color:var(--ink-soft);font-weight:500}
+
+  /* ============ CHECKLIST (para começar) ============ */
+  .checklist{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:40px}
+  @media(max-width:760px){.checklist{grid-template-columns:1fr}}
+  .check{display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);
+    border-radius:13px;padding:20px 22px;box-shadow:var(--shadow)}
+  .check .cbox{flex:none;width:26px;height:26px;border-radius:7px;border:2px solid var(--brass);
+    display:grid;place-items:center;color:var(--brass);margin-top:1px}
+  .check .cbox svg{width:14px;height:14px}
+  .check h4{font-family:-apple-system,"Segoe UI",sans-serif;font-size:15.5px;font-weight:700;margin:0 0 3px;color:var(--ink)}
+  .check p{font-size:13.5px;color:var(--ink-soft);margin:0}
+
   /* ============ PRICING ============ */
   .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
   @media(max-width:860px){.pricing{grid-template-columns:1fr}}
@@ -363,8 +417,8 @@
         <p>Credenciamento digital, catálogo com simuladores, esteira de propostas, LMS de certificação,
           apuração de comissões e BI — integrados ao CRM/ERP da Recon.</p></div>
       <div class="card reveal"><div class="kicker">03 · Operação</div><h3 class="serif">Gestão &amp; governança</h3>
-        <p>Onboarding em ≤7 dias, suporte por SLA, gestores regionais de canal, mystery shopping e
-          relatórios de conformidade à Ouvidoria.</p></div>
+        <p>Onboarding em ≤7 dias, atendimento por SLA, mystery shopping e relatórios de conformidade à
+          Ouvidoria — o canal rodando no dia a dia.</p></div>
     </div>
   </div>
 </section>
@@ -401,7 +455,7 @@
       <div class="tier" style="--t:#8FA9C9"><h4>Prata</h4><div class="req">Meta trimestral + zero pendência de compliance</div>
         <ul><li>Leads compartilhados</li><li>Prioridade de suporte</li><li>Comissão base + bônus</li></ul></div>
       <div class="tier" style="--t:var(--brass)"><h4>Ouro</h4><div class="req">Volume sustentado + índice de qualidade</div>
-        <ul><li>Campanhas co-branded</li><li>Gerente dedicado</li><li>Bônus maior</li></ul></div>
+        <ul><li>Campanhas co-branded</li><li>Atendimento dedicado</li><li>Bônus maior</li></ul></div>
       <div class="tier" style="--t:var(--emerald)"><h4>Diamante</h4><div class="req">Top performance + reputação impecável</div>
         <ul><li>Condições exclusivas</li><li>Programa de incentivos</li><li>Comissão máxima</li></ul></div>
     </div>
@@ -458,31 +512,141 @@
   </div>
 </section>
 
-<!-- ============ CRONOGRAMA ============ -->
+<!-- ============ CRONOGRAMA (prático) ============ -->
 <section id="cronograma" style="background:var(--surface-2)">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">Cronograma de implantação</span>
-      <h2 class="serif">Cinco fases em seis meses. Um gate de aprovação em cada uma.</h2>
-      <p class="lead">Fases com sobreposição intencional para antecipar valor. Cada gate é condição para
-        liberar a fase seguinte — a Recon aprova antes de cada avanço.</p>
+      <span class="eyebrow">Como sai do papel</span>
+      <h2 class="serif">Do "sim" ao primeiro parceiro vendendo em ~4 meses.</h2>
+      <p class="lead">Cada fase tem prazo, número de reuniões e um resultado concreto — o que muda de fato na
+        operação de vocês ao final. As reuniões são objetivas e enxutas; entre elas o trabalho acontece do nosso lado.</p>
     </div>
-    <div class="timeline reveal" style="margin-top:44px">
-      <div class="phase"><div class="pn">Fase 0 · Semanas 1–3</div><h4 class="serif">Diagnóstico</h4>
-        <p>Mapa da rede atual, coleta de dados de base e calibração das metas com os números reais da Recon.</p>
-        <span class="gate">✓ Metas homologadas</span></div>
-      <div class="phase"><div class="pn">Fase 1 · Semanas 3–7</div><h4 class="serif">Desenho</h4>
-        <p>Arquitetura do canal, política de comissões e manual do parceiro.</p>
-        <span class="gate">✓ Modelo aprovado</span></div>
-      <div class="phase"><div class="pn">Fase 2 · Semanas 5–13</div><h4 class="serif">Tecnologia</h4>
-        <p>Portal do parceiro (PRM), integrações com CRM/ERP e LMS de certificação.</p>
-        <span class="gate">✓ Homologação técnica</span></div>
-      <div class="phase"><div class="pn">Fase 3 · Semanas 12–17</div><h4 class="serif">Piloto</h4>
-        <p>Credenciamento e ativação dos primeiros 50 parceiros no novo padrão.</p>
-        <span class="gate">✓ Piloto validado</span></div>
-      <div class="phase"><div class="pn">Fase 4 · Semanas 16–26</div><h4 class="serif">Escala &amp; operação</h4>
-        <p>Rollout nacional, governança contínua, BI e otimização.</p>
-        <span class="gate">✓ Operação estável</span></div>
+
+    <div class="summary-strip reveal">
+      <div class="ss"><b>~4 meses</b><span>até o primeiro parceiro vendendo no padrão novo (piloto)</span></div>
+      <div class="ss"><b>~14 reuniões</b><span>ao todo nas 4 fases de implantação — a maioria de 45–60 min</span></div>
+      <div class="ss"><b>1 ponto focal</b><span>de cada lado conduz tudo; as áreas entram só quando necessário</span></div>
+    </div>
+
+    <div style="margin-top:36px">
+      <!-- FASE 0 -->
+      <div class="pcard reveal">
+        <div class="pcard-head"><span class="pnum">0</span><h4 class="serif">Diagnóstico</h4>
+          <div class="dur"><b>2–3 semanas</b><br>3 a 4 reuniões</div></div>
+        <div class="pcard-body">
+          <div class="pcol"><span class="mini">O que acontece</span>
+            <ul>
+              <li>Kickoff e leitura da rede de parceiros atual (como vendem hoje, o que trava)</li>
+              <li>Extração e análise dos dados de venda por origem, junto com a área de dados/TI</li>
+              <li>Calibração das metas e do desenho de comissão com números reais</li>
+            </ul></div>
+          <div class="pcol change"><span class="mini">O que muda ao final</span>
+            <ul>
+              <li>Você troca "achismo" por um raio-X da distribuição atual</li>
+              <li>Metas de canal numéricas e homologadas — não mais estimativas</li>
+              <li>Modelo de comissão pré-validado, pronto para desenhar</li>
+            </ul></div>
+        </div>
+        <div class="pcard-foot"><span class="fl">Do lado da Recon</span>
+          <span class="chip">Diretoria comercial</span><span class="chip">Dados / TI</span><span class="chip">Compliance</span></div>
+      </div>
+
+      <!-- FASE 1 -->
+      <div class="pcard reveal">
+        <div class="pcard-head"><span class="pnum">1</span><h4 class="serif">Desenho do canal</h4>
+          <div class="dur"><b>3–4 semanas</b><br>4 reuniões (checkpoint semanal)</div></div>
+        <div class="pcard-body">
+          <div class="pcol"><span class="mini">O que acontece</span>
+            <ul>
+              <li>Regras de credenciamento e tipologia de parceiros por modalidade</li>
+              <li>Tabela de comissão por nível, com bônus e regras de estorno</li>
+              <li>Contrato de parceria, código de conduta e manual do parceiro</li>
+            </ul></div>
+          <div class="pcol change"><span class="mini">O que muda ao final</span>
+            <ul>
+              <li>Existe um "produto de canal" pronto de prateleira</li>
+              <li>Qualquer parceiro novo entra por um processo único e padronizado</li>
+              <li>Acaba a negociação caso a caso e o discurso solto na ponta</li>
+            </ul></div>
+        </div>
+        <div class="pcard-foot"><span class="fl">Do lado da Recon</span>
+          <span class="chip">Comercial</span><span class="chip">Jurídico / Compliance</span></div>
+      </div>
+
+      <!-- FASE 2 -->
+      <div class="pcard reveal">
+        <div class="pcard-head"><span class="pnum">2</span><h4 class="serif">Portal do parceiro</h4>
+          <div class="dur"><b>6–8 semanas</b><br>~5 reuniões (checkpoint quinzenal)</div></div>
+        <div class="pcard-body">
+          <div class="pcol"><span class="mini">O que acontece</span>
+            <ul>
+              <li>Construção do portal: cadastro, esteira de propostas, treinamento e comissões</li>
+              <li>Integração com o CRM/ERP da Recon para propostas e conciliação</li>
+              <li>Homologação técnica em ambiente de teste antes de ir ao ar</li>
+            </ul></div>
+          <div class="pcol change"><span class="mini">O que muda ao final</span>
+            <ul>
+              <li>Existe uma esteira digital: o parceiro se cadastra, treina, vende e a comissão sai sozinha</li>
+              <li>Acaba o controle em planilha e o credenciamento manual</li>
+              <li>Tudo rastreável — venda, comissão e conformidade em um só lugar</li>
+            </ul></div>
+        </div>
+        <div class="pcard-foot"><span class="fl">Do lado da Recon</span>
+          <span class="chip">TI / Sistemas</span><span class="chip">Comercial</span></div>
+      </div>
+
+      <!-- FASE 3 -->
+      <div class="pcard reveal">
+        <div class="pcard-head"><span class="pnum">3</span><h4 class="serif">Piloto</h4>
+          <div class="dur"><b>4–5 semanas</b><br>~4 reuniões (acompanhamento semanal)</div></div>
+        <div class="pcard-body">
+          <div class="pcol"><span class="mini">O que acontece</span>
+            <ul>
+              <li>Credenciamento e treinamento dos primeiros ~50 parceiros no padrão novo</li>
+              <li>Primeiras vendas assistidas, com ajuste fino do processo</li>
+              <li>Leitura de conversão, qualidade e conformidade reais</li>
+            </ul></div>
+          <div class="pcol change"><span class="mini">O que muda ao final</span>
+            <ul>
+              <li>Parceiros vendendo de verdade pelo canal, com dados na mão</li>
+              <li>Prova de que o modelo funciona — antes de investir na escala</li>
+              <li>Playbook validado e pronto para o rollout nacional</li>
+            </ul></div>
+        </div>
+        <div class="pcard-foot"><span class="fl">Do lado da Recon</span>
+          <span class="chip">Comercial</span><span class="chip">Atendimento / SAC</span></div>
+      </div>
+    </div>
+
+    <p class="reveal" style="margin-top:14px;font-size:14px;color:var(--ink-soft);max-width:74ch">
+      <b style="color:var(--ink)">Depois disso</b> começa a operação (escala nacional): a Recon deixa de depender de
+      uma rede difusa e passa a operar um <b style="color:var(--ink)">canal de aquisição próprio</b> — previsível,
+      digital e medido — abastecendo as assembleias com cotas novas todo mês.</p>
+  </div>
+</section>
+
+<!-- ============ PARA COMEÇAR ============ -->
+<section id="comecar">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Para começar</span>
+      <h2 class="serif">O que precisamos de vocês para dar o start.</h2>
+      <p class="lead">Nada de grande mobilização. Um ponto focal com poder de decisão e cinco acessos —
+        o resto conduzimos.</p>
+    </div>
+    <div class="checklist reveal">
+      <div class="check"><span class="cbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span>
+        <div><h4>Um ponto focal de decisão</h4><p>Alguém da diretoria comercial que decide e destrava — a interlocução principal do projeto.</p></div></div>
+      <div class="check"><span class="cbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span>
+        <div><h4>Base atual de parceiros e vendas</h4><p>Quem são os parceiros hoje e o histórico de vendas por origem, para calibrar as metas.</p></div></div>
+      <div class="check"><span class="cbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span>
+        <div><h4>Regras de produto e contrato vigente</h4><p>Tabelas de taxas, regras de grupo e a minuta de contrato que vocês já usam.</p></div></div>
+      <div class="check"><span class="cbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span>
+        <div><h4>Contato técnico do CRM/ERP</h4><p>Quem cuida dos sistemas, para a integração do portal na Fase 2.</p></div></div>
+      <div class="check"><span class="cbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span>
+        <div><h4>Aval de compliance/jurídico</h4><p>Para homologar o discurso de venda e o modelo de credenciamento.</p></div></div>
+      <div class="check"><span class="cbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span>
+        <div><h4>Perfil e região do piloto</h4><p>Onde e com quais parceiros vamos testar primeiro, na Fase 3.</p></div></div>
     </div>
   </div>
 </section>
