@@ -3,35 +3,35 @@
 <style>
 /* ============ TOKENS (paleta pinho + latão + esmeralda) ============ */
 :root{
-  --bg:#F1F3EE; --surface:#FFFFFF; --surface-2:#EAEDE5;
-  --ink:#141915; --ink-soft:#4B534A; --ink-faint:#798175;
-  --line:#DCDFD5; --line-soft:#E6E9E0;
-  --pine:#0F2A24; --pine-2:#153A31;
-  --brass:#B4893A; --brass-bright:#C8A24B; --emerald:#2F7D64;
-  --on-pine:#EAF0E9; --on-pine-soft:#9DB2A6;
+  --bg:#F0ECE2; --surface:#FBF8F1; --surface-2:#EAE3D3;
+  --ink:#142219; --ink-soft:#4A5244; --ink-faint:#6F6A5C;
+  --line:#E0D8C6; --line-soft:#EAE3D5;
+  --pine:#142219; --pine-2:#1A2C20;
+  --brass:#A89055; --brass-bright:#DBBE7A; --emerald:#3E6B4A;
+  --on-pine:#F0ECE2; --on-pine-soft:#B8B09A;
   --shadow:0 1px 2px rgba(20,25,21,.04),0 8px 30px rgba(20,25,21,.06);
   --shadow-lg:0 30px 70px rgba(15,42,36,.18);
   --maxw:1120px;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --bg:#0B120F; --surface:#111A15; --surface-2:#152019;
-    --ink:#E8EDE6; --ink-soft:#A6B0A5; --ink-faint:#7C867C;
-    --line:#243029; --line-soft:#1B241E;
-    --pine:#0A1712; --pine-2:#12211A;
-    --brass:#D4B25E; --brass-bright:#E0C377; --emerald:#4FA484;
-    --on-pine:#E8EDE6; --on-pine-soft:#8FA396;
+    --bg:#0E1A12; --surface:#142219; --surface-2:#1A2C20;
+    --ink:#F0ECE2; --ink-soft:#B8B09A; --ink-faint:#8A8474;
+    --line:#2A3D2E; --line-soft:#223026;
+    --pine:#0E1A12; --pine-2:#142219;
+    --brass:#DBBE7A; --brass-bright:#E8CF94; --emerald:#7BB58F;
+    --on-pine:#F0ECE2; --on-pine-soft:#B8B09A;
     --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 34px rgba(0,0,0,.4);
     --shadow-lg:0 30px 80px rgba(0,0,0,.55);
   }
 }
 :root[data-theme="dark"]{
-  --bg:#0B120F; --surface:#111A15; --surface-2:#152019;
-  --ink:#E8EDE6; --ink-soft:#A6B0A5; --ink-faint:#7C867C;
-  --line:#243029; --line-soft:#1B241E;
-  --pine:#0A1712; --pine-2:#12211A;
-  --brass:#D4B25E; --brass-bright:#E0C377; --emerald:#4FA484;
-  --on-pine:#E8EDE6; --on-pine-soft:#8FA396;
+  --bg:#0E1A12; --surface:#142219; --surface-2:#1A2C20;
+  --ink:#F0ECE2; --ink-soft:#B8B09A; --ink-faint:#8A8474;
+  --line:#2A3D2E; --line-soft:#223026;
+  --pine:#0E1A12; --pine-2:#142219;
+  --brass:#DBBE7A; --brass-bright:#E8CF94; --emerald:#7BB58F;
+  --on-pine:#F0ECE2; --on-pine-soft:#B8B09A;
   --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 34px rgba(0,0,0,.4);
   --shadow-lg:0 30px 80px rgba(0,0,0,.55);
 }
@@ -61,8 +61,8 @@ a{color:inherit}
   backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft)}
 .nav-in{max-width:var(--maxw);margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:20px}
 .brand{display:flex;align-items:center;gap:11px;font-weight:600;letter-spacing:-.01em}
-.brand .mark{width:30px;height:30px;border-radius:8px;background:var(--pine);color:var(--brass-bright);
-  display:grid;place-items:center;font-family:"Iowan Old Style",Georgia,serif;font-size:17px;font-weight:700}
+.brand .mark{width:30px;height:30px;border-radius:50%;background:transparent;border:1.6px solid var(--brass);color:var(--brass);
+  display:grid;place-items:center;font-family:"Iowan Old Style",Palatino,Georgia,serif;font-size:16px;font-weight:700;flex:none}
 .nav-links{margin-left:auto;display:flex;gap:24px;align-items:center;overflow-x:auto;scrollbar-width:none}
 .nav-links::-webkit-scrollbar{display:none}
 .nav-links a{font-size:13.5px;color:var(--ink-soft);text-decoration:none;transition:color .2s;white-space:nowrap}
@@ -89,6 +89,10 @@ a{color:inherit}
     radial-gradient(1px 1px at 32% 54%,rgba(234,240,233,.22),transparent)}
 .hero-in{max-width:var(--maxw);margin:0 auto;padding:74px 28px 96px}
 .hero .eyebrow{color:var(--brass-bright)}
+.hero .lockup{margin-bottom:26px}
+.hero .lockup svg{height:50px;width:auto;display:block}
+.foot-logo{display:flex;justify-content:center;margin-bottom:18px}
+.foot-logo svg{height:40px;width:auto;display:block}
 .hero h1{font-size:clamp(40px,7vw,80px);margin:22px 0 0;max-width:13ch;line-height:1.02}
 .hero h1 em{font-style:italic;color:var(--brass-bright)}
 .hero .lead{color:var(--on-pine-soft);margin-top:24px;font-size:clamp(17px,2vw,21px);max-width:52ch}
@@ -277,7 +281,7 @@ figure.fig figcaption{margin-top:14px;font-size:13px;color:var(--ink-faint);text
 
 /* ============ PRINT ============ */
 @media print{
-  :root{--bg:#fff;--surface:#fff;--surface-2:#EEF1E9;--line:#D8DBCF;--line-soft:#E6E9E0;--ink:#141915;--ink-soft:#3f463d;--ink-faint:#6b7268;--shadow:none;--shadow-lg:none}
+  :root{--bg:#fff;--surface:#fff;--surface-2:#EFE9DC;--line:#DED7C4;--line-soft:#EBE5D7;--ink:#142219;--ink-soft:#3E4A3F;--ink-faint:#6F6A5C;--shadow:none;--shadow-lg:none}
   .nav,#prog,.toggle,.chain{display:none!important}
   .hero,.pull,.cta,.price.feat{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .hero-metrics{transform:none;margin-top:20px}
@@ -293,7 +297,7 @@ figure.fig figcaption{margin-top:14px;font-size:13px;color:var(--ink-faint);text
 <div id="prog"></div>
 <nav class="nav">
   <div class="nav-in">
-    <div class="brand"><span class="mark">SE</span><span>Sócio Estratégico&nbsp;<b style="color:var(--brass)">×</b>&nbsp;Rocket SF</span></div>
+    <div class="brand"><span class="mark">S</span><span class="serif" style="font-weight:600">Sócio Estratégico&nbsp;<b style="color:var(--brass);font-weight:600">×</b>&nbsp;Rocket SF</span></div>
     <div class="nav-links">
       <a href="#oportunidade">Oportunidade</a>
       <a href="#escopo">Escopo</a>
@@ -310,6 +314,14 @@ figure.fig figcaption{margin-top:14px;font-size:13px;color:var(--ink-faint);text
 <!-- ============ HERO ============ -->
 <header class="hero">
   <div class="hero-in">
+    <div class="lockup">
+      <svg viewBox="0 0 214 56" role="img" aria-label="Sócio Estratégico">
+        <circle cx="24" cy="28" r="22" fill="none" stroke="#DBBE7A" stroke-width="2"/>
+        <text x="24" y="37.5" text-anchor="middle" font-family="'Iowan Old Style',Palatino,Georgia,serif" font-size="27" font-weight="700" fill="#DBBE7A">S</text>
+        <text x="58" y="27" font-family="'Iowan Old Style',Palatino,Georgia,serif" font-size="24" font-weight="700" letter-spacing="0.5" fill="#F0ECE2">SÓCIO</text>
+        <text x="59" y="46" font-family="'Iowan Old Style',Palatino,Georgia,serif" font-size="12.5" letter-spacing="3" fill="#A89055">ESTRATÉGICO</text>
+      </svg>
+    </div>
     <span class="eyebrow">Proposta Comercial · Parceiro de Go-to-Market &amp; Operação</span>
     <h1 class="serif">Transformar mídia em <em>franquias assinadas</em>.</h1>
     <p class="lead">Estruturação e operação ponta a ponta da máquina de expansão de franquias da Rocket SF —
@@ -800,6 +812,14 @@ figure.fig figcaption{margin-top:14px;font-size:13px;color:var(--ink-faint);text
 </main>
 
 <footer>
+  <div class="foot-logo" style="color:var(--ink)">
+    <svg viewBox="0 0 226 40" role="img" aria-label="Sócio Estratégico">
+      <circle cx="18" cy="20" r="15" fill="none" stroke="var(--brass)" stroke-width="1.6"/>
+      <text x="18" y="26.5" text-anchor="middle" font-family="'Iowan Old Style',Palatino,Georgia,serif" font-size="18" font-weight="700" fill="var(--brass)">S</text>
+      <text x="42" y="19" font-family="'Iowan Old Style',Palatino,Georgia,serif" font-size="17" font-weight="700" fill="var(--ink)">SÓCIO</text>
+      <text x="43" y="33" font-family="'Iowan Old Style',Palatino,Georgia,serif" font-size="9" letter-spacing="2.4" fill="var(--brass)">ESTRATÉGICO</text>
+    </svg>
+  </div>
   <p class="fnote">Documento confidencial preparado para a Rocket Soluções Financeiras (Rocket SF) por Sócio Estratégico.</p>
   <p>Proposta Comercial · Máquina de Venda de Franquias · v1.0 · Agosto de 2026</p>
 </footer>
