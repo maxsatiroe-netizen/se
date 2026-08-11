@@ -205,7 +205,9 @@ tbody td:first-child{color:var(--ink);font-weight:600}
 /* pricing */
 .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch;margin-top:8px}
 @media(max-width:860px){.pricing{grid-template-columns:1fr}}
-.price{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.price{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.pbadge{position:absolute;top:16px;right:16px;background:var(--emerald);color:#fff;font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;font-weight:700}
+.strike{text-decoration:line-through;color:var(--ink-faint)}
 .price.feat{background:var(--pine);color:var(--on-pine);border-color:var(--pine)}
 .price.feat .p-kick,.price.feat .p-model{color:var(--brass-bright)}
 .price.feat .p-desc,.price.feat .why{color:var(--on-pine-soft)}
@@ -593,10 +595,11 @@ figure.fig figcaption{margin-top:14px;font-size:13px;color:var(--ink-faint);text
   </div>
   <div class="pricing reveal">
     <div class="price">
-      <span class="p-kick">Componente 1</span><h3 class="serif">Setup de implantação</h3>
-      <div class="p-model">R$ 30.000 · único</div>
-      <p class="p-desc">Construção da máquina — Semanas 1 e 2: estratégia, GTM, oferta, CRM, criativos, recrutamento e treinamento do time.</p>
-      <div class="why"><b>Por quê</b>Remunera o trabalho intensivo de montar o sistema, antes de a mídia rodar.</div>
+      <span class="pbadge">Bônus</span>
+      <span class="p-kick">Componente 1 · cortesia</span><h3 class="serif">Setup de implantação</h3>
+      <div class="p-model" style="color:var(--emerald)">Cortesia na contratação</div>
+      <p class="p-desc">Construção da máquina — Semanas 1 e 2: estratégia, GTM, oferta, CRM, criativos, recrutamento e treinamento do time. Valor de referência <span class="strike">R$ 30.000</span>, oferecido como bônus.</p>
+      <div class="why"><b>Por quê</b>Reduzimos a barreira de entrada: a Rocket inicia a operação sem custo de montagem.</div>
     </div>
     <div class="price feat">
       <span class="p-kick">Componente 2 · recorrente</span><h3 class="serif">Fee mensal de operação</h3>
@@ -612,9 +615,9 @@ figure.fig figcaption{margin-top:14px;font-size:13px;color:var(--ink-faint);text
     </div>
   </div>
   <p class="reveal" style="font-size:13px;color:var(--ink-faint);margin-top:14px;max-width:76ch">Valores
-    sugeridos como ponto de partida, a validar com a Rocket. O setup é único; o fee é mensal; o success fee
-    incide por franquia vendida. No modelo sugerido, o fee de operação já inclui a equipe de produção da Sócio
-    Estratégico (copy, design e tráfego).</p>
+    sugeridos como ponto de partida, a validar com a Rocket. O setup de implantação entra como cortesia na
+    contratação; o fee é mensal; o success fee incide por franquia vendida. No modelo sugerido, o fee de
+    operação já inclui a equipe de produção da Sócio Estratégico (copy, design e tráfego).</p>
   <div class="pull reveal" style="margin-top:28px">
     <span class="eyebrow">Alinhamento de incentivos</span>
     <blockquote style="font-size:clamp(19px,2.5vw,26px);max-width:38ch">Quanto mais a máquina vende com eficiência, maior o retorno de <em>ambas as partes</em>.</blockquote>
@@ -629,7 +632,7 @@ figure.fig figcaption{margin-top:14px;font-size:13px;color:var(--ink-faint);text
     <table>
       <thead><tr><th>Item</th><th>Natureza</th><th>Quem paga</th><th>Valor</th></tr></thead>
       <tbody>
-        <tr><td>Remuneração — Sócio Estratégico</td><td>Setup + fee + success</td><td>Rocket SF</td><td class="fill">R$ 30k setup · R$ 20k/mês · R$ 5k/franquia</td></tr>
+        <tr><td>Remuneração — Sócio Estratégico</td><td>Setup + fee + success</td><td>Rocket SF</td><td class="fill">Setup cortesia · R$ 20k/mês · R$ 5k/franquia</td></tr>
         <tr><td>Investimento em mídia</td><td>Verba de aquisição</td><td>Rocket SF</td><td class="fill">≈ R$ 10.000/mês → escala</td></tr>
         <tr><td>Time comercial (2 SDRs + closer)</td><td>Salário + variável</td><td>Rocket SF</td><td class="fill">≈ R$ 9–12 mil/mês + variável*</td></tr>
         <tr><td>Ferramentas e CRM</td><td>Stack comercial</td><td>Rocket SF</td><td class="fill">≈ R$ 0,5–1,5 mil/mês*</td></tr>
@@ -642,9 +645,9 @@ figure.fig figcaption{margin-top:14px;font-size:13px;color:var(--ink-faint);text
   </div>
   <div class="pull reveal" style="margin-top:20px">
     <span class="eyebrow">Desembolso estimado da Rocket</span>
-    <blockquote style="font-size:clamp(20px,2.6vw,28px);max-width:34ch">≈ <em>R$ 40–44 mil/mês</em> + R$ 30 mil de setup único.</blockquote>
-    <p class="attrib">Fee (R$ 20k) + mídia (≈ R$ 10k) + time comercial (≈ R$ 9–12k) + ferramentas (≈ R$ 0,5–1,5k).
-      Valores sugeridos, a validar. * Estimativas de mercado a confirmar; success fee (R$ 5k/franquia) incide sobre vendas.</p>
+    <blockquote style="font-size:clamp(20px,2.6vw,28px);max-width:36ch">≈ <em>R$ 40–44 mil/mês</em>. Setup de implantação: <em>cortesia</em>.</blockquote>
+    <p class="attrib">Fee (R$ 20k) + mídia (≈ R$ 10k) + time comercial (≈ R$ 9–12k) + ferramentas (≈ R$ 0,5–1,5k),
+      sem custo de montagem. Valores sugeridos, a validar. * Estimativas de mercado a confirmar; success fee (R$ 5k/franquia) incide sobre vendas.</p>
   </div>
 </div></section>
 
@@ -777,7 +780,7 @@ figure.fig figcaption{margin-top:14px;font-size:13px;color:var(--ink-faint);text
     <table>
       <thead><tr><th>Tema</th><th>O que falta</th></tr></thead>
       <tbody>
-        <tr><td>Remuneração</td><td>Validar os valores sugeridos (setup R$ 30k · fee R$ 20k/mês · success R$ 5k/franquia)</td></tr>
+        <tr><td>Remuneração</td><td>Validar os valores sugeridos (setup cortesia · fee R$ 20k/mês · success R$ 5k/franquia)</td></tr>
         <tr><td>Custeio do time</td><td>Confirmar Rocket como pagadora dos SDRs e do closer + faixa de salário/variável</td></tr>
         <tr><td>Success fee</td><td>Definir se R$ 5k por franquia ou 10% da taxa de franquia</td></tr>
         <tr><td>Ferramentas / CRM</td><td>Qual stack e quem custeia as licenças</td></tr>
