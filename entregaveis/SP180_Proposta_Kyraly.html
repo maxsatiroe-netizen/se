@@ -3,64 +3,64 @@
 <style>
   /* ============ TOKENS ============ */
   :root{
-    --bg:#EDEFF3;            /* porcelana fria, viés azul */
-    --surface:#FFFFFF;
-    --surface-2:#E3E7EE;
-    --ink:#111624;          /* quase-preto viés azul */
-    --ink-soft:#43506A;
-    --ink-faint:#7C879C;
-    --line:#D4DAE4;
-    --line-soft:#E1E6EE;
-    --navy:#141B2E;         /* cofre — azul-noite */
-    --navy-2:#1C2640;
-    --signal:#E5471F;       /* persimmon — acento em fundo claro */
-    --signal-bright:#FF6A45;/* persimmon em fundo escuro */
-    --jade:#0E9C86;         /* crescimento / delta positivo */
-    --on-navy:#EAEEF6;
-    --on-navy-soft:#94A2BC;
-    --shadow:0 1px 2px rgba(17,22,36,.05),0 8px 30px rgba(17,22,36,.07);
-    --shadow-lg:0 30px 70px rgba(20,27,46,.20);
+    --bg:#F0ECE2;            /* bege — identidade Sócio Estratégico */
+    --surface:#FBF9F3;
+    --surface-2:#E7E1D2;
+    --ink:#0E1A12;          /* verde-preto */
+    --ink-soft:#48533F;
+    --ink-faint:#6F6A5C;    /* cinza da marca */
+    --line:#D8D0BE;
+    --line-soft:#E7E1D2;
+    --navy:#0E1A12;         /* cofre — verde-preto */
+    --navy-2:#1A2C20;
+    --signal:#957A38;       /* ouro profundo — acento em fundo claro */
+    --signal-bright:#DBBE7A;/* ouro da marca — em fundo escuro */
+    --jade:#5C7A4C;         /* verde — delta positivo */
+    --on-navy:#F0ECE2;
+    --on-navy-soft:#B8B09A;
+    --shadow:0 1px 2px rgba(14,26,18,.05),0 8px 30px rgba(14,26,18,.08);
+    --shadow-lg:0 30px 70px rgba(14,26,18,.20);
     --maxw:1120px;
   }
   :root:not([data-theme="light"]){
     @media (prefers-color-scheme: dark){
-      --bg:#0A0E18;
-      --surface:#121828;
-      --surface-2:#171F33;
-      --ink:#E7ECF5;
-      --ink-soft:#A3AFC6;
-      --ink-faint:#6E7A93;
-      --line:#26314A;
-      --line-soft:#1B2338;
-      --navy:#0B111F;
-      --navy-2:#141C31;
-      --signal:#FF6A45;
-      --signal-bright:#FF8163;
-      --jade:#3BC0AC;
-      --on-navy:#E7ECF5;
-      --on-navy-soft:#8695B2;
-      --shadow:0 1px 2px rgba(0,0,0,.35),0 10px 34px rgba(0,0,0,.45);
-      --shadow-lg:0 30px 80px rgba(0,0,0,.6);
+      --bg:#0E1A12;
+      --surface:#142219;
+      --surface-2:#1A2C20;
+      --ink:#F0ECE2;
+      --ink-soft:#B8B09A;
+      --ink-faint:#8A8372;
+      --line:#2A3D2E;
+      --line-soft:#20301F;
+      --navy:#0A140D;
+      --navy-2:#152318;
+      --signal:#DBBE7A;
+      --signal-bright:#E8CF94;
+      --jade:#8BA778;
+      --on-navy:#F0ECE2;
+      --on-navy-soft:#B8B09A;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 34px rgba(0,0,0,.5);
+      --shadow-lg:0 30px 80px rgba(0,0,0,.62);
     }
   }
   :root[data-theme="dark"]{
-    --bg:#0A0E18;
-    --surface:#121828;
-    --surface-2:#171F33;
-    --ink:#E7ECF5;
-    --ink-soft:#A3AFC6;
-    --ink-faint:#6E7A93;
-    --line:#26314A;
-    --line-soft:#1B2338;
-    --navy:#0B111F;
-    --navy-2:#141C31;
-    --signal:#FF6A45;
-    --signal-bright:#FF8163;
-    --jade:#3BC0AC;
-    --on-navy:#E7ECF5;
-    --on-navy-soft:#8695B2;
-    --shadow:0 1px 2px rgba(0,0,0,.35),0 10px 34px rgba(0,0,0,.45);
-    --shadow-lg:0 30px 80px rgba(0,0,0,.6);
+    --bg:#0E1A12;
+    --surface:#142219;
+    --surface-2:#1A2C20;
+    --ink:#F0ECE2;
+    --ink-soft:#B8B09A;
+    --ink-faint:#8A8372;
+    --line:#2A3D2E;
+    --line-soft:#20301F;
+    --navy:#0A140D;
+    --navy-2:#152318;
+    --signal:#DBBE7A;
+    --signal-bright:#E8CF94;
+    --jade:#8BA778;
+    --on-navy:#F0ECE2;
+    --on-navy-soft:#B8B09A;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 34px rgba(0,0,0,.5);
+    --shadow-lg:0 30px 80px rgba(0,0,0,.62);
   }
 
   /* ============ BASE ============ */
@@ -104,13 +104,13 @@
 
   /* ============ HERO ============ */
   .hero{background:
-      radial-gradient(120% 90% at 88% -8%,rgba(255,106,69,.20),transparent 52%),
+      radial-gradient(120% 90% at 88% -8%,rgba(219,190,122,.20),transparent 52%),
       linear-gradient(180deg,var(--navy) 0%,var(--navy-2) 100%);
     color:var(--on-navy);position:relative;overflow:hidden;isolation:isolate}
   .hero::after{content:"";position:absolute;inset:0;z-index:-1;opacity:.6;
     background-image:
-      linear-gradient(rgba(148,162,188,.07) 1px,transparent 1px),
-      linear-gradient(90deg,rgba(148,162,188,.07) 1px,transparent 1px);
+      linear-gradient(rgba(219,190,122,.07) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(219,190,122,.07) 1px,transparent 1px);
     background-size:34px 34px;mask-image:radial-gradient(120% 100% at 70% 0%,#000,transparent 75%)}
   .hero-in{max-width:var(--maxw);margin:0 auto;padding:74px 28px 96px}
   .hero .eyebrow{color:var(--signal-bright)}
@@ -125,8 +125,8 @@
   .btn{display:inline-flex;align-items:center;gap:9px;padding:14px 24px;border-radius:11px;
     font-size:15px;font-weight:600;text-decoration:none;transition:transform .18s,box-shadow .2s,background .2s;
     border:1px solid transparent}
-  .btn-primary{background:var(--signal-bright);color:#1A0A05}
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(255,106,69,.34)}
+  .btn-primary{background:var(--signal-bright);color:#0E1A12}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(219,190,122,.34)}
   .btn-ghost{background:transparent;color:var(--on-navy);border-color:rgba(234,238,246,.28)}
   .btn-ghost:hover{border-color:var(--signal-bright);color:var(--signal-bright)}
 
@@ -211,7 +211,7 @@
   .supervisor{margin-top:20px;background:var(--surface-2);border:1px solid var(--line);border-radius:14px;
     padding:20px 24px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
   .supervisor .badge{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:11px;font-weight:600;
-    letter-spacing:.08em;text-transform:uppercase;color:#1A0A05;background:var(--signal-bright);padding:6px 12px;border-radius:8px}
+    letter-spacing:.08em;text-transform:uppercase;color:#0E1A12;background:var(--signal-bright);padding:6px 12px;border-radius:8px}
   .supervisor p{font-size:14.5px;color:var(--ink-soft);flex:1;min-width:240px}
   .supervisor b{color:var(--ink)}
 
@@ -237,7 +237,7 @@
   .price{background:var(--navy);color:var(--on-navy);border-radius:18px;padding:36px;display:flex;flex-direction:column;
     box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
   .price::after{content:"";position:absolute;inset:0;z-index:0;opacity:.5;
-    background-image:linear-gradient(rgba(148,162,188,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(148,162,188,.07) 1px,transparent 1px);
+    background-image:linear-gradient(rgba(219,190,122,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(219,190,122,.07) 1px,transparent 1px);
     background-size:30px 30px;mask-image:radial-gradient(100% 90% at 90% 0%,#000,transparent 70%)}
   .price>*{position:relative;z-index:1}
   .price .p-kick{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.12em;
@@ -273,7 +273,7 @@
 
   /* ============ PULLQUOTE ============ */
   .pull{background:
-      radial-gradient(90% 120% at 12% -10%,rgba(255,106,69,.18),transparent 55%),
+      radial-gradient(90% 120% at 12% -10%,rgba(219,190,122,.18),transparent 55%),
       linear-gradient(180deg,var(--navy-2),var(--navy));
     color:var(--on-navy);border-radius:20px;padding:54px 46px;position:relative;overflow:hidden}
   .pull .eyebrow{color:var(--signal-bright)}
@@ -284,7 +284,7 @@
 
   /* ============ CTA FOOTER ============ */
   .cta{background:
-      radial-gradient(100% 120% at 20% -20%,rgba(255,106,69,.22),transparent 55%),
+      radial-gradient(100% 120% at 20% -20%,rgba(219,190,122,.22),transparent 55%),
       linear-gradient(180deg,var(--navy-2),var(--navy));color:var(--on-navy);border-radius:24px;
     padding:62px 48px;text-align:center;position:relative;overflow:hidden}
   .cta .eyebrow{color:var(--signal-bright)}
@@ -331,7 +331,8 @@
     <h1>Entramos como sócios por <em>180 dias</em> para meter a mão na massa da receita.</h1>
     <p class="lead">A Kyraly já tem a estratégia desenhada. A SP180 assume a execução das frentes de
       receita — dentro de estratégia, gestão e operação — com um time dedicado, sob supervisão direta,
-      transformando o planejamento em máquina comercial rodando.</p>
+      transformando o planejamento em máquina comercial rodando. E com <em>skin in the game</em>:
+      metade do investimento vira equity.</p>
     <div class="hero-meta">
       <span>Preparado para <b>Kyraly · Vamos além do marketing</b></span>
       <span class="dot"></span><span>Ciclo 2026–2028</span>
@@ -347,7 +348,7 @@
 
 <div class="hero-metrics reveal">
   <div class="metric"><div class="num">180<span> dias</span></div><div class="lbl">de execução conjunta, com metas e gates mensais</div></div>
-  <div class="metric"><div class="num">R$100<span>k</span></div><div class="lbl">investimento total pelos 6 meses de sociedade</div></div>
+  <div class="metric"><div class="num">R$120<span>k</span></div><div class="lbl">investimento — metade em caixa, metade convertida em equity</div></div>
   <div class="metric"><div class="num">~25</div><div class="lbl">ações marcadas como sócio / sócio estratégico assumidas</div></div>
   <div class="metric"><div class="num">5<span>/mês</span></div><div class="lbl">novos clientes — meta-âncora da máquina de aquisição</div></div>
 </div>
@@ -621,15 +622,16 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Investimento</span>
-      <h2>SP180 — Sócios por 180 dias.</h2>
+      <h2>SP180 — Sócios por 180 dias. Metade em caixa, metade em equity.</h2>
       <p class="lead">Um compromisso fechado de sociedade estratégica de execução por seis meses, com time
-        dedicado, foco em receita e entrega de máquina rodando.</p>
+        dedicado e foco em receita. E não é fornecedor: metade do investimento é convertida em
+        participação — o incentivo fica 100% alinhado ao resultado da Kyraly.</p>
     </div>
     <div class="invest reveal" style="margin-top:44px">
       <div class="price">
         <span class="p-kick">Projeto SP180 · valor fechado</span>
-        <div class="amount"><span class="big">R$100.000</span><span class="per">/ 6 meses</span></div>
-        <div class="sub">≈ R$16.667 / mês · sociedade estratégica de implementação</div>
+        <div class="amount"><span class="big">R$120.000</span><span class="per">/ 6 meses</span></div>
+        <div class="sub">≈ R$20.000 / mês · sociedade estratégica de implementação</div>
         <ul>
           <li>Squad dedicado sob supervisão do sócio estratégico</li>
           <li>Execução das ~25 ações de receita marcadas como sócio / SE</li>
@@ -643,19 +645,20 @@
       </div>
       <div class="side">
         <div class="box">
-          <div class="k">Estrutura</div>
-          <div class="row"><span>Duração</span><span>180 dias</span></div>
-          <div class="row"><span>Modelo</span><span>Sócio estratégico</span></div>
-          <div class="row"><span>Time</span><span>Squad dedicado</span></div>
-          <div class="row"><span>Supervisão</span><span>Max · SE</span></div>
-          <div class="row"><span>Cadência</span><span>Gate mensal</span></div>
+          <div class="k">Como o valor se divide</div>
+          <div class="row"><span>Em caixa (50%)</span><span>R$60.000</span></div>
+          <div class="row"><span>Em equity (50%)</span><span>R$60.000</span></div>
+          <div class="row"><span>Total do ciclo</span><span>R$120.000</span></div>
+          <p style="margin-top:12px">A parcela de equity converte a SP180 em sócia de fato da Kyraly —
+            percentual e instrumento (valuation, vesting, tipo de quota) fechados no acordo, ancorados no
+            modelo de partnership (KY-58) e no plano de transição (KY-13).</p>
         </div>
         <div class="box">
-          <div class="k">Depois dos 180 dias</div>
-          <h4>Caminho de continuidade</h4>
-          <p>O modelo de partnership (KY-58) e o plano de transição (KY-13) são construídos dentro da SP180.
-            Ao fim do ciclo, avaliamos juntos uma continuidade — retainer de operação ou uma sociedade de
-            longo prazo alinhada a resultado.</p>
+          <div class="k">Estrutura</div>
+          <div class="row"><span>Duração</span><span>180 dias</span></div>
+          <div class="row"><span>Modelo</span><span>Sócio · caixa + equity</span></div>
+          <div class="row"><span>Supervisão</span><span>Max · SE</span></div>
+          <div class="row"><span>Cadência</span><span>Gate mensal</span></div>
         </div>
       </div>
     </div>
