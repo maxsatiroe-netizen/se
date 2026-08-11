@@ -1,228 +1,289 @@
 <title>Proposta Comercial · Máquina de Venda de Franquias · Rocket SF</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-/* ============ TOKENS ============ */
+/* ============ TOKENS (paleta pinho + latão + esmeralda) ============ */
 :root{
-  /* light (default) — warm paper, ignition accent */
-  --bg:#F5F3EF; --surface:#FFFFFF; --surface-2:#FBF8F4;
-  --border:#E6E0D7; --border-strong:#D8D0C4;
-  --ink:#1A1612; --muted:#6E675D; --faint:#928B80;
-  --accent:#E4571B; --accent-ink:#B8410F; --accent-soft:#FBE9DF;
-  --steel:#3C5468; --good:#2E7D5B;
-  --shadow:0 1px 2px rgba(26,22,18,.04),0 8px 30px rgba(26,22,18,.06);
+  --bg:#F1F3EE; --surface:#FFFFFF; --surface-2:#EAEDE5;
+  --ink:#141915; --ink-soft:#4B534A; --ink-faint:#798175;
+  --line:#DCDFD5; --line-soft:#E6E9E0;
+  --pine:#0F2A24; --pine-2:#153A31;
+  --brass:#B4893A; --brass-bright:#C8A24B; --emerald:#2F7D64;
+  --on-pine:#EAF0E9; --on-pine-soft:#9DB2A6;
+  --shadow:0 1px 2px rgba(20,25,21,.04),0 8px 30px rgba(20,25,21,.06);
+  --shadow-lg:0 30px 70px rgba(15,42,36,.18);
+  --maxw:1120px;
 }
-:root:not([data-theme="light"]){ }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --bg:#0E1113; --surface:#161A1D; --surface-2:#1C2125;
-    --border:#2A3035; --border-strong:#3A4147;
-    --ink:#ECE7E0; --muted:#9C948A; --faint:#7C756B;
-    --accent:#FF6A2C; --accent-ink:#FF8452; --accent-soft:#2A1a12;
-    --steel:#7E9AB0; --good:#4ECB8E;
+    --bg:#0B120F; --surface:#111A15; --surface-2:#152019;
+    --ink:#E8EDE6; --ink-soft:#A6B0A5; --ink-faint:#7C867C;
+    --line:#243029; --line-soft:#1B241E;
+    --pine:#0A1712; --pine-2:#12211A;
+    --brass:#D4B25E; --brass-bright:#E0C377; --emerald:#4FA484;
+    --on-pine:#E8EDE6; --on-pine-soft:#8FA396;
     --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 34px rgba(0,0,0,.4);
+    --shadow-lg:0 30px 80px rgba(0,0,0,.55);
   }
 }
 :root[data-theme="dark"]{
-  --bg:#0E1113; --surface:#161A1D; --surface-2:#1C2125;
-  --border:#2A3035; --border-strong:#3A4147;
-  --ink:#ECE7E0; --muted:#9C948A; --faint:#7C756B;
-  --accent:#FF6A2C; --accent-ink:#FF8452; --accent-soft:#2A1A12;
-  --steel:#7E9AB0; --good:#4ECB8E;
+  --bg:#0B120F; --surface:#111A15; --surface-2:#152019;
+  --ink:#E8EDE6; --ink-soft:#A6B0A5; --ink-faint:#7C867C;
+  --line:#243029; --line-soft:#1B241E;
+  --pine:#0A1712; --pine-2:#12211A;
+  --brass:#D4B25E; --brass-bright:#E0C377; --emerald:#4FA484;
+  --on-pine:#E8EDE6; --on-pine-soft:#8FA396;
   --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 34px rgba(0,0,0,.4);
-}
-/* hero band — deliberately fixed dark in both themes */
-:root{
-  --h-bg:#0B0E10; --h-ink:#F3EFEA; --h-muted:#A79E93; --h-line:#242A2F;
-  --h-accent:#FF6A2C;
+  --shadow-lg:0 30px 80px rgba(0,0,0,.55);
 }
 
+/* ============ BASE ============ */
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{
-  margin:0; background:var(--bg); color:var(--ink);
-  font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased;
-  font-feature-settings:"kern" 1;
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
 }
-.mono{font-family:ui-monospace,"SF Mono","Cascadia Code","JetBrains Mono","Roboto Mono",Menlo,Consolas,monospace}
-.tnum{font-variant-numeric:tabular-nums}
+.serif{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Times New Roman",serif}
+.mono{font-family:"SF Mono","JetBrains Mono",ui-monospace,"Roboto Mono",Menlo,Consolas,monospace}
+h1,h2,h3{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  text-wrap:balance;line-height:1.08;letter-spacing:-.01em;font-weight:600;margin:0}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.eyebrow{font-family:"SF Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+  font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);font-weight:500}
+.lead{font-size:20px;line-height:1.55;color:var(--ink-soft);max-width:64ch}
 
-/* ============ LAYOUT ============ */
-.wrap{max-width:1060px;margin:0 auto;padding:0 28px}
-section{padding:64px 0;border-top:1px solid var(--border)}
-section:first-of-type{border-top:0}
-h2{font-size:clamp(1.5rem,3.2vw,2.15rem);line-height:1.12;letter-spacing:-.02em;text-wrap:balance;margin:.1em 0 .55em;font-weight:800}
-h3{font-size:1.08rem;letter-spacing:-.01em;margin:1.6em 0 .5em;font-weight:750}
-p{margin:0 0 1em;max-width:68ch}
-.lead{font-size:1.18rem;line-height:1.55;color:var(--ink);max-width:66ch}
-a{color:var(--accent-ink);text-decoration-thickness:1px;text-underline-offset:2px}
-
-/* eyebrow / section number */
-.eyebrow{font-family:ui-monospace,monospace;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);font-weight:600;display:flex;align-items:center;gap:.7em;margin-bottom:.2em}
-.eyebrow::before{content:"";width:26px;height:1px;background:var(--accent);display:inline-block}
-.secnum{font-family:ui-monospace,monospace;font-size:.72rem;letter-spacing:.14em;color:var(--faint);text-transform:uppercase}
-
-/* ============ TOPBAR ============ */
-.topbar{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
-.topbar .row{display:flex;align-items:center;gap:16px;height:52px;max-width:1060px;margin:0 auto;padding:0 28px}
-.brandmark{font-family:ui-monospace,monospace;font-weight:700;font-size:.82rem;letter-spacing:.04em;color:var(--ink);white-space:nowrap}
-.brandmark b{color:var(--accent-ink)}
-.topnav{display:flex;gap:16px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
-.topnav::-webkit-scrollbar{display:none}
-.topnav a{font-family:ui-monospace,monospace;font-size:.72rem;letter-spacing:.04em;color:var(--muted);text-decoration:none;white-space:nowrap;text-transform:uppercase}
-.topnav a:hover{color:var(--accent-ink)}
-.tgl{border:1px solid var(--border-strong);background:var(--surface);color:var(--muted);border-radius:6px;width:34px;height:30px;cursor:pointer;font-size:.9rem;flex:0 0 auto}
-.tgl:hover{color:var(--accent-ink);border-color:var(--accent)}
-#prog{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:60}
+/* ============ NAV ============ */
+.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 86%,transparent);
+  backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft)}
+.nav-in{max-width:var(--maxw);margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:600;letter-spacing:-.01em}
+.brand .mark{width:30px;height:30px;border-radius:8px;background:var(--pine);color:var(--brass-bright);
+  display:grid;place-items:center;font-family:"Iowan Old Style",Georgia,serif;font-size:17px;font-weight:700}
+.nav-links{margin-left:auto;display:flex;gap:24px;align-items:center;overflow-x:auto;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{font-size:13.5px;color:var(--ink-soft);text-decoration:none;transition:color .2s;white-space:nowrap}
+.nav-links a:hover{color:var(--brass)}
+@media(max-width:900px){.nav-links a{display:none}}
+.toggle{background:transparent;border:1px solid var(--line);color:var(--ink-soft);
+  width:36px;height:36px;border-radius:9px;cursor:pointer;display:grid;place-items:center;font-size:15px;
+  transition:border-color .2s,color .2s;flex:none}
+.toggle:hover{border-color:var(--brass);color:var(--brass)}
+.toggle:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+#prog{position:fixed;top:0;left:0;height:2px;background:var(--brass);width:0;z-index:60}
 
 /* ============ HERO ============ */
-.hero{background:var(--h-bg);color:var(--h-ink);border-top:0;position:relative;overflow:hidden;padding:0}
-.hero::before{content:"";position:absolute;inset:0;background:
-   radial-gradient(120% 80% at 82% -10%, rgba(255,106,44,.22), transparent 55%),
-   radial-gradient(90% 60% at 0% 110%, rgba(60,84,104,.18), transparent 60%);pointer-events:none}
-.hero .wrap{position:relative;padding:78px 28px 66px}
-.hero .kicker{font-family:ui-monospace,monospace;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--h-accent);display:flex;gap:.9em;align-items:center;flex-wrap:wrap}
-.hero .kicker span{color:var(--h-muted)}
-.hero h1{font-size:clamp(2.5rem,7vw,4.6rem);line-height:1.02;letter-spacing:-.035em;font-weight:850;margin:.34em 0 .28em;text-wrap:balance}
-.hero h1 em{font-style:normal;color:var(--h-accent)}
-.hero .sub{font-size:clamp(1.05rem,2.2vw,1.32rem);color:var(--h-muted);max-width:40ch;line-height:1.45;margin:0 0 30px}
-.chain{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin:0 0 40px}
-.chain span{font-family:ui-monospace,monospace;font-size:.68rem;letter-spacing:.04em;padding:5px 9px;border:1px solid var(--h-line);border-radius:5px;color:var(--h-ink);background:rgba(255,255,255,.02);white-space:nowrap}
-.chain span.on{border-color:var(--h-accent);color:var(--h-accent)}
-.chain b{color:var(--h-accent);font-weight:400;margin:0 1px}
-.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:22px;border-top:1px solid var(--h-line);padding-top:26px}
-.meta .lbl{font-family:ui-monospace,monospace;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--h-muted);margin-bottom:5px}
-.meta .val{font-size:1rem;line-height:1.35;color:var(--h-ink);font-weight:600}
-.meta .val small{display:block;font-weight:400;color:var(--h-muted);font-size:.82rem;margin-top:2px}
+.hero{background:
+    radial-gradient(120% 90% at 84% -10%,rgba(200,162,75,.18),transparent 55%),
+    linear-gradient(180deg,var(--pine) 0%,var(--pine-2) 100%);
+  color:var(--on-pine);position:relative;overflow:hidden;isolation:isolate}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;opacity:.5;
+  background:
+    radial-gradient(1.5px 1.5px at 18% 28%,rgba(234,240,233,.4),transparent),
+    radial-gradient(1px 1px at 70% 60%,rgba(234,240,233,.28),transparent),
+    radial-gradient(1.5px 1.5px at 45% 82%,rgba(200,162,75,.45),transparent),
+    radial-gradient(1px 1px at 88% 20%,rgba(200,162,75,.34),transparent),
+    radial-gradient(1px 1px at 32% 54%,rgba(234,240,233,.22),transparent)}
+.hero-in{max-width:var(--maxw);margin:0 auto;padding:74px 28px 96px}
+.hero .eyebrow{color:var(--brass-bright)}
+.hero h1{font-size:clamp(40px,7vw,80px);margin:22px 0 0;max-width:13ch;line-height:1.02}
+.hero h1 em{font-style:italic;color:var(--brass-bright)}
+.hero .lead{color:var(--on-pine-soft);margin-top:24px;font-size:clamp(17px,2vw,21px);max-width:52ch}
+.chain{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin:30px 0 0}
+.chain span{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.02em;
+  padding:5px 10px;border:1px solid rgba(234,240,233,.16);border-radius:6px;color:var(--on-pine)}
+.chain span.on{border-color:var(--brass-bright);color:var(--brass-bright)}
+.chain b{color:var(--brass-bright);font-weight:400}
+.hero-meta{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px 20px;color:var(--on-pine-soft);font-size:13.5px;align-items:center}
+.hero-meta .dot{width:4px;height:4px;border-radius:50%;background:var(--brass-bright);display:inline-block}
+.hero-meta b{color:var(--on-pine);font-weight:600}
 
-/* ============ COMPONENTS ============ */
-.grid{display:grid;gap:16px}
-.g2{grid-template-columns:repeat(2,1fr)}
-.g3{grid-template-columns:repeat(3,1fr)}
+/* hero metrics band */
+.hero-metrics{max-width:var(--maxw);margin:0 auto;padding:0 28px;transform:translateY(-50%);
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:var(--surface);border:1px solid var(--line);
+  border-radius:16px;box-shadow:var(--shadow-lg);position:relative;z-index:5;overflow:hidden}
+@media(max-width:720px){.hero-metrics{grid-template-columns:repeat(2,1fr)}}
+.metric{padding:22px 24px;border-right:1px solid var(--line-soft)}
+.metric:last-child{border-right:none}
+@media(max-width:720px){.metric{border-bottom:1px solid var(--line-soft)}
+  .metric:nth-child(2){border-right:none}.metric:nth-child(3),.metric:nth-child(4){border-bottom:none}}
+.metric .num{font-family:"Iowan Old Style",Georgia,serif;font-size:31px;font-weight:600;color:var(--ink);
+  letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.metric .num span{color:var(--brass);font-size:.6em}
+.metric .lbl{font-size:12.5px;color:var(--ink-faint);margin-top:5px;line-height:1.35}
+.pull-up{margin-top:-40px}
+
+/* ============ SECTION ============ */
+section{padding:84px 0}
+.sec-head{max-width:64ch}
+.sec-head h2{font-size:clamp(28px,4vw,42px);margin-top:14px}
+.sec-head .lead{margin-top:16px}
+h3.sub{font-size:20px;margin:34px 0 8px}
+
+/* ============ CARDS ============ */
+.grid{display:grid;gap:20px}
 .g4{grid-template-columns:repeat(4,1fr)}
-@media(max-width:760px){.g2,.g3,.g4{grid-template-columns:1fr}}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 20px;box-shadow:var(--shadow)}
-.card h3{margin-top:0}
-.card .n{font-family:ui-monospace,monospace;font-size:.72rem;color:var(--accent-ink);letter-spacing:.06em}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.g4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:860px){.g3{grid-template-columns:1fr}.g2{grid-template-columns:1fr}}
+@media(max-width:560px){.g4{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:26px;
+  box-shadow:var(--shadow);transition:transform .22s,box-shadow .22s,border-color .22s}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:color-mix(in srgb,var(--brass) 40%,var(--line))}
+.card .kicker{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--brass);font-weight:600}
+.card h3{font-size:20px;margin:11px 0 9px}
+.card p{color:var(--ink-soft);font-size:15px;margin:0}
 
-/* split assumimos / não */
-.split{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+/* split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:15px;
+  overflow:hidden;box-shadow:var(--shadow);background:var(--surface)}
 @media(max-width:700px){.split{grid-template-columns:1fr}}
-.split>div{padding:22px 22px}
-.split .yes{background:var(--surface)}
-.split .no{background:var(--surface-2);border-left:1px solid var(--border)}
-@media(max-width:700px){.split .no{border-left:0;border-top:1px solid var(--border)}}
-.split h4{margin:0 0 14px;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-family:ui-monospace,monospace}
-.split .yes h4{color:var(--good)}.split .no h4{color:var(--faint)}
-.split ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px}
-.split li{padding-left:22px;position:relative;font-size:.96rem;line-height:1.45}
-.split .yes li::before{content:"→";position:absolute;left:0;color:var(--accent);font-weight:700}
-.split .no li::before{content:"×";position:absolute;left:2px;color:var(--faint);font-weight:700}
+.split>div{padding:26px 28px}
+.split .no{background:var(--surface-2);border-left:1px solid var(--line)}
+@media(max-width:700px){.split .no{border-left:0;border-top:1px solid var(--line)}}
+.split h4{margin:0 0 16px;font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:12px;
+  letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+.split .yes h4{color:var(--emerald)}.split .no h4{color:var(--ink-faint)}
+.split ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px}
+.split li{padding-left:24px;position:relative;font-size:15px;line-height:1.4;color:var(--ink-soft)}
+.split .yes li::before{content:"✓";position:absolute;left:0;color:var(--emerald);font-weight:700}
+.split .no li::before{content:"×";position:absolute;left:2px;color:var(--ink-faint);font-weight:700}
 
-/* tables */
-.tbl{width:100%;border-collapse:collapse;font-size:.92rem;margin:.4em 0 .2em}
-.tblwrap{overflow-x:auto;border:1px solid var(--border);border-radius:10px}
-.tbl th,.tbl td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--border);vertical-align:top}
-.tbl thead th{background:var(--surface-2);font-family:ui-monospace,monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;white-space:nowrap}
-.tbl tbody tr:last-child td{border-bottom:0}
-.tbl td:first-child{font-weight:650;color:var(--ink)}
-.tbl .fill{color:var(--accent-ink);font-family:ui-monospace,monospace;font-size:.82rem}
+/* pull-quote / callout */
+.pull{background:var(--pine);color:var(--on-pine);border-radius:20px;padding:44px 42px;position:relative;overflow:hidden}
+.pull::before{content:"“";position:absolute;top:-26px;left:24px;font-family:"Iowan Old Style",Georgia,serif;
+  font-size:180px;color:var(--brass-bright);opacity:.16;line-height:1}
+.pull .eyebrow{color:var(--brass-bright)}
+.pull blockquote{font-family:"Iowan Old Style",Georgia,serif;font-size:clamp(21px,2.9vw,29px);
+  line-height:1.3;margin:14px 0 0;max-width:30ch;font-weight:600}
+.pull blockquote em{font-style:italic;color:var(--brass-bright)}
+.pull .attrib{margin-top:18px;color:var(--on-pine-soft);font-size:14px;max-width:60ch}
 
-/* KPI columns */
-.kpicol{border:1px solid var(--border);border-radius:12px;background:var(--surface);overflow:hidden}
-.kpicol .hd{padding:12px 16px;background:var(--surface-2);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:9px}
-.kpicol .hd .dot{width:7px;height:7px;border-radius:50%;background:var(--accent)}
-.kpicol .hd b{font-family:ui-monospace,monospace;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase}
-.kpicol ul{margin:0;padding:8px 16px 14px;list-style:none;display:flex;flex-direction:column;gap:2px}
-.kpicol li{font-size:.9rem;padding:5px 0;border-bottom:1px dashed var(--border);color:var(--ink)}
+/* pipe */
+.pipe{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;margin:14px 0 0}
+.pipe .node{flex:1 1 130px;min-width:130px;border:1px solid var(--line);border-radius:11px;background:var(--surface);padding:13px 14px;box-shadow:var(--shadow)}
+.pipe .node .k{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--brass)}
+.pipe .node .v{font-size:15px;font-weight:600;margin-top:4px;line-height:1.25;color:var(--ink)}
+
+/* table */
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface);box-shadow:var(--shadow);margin-top:8px}
+table{width:100%;border-collapse:collapse;min-width:560px}
+thead th{text-align:left;font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-faint);font-weight:600;padding:15px 18px;border-bottom:1px solid var(--line);background:var(--surface-2);white-space:nowrap}
+tbody td{padding:14px 18px;border-bottom:1px solid var(--line-soft);font-size:14.5px;color:var(--ink-soft);vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+tbody td:first-child{color:var(--ink);font-weight:600}
+.fill{font-family:"SF Mono",ui-monospace,Menlo,monospace;color:var(--brass);font-weight:600;font-size:13px;white-space:nowrap}
+.num-cell{font-variant-numeric:tabular-nums;color:var(--emerald);font-weight:600;white-space:nowrap}
+
+/* kpi columns */
+.kpicol{border:1px solid var(--line);border-radius:14px;background:var(--surface);overflow:hidden;box-shadow:var(--shadow)}
+.kpicol .hd{padding:13px 17px;background:var(--surface-2);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:9px}
+.kpicol .hd .dot{width:7px;height:7px;border-radius:50%;background:var(--brass)}
+.kpicol .hd b{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.kpicol ul{margin:0;padding:8px 17px 14px;list-style:none;display:flex;flex-direction:column}
+.kpicol li{font-size:14px;padding:7px 0;border-bottom:1px dashed var(--line);color:var(--ink-soft)}
 .kpicol li:last-child{border-bottom:0}
-.kpicol li span{color:var(--faint);font-size:.8rem;display:block}
 
 /* timeline */
-.tl{display:flex;flex-direction:column;gap:0;margin-top:8px}
-.phase{display:grid;grid-template-columns:150px 1fr;gap:24px;padding:24px 0;border-top:1px solid var(--border)}
-.phase:first-child{border-top:0}
-@media(max-width:680px){.phase{grid-template-columns:1fr;gap:10px}}
-.phase .side .ph{font-family:ui-monospace,monospace;font-size:.72rem;color:var(--accent-ink);letter-spacing:.08em}
-.phase .side h3{margin:.25em 0 .1em;font-size:1.05rem}
-.phase .side .wk{font-family:ui-monospace,monospace;font-size:.78rem;color:var(--muted)}
-.phase .body p{margin:.1em 0 .7em;font-size:.96rem}
-.deliv{display:flex;flex-wrap:wrap;gap:6px;margin:.3em 0 .6em}
-.deliv span{font-size:.76rem;font-family:ui-monospace,monospace;background:var(--surface-2);border:1px solid var(--border);border-radius:5px;padding:4px 8px;color:var(--muted)}
-.crit{font-size:.86rem;color:var(--good);display:flex;gap:.5em;align-items:baseline}
-.crit b{font-family:ui-monospace,monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.timeline{border-left:2px solid var(--line);margin-left:8px;margin-top:12px}
+.phase{position:relative;padding:0 0 34px 32px}
+.phase:last-child{padding-bottom:0}
+.phase::before{content:"";position:absolute;left:-9px;top:2px;width:16px;height:16px;border-radius:50%;background:var(--surface);border:2px solid var(--brass)}
+.phase .pn{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:600}
+.phase h4{font-family:"Iowan Old Style",Georgia,serif;font-size:21px;font-weight:600;margin:5px 0 4px}
+.phase p{color:var(--ink-soft);font-size:15px;max-width:62ch;margin:0}
+.deliv{display:flex;flex-wrap:wrap;gap:6px;margin:11px 0 0}
+.deliv span{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:11.5px;background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:4px 9px;color:var(--ink-soft)}
+.gate{display:inline-flex;align-items:center;gap:7px;margin-top:12px;font-size:12.5px;background:var(--surface-2);color:var(--emerald);padding:5px 12px;border-radius:999px;font-weight:600}
 
 /* pricing */
-.price{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-@media(max-width:820px){.price{grid-template-columns:1fr}}
-.pcard{border:1px solid var(--border);border-radius:14px;background:var(--surface);padding:24px;display:flex;flex-direction:column;box-shadow:var(--shadow);position:relative}
-.pcard.feat{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),var(--shadow)}
-.pcard .tag{font-family:ui-monospace,monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink)}
-.pcard h3{margin:.4em 0 .2em;font-size:1.25rem}
-.pcard .amt{font-family:ui-monospace,monospace;font-size:1.5rem;font-weight:700;color:var(--ink);margin:.2em 0 .5em}
-.pcard p{font-size:.92rem;color:var(--muted);margin:0 0 1em}
-.pcard .why{margin-top:auto;font-size:.85rem;border-top:1px dashed var(--border);padding-top:12px;color:var(--ink)}
-.pcard .why b{color:var(--accent-ink);font-family:ui-monospace,monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:3px}
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch;margin-top:8px}
+@media(max-width:860px){.pricing{grid-template-columns:1fr}}
+.price{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.price.feat{background:var(--pine);color:var(--on-pine);border-color:var(--pine)}
+.price.feat .p-kick,.price.feat .p-model{color:var(--brass-bright)}
+.price.feat .p-desc,.price.feat .why{color:var(--on-pine-soft)}
+.price.feat .why b{color:var(--brass-bright)}
+.price .p-kick{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);font-weight:600}
+.price h3{font-size:23px;margin:11px 0 6px}
+.price .p-model{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:15px;color:var(--emerald);font-weight:700;margin-bottom:14px}
+.price .p-desc{font-size:14.5px;color:var(--ink-soft);margin-bottom:16px}
+.price .why{margin-top:auto;font-size:13.5px;border-top:1px dashed var(--line);padding-top:13px;color:var(--ink-soft)}
+.price.feat .why{border-top-color:rgba(234,240,233,.2)}
+.price .why b{color:var(--brass);font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:3px}
 
-/* callout */
-.callout{background:var(--h-bg);color:var(--h-ink);border-radius:14px;padding:26px 28px;margin:26px 0;position:relative;overflow:hidden}
-.callout::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 120% at 100% 0,rgba(255,106,44,.16),transparent 60%);pointer-events:none}
-.callout .lbl{font-family:ui-monospace,monospace;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--h-accent);margin-bottom:8px}
-.callout p{margin:0;color:var(--h-ink);max-width:none;font-size:1.05rem;line-height:1.5}
-
-/* chain inline (media→receita) */
-.pipe{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;margin:10px 0 4px}
-.pipe .node{flex:1 1 120px;min-width:120px;border:1px solid var(--border);border-radius:10px;background:var(--surface);padding:12px 13px}
-.pipe .node .k{font-family:ui-monospace,monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink)}
-.pipe .node .v{font-size:.9rem;font-weight:650;margin-top:3px;line-height:1.25}
-
-/* bullets */
-ul.clean{list-style:none;padding:0;margin:.2em 0 1em;display:grid;gap:8px}
+/* clean lists */
+ul.clean{list-style:none;padding:0;margin:0;display:grid;gap:10px}
 ul.clean.two{grid-template-columns:1fr 1fr}
 @media(max-width:640px){ul.clean.two{grid-template-columns:1fr}}
-ul.clean li{position:relative;padding-left:22px;font-size:.96rem;line-height:1.45}
-ul.clean li::before{content:"›";position:absolute;left:2px;color:var(--accent);font-weight:800}
+ul.clean li{position:relative;padding-left:22px;font-size:15px;line-height:1.45;color:var(--ink-soft)}
+ul.clean li::before{content:"›";position:absolute;left:2px;color:var(--brass);font-weight:800}
+ul.clean li b{color:var(--ink)}
 
 /* qa */
-.qa{border-top:1px solid var(--border)}
-.qa .item{padding:14px 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:20px}
-@media(max-width:680px){.qa .item{grid-template-columns:1fr;gap:4px}}
-.qa .q{font-weight:700;font-size:.96rem}
-.qa .a{color:var(--muted);font-size:.94rem}
+.qa .item{padding:16px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:minmax(0,320px) 1fr;gap:22px}
+.qa .item:first-child{border-top:1px solid var(--line)}
+@media(max-width:680px){.qa .item{grid-template-columns:1fr;gap:5px}}
+.qa .q{font-weight:600;font-size:15.5px;color:var(--ink)}
+.qa .a{color:var(--ink-soft);font-size:14.5px}
 
-/* accept */
-.accept{background:var(--surface);border:1px solid var(--border-strong);border-radius:14px;padding:28px;box-shadow:var(--shadow)}
-.sign{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:26px}
+/* steps */
+.steps{counter-reset:s;display:grid;gap:13px;margin-top:8px}
+.step{display:flex;gap:17px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:18px 22px;box-shadow:var(--shadow)}
+.step::before{counter-increment:s;content:counter(s);flex:none;width:36px;height:36px;border-radius:50%;background:var(--pine);color:var(--brass-bright);font-family:"Iowan Old Style",Georgia,serif;font-weight:700;display:grid;place-items:center;font-size:16px}
+.step div h4{font-family:-apple-system,"Segoe UI",sans-serif;font-size:15.5px;font-weight:700;margin:2px 0 3px;color:var(--ink)}
+.step div p{font-size:14px;color:var(--ink-soft);margin:0}
+
+/* accept / CTA */
+.cta{background:
+    radial-gradient(100% 120% at 20% -20%,rgba(200,162,75,.2),transparent 55%),
+    linear-gradient(180deg,var(--pine-2),var(--pine));color:var(--on-pine);border-radius:24px;padding:52px 44px;position:relative;overflow:hidden}
+.cta .eyebrow{color:var(--brass-bright)}
+.cta h2{font-size:clamp(26px,4vw,42px);margin:14px 0 0;max-width:20ch}
+.cta p{color:var(--on-pine-soft);margin:16px 0 0;max-width:58ch;font-size:16px}
+.accept{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;box-shadow:var(--shadow);margin-top:26px}
+.sign{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:24px}
 @media(max-width:640px){.sign{grid-template-columns:1fr;gap:26px}}
-.sign .line{border-top:1.5px solid var(--ink);margin-top:44px;padding-top:8px;font-family:ui-monospace,monospace;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.sign .line{border-top:1.5px solid var(--ink);margin-top:44px;padding-top:8px;font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-faint)}
+.contact{margin-top:34px;padding-top:24px;border-top:1px solid rgba(234,240,233,.16);display:flex;flex-wrap:wrap;gap:8px 22px;color:var(--on-pine-soft);font-size:14px}
+.contact b{color:var(--on-pine);font-weight:600}
 
-.foot{padding:40px 0 60px;color:var(--faint);font-size:.82rem;text-align:center}
-.badge{display:inline-block;font-family:ui-monospace,monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);border-radius:20px;padding:4px 11px;margin-bottom:14px}
+footer{padding:44px 0;text-align:center;color:var(--ink-faint);font-size:13px}
+.fnote{max-width:72ch;margin:0 auto 10px}
+.divider-label{display:flex;align-items:center;gap:16px;margin:0 0 14px}
+.divider-label::after{content:"";flex:1;height:1px;background:var(--line)}
 
 /* reveal */
-.rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
-.rv.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 
 /* ============ PRINT ============ */
 @media print{
-  :root{--bg:#fff;--surface:#fff;--surface-2:#f6f4f1;--border:#d8d0c4;--ink:#1a1612;--muted:#4a453d;--faint:#6e675d;--shadow:none}
-  .topbar,#prog,.tgl{display:none!important}
-  .hero,.callout{background:#0B0E10!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  section{padding:26px 0;break-inside:avoid}
-  .pcard,.card,.phase,.split,.tblwrap,.accept{break-inside:avoid}
-  h2{break-after:avoid}
+  :root{--bg:#fff;--surface:#fff;--surface-2:#EEF1E9;--line:#D8DBCF;--line-soft:#E6E9E0;--ink:#141915;--ink-soft:#3f463d;--ink-faint:#6b7268;--shadow:none;--shadow-lg:none}
+  .nav,#prog,.toggle,.chain{display:none!important}
+  .hero,.pull,.cta,.price.feat{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .hero-metrics{transform:none;margin-top:20px}
+  .pull-up{margin-top:0}
+  section{padding:28px 0;break-inside:avoid}
+  .card,.price,.phase,.split,.table-wrap,.accept,.pull,.kpicol{break-inside:avoid}
+  h2,h3,h4{break-after:avoid}
   body{font-size:12px}
-  .rv{opacity:1;transform:none}
+  .reveal{opacity:1;transform:none}
 }
 </style>
 
 <div id="prog"></div>
-<div class="topbar">
-  <div class="row">
-    <div class="brandmark">[Sua Empresa] <b>×</b> Rocket SF</div>
-    <nav class="topnav">
+<nav class="nav">
+  <div class="nav-in">
+    <div class="brand"><span class="mark">R</span><span>Máquina de Franquias&nbsp;·&nbsp;Rocket SF</span></div>
+    <div class="nav-links">
       <a href="#oportunidade">Oportunidade</a>
       <a href="#escopo">Escopo</a>
       <a href="#maquina">A Máquina</a>
@@ -230,54 +291,73 @@ ul.clean li::before{content:"›";position:absolute;left:2px;color:var(--accent)
       <a href="#remuneracao">Remuneração</a>
       <a href="#termos">Termos</a>
       <a href="#aceite">Aceite</a>
-    </nav>
-    <button class="tgl" id="tgl" aria-label="Alternar tema">◐</button>
+    </div>
+    <button class="toggle" id="tgl" aria-label="Alternar tema claro/escuro" title="Alternar tema">◑</button>
   </div>
-</div>
+</nav>
 
-<!-- ================= HERO ================= -->
+<!-- ============ HERO ============ -->
 <header class="hero">
-  <div class="wrap">
-    <div class="kicker">Proposta Comercial <span>·</span> Confidencial <span>·</span> v1.0 <span>·</span> Ago 2026</div>
-    <h1>Máquina de Venda<br>de <em>Franquias</em></h1>
-    <p class="sub">Estruturação e operação ponta a ponta do Go-to-Market de expansão de franquias da Rocket SF.</p>
+  <div class="hero-in">
+    <span class="eyebrow">Proposta Comercial · Parceiro de Go-to-Market &amp; Operação</span>
+    <h1 class="serif">Transformar mídia em <em>franquias assinadas</em>.</h1>
+    <p class="lead">Estruturação e operação ponta a ponta da máquina de expansão de franquias da Rocket SF —
+      do primeiro clique à assinatura, e da gestão diária à escala.</p>
     <div class="chain" aria-label="Ciclo da operação">
       <span class="on">Estratégia</span><b>→</b><span>Oferta</span><b>→</b><span>Aquisição</span><b>→</b><span>Conversão</span><b>→</b><span>CRM</span><b>→</b><span>Pré-vendas</span><b>→</b><span>Vendas</span><b>→</b><span>Gestão</span><b>→</b><span>Otimização</span><b>→</b><span class="on">Escala</span>
     </div>
-    <div class="meta">
-      <div><div class="lbl">Preparado para</div><div class="val">Rocket Soluções Financeiras<small>Crédito & consórcio · transporte rodoviário · Chapecó — SC</small></div></div>
-      <div><div class="lbl">Apresentado por</div><div class="val">[Sua Empresa]<small>Parceiro de Go-to-Market & Operação Comercial</small></div></div>
-      <div><div class="lbl">Responsável</div><div class="val">[Nome]<small>[e-mail] · [telefone]</small></div></div>
-      <div><div class="lbl">Validade da proposta</div><div class="val">[XX] dias<small>a partir da data de envio</small></div></div>
+    <div class="hero-meta">
+      <span>Preparado para <b>Rocket Soluções Financeiras</b></span>
+      <span class="dot"></span><span>Crédito &amp; consórcio · transporte rodoviário</span>
+      <span class="dot"></span><span>Chapecó — SC</span>
+      <span class="dot"></span><span>Confidencial · v1.0 · Ago/2026</span>
     </div>
   </div>
 </header>
 
+<div class="hero-metrics reveal">
+  <div class="metric"><div class="num">R$10<span>k</span></div><div class="lbl">investimento inicial em mídia / mês, escalado por resultado</div></div>
+  <div class="metric"><div class="num">2+1</div><div class="lbl">time comercial dedicado: pré-vendas + closer</div></div>
+  <div class="metric"><div class="num">5–7<span>sem</span></div><div class="lbl">para as campanhas entrarem no ar (go-live)</div></div>
+  <div class="metric"><div class="num">1</div><div class="lbl">CRM dedicado, isolado e governado para franquias</div></div>
+</div>
+
 <main>
 
-<!-- ================= 01 OPORTUNIDADE ================= -->
-<section id="oportunidade"><div class="wrap rv">
-  <div class="eyebrow">01 — A oportunidade</div>
-  <h2>A Rocket tem um modelo validado.<br>Falta a máquina que o multiplica.</h2>
-  <p class="lead">A Rocket SF construiu uma operação sólida em crédito inteligente e consórcio para o transporte rodoviário. O próximo salto — expandir via franquias — não depende de gerar interesse pontual, mas de instalar um sistema que transforme investimento em mídia em novos franqueados assinados, de forma previsível e escalável.</p>
-  <p>Esta proposta não é sobre marketing avulso, consultoria ou entrega de leads. É a <b>terceirização da construção e da operação da máquina de expansão de franquias</b> — do primeiro clique à assinatura do contrato, e da gestão diária à escala. Assumimos o Go-to-Market completo; a Rocket mantém a franqueadora e a decisão sobre cada novo franqueado.</p>
-  <div class="callout">
-    <div class="lbl">Proposta de valor em uma frase</div>
-    <p>Uma máquina de expansão previsível, mensurável e governada — construída, operada e otimizada por um parceiro dedicado — que converte mídia em franqueados assinados, com CAC conhecido e capacidade real de escala.</p>
+<!-- ============ 01 OPORTUNIDADE ============ -->
+<section id="oportunidade" class="pull-up"><div class="wrap">
+  <div class="sec-head reveal">
+    <span class="eyebrow">01 — A oportunidade</span>
+    <h2 class="serif">A Rocket tem um modelo validado. Falta a máquina que o multiplica.</h2>
+    <p class="lead">A Rocket SF construiu uma operação sólida em crédito inteligente e consórcio para o
+      transporte rodoviário. Expandir via franquias não depende de gerar interesse pontual — depende de um
+      sistema que transforme investimento em mídia em franqueados assinados, de forma previsível e escalável.</p>
   </div>
-  <div class="grid g3" style="margin-top:6px">
-    <div class="card rv"><div class="n">Ponto de partida</div><h3>≈ R$ 10.000/mês</h3><p style="margin:0;color:var(--muted);font-size:.92rem">Investimento inicial em mídia, escalado por resultado — nunca antes de o funil provar eficiência.</p></div>
-    <div class="card rv"><div class="n">Time dedicado</div><h3>2 pré-vendas + 1 closer</h3><p style="margin:0;color:var(--muted);font-size:.92rem">Estrutura comercial inicial, recrutada, treinada e gerida por nós, que cresce puxada pelo funil.</p></div>
-    <div class="card rv"><div class="n">Infra própria</div><h3>CRM dedicado</h3><p style="margin:0;color:var(--muted);font-size:.92rem">Pipeline de franquias isolado, com dados limpos, automações e dashboards de conversão.</p></div>
+  <p class="reveal" style="margin-top:20px;color:var(--ink-soft);max-width:70ch">Esta proposta não é sobre
+    marketing avulso, consultoria ou entrega de leads. É a <b style="color:var(--ink)">terceirização da
+    construção e da operação da máquina de expansão de franquias</b> — assumimos o Go-to-Market completo; a
+    Rocket mantém a franqueadora e a decisão sobre cada novo franqueado.</p>
+  <div class="pull reveal" style="margin-top:30px">
+    <span class="eyebrow">Proposta de valor em uma frase</span>
+    <blockquote>Uma máquina de expansão previsível, mensurável e governada — que converte mídia em
+      <em>franqueados assinados</em>, com CAC conhecido e capacidade real de escala.</blockquote>
+  </div>
+  <div class="grid g3 reveal" style="margin-top:26px">
+    <div class="card"><div class="kicker">Ponto de partida</div><h3 class="serif">≈ R$ 10.000/mês</h3><p>Mídia inicial, escalada por resultado — nunca antes de o funil provar eficiência.</p></div>
+    <div class="card"><div class="kicker">Time dedicado</div><h3 class="serif">2 pré-vendas + 1 closer</h3><p>Estrutura recrutada, treinada e gerida por nós, que cresce puxada pelo funil.</p></div>
+    <div class="card"><div class="kicker">Infra própria</div><h3 class="serif">CRM dedicado</h3><p>Pipeline de franquias isolado, com automações e dashboards de conversão.</p></div>
   </div>
 </div></section>
 
-<!-- ================= 02 ESCOPO ================= -->
-<section id="escopo"><div class="wrap rv">
-  <div class="eyebrow">02 — Enquadramento</div>
-  <h2>O que assumimos — e o que não</h2>
-  <p>Para que não reste ambiguidade sobre a natureza do vínculo, delimitamos o escopo antes de detalhá-lo. A percepção correta é direta: a Rocket terceiriza para este parceiro a construção e a operação da sua máquina de expansão.</p>
-  <div class="split">
+<!-- ============ 02 ESCOPO ============ -->
+<section id="escopo" style="background:var(--surface-2)"><div class="wrap">
+  <div class="sec-head reveal">
+    <span class="eyebrow">02 — Enquadramento</span>
+    <h2 class="serif">O que assumimos — e o que não</h2>
+    <p class="lead">A percepção correta é direta: a Rocket terceiriza para este parceiro a construção e a
+      operação da sua máquina de expansão.</p>
+  </div>
+  <div class="split reveal" style="margin-top:36px">
     <div class="yes">
       <h4>Assumimos</h4>
       <ul>
@@ -297,247 +377,277 @@ ul.clean li::before{content:"›";position:absolute;left:2px;color:var(--accent)
         <li>Elaboração da COF e instrumentos jurídicos</li>
         <li>Aprovação final de cada candidato</li>
         <li>Implantação e onboarding do franqueado pós-assinatura</li>
-        <li>Garantia de volume alheia às variáveis de mercado (§ Premissas)</li>
+        <li>Garantia de volume alheia às variáveis de mercado</li>
       </ul>
     </div>
   </div>
 </div></section>
 
-<!-- ================= 03 A MÁQUINA ================= -->
-<section id="maquina"><div class="wrap rv">
-  <div class="eyebrow">03 — A máquina, por dentro</div>
-  <h2>Dez elos, um sistema</h2>
-  <p>Cada elo do ciclo é um entregável concreto. Juntos, formam o caminho que separa o real investido do franqueado assinado.</p>
+<!-- ============ 03 A MÁQUINA ============ -->
+<section id="maquina"><div class="wrap">
+  <div class="sec-head reveal">
+    <span class="eyebrow">03 — A máquina, por dentro</span>
+    <h2 class="serif">Dez elos, um sistema</h2>
+    <p class="lead">Cada elo do ciclo é um entregável concreto. Juntos, formam o caminho que separa o real
+      investido do franqueado assinado.</p>
+  </div>
 
-  <h3>Estratégia e Go-to-Market</h3>
-  <p>Construímos a fundação comercial: ICP do franqueado, personas prioritárias, gatilhos de compra, proposta de valor, argumentos, mapa de objeções, estruturação da oferta, canais de aquisição, jornada do candidato, funil, metas por etapa e estratégia de escala. Usamos o <b>BoltAI</b> como camada de apoio à construção, automação, análise e otimização dessa jornada — acelerando ativos e decisões, sob governança humana.</p>
+  <h3 class="sub serif reveal">Estratégia e Go-to-Market</h3>
+  <p class="reveal" style="color:var(--ink-soft);max-width:70ch">Construímos a fundação comercial: ICP do
+    franqueado, personas, gatilhos de compra, proposta de valor, argumentos, mapa de objeções, estruturação
+    da oferta, canais, jornada, funil, metas por etapa e estratégia de escala. Usamos o
+    <b style="color:var(--ink)">BoltAI</b> como camada de apoio à construção, automação, análise e otimização
+    da jornada — sob governança humana.</p>
 
-  <h3>Estrutura de marketing &amp; aquisição</h3>
-  <p>Contratamos e gerimos copywriter, designer e gestor de tráfego, responsáveis por conceitos, ângulos, copies, criativos, landing pages, páginas de captação, campanhas, remarketing e testes contínuos de oferta e criativo.</p>
+  <h3 class="sub serif reveal">Estrutura de marketing &amp; aquisição</h3>
+  <p class="reveal" style="color:var(--ink-soft);max-width:70ch">Contratamos e gerimos copywriter, designer e
+    gestor de tráfego, responsáveis por conceitos, ângulos, copies, criativos, landing pages, páginas de
+    captação, campanhas, remarketing e testes contínuos de oferta e criativo.</p>
 
-  <h3>A cadeia de aquisição</h3>
-  <p>Toda decisão de escala nasce desta cadeia — ela conecta cada real investido ao resultado final:</p>
-  <div class="pipe">
+  <h3 class="sub serif reveal">A cadeia de aquisição</h3>
+  <p class="reveal" style="color:var(--ink-soft)">Toda decisão de escala nasce desta cadeia — ela conecta cada real investido ao resultado final:</p>
+  <div class="pipe reveal">
     <div class="node"><div class="k">Mídia</div><div class="v">Investimento</div></div>
     <div class="node"><div class="k">Topo</div><div class="v">Leads</div></div>
     <div class="node"><div class="k">Filtro</div><div class="v">Qualificados</div></div>
     <div class="node"><div class="k">Meio</div><div class="v">Reuniões</div></div>
     <div class="node"><div class="k">Fundo</div><div class="v">Propostas / aprovações</div></div>
     <div class="node"><div class="k">Resultado</div><div class="v">Franquias vendidas</div></div>
-    <div class="node"><div class="k">Eficiência</div><div class="v">CAC por franquia</div></div>
+    <div class="node"><div class="k">Eficiência</div><div class="v">CAC / franquia</div></div>
     <div class="node"><div class="k">Retorno</div><div class="v">Receita gerada</div></div>
   </div>
 
-  <h3>CRM dedicado &amp; time comercial</h3>
-  <p>Implantamos um CRM exclusivo da venda de franquias — pipeline, integrações, distribuição de leads, automações, cadências, SLAs, motivos de perda e dashboards. Sobre ele opera o time inicial de 2 pré-vendas + 1 closer, com scripts, playbook, metas e KPIs definidos por nós.</p>
+  <h3 class="sub serif reveal">CRM dedicado &amp; time comercial</h3>
+  <p class="reveal" style="color:var(--ink-soft);max-width:70ch">Implantamos um CRM exclusivo da venda de
+    franquias — pipeline, integrações, distribuição de leads, automações, cadências, SLAs, motivos de perda e
+    dashboards. Sobre ele opera o time inicial de 2 pré-vendas + 1 closer, com scripts, playbook, metas e KPIs
+    definidos por nós.</p>
 
-  <h3>Processo de venda — do lead ao handoff</h3>
-  <div class="tblwrap"><table class="tbl">
-    <thead><tr><th>Etapa</th><th>Descrição</th><th>Responsável</th></tr></thead>
-    <tbody>
-      <tr><td>Lead</td><td>Entrada pelos canais de aquisição</td><td>Marketing</td></tr>
-      <tr><td>Qualificação</td><td>Fit, perfil e capacidade de investimento</td><td>Pré-vendas</td></tr>
-      <tr><td>Contato &amp; reunião</td><td>Abordagem no SLA e agendamento</td><td>Pré-vendas → Closer</td></tr>
-      <tr><td>Apresentação da franquia</td><td>Modelo, retorno e condições</td><td>Closer</td></tr>
-      <tr><td>Análise &amp; follow-up</td><td>Aderência, cadência até a decisão</td><td>Closer + Rocket SF</td></tr>
-      <tr><td>Negociação</td><td>Ajuste de condições e alinhamento final</td><td>Closer</td></tr>
-      <tr><td>Documentação / COF</td><td>COF e instrumentos, quando aplicável</td><td>Rocket SF (jurídico)</td></tr>
-      <tr><td>Fechamento &amp; assinatura</td><td>Aprovação final e contrato</td><td>Rocket SF + Closer</td></tr>
-      <tr><td>Handoff</td><td>Passagem para implantação/onboarding</td><td>[Sua Empresa] → Rocket SF</td></tr>
-    </tbody>
-  </table></div>
-  <div class="callout" style="margin-top:22px">
-    <div class="lbl">Onde começa e termina a operação comercial</div>
-    <p>Começa no lead gerado pela máquina de aquisição. Termina no handoff — a passagem do franqueado assinado para a implantação da Rocket. A entrega operacional da franquia (treinamento, sistemas, abertura da unidade) é da franqueadora.</p>
+  <h3 class="sub serif reveal">Processo de venda — do lead ao handoff</h3>
+  <div class="table-wrap reveal">
+    <table>
+      <thead><tr><th>Etapa</th><th>Descrição</th><th>Responsável</th></tr></thead>
+      <tbody>
+        <tr><td>Lead</td><td>Entrada pelos canais de aquisição</td><td>Marketing</td></tr>
+        <tr><td>Qualificação</td><td>Fit, perfil e capacidade de investimento</td><td>Pré-vendas</td></tr>
+        <tr><td>Contato &amp; reunião</td><td>Abordagem no SLA e agendamento</td><td>Pré-vendas → Closer</td></tr>
+        <tr><td>Apresentação da franquia</td><td>Modelo, retorno e condições</td><td>Closer</td></tr>
+        <tr><td>Análise &amp; follow-up</td><td>Aderência e cadência até a decisão</td><td>Closer + Rocket SF</td></tr>
+        <tr><td>Negociação</td><td>Ajuste de condições e alinhamento final</td><td>Closer</td></tr>
+        <tr><td>Documentação / COF</td><td>COF e instrumentos, quando aplicável</td><td>Rocket SF (jurídico)</td></tr>
+        <tr><td>Fechamento &amp; assinatura</td><td>Aprovação final e contrato</td><td>Rocket SF + Closer</td></tr>
+        <tr><td>Handoff</td><td>Passagem para implantação/onboarding</td><td>[Sua Empresa] → Rocket SF</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="pull reveal" style="margin-top:26px">
+    <span class="eyebrow">Onde começa e termina a operação comercial</span>
+    <blockquote style="font-size:clamp(18px,2.3vw,24px);max-width:44ch">Começa no <em>lead</em>. Termina no <em>handoff</em> do franqueado assinado.</blockquote>
+    <p class="attrib">A entrega operacional da franquia — treinamento, sistemas, abertura da unidade — é responsabilidade da franqueadora.</p>
   </div>
 </div></section>
 
-<!-- ================= FORECASTING ================= -->
-<section id="forecasting"><div class="wrap rv">
-  <div class="eyebrow">04 — Forecasting</div>
-  <h2>Aquisição e vendas, mês a mês</h2>
-  <p>Espaço reservado para o forecasting fornecido separadamente. A estrutura espelha a cadeia de aquisição e é revisada mensalmente contra o realizado. Nenhum número de resultado é assumido nesta proposta além do investimento inicial de mídia.</p>
-  <div class="tblwrap"><table class="tbl tnum">
-    <thead><tr><th>Métrica</th><th>Mês 1</th><th>Mês 2</th><th>Mês 3</th><th>Mês 4</th><th>Mês 5</th><th>Mês 6</th></tr></thead>
-    <tbody>
-      <tr><td>Investimento em mídia (R$)</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td></tr>
-      <tr><td>Leads</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td></tr>
-      <tr><td>Leads qualificados</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td></tr>
-      <tr><td>Reuniões realizadas</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td></tr>
-      <tr><td>Propostas / aprovações</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td></tr>
-      <tr><td>Franquias vendidas</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td></tr>
-      <tr><td>CAC por franquia (R$)</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td></tr>
-      <tr><td>Receita gerada (R$)</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td></tr>
-    </tbody>
-  </table></div>
-  <p style="font-size:.86rem;color:var(--faint);margin-top:10px">Campos a preencher com o forecasting da Rocket SF / [Sua Empresa]. São premissas de planejamento — o objetivo da operação é perseguir e superar essas taxas, recalibrando quando o mercado responder diferente do previsto.</p>
+<!-- ============ 04 FORECASTING ============ -->
+<section id="forecasting" style="background:var(--surface-2)"><div class="wrap">
+  <div class="sec-head reveal">
+    <span class="eyebrow">04 — Forecasting</span>
+    <h2 class="serif">Aquisição e vendas, mês a mês</h2>
+    <p class="lead">Espaço reservado para o forecasting fornecido separadamente. A estrutura espelha a cadeia
+      de aquisição e é revisada mensalmente contra o realizado.</p>
+  </div>
+  <div class="table-wrap reveal">
+    <table style="min-width:640px">
+      <thead><tr><th>Métrica</th><th>Mês 1</th><th>Mês 2</th><th>Mês 3</th><th>Mês 4</th><th>Mês 5</th><th>Mês 6</th></tr></thead>
+      <tbody>
+        <tr><td>Investimento em mídia (R$)</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td></tr>
+        <tr><td>Leads</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td></tr>
+        <tr><td>Leads qualificados</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td></tr>
+        <tr><td>Reuniões realizadas</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td></tr>
+        <tr><td>Propostas / aprovações</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td></tr>
+        <tr><td>Franquias vendidas</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td></tr>
+        <tr><td>CAC por franquia (R$)</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td></tr>
+        <tr><td>Receita gerada (R$)</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="reveal" style="font-size:13.5px;color:var(--ink-faint);margin-top:12px;max-width:74ch">Campos a
+    preencher com o forecasting da Rocket SF / [Sua Empresa]. São premissas de planejamento — o objetivo da
+    operação é perseguir e superar essas taxas, recalibrando quando o mercado responder diferente do previsto.
+    Nenhum número de resultado é assumido nesta proposta além do investimento inicial de mídia.</p>
 </div></section>
 
-<!-- ================= INDICADORES ================= -->
-<section id="indicadores"><div class="wrap rv">
-  <div class="eyebrow">05 — Árvore de indicadores</div>
-  <h2>Como saberemos que está funcionando</h2>
-  <p>A operação é gerida por quatro camadas de indicadores que conectam mídia, pré-vendas, vendas e economia.</p>
-  <div class="grid g4">
-    <div class="kpicol rv"><div class="hd"><span class="dot"></span><b>Marketing</b></div><ul>
+<!-- ============ 05 INDICADORES ============ -->
+<section id="indicadores"><div class="wrap">
+  <div class="sec-head reveal">
+    <span class="eyebrow">05 — Árvore de indicadores</span>
+    <h2 class="serif">Como saberemos que está funcionando</h2>
+    <p class="lead">Quatro camadas que conectam mídia, pré-vendas, vendas e economia.</p>
+  </div>
+  <div class="grid g4 reveal" style="margin-top:36px">
+    <div class="kpicol"><div class="hd"><span class="dot"></span><b>Marketing</b></div><ul>
       <li>Investimento</li><li>Impressões</li><li>CTR</li><li>CPC</li><li>Leads</li><li>CPL</li><li>Conversão das páginas</li></ul></div>
-    <div class="kpicol rv"><div class="hd"><span class="dot"></span><b>Pré-vendas</b></div><ul>
+    <div class="kpicol"><div class="hd"><span class="dot"></span><b>Pré-vendas</b></div><ul>
       <li>Leads trabalhados</li><li>Tempo de 1ª resposta</li><li>Taxa de contato</li><li>Taxa de qualificação</li><li>Reuniões agendadas</li><li>Show rate</li></ul></div>
-    <div class="kpicol rv"><div class="hd"><span class="dot"></span><b>Vendas</b></div><ul>
+    <div class="kpicol"><div class="hd"><span class="dot"></span><b>Vendas</b></div><ul>
       <li>Reuniões realizadas</li><li>Taxa de avanço</li><li>Propostas / aprovados</li><li>Taxa de fechamento</li><li>Ciclo médio de venda</li><li>Franquias vendidas</li></ul></div>
-    <div class="kpicol rv"><div class="hd"><span class="dot"></span><b>Economia</b></div><ul>
+    <div class="kpicol"><div class="hd"><span class="dot"></span><b>Economia</b></div><ul>
       <li>CAC por franquia</li><li>Investimento total</li><li>Receita de taxa</li><li>Payback da aquisição</li><li>ROI / ROAS</li></ul></div>
   </div>
 </div></section>
 
-<!-- ================= CRONOGRAMA ================= -->
-<section id="cronograma"><div class="wrap rv">
-  <div class="eyebrow">06 — Cronograma de implantação</div>
-  <h2>Da estratégia ao go-live</h2>
-  <p>Prazos de <b>implantação</b> — a montagem da máquina. A maturação de <b>resultado</b> (primeiras vendas) acompanha o ciclo de venda da franquia e é estimada no forecasting: são coisas distintas, e as diferenciamos de propósito.</p>
-  <div class="tl">
-    <div class="phase rv">
-      <div class="side"><div class="ph">Fase 1</div><h3>Estratégia &amp; preparação</h3><div class="wk">Semanas 1–3</div></div>
-      <div class="body">
-        <p>Diagnóstico, GTM, ICP, oferta, jornada, funil, forecasting e metas.</p>
-        <div class="deliv"><span>Diagnóstico</span><span>GTM + ICP</span><span>Oferta</span><span>Jornada + funil</span><span>Forecasting</span><span>Metas</span></div>
-        <div class="crit"><b>Conclusão:</b> GTM, oferta, forecasting e metas homologados pela Rocket.</div>
-      </div>
-    </div>
-    <div class="phase rv">
-      <div class="side"><div class="ph">Fase 2</div><h3>Construção</h3><div class="wk">Semanas 2–6</div></div>
-      <div class="body">
-        <p>Contratações (copy, design, tráfego, 2 SDRs, 1 closer), CRM, integrações, landing pages, criativos, scripts e playbook.</p>
-        <div class="deliv"><span>Time contratado</span><span>CRM + integrações</span><span>Landing pages</span><span>Criativos</span><span>Scripts + playbook</span></div>
-        <div class="crit"><b>Conclusão:</b> máquina montada, time em onboarding, campanhas prontas para veicular.</div>
-      </div>
-    </div>
-    <div class="phase rv">
-      <div class="side"><div class="ph">Fase 3</div><h3>Go Live</h3><div class="wk">Semanas 5–7</div></div>
-      <div class="body">
-        <p>Campanhas no ar, primeiros leads, operação dos SDRs e primeiras reuniões.</p>
-        <div class="deliv"><span>Campanhas ativas</span><span>Leads no CRM</span><span>SDRs operando</span><span>Reuniões realizadas</span></div>
-        <div class="crit"><b>Conclusão:</b> funil em operação com leads trabalhados no SLA e reuniões acontecendo.</div>
-      </div>
-    </div>
-    <div class="phase rv">
-      <div class="side"><div class="ph">Fase 4</div><h3>Otimização &amp; escala</h3><div class="wk">Semana 8 →</div></div>
-      <div class="body">
-        <p>Análise de conversão, ajustes de mídia/oferta/copy, ajustes comerciais, treinamento e escala do investimento.</p>
-        <div class="deliv"><span>Gargalos mapeados</span><span>Ajustes medidos</span><span>Cadências revisadas</span><span>Escala de mídia</span></div>
-        <div class="crit"><b>Conclusão:</b> eficiência comprovada e mídia escalada com CAC controlado.</div>
-      </div>
-    </div>
+<!-- ============ 06 CRONOGRAMA ============ -->
+<section id="cronograma" style="background:var(--surface-2)"><div class="wrap">
+  <div class="sec-head reveal">
+    <span class="eyebrow">06 — Cronograma de implantação</span>
+    <h2 class="serif">Da estratégia ao go-live</h2>
+    <p class="lead">Prazos de <b style="color:var(--ink)">implantação</b> — a montagem da máquina. A maturação
+      de <b style="color:var(--ink)">resultado</b> (primeiras vendas) acompanha o ciclo de venda e é estimada
+      no forecasting: são coisas distintas, e as diferenciamos de propósito.</p>
   </div>
-  <p style="font-size:.86rem;color:var(--faint);margin-top:16px">Fases com sobreposição intencional para antecipar valor. Datas exatas dependem da velocidade de resposta e disponibilização de informações pela Rocket (ver Responsabilidades).</p>
+  <div class="timeline reveal" style="margin-top:40px">
+    <div class="phase"><div class="pn">Fase 1 · Semanas 1–3</div><h4 class="serif">Estratégia &amp; preparação</h4>
+      <p>Diagnóstico, GTM, ICP, oferta, jornada, funil, forecasting e metas.</p>
+      <div class="deliv"><span>Diagnóstico</span><span>GTM + ICP</span><span>Oferta</span><span>Jornada + funil</span><span>Forecasting</span><span>Metas</span></div>
+      <span class="gate">✓ GTM, oferta, forecasting e metas homologados</span></div>
+    <div class="phase"><div class="pn">Fase 2 · Semanas 2–6</div><h4 class="serif">Construção</h4>
+      <p>Contratações (copy, design, tráfego, 2 SDRs, 1 closer), CRM, integrações, landing pages, criativos, scripts e playbook.</p>
+      <div class="deliv"><span>Time contratado</span><span>CRM + integrações</span><span>Landing pages</span><span>Criativos</span><span>Scripts + playbook</span></div>
+      <span class="gate">✓ Máquina montada, time em onboarding, campanhas prontas</span></div>
+    <div class="phase"><div class="pn">Fase 3 · Semanas 5–7</div><h4 class="serif">Go Live</h4>
+      <p>Campanhas no ar, primeiros leads, operação dos SDRs e primeiras reuniões.</p>
+      <div class="deliv"><span>Campanhas ativas</span><span>Leads no CRM</span><span>SDRs operando</span><span>Reuniões realizadas</span></div>
+      <span class="gate">✓ Funil em operação, leads no SLA, reuniões acontecendo</span></div>
+    <div class="phase"><div class="pn">Fase 4 · Semana 8 →</div><h4 class="serif">Otimização &amp; escala</h4>
+      <p>Análise de conversão, ajustes de mídia/oferta/copy, ajustes comerciais, treinamento e escala do investimento.</p>
+      <div class="deliv"><span>Gargalos mapeados</span><span>Ajustes medidos</span><span>Cadências revisadas</span><span>Escala de mídia</span></div>
+      <span class="gate">✓ Eficiência comprovada, mídia escalada com CAC controlado</span></div>
+  </div>
+  <p class="reveal" style="font-size:13.5px;color:var(--ink-faint);margin-top:18px;max-width:74ch">Fases com
+    sobreposição intencional para antecipar valor. Datas exatas dependem da velocidade de resposta e
+    disponibilização de informações pela Rocket (ver Responsabilidades).</p>
 </div></section>
 
-<!-- ================= RESPONSABILIDADES ================= -->
-<section id="responsabilidades"><div class="wrap rv">
-  <div class="eyebrow">07 — Matriz de responsabilidades</div>
-  <h2>Sem dependências implícitas</h2>
-  <p>O resultado depende de obrigações de ambas as partes. A matriz elimina qualquer expectativa não declarada.</p>
-  <div class="tblwrap"><table class="tbl">
-    <thead><tr><th>Frente</th><th>[Sua Empresa]</th><th>Rocket SF</th></tr></thead>
-    <tbody>
-      <tr><td>Estratégia e GTM</td><td>Responsável</td><td>Aprova / fornece informações</td></tr>
-      <tr><td>Estrutura de marketing</td><td>Contrata e gere</td><td>Aprova materiais</td></tr>
-      <tr><td>Mídia e aquisição</td><td>Opera</td><td>Disponibiliza a verba de mídia</td></tr>
-      <tr><td>CRM e ferramentas</td><td>Implanta e opera</td><td>Custeia / aprova stack</td></tr>
-      <tr><td>Time comercial</td><td>Recruta, treina e gere</td><td>Aprova estrutura / custeia remuneração*</td></tr>
-      <tr><td>Processo de venda</td><td>Conduz até o handoff</td><td>Aprova candidatos e assina</td></tr>
-      <tr><td>Documentação / COF</td><td>Apoia o fluxo</td><td>Fornece COF e instrumentos</td></tr>
-      <tr><td>Aprovação de candidatos</td><td>Encaminha qualificados</td><td>Disponibilidade para aprovar no SLA</td></tr>
-      <tr><td>Onboarding do franqueado</td><td>Faz o handoff</td><td>Estrutura para receber franqueados</td></tr>
-      <tr><td>Governança</td><td>Conduz e reporta</td><td>Participação de sócios/lideranças</td></tr>
-    </tbody>
-  </table></div>
-  <p style="font-size:.84rem;color:var(--faint);margin-top:8px">* O custeio da remuneração do time é definido no modelo comercial (§ Investimento).</p>
+<!-- ============ 07 RESPONSABILIDADES ============ -->
+<section id="responsabilidades"><div class="wrap">
+  <div class="sec-head reveal">
+    <span class="eyebrow">07 — Matriz de responsabilidades</span>
+    <h2 class="serif">Sem dependências implícitas</h2>
+    <p class="lead">O resultado depende de obrigações de ambas as partes. A matriz elimina qualquer
+      expectativa não declarada.</p>
+  </div>
+  <div class="table-wrap reveal">
+    <table>
+      <thead><tr><th>Frente</th><th>[Sua Empresa]</th><th>Rocket SF</th></tr></thead>
+      <tbody>
+        <tr><td>Estratégia e GTM</td><td>Responsável</td><td>Aprova / fornece informações</td></tr>
+        <tr><td>Estrutura de marketing</td><td>Contrata e gere</td><td>Aprova materiais</td></tr>
+        <tr><td>Mídia e aquisição</td><td>Opera</td><td>Disponibiliza a verba de mídia</td></tr>
+        <tr><td>CRM e ferramentas</td><td>Implanta e opera</td><td>Custeia / aprova stack</td></tr>
+        <tr><td>Time comercial</td><td>Recruta, treina e gere</td><td>Aprova estrutura / custeia remuneração*</td></tr>
+        <tr><td>Processo de venda</td><td>Conduz até o handoff</td><td>Aprova candidatos e assina</td></tr>
+        <tr><td>Documentação / COF</td><td>Apoia o fluxo</td><td>Fornece COF e instrumentos</td></tr>
+        <tr><td>Aprovação de candidatos</td><td>Encaminha qualificados</td><td>Disponibilidade para aprovar no SLA</td></tr>
+        <tr><td>Onboarding do franqueado</td><td>Faz o handoff</td><td>Estrutura para receber franqueados</td></tr>
+        <tr><td>Governança</td><td>Conduz e reporta</td><td>Participação de sócios/lideranças</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="reveal" style="font-size:13px;color:var(--ink-faint);margin-top:10px">* O custeio da remuneração do time é definido no modelo comercial (§ Remuneração).</p>
 </div></section>
 
-<!-- ================= REMUNERAÇÃO ================= -->
-<section id="remuneracao"><div class="wrap rv">
-  <div class="eyebrow">08 — Modelo de remuneração</div>
-  <h2>Um modelo que só ganha quando a Rocket ganha</h2>
-  <p>Propomos um modelo em três componentes, desenhado para alinhar incentivos: remunera a construção, sustenta a operação e recompensa o resultado. Os valores são definidos em conjunto — a estrutura abaixo é a recomendação; os R$ ficam como campos a acordar.</p>
-  <div class="price">
-    <div class="pcard rv">
-      <div class="tag">Componente 1</div>
-      <h3>Setup de implantação</h3>
-      <div class="amt">R$ [a definir]</div>
-      <p>Pagamento único pela construção da máquina — Fases 1 e 2: estratégia, GTM, oferta, CRM, criativos, contratação e treinamento do time.</p>
+<!-- ============ 08 REMUNERAÇÃO ============ -->
+<section id="remuneracao" style="background:var(--surface-2)"><div class="wrap">
+  <div class="sec-head reveal">
+    <span class="eyebrow">08 — Modelo de remuneração</span>
+    <h2 class="serif">Um modelo que só ganha quando a Rocket ganha</h2>
+    <p class="lead">Três componentes que alinham incentivos: remuneram a construção, sustentam a operação e
+      recompensam o resultado. A estrutura é a recomendação; os valores ficam como campos a acordar.</p>
+  </div>
+  <div class="pricing reveal">
+    <div class="price">
+      <span class="p-kick">Componente 1</span><h3 class="serif">Setup de implantação</h3>
+      <div class="p-model">R$ [a definir] · único</div>
+      <p class="p-desc">Construção da máquina — Fases 1 e 2: estratégia, GTM, oferta, CRM, criativos, contratação e treinamento do time.</p>
       <div class="why"><b>Por quê</b>Remunera o trabalho intensivo de montar o sistema, antes de a mídia rodar.</div>
     </div>
-    <div class="pcard feat rv">
-      <div class="tag">Componente 2</div>
-      <h3>Fee mensal de operação</h3>
-      <div class="amt">R$ [a definir] /mês</div>
-      <p>Recorrente pela operação e otimização contínua: gestão de mídia, pré-vendas, vendas, CRM, análise do funil e governança.</p>
+    <div class="price feat">
+      <span class="p-kick">Componente 2 · recorrente</span><h3 class="serif">Fee mensal de operação</h3>
+      <div class="p-model">R$ [a definir] / mês</div>
+      <p class="p-desc">Operação e otimização contínua: gestão de mídia, pré-vendas, vendas, CRM, análise do funil e governança.</p>
       <div class="why"><b>Por quê</b>Sustenta a operação diária da área comercial terceirizada, mês a mês.</div>
     </div>
-    <div class="pcard rv">
-      <div class="tag">Componente 3</div>
-      <h3>Success fee por franquia</h3>
-      <div class="amt">R$ [ou %] por venda</div>
-      <p>Variável por franquia vendida (valor fixo por unidade ou % da taxa de franquia), atrelado ao resultado que a máquina produz.</p>
+    <div class="price">
+      <span class="p-kick">Componente 3</span><h3 class="serif">Success fee por franquia</h3>
+      <div class="p-model">R$ [ou %] por venda</div>
+      <p class="p-desc">Variável por franquia vendida (valor fixo por unidade ou % da taxa de franquia), atrelado ao resultado.</p>
       <div class="why"><b>Por quê</b>Amarra nossa remuneração ao mesmo objetivo da Rocket: franquias assinadas.</div>
     </div>
   </div>
-  <div class="callout" style="margin-top:24px">
-    <div class="lbl">Alinhamento de incentivos</div>
-    <p>Quanto mais a máquina vende com eficiência, maior o retorno de ambas as partes. O componente variável mantém o parceiro comprometido com o resultado — não apenas com a entrega de atividades.</p>
+  <div class="pull reveal" style="margin-top:28px">
+    <span class="eyebrow">Alinhamento de incentivos</span>
+    <blockquote style="font-size:clamp(19px,2.5vw,26px);max-width:38ch">Quanto mais a máquina vende com eficiência, maior o retorno de <em>ambas as partes</em>.</blockquote>
+    <p class="attrib">O componente variável mantém o parceiro comprometido com o resultado — não apenas com a entrega de atividades.</p>
   </div>
 
-  <h3 id="custos">Custos da operação, segregados</h3>
-  <p>Os custos são apresentados separadamente para que não haja sobreposição entre remuneração, mídia e estrutura. A única referência numérica assumida é o investimento inicial de mídia informado pela Rocket.</p>
-  <div class="tblwrap"><table class="tbl">
-    <thead><tr><th>Item</th><th>Natureza</th><th>Quem paga</th><th>Valor</th></tr></thead>
-    <tbody>
-      <tr><td>Remuneração do trabalho</td><td>Fee da operação</td><td>Rocket SF</td><td class="fill">Componentes 1–3</td></tr>
-      <tr><td>Investimento em mídia</td><td>Verba de aquisição</td><td>Rocket SF</td><td class="fill">≈ R$ 10.000/mês → escala</td></tr>
-      <tr><td>Time comercial (SDRs + closer)</td><td>Salário + variável</td><td>[a definir]</td><td class="fill">R$ [a definir]</td></tr>
-      <tr><td>Ferramentas e CRM</td><td>Stack comercial</td><td>[a definir]</td><td class="fill">R$ [a definir]</td></tr>
-      <tr><td>Copywriter</td><td>Produção</td><td>[a definir]</td><td class="fill">R$ [a definir]</td></tr>
-      <tr><td>Designer</td><td>Produção</td><td>[a definir]</td><td class="fill">R$ [a definir]</td></tr>
-      <tr><td>Gestor de tráfego</td><td>Aquisição</td><td>[a definir]</td><td class="fill">R$ [a definir]</td></tr>
-      <tr><td>Outros fornecedores</td><td>Sob demanda</td><td>[a definir]</td><td class="fill">R$ [a definir]</td></tr>
-    </tbody>
-  </table></div>
-</div></section>
-
-<!-- ================= TERMOS ================= -->
-<section id="termos"><div class="wrap rv">
-  <div class="eyebrow">09 — Termos da parceria</div>
-  <h2>Condições de contratação</h2>
-  <div class="grid g2">
-    <div class="card rv"><div class="n">Vigência</div><h3>[XX] meses</h3><p style="margin:0;color:var(--muted);font-size:.92rem">Ciclo mínimo recomendado para a máquina maturar, com renovação automática salvo aviso prévio de [XX] dias.</p></div>
-    <div class="card rv"><div class="n">Exclusividade</div><h3>Setor de expansão</h3><p style="margin:0;color:var(--muted);font-size:.92rem">Exclusividade na operação da máquina de franquias da Rocket, nos termos a acordar.</p></div>
-    <div class="card rv"><div class="n">Reajuste</div><h3>Anual</h3><p style="margin:0;color:var(--muted);font-size:.92rem">Correção do fee por índice a definir ([IPCA/IGP-M]), a cada 12 meses.</p></div>
-    <div class="card rv"><div class="n">Propriedade dos ativos</div><h3>Ficam com a Rocket</h3><p style="margin:0;color:var(--muted);font-size:.92rem">GTM, oferta, jornada, funil, CRM configurado, playbook, scripts, dashboards e forecasting.</p></div>
-    <div class="card rv"><div class="n">Confidencialidade</div><h3>NDA mútuo</h3><p style="margin:0;color:var(--muted);font-size:.92rem">Proteção de dados e informações estratégicas de ambas as partes, sob LGPD.</p></div>
-    <div class="card rv"><div class="n">Saída</div><h3>Aviso prévio + handover</h3><p style="margin:0;color:var(--muted);font-size:.92rem">Encerramento com aviso de [XX] dias e transferência documentada da operação.</p></div>
+  <h3 class="sub serif reveal" id="custos" style="margin-top:44px">Custos da operação, segregados</h3>
+  <p class="reveal" style="color:var(--ink-soft);max-width:72ch">Apresentados separadamente para que não haja
+    sobreposição entre remuneração, mídia e estrutura. A única referência numérica assumida é o investimento
+    inicial de mídia informado pela Rocket.</p>
+  <div class="table-wrap reveal">
+    <table>
+      <thead><tr><th>Item</th><th>Natureza</th><th>Quem paga</th><th>Valor</th></tr></thead>
+      <tbody>
+        <tr><td>Remuneração do trabalho</td><td>Fee da operação</td><td>Rocket SF</td><td class="fill">Componentes 1–3</td></tr>
+        <tr><td>Investimento em mídia</td><td>Verba de aquisição</td><td>Rocket SF</td><td class="fill">≈ R$ 10.000/mês → escala</td></tr>
+        <tr><td>Time comercial (SDRs + closer)</td><td>Salário + variável</td><td>[a definir]</td><td class="fill">R$ [a definir]</td></tr>
+        <tr><td>Ferramentas e CRM</td><td>Stack comercial</td><td>[a definir]</td><td class="fill">R$ [a definir]</td></tr>
+        <tr><td>Copywriter</td><td>Produção</td><td>[a definir]</td><td class="fill">R$ [a definir]</td></tr>
+        <tr><td>Designer</td><td>Produção</td><td>[a definir]</td><td class="fill">R$ [a definir]</td></tr>
+        <tr><td>Gestor de tráfego</td><td>Aquisição</td><td>[a definir]</td><td class="fill">R$ [a definir]</td></tr>
+        <tr><td>Outros fornecedores</td><td>Sob demanda</td><td>[a definir]</td><td class="fill">R$ [a definir]</td></tr>
+      </tbody>
+    </table>
   </div>
-  <p style="font-size:.84rem;color:var(--faint);margin-top:14px">Campos entre colchetes a fechar em contrato. Estes termos orientam a minuta; não substituem o instrumento jurídico.</p>
 </div></section>
 
-<!-- ================= GESTÃO + GOVERNANÇA + ESCALA ================= -->
-<section id="gestao"><div class="wrap rv">
-  <div class="eyebrow">10 — Gestão, governança &amp; escala</div>
-  <h2>No ar não é o fim — é o começo da gestão</h2>
-  <p>Depois do go-live, assumimos a gestão e a otimização contínua do funil, sob uma governança simples que mantém a Rocket informada e no controle das decisões estratégicas.</p>
-  <div class="grid g2">
-    <div class="card rv">
-      <h3 style="margin-top:0">Governança</h3>
-      <ul class="clean">
+<!-- ============ 09 TERMOS ============ -->
+<section id="termos"><div class="wrap">
+  <div class="sec-head reveal">
+    <span class="eyebrow">09 — Termos da parceria</span>
+    <h2 class="serif">Condições de contratação</h2>
+  </div>
+  <div class="grid g3 reveal" style="margin-top:36px">
+    <div class="card"><div class="kicker">Vigência</div><h3 class="serif">[XX] meses</h3><p>Ciclo mínimo para a máquina maturar, com renovação automática salvo aviso prévio de [XX] dias.</p></div>
+    <div class="card"><div class="kicker">Exclusividade</div><h3 class="serif">Setor de expansão</h3><p>Exclusividade na operação da máquina de franquias da Rocket, nos termos a acordar.</p></div>
+    <div class="card"><div class="kicker">Reajuste</div><h3 class="serif">Anual</h3><p>Correção do fee por índice a definir ([IPCA / IGP-M]), a cada 12 meses.</p></div>
+    <div class="card"><div class="kicker">Propriedade dos ativos</div><h3 class="serif">Ficam com a Rocket</h3><p>GTM, oferta, jornada, funil, CRM configurado, playbook, scripts, dashboards e forecasting.</p></div>
+    <div class="card"><div class="kicker">Confidencialidade</div><h3 class="serif">NDA mútuo</h3><p>Proteção de dados e informações estratégicas de ambas as partes, sob LGPD.</p></div>
+    <div class="card"><div class="kicker">Saída</div><h3 class="serif">Aviso + handover</h3><p>Encerramento com aviso de [XX] dias e transferência documentada da operação.</p></div>
+  </div>
+  <p class="reveal" style="font-size:13px;color:var(--ink-faint);margin-top:14px">Campos entre colchetes a fechar em contrato. Estes termos orientam a minuta; não substituem o instrumento jurídico.</p>
+</div></section>
+
+<!-- ============ 10 GESTÃO / GOVERNANÇA / ESCALA ============ -->
+<section id="gestao" style="background:var(--surface-2)"><div class="wrap">
+  <div class="sec-head reveal">
+    <span class="eyebrow">10 — Gestão, governança &amp; escala</span>
+    <h2 class="serif">No ar não é o fim — é o começo da gestão</h2>
+    <p class="lead">Depois do go-live, assumimos a gestão e a otimização contínua do funil, sob governança
+      simples que mantém a Rocket informada e no controle das decisões estratégicas.</p>
+  </div>
+  <div class="grid g2 reveal" style="margin-top:36px">
+    <div class="card">
+      <h3 class="serif" style="margin-top:0">Governança</h3>
+      <ul class="clean" style="margin-top:14px">
         <li><b>Semanal</b> — análise do funil, KPIs e plano de ação</li>
         <li><b>Contínuo</b> — dashboards de marketing, pré-vendas, vendas e economia</li>
         <li><b>Mensal</b> — reunião executiva: forecasting, resultados e prioridades</li>
         <li><b>Sob gatilho</b> — decisões de escala de mídia e de time</li>
       </ul>
     </div>
-    <div class="card rv">
-      <h3 style="margin-top:0">Lógica de escala</h3>
-      <p style="font-size:.92rem;color:var(--muted);margin:.2em 0 .8em">Validar → gargalos → corrigir → conversão → mídia → capacidade → vendas.</p>
+    <div class="card">
+      <h3 class="serif" style="margin-top:0">Lógica de escala</h3>
+      <p style="font-size:14px;color:var(--ink-faint);margin:6px 0 14px">Validar → gargalos → corrigir → conversão → mídia → capacidade → vendas.</p>
       <ul class="clean">
         <li><b>+ Mídia</b> — quando CAC no alvo e há capacidade comercial</li>
         <li><b>+ Pré-venda</b> — quando leads qualificados excedem o SLA de contato</li>
@@ -546,15 +656,21 @@ ul.clean li::before{content:"›";position:absolute;left:2px;color:var(--accent)
       </ul>
     </div>
   </div>
-  <p style="font-size:.9rem;color:var(--muted);margin-top:18px">Escala é consequência de eficiência comprovada, nunca aposta: só se aumenta mídia quando o funil converte; só se aumenta time quando o gargalo migra para a etapa correspondente.</p>
+  <p class="reveal" style="font-size:14px;color:var(--ink-soft);margin-top:18px;max-width:74ch">Escala é
+    consequência de eficiência comprovada, nunca aposta: só se aumenta mídia quando o funil converte; só se
+    aumenta time quando o gargalo migra para a etapa correspondente.</p>
 </div></section>
 
-<!-- ================= PREMISSAS ================= -->
-<section id="premissas"><div class="wrap rv">
-  <div class="eyebrow">11 — Premissas e limites</div>
-  <h2>O que sustenta as metas</h2>
-  <p>Assumimos responsabilidade integral pela construção, implantação, gestão e otimização da máquina. O volume de franquias vendidas é um resultado de sistema: depende também de fatores que compõem, em conjunto, a competitividade da oferta no mercado. Reconhecê-los é o que torna as metas realistas e a parceria sustentável.</p>
-  <ul class="clean two">
+<!-- ============ 11 PREMISSAS ============ -->
+<section id="premissas"><div class="wrap">
+  <div class="sec-head reveal">
+    <span class="eyebrow">11 — Premissas e limites</span>
+    <h2 class="serif">O que sustenta as metas</h2>
+    <p class="lead">Assumimos responsabilidade integral pela construção, implantação, gestão e otimização da
+      máquina. O volume de franquias vendidas é um resultado de sistema — reconhecer os fatores que o compõem
+      é o que torna as metas realistas e a parceria sustentável.</p>
+  </div>
+  <ul class="clean two reveal" style="margin-top:32px">
     <li>Competitividade da franquia</li>
     <li>Oferta e preço</li>
     <li>Capacidade de investimento dos candidatos</li>
@@ -567,11 +683,13 @@ ul.clean li::before{content:"›";position:absolute;left:2px;color:var(--accent)
   </ul>
 </div></section>
 
-<!-- ================= Q&A ================= -->
-<section id="qa"><div class="wrap rv">
-  <div class="eyebrow">12 — Sem ambiguidade</div>
-  <h2>Perguntas-chave, respondidas</h2>
-  <div class="qa">
+<!-- ============ 12 Q&A ============ -->
+<section id="qa" style="background:var(--surface-2)"><div class="wrap">
+  <div class="sec-head reveal">
+    <span class="eyebrow">12 — Sem ambiguidade</span>
+    <h2 class="serif">Perguntas-chave, respondidas</h2>
+  </div>
+  <div class="qa reveal" style="margin-top:32px">
     <div class="item"><div class="q">O que exatamente assumimos?</div><div class="a">O Go-to-Market completo da venda de franquias: estratégia, marketing, mídia, CRM, pré-vendas, vendas, gestão e otimização.</div></div>
     <div class="item"><div class="q">O que não assumimos?</div><div class="a">Concessão jurídica, COF, aprovação final de candidatos e implantação/onboarding do franqueado.</div></div>
     <div class="item"><div class="q">Quem contrata e gerencia o time?</div><div class="a">[Sua Empresa] recruta, treina e gere copywriter, designer, gestor de tráfego, 2 pré-vendas e 1 closer.</div></div>
@@ -583,78 +701,79 @@ ul.clean li::before{content:"›";position:absolute;left:2px;color:var(--accent)
   </div>
 </div></section>
 
-<!-- ================= ACEITE ================= -->
-<section id="aceite"><div class="wrap rv">
-  <div class="eyebrow">13 — Próximos passos</div>
-  <h2>Como avançamos</h2>
-  <div class="grid g2" style="margin-bottom:26px">
-    <ul class="clean">
-      <li>Alinhamento executivo e assinatura de NDA</li>
-      <li>Preenchimento das informações pendentes (abaixo)</li>
-      <li>Homologação de escopo, remuneração e custos</li>
-    </ul>
-    <ul class="clean">
-      <li>Kickoff da Fase 1 — Estratégia e preparação</li>
-      <li>Início da construção da máquina de expansão</li>
-      <li>Definição do forecasting e das metas</li>
-    </ul>
+<!-- ============ 13 ACEITE ============ -->
+<section id="aceite"><div class="wrap">
+  <div class="cta reveal">
+    <span class="eyebrow">13 — Próximos passos</span>
+    <h2 class="serif">Começamos pela estratégia. O resto se prova no funil.</h2>
+    <p>Alinhamento executivo e NDA → preenchimento das pendências → homologação de escopo, remuneração e
+      custos → kickoff da Fase 1 → início da construção da máquina de expansão.</p>
+    <div class="contact">
+      <span><b>[Sua Empresa]</b> — Parceiro de Go-to-Market &amp; Operação Comercial</span>
+      <span>·</span><span>[Nome do responsável]</span>
+      <span>·</span><span>[e-mail]</span>
+      <span>·</span><span>[telefone]</span>
+    </div>
   </div>
-  <div class="accept">
-    <div class="eyebrow" style="margin-bottom:6px">Aceite da proposta</div>
-    <p style="margin:0;color:var(--muted);font-size:.95rem">Ao assinar, as partes concordam em avançar para a formalização contratual com base no escopo, no modelo de remuneração e nos termos aqui apresentados, sujeitos ao fechamento dos campos pendentes.</p>
+  <div class="accept reveal">
+    <span class="eyebrow" style="color:var(--brass)">Aceite da proposta</span>
+    <p style="margin:10px 0 0;color:var(--ink-soft);font-size:15px">Ao assinar, as partes concordam em avançar
+      para a formalização contratual com base no escopo, no modelo de remuneração e nos termos aqui
+      apresentados, sujeitos ao fechamento dos campos pendentes.</p>
     <div class="sign">
       <div><div class="line">Rocket SF — [Nome / cargo]</div></div>
       <div><div class="line">[Sua Empresa] — [Nome / cargo]</div></div>
     </div>
-    <p style="margin:20px 0 0;font-size:.8rem;color:var(--faint)">Local e data: ______________________________  ·  Proposta válida por [XX] dias a partir do envio.</p>
+    <p style="margin:20px 0 0;font-size:12.5px;color:var(--ink-faint)">Local e data: ______________________________ · Proposta válida por [XX] dias a partir do envio.</p>
   </div>
 </div></section>
 
-<!-- ================= PENDÊNCIAS ================= -->
-<section id="pendencias"><div class="wrap rv">
-  <div class="eyebrow">Anexo — Antes do envio final</div>
-  <h2>Pontos a definir para fechar a proposta</h2>
-  <p>Para transformar este documento em uma proposta pronta para assinatura, é necessário definir/fornecer:</p>
-  <div class="tblwrap"><table class="tbl">
-    <thead><tr><th>Tema</th><th>O que falta</th></tr></thead>
-    <tbody>
-      <tr><td>Remuneração</td><td>Valores dos 3 componentes (setup, fee mensal, success fee)</td></tr>
-      <tr><td>Custeio do time</td><td>Quem paga salários/variável dos SDRs e do closer</td></tr>
-      <tr><td>Custeio de produção</td><td>Quem paga copy, design e tráfego</td></tr>
-      <tr><td>Ferramentas / CRM</td><td>Qual stack e quem custeia as licenças</td></tr>
-      <tr><td>Forecasting</td><td>Volumes e taxas de conversão por etapa</td></tr>
-      <tr><td>Oferta da franquia</td><td>Ticket, taxas, royalties e condições</td></tr>
-      <tr><td>Territórios</td><td>Regiões disponíveis e regras de exclusividade</td></tr>
-      <tr><td>COF e jurídico</td><td>Status da documentação e instrumentos</td></tr>
-      <tr><td>SLAs da Rocket</td><td>Prazo para analisar/aprovar candidatos</td></tr>
-      <tr><td>Capacidade de implantação</td><td>Quantos franqueados a Rocket absorve por mês</td></tr>
-      <tr><td>Vigência e saída</td><td>Prazo, renovação, aviso prévio e reajuste</td></tr>
-      <tr><td>Dados institucionais</td><td>Razão social, CNPJ e responsáveis para o cabeçalho</td></tr>
-    </tbody>
-  </table></div>
+<!-- ============ ANEXO PENDÊNCIAS ============ -->
+<section id="pendencias" style="background:var(--surface-2)"><div class="wrap">
+  <div class="sec-head reveal">
+    <span class="eyebrow">Anexo — Antes do envio final</span>
+    <h2 class="serif">Pontos a definir para fechar a proposta</h2>
+    <p class="lead">Para transformar este documento em uma proposta pronta para assinatura, é necessário definir/fornecer:</p>
+  </div>
+  <div class="table-wrap reveal">
+    <table>
+      <thead><tr><th>Tema</th><th>O que falta</th></tr></thead>
+      <tbody>
+        <tr><td>Remuneração</td><td>Valores dos 3 componentes (setup, fee mensal, success fee)</td></tr>
+        <tr><td>Custeio do time</td><td>Quem paga salários/variável dos SDRs e do closer</td></tr>
+        <tr><td>Custeio de produção</td><td>Quem paga copy, design e tráfego</td></tr>
+        <tr><td>Ferramentas / CRM</td><td>Qual stack e quem custeia as licenças</td></tr>
+        <tr><td>Forecasting</td><td>Volumes e taxas de conversão por etapa</td></tr>
+        <tr><td>Oferta da franquia</td><td>Ticket, taxas, royalties e condições</td></tr>
+        <tr><td>Territórios</td><td>Regiões disponíveis e regras de exclusividade</td></tr>
+        <tr><td>COF e jurídico</td><td>Status da documentação e instrumentos</td></tr>
+        <tr><td>SLAs da Rocket</td><td>Prazo para analisar/aprovar candidatos</td></tr>
+        <tr><td>Capacidade de implantação</td><td>Quantos franqueados a Rocket absorve por mês</td></tr>
+        <tr><td>Vigência e saída</td><td>Prazo, renovação, aviso prévio e reajuste</td></tr>
+        <tr><td>Dados institucionais</td><td>Razão social, CNPJ e responsáveis para o cabeçalho</td></tr>
+      </tbody>
+    </table>
+  </div>
 </div></section>
 
 </main>
 
-<div class="foot wrap">
-  <div class="badge">Confidencial · v1.0 · Ago 2026</div><br>
-  Documento confidencial — preparado para a Rocket Soluções Financeiras (Rocket SF) por [Sua Empresa].
-</div>
+<footer>
+  <p class="fnote">Documento confidencial preparado para a Rocket Soluções Financeiras (Rocket SF) por [Sua Empresa].</p>
+  <p>Proposta Comercial · Máquina de Venda de Franquias · v1.0 · Agosto de 2026</p>
+</footer>
 
 <script>
 (function(){
-  // theme toggle
   var root=document.documentElement, btn=document.getElementById('tgl');
-  function cur(){var t=root.getAttribute('data-theme'); if(t) return t; return matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';}
-  btn.addEventListener('click',function(){root.setAttribute('data-theme', cur()==='dark'?'light':'dark');});
-  // progress bar
+  function cur(){var t=root.getAttribute('data-theme');return t?t:(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');}
+  btn.addEventListener('click',function(){root.setAttribute('data-theme',cur()==='dark'?'light':'dark');});
   var bar=document.getElementById('prog');
-  function upd(){var h=document.documentElement,s=h.scrollTop||document.body.scrollTop,max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(s/max*100):0)+'%';}
-  addEventListener('scroll',upd,{passive:true}); upd();
-  // reveal
+  function upd(){var h=document.documentElement,s=h.scrollTop||document.body.scrollTop,m=h.scrollHeight-h.clientHeight;bar.style.width=(m>0?(s/m*100):0)+'%';}
+  addEventListener('scroll',upd,{passive:true});upd();
   if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion:reduce)').matches){
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
-    document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
-  } else { document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in');}); }
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -6% 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  }else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});}
 })();
 </script>
