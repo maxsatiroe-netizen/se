@@ -212,6 +212,53 @@
   .phase .gate{display:inline-flex;align-items:center;gap:7px;margin-top:11px;font-size:12.5px;
     background:var(--surface-2);color:var(--emerald);padding:5px 12px;border-radius:999px;font-weight:600}
 
+  /* ============ CALLOUT ============ */
+  .callout{display:flex;gap:18px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);
+    border-left:4px solid var(--brass);border-radius:14px;padding:22px 26px;box-shadow:var(--shadow)}
+  .callout-ico{flex:none;width:44px;height:44px;border-radius:11px;background:var(--surface-2);color:var(--brass);
+    display:grid;place-items:center}
+  .callout-ico svg{width:23px;height:23px}
+  .callout h4{font-family:"Iowan Old Style",Georgia,serif;font-size:19px;font-weight:600;margin:2px 0 6px}
+  .callout p{font-size:15px;color:var(--ink-soft);margin:0;max-width:80ch}
+
+  /* ============ ROI POR NÍVEL ============ */
+  .roi{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:end}
+  @media(max-width:760px){.roi{grid-template-columns:repeat(2,1fr);gap:24px 16px}}
+  @media(max-width:420px){.roi{grid-template-columns:1fr}}
+  .roi-step{display:flex;flex-direction:column}
+  .roi-track{height:150px;display:flex;align-items:flex-end;margin-bottom:16px}
+  .roi-bar{width:100%;height:var(--h);min-height:14px;background:var(--c);border-radius:9px 9px 3px 3px;
+    position:relative;transition:height .9s cubic-bezier(.2,.7,.2,1)}
+  .roi-bar::after{content:"";position:absolute;inset:0;border-radius:inherit;
+    background:linear-gradient(180deg,rgba(255,255,255,.28),transparent 60%)}
+  .reveal .roi-bar{height:0}
+  .reveal.in .roi-bar{height:var(--h)}
+  @media (prefers-reduced-motion:reduce){.reveal .roi-bar{height:var(--h)}}
+  .roi-tier{font-family:"Iowan Old Style",Georgia,serif;font-size:19px;font-weight:600;color:var(--ink);
+    padding-left:12px;border-left:3px solid var(--c);line-height:1.1;margin-bottom:8px}
+  .roi-step p{font-size:13.5px;color:var(--ink-soft);margin:0;padding-left:12px}
+
+  /* ============ DE DENTRO (sócio operador) ============ */
+  .inside{background:var(--pine);color:var(--on-pine);border-radius:22px;padding:52px 46px;
+    display:grid;grid-template-columns:1.1fr 1fr;gap:44px;align-items:center;overflow:hidden;position:relative}
+  @media(max-width:860px){.inside{grid-template-columns:1fr;gap:32px;padding:40px 30px}}
+  .inside .eyebrow{color:var(--brass-bright)}
+  .inside h2{font-size:clamp(27px,3.6vw,40px);margin:14px 0 16px}
+  .inside h2 em{font-style:italic;color:var(--brass-bright)}
+  .inside .il p{color:var(--on-pine-soft);font-size:16.5px;line-height:1.6;margin:0 0 16px;max-width:50ch}
+  .inside .il p b{color:var(--on-pine)}
+  .inside-stats{display:flex;gap:26px;margin-top:8px;flex-wrap:wrap}
+  .inside-stats .is b{font-family:"Iowan Old Style",Georgia,serif;font-size:26px;color:var(--brass-bright);
+    display:block;letter-spacing:-.02em;line-height:1}
+  .inside-stats .is span{font-size:12.5px;color:var(--on-pine-soft)}
+  .inside .stays{background:rgba(255,255,255,.05);border:1px solid rgba(234,240,233,.14);border-radius:16px;padding:26px 28px}
+  .inside .stays .sc{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;
+    color:var(--brass-bright);display:block;margin-bottom:16px}
+  .inside .stays ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:13px}
+  .inside .stays li{font-size:15px;color:var(--on-pine);padding-left:28px;position:relative;line-height:1.4}
+  .inside .stays li::before{content:"";position:absolute;left:0;top:6px;width:15px;height:9px;
+    border-left:2.5px solid var(--brass-bright);border-bottom:2.5px solid var(--brass-bright);transform:rotate(-45deg)}
+
   /* ============ PHASE CARDS (prático) ============ */
   .summary-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:var(--surface);
     border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);margin-top:40px}
@@ -478,6 +525,39 @@
       <div class="tier" style="--t:var(--emerald)"><h4>Diamante</h4><div class="req">Top performance + reputação impecável</div>
         <ul><li>Condições exclusivas</li><li>Programa de incentivos</li><li>Comissão máxima</li></ul></div>
     </div>
+
+    <!-- Calendário de ativação -->
+    <div class="callout reveal" style="margin-top:24px">
+      <div class="callout-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/><path d="M7 13h3M7 17h3M14 13h3"/></svg></div>
+      <div>
+        <h4>Um calendário de ativação para cada perfil</h4>
+        <p>Nada fica solto. Para cada perfil de parceiro montamos um <b>calendário de ações</b> — o que precisa
+          ser feito, e quando, para atrair, credenciar e fazer o parceiro <b>subir de nível</b>. Cada avanço, de
+          Autorizado a Diamante, tem passo a passo com datas e responsáveis.</p>
+      </div>
+    </div>
+
+    <!-- Plano de ROI por nível -->
+    <div class="divider-label reveal" style="margin-top:52px"><span class="eyebrow">Plano de ROI por nível</span></div>
+    <p class="lead reveal" style="margin-bottom:30px">A régua é simples: quanto mais alto o nível, mais o parceiro
+      vende — e mais taxa de administração e carteira ativa ele gera para a Recon. O avanço é movido por número de vendas.</p>
+    <div class="roi reveal">
+      <div class="roi-step"><div class="roi-track"><div class="roi-bar" style="--h:26%;--c:#9AA39A"></div></div>
+        <span class="roi-tier" style="--c:#9AA39A">Autorizado</span>
+        <p>Começou a vender. Primeiras cotas entrando — retorno inicial de taxa de administração.</p></div>
+      <div class="roi-step"><div class="roi-track"><div class="roi-bar" style="--h:52%;--c:#8FA9C9"></div></div>
+        <span class="roi-tier" style="--c:#8FA9C9">Prata</span>
+        <p>Vende com constância. Bate meta e passa a trazer receita recorrente ao grupo.</p></div>
+      <div class="roi-step"><div class="roi-track"><div class="roi-bar" style="--h:78%;--c:var(--brass)"></div></div>
+        <span class="roi-tier" style="--c:var(--brass)">Ouro</span>
+        <p>Volume sustentado. Retorno relevante e previsível para a Recon, mês a mês.</p></div>
+      <div class="roi-step"><div class="roi-track"><div class="roi-bar" style="--h:100%;--c:var(--emerald)"></div></div>
+        <span class="roi-tier" style="--c:var(--emerald)">Diamante</span>
+        <p>Top de vendas. Carteira grande e o maior retorno recorrente para a Recon.</p></div>
+    </div>
+    <p class="reveal" style="margin-top:18px;font-size:13px;color:var(--ink-faint);max-width:74ch">
+      Progressão ilustrativa — cada parceiro que sobe de nível multiplica o que devolve à Recon. Os valores de
+      retorno por nível são projetados com os seus números no aprofundamento estratégico da implementação.</p>
   </div>
 </section>
 
@@ -641,6 +721,41 @@
       <b style="color:var(--ink)">Depois disso</b> começa a operação (escala nacional): a Recon deixa de depender de
       uma rede difusa e passa a operar um <b style="color:var(--ink)">canal de aquisição próprio</b> — previsível,
       digital e medido — abastecendo as assembleias com cotas novas todo mês.</p>
+  </div>
+</section>
+
+<!-- ============ TRABALHAMOS DE DENTRO ============ -->
+<section id="dedentro">
+  <div class="wrap">
+    <div class="inside reveal">
+      <div class="il">
+        <span class="eyebrow">Como trabalhamos</span>
+        <h2 class="serif">Sócios que operam <em>de dentro</em> — não fornecedores de fora.</h2>
+        <p>Não entregamos um manual e sumimos. Estruturamos o canal e trabalhamos <b>lado a lado com quem
+          executa dentro da Recon</b>: treinamos o time, orientamos de perto no dia a dia e deixamos a operação
+          rodando na mão de vocês.</p>
+        <p>A visão é de sócio: o canal é <b>da Recon</b>. Nosso trabalho é fazer com que o time interno saiba
+          tocá-lo com autonomia — não criar dependência de terceiros.</p>
+        <div class="inside-stats">
+          <div class="is"><b>Ombro a ombro</b><span>com o time que executa, de dentro</span></div>
+          <div class="is"><b>~40h/mês</b><span>de execução dedicada*</span></div>
+          <div class="is"><b>Handover</b><span>completo ao final</span></div>
+        </div>
+      </div>
+      <div class="stays">
+        <span class="sc">O que fica com a Recon</span>
+        <ul>
+          <li>Toda a estruturação do canal, documentada e sua</li>
+          <li>O método de treinamento e capacitação das pessoas</li>
+          <li>Orientação próxima a quem executa, no dia a dia</li>
+          <li>Playbooks, materiais e o portal em operação</li>
+          <li>Autonomia para tocar o canal sem depender de fora</li>
+        </ul>
+      </div>
+    </div>
+    <p class="reveal" style="margin-top:16px;font-size:12.5px;color:var(--ink-faint);max-width:74ch">
+      *Carga de execução indicativa, ombro a ombro com o time da Recon; dimensionada por fase no aprofundamento
+      estratégico da implementação.</p>
   </div>
 </section>
 
