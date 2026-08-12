@@ -275,6 +275,11 @@
   .price.feat .p-kick,.price.feat .p-model{color:var(--brass-bright)}
   .price.feat .p-desc,.price.feat li{color:var(--on-pine-soft)}
   .price .p-kick{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:600}
+  .price .p-value{font-size:40px;font-weight:600;letter-spacing:-.02em;margin:10px 0 2px;color:var(--ink);
+    line-height:1;font-variant-numeric:tabular-nums}
+  .price .p-value span{font-size:.42em;font-weight:600;color:var(--ink-faint);letter-spacing:0}
+  .price.feat .p-value{color:var(--on-pine)}
+  .price.feat .p-value span{color:var(--on-pine-soft)}
   .price h3{font-size:24px;margin:12px 0 6px}
   .price .p-model{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:14px;color:var(--emerald);
     font-weight:600;margin-bottom:16px}
@@ -295,6 +300,26 @@
     display:grid;place-items:center;font-size:17px}
   .step div h4{font-family:-apple-system,"Segoe UI",sans-serif;font-size:16px;font-weight:700;margin:2px 0 3px;color:var(--ink)}
   .step div p{font-size:14.5px;color:var(--ink-soft)}
+
+  /* ============ APROFUNDAMENTO ============ */
+  .deepdive{display:grid;grid-template-columns:1.15fr 1fr;gap:0;background:var(--surface);
+    border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-lg);
+    border-left:4px solid var(--brass)}
+  @media(max-width:820px){.deepdive{grid-template-columns:1fr}}
+  .dd-left{padding:44px 42px}
+  .dd-left h2{font-size:clamp(26px,3.4vw,36px);margin:14px 0 16px}
+  .dd-left p{color:var(--ink-soft);font-size:16px;margin-bottom:14px;max-width:52ch}
+  .dd-left .dd-note{color:var(--ink);font-weight:500;font-size:15.5px;padding-left:16px;
+    border-left:2px solid var(--brass);margin-top:6px}
+  .dd-right{padding:44px 42px;background:var(--surface-2);border-left:1px solid var(--line-soft)}
+  @media(max-width:820px){.dd-right{border-left:none;border-top:1px solid var(--line-soft)}}
+  .dd-right .dd-cap{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;
+    color:var(--brass);display:block;margin-bottom:18px}
+  .dd-right ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px}
+  .dd-right li{font-size:15px;color:var(--ink);padding-left:28px;position:relative;line-height:1.4}
+  .dd-right li::before{content:"?";position:absolute;left:0;top:-1px;width:20px;height:20px;border-radius:50%;
+    background:var(--pine);color:var(--brass-bright);font-family:"Iowan Old Style",Georgia,serif;font-weight:700;
+    font-size:12px;display:grid;place-items:center}
 
   /* ============ CTA FOOTER ============ */
   .cta{background:
@@ -677,35 +702,67 @@
     <div class="sec-head reveal">
       <span class="eyebrow">Modelo de investimento</span>
       <h2 class="serif">Alinhado ao seu resultado — não ao nosso esforço.</h2>
-      <p class="lead">A remuneração combina implantação, operação e sucesso. Quanto mais o canal cresce com
-        qualidade, maior o retorno de ambas as partes.</p>
+      <p class="lead">Três componentes: um fee recorrente que mantém o canal rodando, um success fee sobre o que
+        o canal gera, e um bônus por desempenho. Quanto mais o canal cresce com qualidade, maior o retorno dos dois lados.</p>
     </div>
     <div class="pricing reveal" style="margin-top:44px">
       <div class="price">
-        <span class="p-kick">Bloco 1</span><h3 class="serif">Implantação</h3>
-        <div class="p-model">Valor fixo por fase</div>
-        <p class="p-desc">Diagnóstico, desenho, portal e piloto — Fases 0 a 3.</p>
-        <ul><li>Pagamento gate a gate</li><li>Escopo fechado por entregável</li><li>Portal e integrações inclusos</li></ul>
-        <div class="tag">Valores detalhados após a Fase 0.</div>
+        <span class="p-kick">Desempenho</span>
+        <div class="p-value serif">Bônus</div>
+        <div class="p-model">por metas atingidas</div>
+        <p class="p-desc">Um adicional variável quando o canal supera as metas acordadas de cotas e qualidade.</p>
+        <ul><li>Pago sobre metas batidas</li><li>Recompensa resultado, não esforço</li><li>Critérios fechados no aprofundamento</li></ul>
+        <div class="tag">O incentivo extra de ir além.</div>
       </div>
       <div class="price feat">
-        <span class="p-kick">Bloco 2 · recorrente</span><h3 class="serif">Operação do canal</h3>
-        <div class="p-model">Fee mensal + variável</div>
-        <p class="p-desc">Gestão, suporte, treinamento e BI — Fase 4 em diante.</p>
-        <ul><li>Fee fixo mensal de operação</li><li>Componente variável por performance</li><li>Governança e melhoria contínua</li></ul>
+        <span class="p-kick">Recorrente · o motor</span>
+        <div class="p-value serif">R$ 20.000<span>/mês</span></div>
+        <div class="p-model">operação e gestão do canal</div>
+        <p class="p-desc">Fee mensal fixo pela operação contínua: gestão, suporte, treinamento e BI do canal.</p>
+        <ul><li>Valor fixo e previsível</li><li>Canal rodando de ponta a ponta</li><li>Governança e melhoria contínua</li></ul>
         <div class="tag">O motor recorrente do canal.</div>
       </div>
       <div class="price">
-        <span class="p-kick">Bloco 3</span><h3 class="serif">Success fee</h3>
-        <div class="p-model">% sobre resultado incremental</div>
-        <p class="p-desc">Sobre a superação das metas de cotas e qualidade.</p>
-        <ul><li>Vinculado ao resultado incremental</li><li>Só remunera o que cresce</li><li>Mesmo objetivo da Recon</li></ul>
+        <span class="p-kick">Success fee</span>
+        <div class="p-value serif">5%<span>&nbsp;da receita</span></div>
+        <div class="p-model">sobre a receita bruta do canal</div>
+        <p class="p-desc">5% sobre toda a receita bruta gerada através do canal de parceria — só ganhamos quando vocês ganham.</p>
+        <ul><li>Incide só sobre o que o canal gera</li><li>Zero venda, zero fee</li><li>Mesmo objetivo da Recon</li></ul>
         <div class="tag">Alinhamento total de incentivos.</div>
       </div>
     </div>
-    <p class="reveal" style="margin-top:22px;font-size:13.5px;color:var(--ink-faint);max-width:70ch">
-      Estrutura ilustrativa e não vinculante. Percentuais e valores são calibrados na Fase 0 (Diagnóstico) e
-      homologados pela diretoria da Recon na proposta comercial anexa.</p>
+    <p class="reveal" style="margin-top:22px;font-size:13.5px;color:var(--ink-faint);max-width:74ch">
+      Os valores acima definem o modelo comercial da parceria. Critérios do bônus, base de cálculo do success fee
+      e demais detalhes finos são fechados, junto com vocês, no aprofundamento estratégico da implementação.</p>
+  </div>
+</section>
+
+<!-- ============ APROFUNDAMENTO ESTRATÉGICO ============ -->
+<section id="aprofundamento">
+  <div class="wrap">
+    <div class="deepdive reveal">
+      <div class="dd-left">
+        <span class="eyebrow">Aprofundamento estratégico da implementação</span>
+        <h2 class="serif">Toda dúvida que ficar, respondemos aqui.</h2>
+        <p>Esta proposta mostra o formato, os números e a direção. Cada regra fina, integração e critério é
+          fechado <b>junto com vocês</b> no aprofundamento estratégico da implementação — a etapa dedicada,
+          logo no início do trabalho, em que o canal é desenhado sob medida <b>antes</b> de qualquer
+          investimento pesado. Nenhuma decisão importante é tomada às cegas.</p>
+        <p class="dd-note">É lá que a proposta vira plano executável — e onde você tira, ponto a ponto, tudo o
+          que ainda estiver em aberto.</p>
+      </div>
+      <div class="dd-right">
+        <span class="dd-cap">Exemplos do que fica respondido lá</span>
+        <ul>
+          <li>Percentual exato de comissão por modalidade e por nível de parceiro</li>
+          <li>Como o bônus por desempenho é calculado e quando é pago</li>
+          <li>Como o portal integra com o CRM/ERP que vocês já usam</li>
+          <li>Metas por região e por perfil de parceiro</li>
+          <li>O que entra no contrato de parceria e no código de conduta</li>
+          <li>Como funciona a apuração e o repasse das comissões no dia a dia</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
