@@ -1,0 +1,1014 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sócio 360 ProjeFarma</title>
+<meta name="description" content="Proposta de sociedade ativa de 12 meses para Eliz e Tiago — Grupo ProjeFarma, Igrejinha/RS.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────────────────────────────────────────────────
+   Sócio 360 · ProjeFarma
+   Sistema: pinho profundo + ouro (identidade Sócio),
+   sálvia técnica reservada para cotas e anotações de planta.
+   ───────────────────────────────────────────────────────────── */
+
+:root{
+  --serif:'Playfair Display','Iowan Old Style',Georgia,'Times New Roman',serif;
+  --sans:Inter,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --mono-f:'DM Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  --max:1180px;
+}
+
+*{box-sizing:border-box}
+html{scroll-snap-type:y mandatory;scroll-behavior:smooth}
+body{
+  margin:0;
+  background:#0A1712;
+  color:#F1EDE3;
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.5;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── Tokens por superfície ─────────────────────────────────── */
+.slide{
+  --bg:#0A1712;
+  --fg:#F1EDE3;
+  --fg2:#CFD8D0;
+  --accent:#DBBE7A;
+  --accent-2:#A89055;
+  --card:#13231A;
+  --card-2:#17291E;
+  --bd:rgba(219,190,122,.30);
+  --rule:rgba(219,190,122,.16);
+  --grid:rgba(219,190,122,.065);
+  --tech:#9FB6A6;
+}
+.slide.light{
+  --bg:#F1EDE3;
+  --fg:#11201A;
+  --fg2:#3A4B41;
+  --accent:#7A6330;
+  --accent-2:#A89055;
+  --card:rgba(255,255,255,.70);
+  --card-2:rgba(255,255,255,.52);
+  --bd:rgba(12,22,16,.20);
+  --rule:rgba(12,22,16,.13);
+  --grid:rgba(12,22,16,.075);
+  --tech:#4C6053;
+}
+
+/* ── Chrome fixo ───────────────────────────────────────────── */
+.deck-progress{
+  position:fixed;z-index:30;top:0;left:0;height:3px;width:0;
+  background:linear-gradient(90deg,#A89055,#DBBE7A);
+  box-shadow:0 0 16px rgba(219,190,122,.6);
+}
+.topbar{
+  position:fixed;z-index:20;top:18px;
+  left:max(28px,calc((100vw - var(--max))/2));
+  right:max(28px,calc((100vw - var(--max))/2));
+  display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+  pointer-events:none;
+  transition:color .45s ease;
+  color:rgba(241,237,227,.72);
+}
+.topbar.is-light{color:rgba(17,32,26,.66)}
+.brand,.slideno{
+  font-family:var(--mono-f);font-size:10px;font-weight:500;
+  letter-spacing:.18em;text-transform:uppercase;color:inherit;
+  white-space:nowrap;
+}
+.brand strong{color:#C9A961;font-weight:500}
+.topbar.is-light .brand strong{color:#7A6330}
+.slideno{font-variant-numeric:tabular-nums}
+
+/* ── Slide ─────────────────────────────────────────────────── */
+.slide{
+  position:relative;min-height:100svh;
+  scroll-snap-align:start;
+  display:flex;align-items:center;
+  padding:104px max(28px,calc((100vw - var(--max))/2)) 88px;
+  overflow:hidden;
+  background:var(--bg);color:var(--fg);
+}
+.slide::before{ /* malha métrica — a planta baixa por trás de tudo */
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(var(--grid) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:52px 52px;
+}
+.aura{position:absolute;border-radius:50%;pointer-events:none;filter:blur(2px)}
+.aura.one{
+  width:620px;height:620px;right:-250px;top:-230px;
+  background:radial-gradient(circle,rgba(40,105,68,.38),transparent 66%);
+  animation:drift 15s ease-in-out infinite;
+}
+.aura.two{
+  width:500px;height:500px;left:-250px;bottom:-240px;
+  background:radial-gradient(circle,rgba(219,190,122,.15),transparent 65%);
+  animation:drift 19s ease-in-out infinite reverse;
+}
+.light .aura.one{background:radial-gradient(circle,rgba(168,144,85,.20),transparent 65%)}
+.light .aura.two{background:radial-gradient(circle,rgba(40,105,68,.13),transparent 66%)}
+@keyframes drift{50%{transform:translate(35px,25px) scale(1.07)}}
+
+.inner{position:relative;z-index:2;width:100%;max-width:var(--max);margin:auto}
+.inner.grid-2{display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,.88fr);gap:64px;align-items:center}
+.inner.grid-2>*{min-width:0} /* impede que colunas com tabelas estourem a margem */
+
+/* ── Tipografia ────────────────────────────────────────────── */
+.eyebrow{
+  font-family:var(--mono-f);font-size:11px;font-weight:500;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--accent);
+  margin:0 0 16px;
+}
+.headline{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(29px,3.1vw,38px);line-height:1.14;letter-spacing:-.025em;
+  max-width:800px;margin:0;text-wrap:balance;color:var(--fg);
+}
+.headline em{font-style:italic;color:var(--accent)}
+.statement .headline{font-size:clamp(32px,3.6vw,44px);max-width:800px}
+.lead{
+  font-size:16px;line-height:1.58;color:var(--fg2);
+  max-width:650px;margin:21px 0 0;
+}
+.big-quote{
+  margin:27px 0 0;padding-left:22px;border-left:2px solid var(--accent-2);
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(18px,1.6vw,23px);line-height:1.42;
+  color:var(--fg2);max-width:760px;
+}
+.kicker{
+  font-family:var(--mono-f);font-size:12px;font-weight:500;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin:0;
+}
+
+/* ── Reveal ────────────────────────────────────────────────── */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.active .reveal{opacity:1;transform:none}
+.active .reveal:nth-child(2){transition-delay:.10s}
+.active .reveal:nth-child(3){transition-delay:.18s}
+.active .reveal:nth-child(4){transition-delay:.26s}
+.active .reveal:nth-child(5){transition-delay:.34s}
+
+/* ── Hero ──────────────────────────────────────────────────── */
+.hero-slide{padding-top:92px}
+.hero-copy{display:flex;flex-direction:column;align-items:flex-start;max-width:650px}
+.hero-copy .headline{max-width:620px}
+.orbit-wrap{display:flex;align-items:center;justify-content:center;min-height:470px}
+.orbit{position:relative;width:min(38vw,450px);aspect-ratio:1;margin:0 auto}
+.orb{position:absolute;inset:7%;border:1px solid var(--bd);border-radius:50%;animation:spin 35s linear infinite}
+.orb::after{
+  content:"";position:absolute;top:0;left:50%;width:10px;height:10px;
+  background:var(--accent);border-radius:50%;box-shadow:0 0 20px var(--accent);
+}
+.orb.b{inset:20%;animation-duration:23s;animation-direction:reverse}
+.orb.c{inset:34%;animation-duration:16s}
+.core{
+  position:absolute;inset:39%;border-radius:50%;
+  display:grid;place-content:center;text-align:center;
+  background:linear-gradient(145deg,#26382C,#0A1712);
+  border:1px solid rgba(219,190,122,.55);
+  box-shadow:0 0 60px rgba(219,190,122,.13);
+  font-family:var(--serif);font-size:17px;font-weight:500;color:#F1EDE3;
+}
+.orbit-label{
+  position:absolute;font-family:var(--mono-f);font-size:10px;font-weight:500;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--fg);
+}
+.ol1{top:0;left:44%}.ol2{right:-6%;top:45%}.ol3{bottom:1%;left:39%}.ol4{left:-5%;top:45%}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.number-row{
+  width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  margin-top:38px;
+  border-top:1px solid var(--bd);border-bottom:1px solid var(--rule);
+}
+.metric{
+  min-height:84px;padding:15px 18px;
+  border-left:1px solid var(--rule);
+  display:flex;flex-direction:column;justify-content:center;
+}
+.metric:first-child{border-left:0;padding-left:0}
+.metric b{
+  font-family:var(--serif);font-weight:500;font-size:27px;line-height:1;
+  color:var(--accent);margin-bottom:8px;font-variant-numeric:tabular-nums;
+}
+.metric span{
+  font-family:var(--mono-f);font-size:9.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--fg2);line-height:1.35;
+}
+
+/* ── Cards / grids ─────────────────────────────────────────── */
+.grid-3,.grid-4,.compare-grid,.cadence-grid,.timeline,.accelerator,.fit-grid,.duo{
+  display:grid;gap:18px;margin-top:34px;align-items:stretch;
+}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+.compare-grid{grid-template-columns:repeat(3,1fr)}
+.cadence-grid{grid-template-columns:1.08fr 1fr 1fr}
+.timeline{grid-template-columns:repeat(3,1fr);gap:24px}
+.accelerator{grid-template-columns:repeat(2,1fr)}
+.fit-grid{grid-template-columns:repeat(2,1fr);gap:20px}
+.duo{grid-template-columns:repeat(2,1fr)}
+
+.card{
+  height:100%;min-height:214px;padding:25px;
+  display:flex;flex-direction:column;
+  border:1px solid var(--bd);border-radius:18px;background:var(--card);
+}
+.card .symbol{font-family:var(--serif);font-size:28px;color:var(--accent);margin-bottom:16px;line-height:1}
+.card h3{font-family:var(--serif);font-weight:500;font-size:18px;line-height:1.18;margin:0 0 9px;color:var(--fg)}
+.card p{font-size:13.5px;line-height:1.55;color:var(--fg2);margin:0}
+.tag{
+  display:inline-block;align-self:flex-start;margin-top:18px;
+  font-family:var(--mono-f);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);border:1px solid var(--bd);border-radius:99px;padding:7px 10px;
+}
+
+/* Sócios */
+.person{
+  height:100%;padding:28px;display:flex;flex-direction:column;
+  border:1px solid var(--bd);border-radius:20px;background:var(--card);
+}
+.person .role{font-family:var(--mono-f);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+.person h3{font-family:var(--serif);font-weight:500;font-size:30px;margin:14px 0 12px;color:var(--fg);line-height:1.05}
+.person p{font-size:14px;line-height:1.55;color:var(--fg2);margin:0}
+.person .front{
+  margin-top:auto;padding-top:20px;border-top:1px solid var(--rule);
+  font-family:var(--mono-f);font-size:10px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--tech);line-height:1.6;
+}
+
+/* Lista de cotas — leitura de diagnóstico */
+.fragment-list{margin-top:32px;display:grid;gap:0;border-top:1px solid var(--rule)}
+.fragment{
+  display:flex;justify-content:space-between;align-items:baseline;gap:20px;
+  padding:14px 0;border-bottom:1px solid var(--rule);font-size:15px;color:var(--fg);
+}
+.fragment b{font-weight:500;min-width:0}
+.fragment span{
+  font-family:var(--mono-f);font-size:11.5px;color:var(--accent);
+  text-align:right;min-width:0;font-variant-numeric:tabular-nums;
+}
+
+/* Fluxo de nós */
+.path{
+  position:relative;min-height:350px;padding:30px;
+  border:1px solid var(--bd);border-radius:24px;background:var(--card-2);
+}
+.path::before{content:"";position:absolute;left:17%;right:17%;top:50%;height:1px;background:var(--accent-2)}
+.node{
+  position:absolute;top:50%;width:112px;height:112px;border-radius:50%;
+  border:1px solid var(--accent-2);background:var(--card);
+  display:grid;place-content:center;text-align:center;z-index:1;
+  font-family:var(--mono-f);font-size:10px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--fg);line-height:1.5;
+}
+.node::after{content:"";position:absolute;inset:12px;border-radius:50%;border:1px solid var(--rule)}
+.n1{left:8%;transform:translateY(-50%)}
+.n2{left:50%;transform:translate(-50%,-50%)}
+.n3{right:8%;transform:translateY(-50%)}
+
+/* Comparação de categorias */
+.compare{
+  height:100%;min-height:250px;padding:26px;display:flex;flex-direction:column;
+  border:1px solid var(--bd);border-radius:18px;background:var(--card-2);
+}
+.compare h3{font-family:var(--serif);font-weight:500;font-size:23px;margin:0 0 16px;color:var(--fg)}
+.compare ul{list-style:none;margin:auto 0 0;padding:0}
+.compare li{
+  padding:11px 0;border-top:1px solid var(--rule);
+  font-size:13.5px;line-height:1.45;color:var(--fg2);
+}
+.compare li::before{content:'—';margin-right:8px;color:var(--accent-2)}
+.compare.focus{
+  background:#122019;border-color:#A89055;color:#F1EDE3;
+  box-shadow:0 18px 46px rgba(10,23,18,.28);
+}
+.compare.focus h3{color:#DBBE7A}
+.compare.focus li{color:#E2E8E2;border-color:rgba(241,237,227,.16)}
+
+/* Pilares */
+.pillar{
+  height:100%;min-height:262px;padding:24px 22px;display:flex;flex-direction:column;
+  border-top:2px solid var(--accent-2);background:var(--card);
+}
+.pillar .num{font-family:var(--mono-f);font-size:10px;letter-spacing:.12em;color:var(--accent)}
+.pillar h3{font-family:var(--serif);font-weight:500;font-size:27px;margin:20px 0 10px;color:var(--fg);line-height:1.1}
+.pillar p{font-size:13.5px;line-height:1.58;color:var(--fg2);margin:0}
+.pillar small{
+  margin-top:auto;padding-top:20px;color:var(--accent);
+  font-family:var(--mono-f);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+}
+
+/* Jornada */
+.journey{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;margin-top:32px;align-items:stretch}
+.gantt{
+  display:flex;flex-direction:column;justify-content:center;min-height:360px;
+  padding:24px;border:1px solid var(--bd);border-radius:19px;background:var(--card-2);
+}
+.months{display:grid;grid-template-columns:repeat(12,1fr);gap:3px;margin:0 0 13px 126px}
+.months span{
+  font-family:var(--mono-f);font-size:9px;color:var(--fg2);text-align:center;
+  font-variant-numeric:tabular-nums;
+}
+.g-row{display:grid;grid-template-columns:120px 1fr;align-items:center;gap:6px;margin:12px 0}
+.g-label{font-family:var(--mono-f);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--fg)}
+.g-track{height:25px;display:grid;grid-template-columns:repeat(12,1fr);gap:3px}
+.g-bar{height:100%;border-radius:5px;background:linear-gradient(90deg,#A89055,#DBBE7A)}
+.g-bar.green{background:linear-gradient(90deg,#2E5C3D,#6F9A69)}
+.g-bar.dim{background:linear-gradient(90deg,#4C6659,#87A18B)}
+.journey-notes{display:grid;grid-template-rows:repeat(3,1fr);gap:12px}
+.note{
+  display:flex;flex-direction:column;justify-content:center;min-height:112px;
+  padding:18px 20px;border-left:1px solid var(--accent-2);background:var(--card-2);
+}
+.note b{display:block;font-family:var(--serif);font-weight:500;font-size:18px;margin-bottom:6px;color:var(--fg)}
+.note p{margin:0;font-size:13px;line-height:1.5;color:var(--fg2)}
+
+/* Fases */
+.phase{padding:19px 0;border-top:2px solid var(--accent-2)}
+.phase .month{font-family:var(--mono-f);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.phase h3{font-family:var(--serif);font-weight:500;font-size:26px;margin:14px 0 9px;color:var(--fg);line-height:1.1}
+.phase p{font-size:13.5px;line-height:1.55;color:var(--fg2);margin:0}
+
+/* Cadência */
+.cadence{
+  height:100%;min-height:230px;padding:26px;display:flex;flex-direction:column;
+  border:1px solid var(--bd);border-radius:18px;background:var(--card);
+}
+.cadence .when{font-family:var(--mono-f);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.cadence h3{font-family:var(--serif);font-weight:500;font-size:22px;margin:0 0 10px;color:var(--fg);line-height:1.14}
+.cadence p{font-size:13.5px;line-height:1.55;color:var(--fg2);margin:0}
+
+/* Aceleração */
+.acc-card{
+  height:100%;min-height:166px;padding:25px;display:flex;flex-direction:column;
+  border:1px solid var(--bd);border-radius:18px;background:var(--card);
+}
+.acc-card h3{font-family:var(--serif);font-weight:500;font-size:24px;margin:0 0 9px;color:var(--fg);line-height:1.14}
+.acc-card p{margin:0;font-size:14px;line-height:1.5;color:var(--fg2)}
+
+/* Ecossistema */
+.ecosystem{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:30px;
+  background:var(--bd);border:1px solid var(--bd);
+}
+.eco{padding:27px;background:var(--card);display:flex;flex-direction:column;min-height:214px}
+.eco .symbol{font-family:var(--serif);font-size:26px;color:var(--accent);line-height:1}
+.eco h3{font-family:var(--serif);font-weight:500;font-size:23px;margin:18px 0 9px;color:var(--fg);line-height:1.14}
+.eco p{font-size:13.5px;line-height:1.5;color:var(--fg2);margin:0}
+
+/* Entregáveis */
+.deliverables{margin-top:30px;border:1px solid var(--bd);border-radius:18px;overflow:hidden;background:var(--card-2)}
+.d-row{
+  display:grid;grid-template-columns:minmax(210px,1fr) minmax(170px,.8fr) minmax(340px,1.4fr);
+  gap:18px;padding:17px 22px;border-top:1px solid var(--rule);
+  font-size:13.5px;line-height:1.45;color:var(--fg2);align-items:center;
+}
+.d-row:first-child{border-top:0}
+.d-row b{color:var(--fg);font-weight:600}
+.d-row.header{
+  font-family:var(--mono-f);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);background:rgba(168,144,85,.11);
+}
+
+/* Fit */
+.fit{height:100%;min-height:300px;padding:29px;border:1px solid var(--bd);border-radius:20px;background:var(--card)}
+.fit h3{font-family:var(--serif);font-weight:500;font-size:27px;margin:0 0 18px;line-height:1.14;color:var(--fg)}
+.fit.yes h3{color:var(--accent)}
+.fit.no{border-color:var(--rule);background:var(--card-2)}
+.fit ul{list-style:none;margin:0;padding:0}
+.fit li{padding:11px 0;border-top:1px solid var(--rule);font-size:14px;line-height:1.5;color:var(--fg2)}
+
+/* Decisão */
+.decision{max-width:860px;margin:auto;text-align:center}
+.decision .headline{margin:auto;max-width:740px}
+.decision .lead{margin-left:auto;margin-right:auto}
+.proposal{
+  max-width:570px;margin:30px auto 0;padding:29px;
+  border:1px solid var(--accent-2);border-radius:22px;
+  background:linear-gradient(145deg,rgba(219,190,122,.14),rgba(255,255,255,.03));
+}
+.light .proposal{background:linear-gradient(145deg,rgba(219,190,122,.20),rgba(255,255,255,.55))}
+.proposal .label{font-family:var(--mono-f);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent)}
+.proposal p{font-family:var(--serif);font-size:22px;line-height:1.35;margin:16px auto;max-width:500px;color:var(--fg)}
+.proposal small{display:block;max-width:480px;margin:0 auto;font-size:12px;line-height:1.5;color:var(--fg2)}
+
+/* Rodapés */
+.footer,.scroll-hint{
+  position:absolute;bottom:25px;
+  font-family:var(--mono-f);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+}
+.footer{left:max(28px,calc((100vw - var(--max))/2));color:var(--fg2);opacity:.72}
+.scroll-hint{right:max(28px,calc((100vw - var(--max))/2));color:var(--accent)}
+
+/* Acessibilidade */
+:focus-visible{outline:2px solid #DBBE7A;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .aura,.orb{animation:none}
+}
+
+/* ── Responsivo ────────────────────────────────────────────── */
+@media(max-width:980px){
+  .inner.grid-2{grid-template-columns:minmax(0,1fr) minmax(300px,.75fr);gap:36px}
+  .orbit-wrap{min-height:380px}
+  .orbit{width:min(41vw,370px)}
+  .grid-4,.accelerator{grid-template-columns:repeat(2,1fr)}
+  .cadence-grid,.compare-grid,.grid-3,.timeline,.ecosystem{grid-template-columns:1fr}
+  .journey{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  html{scroll-snap-type:none}
+  .slide{min-height:auto;padding:92px 24px 80px}
+  .topbar{top:16px;left:24px;right:24px}
+  .brand-suffix{display:none}
+  .inner.grid-2,.grid-4,.accelerator,.fit-grid,.duo{grid-template-columns:1fr}
+  .headline,.statement .headline{font-size:31px;line-height:1.16}
+  .lead{font-size:15px}
+  .hero-copy{max-width:none}
+  .orbit-wrap{min-height:auto;padding:8px 0 12px}
+  .orbit{width:min(68vw,290px)}
+  .metric{padding:13px 10px}
+  .metric:first-child{padding-left:0}
+  .metric b{font-size:23px}
+  .metric span{font-size:8.5px}
+  .card,.compare,.cadence,.fit,.acc-card,.eco,.person,.pillar{min-height:auto}
+  .grid-3,.grid-4,.compare-grid,.cadence-grid,.timeline,.accelerator,.fit-grid,.duo,.ecosystem{gap:14px;margin-top:27px}
+  .gantt{overflow-x:auto;min-height:320px}
+  .months,.g-row{min-width:600px}
+  .journey-notes{grid-template-rows:none}
+  .d-row{grid-template-columns:1fr;gap:5px}
+  .d-row.header{display:none}
+  .path{min-height:410px}
+  .path::before{left:50%;right:auto;top:14%;bottom:14%;width:1px;height:auto}
+  .node{width:86px;height:86px;font-size:8.5px;left:50%;right:auto}
+  .n1{top:12%;transform:translate(-50%,-50%)}
+  .n2{top:50%;transform:translate(-50%,-50%)}
+  .n3{top:88%;transform:translate(-50%,-50%)}
+  .footer{left:24px}
+  .scroll-hint{right:24px}
+}
+</style>
+</head>
+<body>
+
+<div class="deck-progress"></div>
+<div class="topbar">
+  <div class="brand"><strong>Sócio</strong> Estratégico<span class="brand-suffix"> · Proposta ProjeFarma</span></div>
+  <div class="slideno">01 / 20</div>
+</div>
+
+<!-- 01 · Capa -->
+<section class="slide hero-slide" data-chapter="Capa">
+  <div class="aura one"></div><div class="aura two"></div>
+  <div class="inner grid-2">
+    <div class="hero-copy">
+      <div class="eyebrow reveal">Sociedade ativa · 12 meses · Igrejinha/RS</div>
+      <h1 class="headline reveal">Vocês projetam o espaço de mais de 5.000 farmácias. <em>Quem projeta a ProjeFarma?</em></h1>
+      <p class="lead reveal">Uma proposta de Sócio 360 para Eliz e Tiago: aplicar à própria empresa o mesmo rigor de diagnóstico, projeto e execução que a ProjeFarma entrega aos seus clientes há mais de doze anos.</p>
+      <div class="number-row reveal">
+        <div class="metric"><b>5.000+</b><span>farmácias atendidas</span></div>
+        <div class="metric"><b>4</b><span>países atendidos</span></div>
+        <div class="metric"><b>12</b><span>meses de sociedade</span></div>
+      </div>
+    </div>
+    <div class="orbit-wrap">
+      <div class="orbit reveal">
+        <div class="orb"></div><div class="orb b"></div><div class="orb c"></div>
+        <div class="core">Sócio<br>360</div>
+        <span class="orbit-label ol1">Receita</span>
+        <span class="orbit-label ol2">Gestão</span>
+        <span class="orbit-label ol3">Operação</span>
+        <span class="orbit-label ol4">Estratégia</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer">Grupo ProjeFarma · apresentação executiva</div>
+  <div class="scroll-hint">role para explorar ↓</div>
+</section>
+
+<!-- 02 · Os sócios -->
+<section class="slide light" data-chapter="Os sócios">
+  <div class="aura one"></div>
+  <div class="inner">
+    <div class="eyebrow reveal">Para Eliz e Tiago · sócios-fundadores</div>
+    <h2 class="headline reveal">Uma proposta escrita para dois sócios que já provaram <em>do que a empresa é capaz.</em></h2>
+    <div class="duo reveal">
+      <article class="person">
+        <div class="role">CEO · Grupo ProjeFarma</div>
+        <h3>Tiago</h3>
+        <p>Conduz a visão de layout estratégico e gerenciamento por categorias que virou a assinatura da marca — do chão de fábrica em Igrejinha aos fóruns do setor. Hoje divide atenção entre produto, expansão no Mercosul e a formação da camada executiva.</p>
+        <div class="front">Frente atual · estratégia, expansão, representação institucional</div>
+      </article>
+      <article class="person">
+        <div class="role">Sócia · frente comercial e relacionamento</div>
+        <h3>Eliz</h3>
+        <p>Sustenta a ponte entre o cliente e a engenharia de projetos: atrai, qualifica e traduz a realidade de cada farmácia em briefing técnico. É a face da marca no digital e o padrão de atendimento que os novos consultores precisam replicar.</p>
+        <div class="front">Frente atual · comercial, social selling, padrão de atendimento</div>
+      </article>
+    </div>
+    <p class="lead reveal">O Sócio 360 entra ao lado de vocês dois — não acima, não no lugar. A sociedade existe para que decisões que hoje dependem da presença de um dos dois passem a depender de um sistema que os dois conduzem.</p>
+  </div>
+  <div class="footer">02 · Os sócios</div>
+</section>
+
+<!-- 03 · A tese -->
+<section class="slide" data-chapter="A tese">
+  <div class="aura one"></div>
+  <div class="inner statement">
+    <div class="eyebrow reveal">A tese</div>
+    <h2 class="headline reveal">A ProjeFarma já domina o método. Falta apontá-lo <em>para dentro de casa.</em></h2>
+    <p class="big-quote reveal">Nenhum cliente de vocês cresce por acaso: primeiro vem o diagnóstico da planta, depois o projeto, a fabricação sob medida, a montagem e o acompanhamento. É exatamente essa sequência que o Sócio 360 aplica à empresa — diagnóstico da operação, projeto de gestão, construção com a liderança, implementação assistida e acompanhamento por 12 meses.</p>
+  </div>
+  <div class="footer">03 · A tese</div>
+</section>
+
+<!-- 04 · Diagnóstico -->
+<section class="slide" data-chapter="Diagnóstico">
+  <div class="aura two"></div>
+  <div class="inner grid-2">
+    <div>
+      <div class="eyebrow reveal">Leitura do momento</div>
+      <h2 class="headline reveal">Uma empresa que está crescendo em <em>quatro frentes ao mesmo tempo.</em></h2>
+      <p class="lead reveal">Cada uma dessas frentes é uma boa decisão. Juntas, no mesmo ano, elas exigem uma camada de coordenação que nenhuma delas traz consigo.</p>
+    </div>
+    <div class="reveal">
+      <div class="fragment-list">
+        <div class="fragment"><b>Fábrica e projeto</b><span>Igrejinha · RS</span></div>
+        <div class="fragment"><b>Base instalada</b><span>+5.000 lojas</span></div>
+        <div class="fragment"><b>Expansão internacional</b><span>UY · PY · AR</span></div>
+        <div class="fragment"><b>Time comercial externo</b><span>Montevidéu</span></div>
+        <div class="fragment"><b>Pré-venda nativa em espanhol</b><span>SDR · sede</span></div>
+        <div class="fragment"><b>Camada executiva</b><span>CFO · POP · cultura</span></div>
+        <div class="fragment"><b>Condição comercial</b><span>até 60x sem entrada</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">04 · Diagnóstico</div>
+</section>
+
+<!-- 05 · O problema -->
+<section class="slide light" data-chapter="O problema">
+  <div class="aura one"></div>
+  <div class="inner">
+    <div class="eyebrow reveal">O problema, na linguagem de vocês</div>
+    <h2 class="headline reveal">Toda empresa em expansão acumula os seus próprios <em>pontos cegos.</em></h2>
+    <div class="grid-3 reveal">
+      <article class="card">
+        <div class="symbol">◇</div>
+        <h3>Zonas mortas na gestão</h3>
+        <p>Comercial, fábrica, logística e montagem operam bem isoladamente — mas ninguém mede o percurso inteiro, do primeiro contato da Eliz até a loja entregue e o pós-venda.</p>
+      </article>
+      <article class="card">
+        <div class="symbol">↗</div>
+        <h3>A estratégia não desce até o chão de fábrica</h3>
+        <p>Decisões tomadas na diretoria chegam à produção e às equipes de montagem sem dono, prazo e prioridade explícitos. A intenção existe; a cadência, não.</p>
+      </article>
+      <article class="card">
+        <div class="symbol">◎</div>
+        <h3>Os sócios viram o corredor de circulação</h3>
+        <p>Quando todo fluxo relevante passa por Eliz ou Tiago, o crescimento encontra um teto que não é de mercado nem de capacidade fabril — é de agenda.</p>
+      </article>
+    </div>
+  </div>
+  <div class="footer">05 · O problema</div>
+</section>
+
+<!-- 06 · O efeito -->
+<section class="slide" data-chapter="O problema">
+  <div class="aura one"></div>
+  <div class="inner grid-2">
+    <div>
+      <div class="eyebrow reveal">O efeito da fragmentação</div>
+      <h2 class="headline reveal">Sem visão de conjunto, a empresa passa a reagir <em>em vez de conduzir.</em></h2>
+      <p class="lead reveal">O risco de um ano de expansão simultânea no Brasil e no Mercosul não é errar a estratégia. É acertá-la e não conseguir sustentá-la na rotina — com a fábrica em pico, o funil desalinhado e a liderança consumida pelo urgente.</p>
+    </div>
+    <div class="path reveal">
+      <div class="node n1">frentes<br>isoladas</div>
+      <div class="node n2">sócios como<br>gargalo</div>
+      <div class="node n3">crescimento<br>sem cadência</div>
+    </div>
+  </div>
+  <div class="footer">06 · O efeito</div>
+</section>
+
+<!-- 07 · Nova categoria -->
+<section class="slide light" data-chapter="Nova categoria">
+  <div class="aura one"></div>
+  <div class="inner">
+    <div class="eyebrow reveal">Não é mais um fornecedor</div>
+    <h2 class="headline reveal">A diferença entre receber uma recomendação e ter alguém <em>ao lado da decisão.</em></h2>
+    <div class="compare-grid reveal">
+      <article class="compare">
+        <h3>Mentoria</h3>
+        <ul>
+          <li>Provoca reflexão e amplia repertório</li>
+          <li>Encontros pontuais, na agenda do mentor</li>
+          <li>A ProjeFarma executa sozinha depois</li>
+        </ul>
+      </article>
+      <article class="compare">
+        <h3>Consultoria</h3>
+        <ul>
+          <li>Diagnostica e entrega recomendações</li>
+          <li>Escopo fechado, com data de término</li>
+          <li>Entrega conhecimento — não convivência</li>
+        </ul>
+      </article>
+      <article class="compare focus">
+        <h3>Sócio 360</h3>
+        <ul>
+          <li>Participa da estratégia e da cadência do negócio</li>
+          <li>Constrói com Eliz, Tiago e a liderança por 12 meses</li>
+          <li>Conecta decisão, execução e evolução da empresa</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+  <div class="footer">07 · Nova categoria</div>
+</section>
+
+<!-- 08 · O modelo -->
+<section class="slide" data-chapter="O modelo">
+  <div class="aura one"></div>
+  <div class="inner">
+    <div class="eyebrow reveal">Sócio 360 · quatro pilares aplicados à ProjeFarma</div>
+    <h2 class="headline reveal">Uma camada estratégica para organizar o presente e <em>construir o próximo nível.</em></h2>
+    <div class="grid-4 reveal">
+      <article class="pillar">
+        <div class="num">Pilar · Receita</div>
+        <h3>Receita</h3>
+        <p>Funil B2B do social selling ao contrato assinado, produtividade de SDR e executivos, leitura de custo de aquisição por país e previsibilidade do modelo de parcelamento longo.</p>
+        <small>crescer com direção</small>
+      </article>
+      <article class="pillar">
+        <div class="num">Pilar · Estratégia</div>
+        <h3>Estratégia</h3>
+        <p>Posicionamento diante de fabricantes multissetoriais, prioridade entre Brasil e Mercosul, evolução do portfólio e escolha consciente de quais clientes a empresa quer atender.</p>
+        <small>escolher melhor</small>
+      </article>
+      <article class="pillar">
+        <div class="num">Pilar · Gestão</div>
+        <h3>Gestão</h3>
+        <p>Indicadores que a diretoria olha toda semana, POPs que sobrevivem à rotina, formação da camada de liderança e uso pleno da estrutura financeira que vocês acabaram de montar.</p>
+        <small>decidir com método</small>
+      </article>
+      <article class="pillar">
+        <div class="num">Pilar · Operação</div>
+        <h3>Operação</h3>
+        <p>O percurso completo entre projeto 3D, produção, expedição e montagem: prazos reais, capacidade da fábrica, retrabalho e a experiência do lojista até o pós-venda.</p>
+        <small>executar com ritmo</small>
+      </article>
+    </div>
+  </div>
+  <div class="footer">08 · O modelo</div>
+</section>
+
+<!-- 09 · A jornada -->
+<section class="slide light" data-chapter="A jornada">
+  <div class="aura one"></div>
+  <div class="inner">
+    <div class="eyebrow reveal">A jornada completa</div>
+    <h2 class="headline reveal">Um ano que começa com imersão e segue com <em>implementação acompanhada.</em></h2>
+    <div class="journey reveal">
+      <div class="gantt">
+        <div class="months"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span></div>
+        <div class="g-row">
+          <div class="g-label">Onboarding</div>
+          <div class="g-track"><i class="g-bar" style="grid-column:1/2"></i></div>
+        </div>
+        <div class="g-row">
+          <div class="g-label">Implementação</div>
+          <div class="g-track"><i class="g-bar green" style="grid-column:2/13"></i></div>
+        </div>
+        <div class="g-row">
+          <div class="g-label">Aceleração</div>
+          <div class="g-track"><i class="g-bar dim" style="grid-column:1/13"></i></div>
+        </div>
+      </div>
+      <div class="journey-notes">
+        <div class="note">
+          <b>Mês 1 · onboarding</b>
+          <p>Imersão presencial em Igrejinha, leitura do contexto com os sócios e desenho da agenda de trabalho do ciclo.</p>
+        </div>
+        <div class="note">
+          <b>Meses 2 a 12 · implementação</b>
+          <p>Prioridades acompanhadas de perto, rituais de decisão instalados e rota revisada conforme a empresa avança.</p>
+        </div>
+        <div class="note">
+          <b>Ciclo inteiro · aceleração</b>
+          <p>Repertório, conexões e experiências que ampliam a capacidade de execução da liderança da ProjeFarma.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">09 · A jornada</div>
+</section>
+
+<!-- 10 · Fase 01 -->
+<section class="slide" data-chapter="A jornada">
+  <div class="aura two"></div>
+  <div class="inner">
+    <div class="eyebrow reveal">Fase 01 · primeiros 30 dias</div>
+    <h2 class="headline reveal">Antes de acelerar, é preciso criar <em>clareza compartilhada.</em></h2>
+    <div class="timeline reveal">
+      <article class="phase">
+        <div class="month">Semana 01</div>
+        <h3>Imersão</h3>
+        <p>Dias na operação: fábrica, projetos, comercial e pós-venda. Entender como a ProjeFarma realmente funciona, não como o organograma diz que funciona.</p>
+      </article>
+      <article class="phase">
+        <div class="month">Semanas 02–03</div>
+        <h3>Alinhamento</h3>
+        <p>Sessões com Eliz e Tiago para separar o que é urgente do que é estratégico e definir as poucas questões que merecem atenção no ciclo.</p>
+      </article>
+      <article class="phase">
+        <div class="month">Semana 04</div>
+        <h3>Rota inicial</h3>
+        <p>Prioridades com dono e prazo, interlocutores definidos e a primeira cadência de execução instalada para sustentar os onze meses seguintes.</p>
+      </article>
+    </div>
+  </div>
+  <div class="footer">10 · Fase 01</div>
+</section>
+
+<!-- 11 · Fase 02 -->
+<section class="slide light" data-chapter="A jornada">
+  <div class="aura one"></div>
+  <div class="inner">
+    <div class="eyebrow reveal">Fase 02 · meses 2 a 12</div>
+    <h2 class="headline reveal">Implementação não é a etapa final. É a disciplina de <em>manter o rumo.</em></h2>
+    <div class="grid-3 reveal">
+      <article class="card">
+        <div class="symbol">◐</div>
+        <h3>Prioridades vivas</h3>
+        <p>O plano encontra a realidade da fábrica, do funil e da agenda dos sócios — e vira decisão prática, responsável definido e próximo movimento.</p>
+      </article>
+      <article class="card">
+        <div class="symbol">◑</div>
+        <h3>Acompanhamento</h3>
+        <p>A liderança não fica sozinha entre uma boa ideia e a próxima reunião. Há alguém acompanhando o que foi combinado, semana após semana.</p>
+      </article>
+      <article class="card">
+        <div class="symbol">◒</div>
+        <h3>Reorientação</h3>
+        <p>Mercosul, câmbio, sazonalidade do varejo farma: quando o contexto muda, a rota é revisitada antes de virar prejuízo ou retrabalho.</p>
+      </article>
+    </div>
+  </div>
+  <div class="footer">11 · Fase 02</div>
+</section>
+
+<!-- 12 · Governança -->
+<section class="slide" data-chapter="Governança">
+  <div class="aura one"></div>
+  <div class="inner">
+    <div class="eyebrow reveal">A cadência que transforma decisão em sistema</div>
+    <h2 class="headline reveal">Uma sociedade anual precisa de rituais que <em>mantenham a empresa em movimento.</em></h2>
+    <div class="cadence-grid reveal">
+      <article class="cadence">
+        <div class="when">Mensal</div>
+        <h3>Conselho Executivo</h3>
+        <p>Espaço estruturado com os sócios e a liderança para tratar indicadores, prioridades do mês e as decisões que exigem visão de conjunto — não de departamento.</p>
+      </article>
+      <article class="cadence">
+        <div class="when">Trimestral</div>
+        <h3>Replanejamento</h3>
+        <p>Releitura de rota a cada trimestre: o que funcionou na expansão, o que a fábrica comportou, o que precisa ser corrigido antes do próximo ciclo de vendas.</p>
+      </article>
+      <article class="cadence">
+        <div class="when">Quando o negócio exige</div>
+        <h3>War Room</h3>
+        <p>Frente concentrada para desafios críticos — um gargalo de produção em pico, a entrada em um novo país, uma negociação relevante — com resposta rápida e clara.</p>
+      </article>
+    </div>
+  </div>
+  <div class="footer">12 · Governança</div>
+</section>
+
+<!-- 13 · Aceleração -->
+<section class="slide light" data-chapter="Aceleração">
+  <div class="aura one"></div>
+  <div class="inner">
+    <div class="eyebrow reveal">Camada de aceleração</div>
+    <h2 class="headline reveal">Mais repertório dentro da empresa. Mais capital social <em>ao redor dela.</em></h2>
+    <div class="accelerator reveal">
+      <article class="acc-card">
+        <h3>Treinamentos quinzenais</h3>
+        <p>Encontros recorrentes para desenvolver o time — da liderança aos consultores e SDRs — dentro da cultura de "profissionais acima da média" que a ProjeFarma já defende.</p>
+      </article>
+      <article class="acc-card">
+        <h3>Networking e capital social</h3>
+        <p>Conexões com empresários que enfrentam desafios equivalentes de indústria, canal e expansão — trocas que encurtam curvas de aprendizado.</p>
+      </article>
+      <article class="acc-card">
+        <h3>Dois encontros presenciais por ano</h3>
+        <p>Momentos em São Paulo para aprofundar discussões, ampliar relações e criar a distância produtiva que a rotina de Igrejinha não permite.</p>
+      </article>
+      <article class="acc-card">
+        <h3>CEO in Company anual</h3>
+        <p>Uma experiência anual que traz a visão de um CEO para dentro da realidade da ProjeFarma, olhando a operação de perto e com franqueza.</p>
+      </article>
+    </div>
+  </div>
+  <div class="footer">13 · Aceleração</div>
+</section>
+
+<!-- 14 · Ecossistema -->
+<section class="slide" data-chapter="Ecossistema">
+  <div class="aura two"></div>
+  <div class="inner">
+    <div class="eyebrow reveal">Ecossistema Sócio</div>
+    <h2 class="headline reveal">O parceiro certo também sabe <em>convocar especialidade.</em></h2>
+    <p class="lead reveal">Quando um tema pede profundidade específica, o Sócio 360 conecta a ProjeFarma às frentes especializadas do ecossistema — sem trocar de interlocutor nem recomeçar o contexto.</p>
+    <div class="ecosystem reveal">
+      <article class="eco">
+        <div class="symbol">◆</div>
+        <h3>Sócio Financeiro</h3>
+        <p>Margem por projeto, efeito do parcelamento longo no caixa, câmbio e estrutura de custos da operação internacional — ao lado do CFO, não no lugar dele.</p>
+      </article>
+      <article class="eco">
+        <div class="symbol">◈</div>
+        <h3>Sócio IA</h3>
+        <p>Inteligência artificial aplicada ao que vocês já fazem: agilidade na proposta comercial, apoio ao projeto 3D e produtividade da pré-venda em dois idiomas.</p>
+      </article>
+      <article class="eco">
+        <div class="symbol">✦</div>
+        <h3>Sócio Talentos</h3>
+        <p>Atração e retenção para um time que cresce em dois países, com perfis raros — de montadores especializados a SDRs nativos em espanhol.</p>
+      </article>
+    </div>
+  </div>
+  <div class="footer">14 · Ecossistema</div>
+</section>
+
+<!-- 15 · Pertencimento -->
+<section class="slide light" data-chapter="Pertencimento">
+  <div class="aura one"></div>
+  <div class="inner grid-2">
+    <div>
+      <div class="eyebrow reveal">Pertencimento</div>
+      <h2 class="headline reveal">Ninguém constrói o próximo nível <em>em isolamento.</em></h2>
+      <p class="lead reveal">Liderar uma indústria em Igrejinha e vender em quatro países é, quase sempre, uma posição solitária. O Sócio 360 inclui uma dimensão de comunidade: empresários que compartilham desafios reais e elevam o padrão de conversa.</p>
+      <p class="big-quote reveal">Não é acesso a conteúdo. É proximidade com conversas que aumentam a ambição e a qualidade do pensamento de quem decide.</p>
+    </div>
+    <div class="reveal">
+      <div class="card" style="padding:36px">
+        <div class="symbol">◎</div>
+        <h3 style="font-size:29px">Uma rede que acompanha o ciclo</h3>
+        <p style="font-size:15px">Treinamentos, encontros e networking criam pontos de contato para que a ProjeFarma avance não só em processo — avance também em visão, relações e maturidade de liderança.</p>
+        <span class="tag">Comunidade Sócio</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer">15 · Pertencimento</div>
+</section>
+
+<!-- 16 · Entregáveis -->
+<section class="slide" data-chapter="Entregáveis">
+  <div class="aura one"></div>
+  <div class="inner">
+    <div class="eyebrow reveal">Mapa consolidado</div>
+    <h2 class="headline reveal">A sociedade vista em <em>entregas e cadências.</em></h2>
+    <div class="deliverables reveal">
+      <div class="d-row header"><div>Frente</div><div>Cadência</div><div>Como se materializa na ProjeFarma</div></div>
+      <div class="d-row"><div><b>Onboarding estratégico</b></div><div>Primeiros 30 dias</div><div>Imersão em Igrejinha, alinhamento com os sócios e definição da rota inicial do ciclo.</div></div>
+      <div class="d-row"><div><b>Implementação assistida</b></div><div>Meses 2 a 12</div><div>Acompanhamento das prioridades de receita, gestão e operação até virarem rotina.</div></div>
+      <div class="d-row"><div><b>Governança executiva</b></div><div>Mensal e trimestral</div><div>Conselho Executivo e replanejamento com a liderança do Brasil e do Mercosul.</div></div>
+      <div class="d-row"><div><b>Desafios críticos</b></div><div>Sob demanda</div><div>War Room para gargalos de produção, entrada em novos mercados e decisões de peso.</div></div>
+      <div class="d-row"><div><b>Camada de aceleração</b></div><div>Ao longo do ciclo</div><div>Treinamentos quinzenais, networking, dois encontros em SP e CEO in Company.</div></div>
+      <div class="d-row"><div><b>Ecossistema Sócio</b></div><div>Quando o tema pedir</div><div>Frentes de Financeiro, IA e Talentos acionadas dentro do mesmo contexto de trabalho.</div></div>
+    </div>
+  </div>
+  <div class="footer">16 · Entregáveis</div>
+</section>
+
+<!-- 17 · O que muda -->
+<section class="slide light" data-chapter="Valor">
+  <div class="aura one"></div>
+  <div class="inner grid-2">
+    <div>
+      <div class="eyebrow reveal">O que muda até o mês 12</div>
+      <h2 class="headline reveal">O valor não está na reunião. Está na empresa <em>seguir avançando sem depender da agenda dos sócios.</em></h2>
+      <p class="lead reveal">O compromisso do Sócio 360 não é um número prometido — é uma empresa em condição diferente de decidir, executar e crescer ao fim do ciclo.</p>
+    </div>
+    <div class="reveal">
+      <div class="fragment-list">
+        <div class="fragment"><b>Decisões</b><span>com dado, não com intuição</span></div>
+        <div class="fragment"><b>Rotina</b><span>cadência instalada</span></div>
+        <div class="fragment"><b>Liderança</b><span>além de Eliz e Tiago</span></div>
+        <div class="fragment"><b>Comercial</b><span>funil previsível nos 4 países</span></div>
+        <div class="fragment"><b>Operação</b><span>prazo e capacidade sob controle</span></div>
+        <div class="fragment"><b>Sócios</b><span>tempo devolvido à estratégia</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">17 · Valor</div>
+</section>
+
+<!-- 18 · Fit -->
+<section class="slide" data-chapter="Fit">
+  <div class="aura two"></div>
+  <div class="inner">
+    <div class="eyebrow reveal">Fit de parceria</div>
+    <h2 class="headline reveal">Uma relação para quem quer <em>assumir o próximo nível.</em></h2>
+    <div class="fit-grid reveal">
+      <article class="fit yes">
+        <h3>Faz sentido se vocês…</h3>
+        <ul>
+          <li>querem integrar receita, gestão, operação e estratégia em vez de tratar cada frente isoladamente;</li>
+          <li>reconhecem que os sócios não podem seguir sendo o único ponto de integração da empresa;</li>
+          <li>estão dispostos a abrir a operação, os números e a agenda para um parceiro que participa das decisões;</li>
+          <li>enxergam a expansão no Mercosul como projeto de longo prazo, não como oportunidade pontual.</li>
+        </ul>
+      </article>
+      <article class="fit no">
+        <h3>Talvez não seja o momento se…</h3>
+        <ul>
+          <li>a busca é por um executor para uma demanda específica — um plano, uma campanha, um projeto isolado;</li>
+          <li>a liderança não tem disponibilidade para participar das decisões e da implementação ao longo do ano;</li>
+          <li>a expectativa é de resposta imediata sem compromisso com rotina, prioridade e mudança de hábito.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+  <div class="footer">18 · Fit</div>
+</section>
+
+<!-- 19 · Decisão -->
+<section class="slide light" data-chapter="Decisão">
+  <div class="aura one"></div>
+  <div class="inner decision">
+    <div class="eyebrow reveal">A decisão</div>
+    <h2 class="headline reveal">A ProjeFarma que vocês querem ver em 12 meses pede <em>qual tipo de parceria?</em></h2>
+    <div class="proposal reveal">
+      <div class="label">Próximo passo</div>
+      <p>Uma proposta sob medida para o momento, os desafios e a ambição do Grupo ProjeFarma.</p>
+      <small>O investimento é definido após o alinhamento de escopo, contexto e composição da sociedade com Eliz e Tiago.</small>
+    </div>
+  </div>
+  <div class="footer">19 · Decisão</div>
+</section>
+
+<!-- 20 · Fechamento -->
+<section class="slide" data-chapter="Fechamento">
+  <div class="aura one"></div><div class="aura two"></div>
+  <div class="inner decision">
+    <div class="eyebrow reveal">Sócio Estratégico · Sócio 360</div>
+    <h2 class="headline reveal">Vocês entregam a loja pronta para vender.<br><em>Vamos fazer o mesmo pela ProjeFarma.</em></h2>
+    <p class="lead reveal">Uma sociedade ativa para os próximos 12 meses da empresa que Eliz e Tiago construíram.</p>
+    <p class="kicker reveal" style="margin-top:42px">Vamos conversar sobre o próximo ciclo.</p>
+  </div>
+  <div class="footer">Sócio 360 · proposta para o Grupo ProjeFarma</div>
+</section>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var progress = document.querySelector('.deck-progress');
+  var number = document.querySelector('.slideno');
+  var topbar = document.querySelector('.topbar');
+  var total = String(slides.length).padStart(2,'0');
+  var current = 0;
+
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      e.target.classList.add('active');
+      current = slides.indexOf(e.target);
+      number.textContent = String(current+1).padStart(2,'0') + ' / ' + total;
+      topbar.classList.toggle('is-light', e.target.classList.contains('light'));
+    });
+  },{threshold:.42});
+  slides.forEach(function(s){ obs.observe(s); });
+
+  addEventListener('scroll', function(){
+    var max = document.documentElement.scrollHeight - innerHeight;
+    progress.style.width = (max > 0 ? (scrollY / max * 100) : 0) + '%';
+  },{passive:true});
+
+  addEventListener('keydown', function(ev){
+    var next = ev.key === 'ArrowDown' || ev.key === 'PageDown' || ev.key === ' ';
+    var prev = ev.key === 'ArrowUp' || ev.key === 'PageUp';
+    if(!next && !prev) return;
+    var target = slides[current + (next ? 1 : -1)];
+    if(!target) return;
+    ev.preventDefault();
+    target.scrollIntoView({behavior:'smooth'});
+  });
+})();
+</script>
+</body>
+</html>
