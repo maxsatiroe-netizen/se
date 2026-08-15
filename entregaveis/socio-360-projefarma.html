@@ -369,18 +369,27 @@ body{
 .eco h3{font-family:var(--serif);font-weight:500;font-size:23px;margin:18px 0 9px;color:var(--fg);line-height:1.14}
 .eco p{font-size:13.5px;line-height:1.5;color:var(--fg2);margin:0}
 
-/* Entregáveis */
-.deliverables{margin-top:30px;border:1px solid var(--bd);border-radius:18px;overflow:hidden;background:var(--card-2)}
-.d-row{
-  display:grid;grid-template-columns:minmax(210px,1fr) minmax(170px,.8fr) minmax(340px,1.4fr);
-  gap:18px;padding:17px 22px;border-top:1px solid var(--rule);
-  font-size:13.5px;line-height:1.45;color:var(--fg2);align-items:center;
+/* Entregáveis — mapa por fase */
+.deliv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px;align-items:stretch}
+.deliv{
+  height:100%;display:flex;flex-direction:column;padding:26px 24px;
+  border:1px solid var(--bd);border-radius:18px;background:var(--card);
 }
-.d-row:first-child{border-top:0}
-.d-row b{color:var(--fg);font-weight:600}
-.d-row.header{
-  font-family:var(--mono-f);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--accent);background:rgba(168,144,85,.11);
+.deliv .when{
+  font-family:var(--mono-f);font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--accent);
+}
+.deliv h3{
+  font-family:var(--serif);font-weight:500;font-size:25px;line-height:1.1;
+  margin:12px 0 14px;color:var(--fg);
+}
+.deliv ul{list-style:none;margin:0;padding:0}
+.deliv li{
+  position:relative;padding:10px 0 10px 18px;border-top:1px solid var(--rule);
+  font-size:13px;line-height:1.45;color:var(--fg2);
+}
+.deliv li::before{ /* traço de cota, no lugar do marcador */
+  content:"";position:absolute;left:0;top:17px;width:8px;height:1px;background:var(--accent-2);
 }
 
 /* Fit */
@@ -455,8 +464,7 @@ body{
   .gantt{overflow-x:auto;min-height:320px}
   .months,.g-row{min-width:600px}
   .journey-notes{grid-template-rows:none}
-  .d-row{grid-template-columns:1fr;gap:5px}
-  .d-row.header{display:none}
+  .deliv-grid{grid-template-columns:1fr;gap:14px;margin-top:27px}
   .path{min-height:410px}
   .path::before{left:50%;right:auto;top:14%;bottom:14%;width:1px;height:auto}
   .node{width:86px;height:86px;font-size:8.5px;left:50%;right:auto}
@@ -733,7 +741,7 @@ body{
   <div class="inner">
     <div class="eyebrow reveal">Fase 02 · meses 2 a 12</div>
     <h2 class="headline reveal">Implementação não é a etapa final. É onde a mão <em>entra junto com a de vocês.</em></h2>
-    <p class="lead reveal">Aqui está a diferença que dá nome à parceria: o Sócio 360 não entrega recomendação e volta na reunião seguinte para cobrar. O que precisar ser executado para a prioridade sair do papel, executamos — como sócios, com a mesma responsabilidade pelo resultado.</p>
+    <p class="lead reveal">Aqui está a diferença que dá nome à parceria: o Sócio 360 não entrega recomendação e volta na reunião seguinte para cobrar. Existe um time em campo executando o que foi definido — como sócios, com a mesma responsabilidade pelo resultado.</p>
     <div class="grid-3 reveal">
       <article class="card">
         <div class="symbol">◐</div>
@@ -743,7 +751,7 @@ body{
       <article class="card">
         <div class="symbol">◑</div>
         <h3>Executamos o que for preciso</h3>
-        <p>Construir o indicador, desenhar o ritual, preparar a conversa difícil, destravar um fornecedor, sentar com o gestor que travou. Nada volta para a mesa de Eliz e Tiago como tarefa nossa.</p>
+        <p>O time Sócio opera os projetos prioritários — indicador, ritual, processo, documentação — e o Sócio Estratégico entra direto na operação quando algo precisa ser destravado. Não volta para a mesa de Eliz e Tiago como tarefa.</p>
       </article>
       <article class="card">
         <div class="symbol">◒</div>
@@ -822,17 +830,17 @@ body{
       <article class="eco">
         <div class="symbol">◆</div>
         <h3>Sócio Financeiro</h3>
-        <p>Margem por projeto, efeito do parcelamento longo no caixa, câmbio e estrutura de custos da operação internacional — ao lado do CFO, não no lugar dele.</p>
+        <p>Diagnóstico financeiro com Victor Milagres: margem por projeto, efeito do parcelamento longo no caixa e custos da operação internacional — ao lado do CFO, não no lugar dele.</p>
       </article>
       <article class="eco">
         <div class="symbol">◈</div>
         <h3>Sócio IA</h3>
-        <p>Inteligência artificial aplicada ao que vocês já fazem: agilidade na proposta comercial, apoio ao projeto 3D e produtividade da pré-venda em dois idiomas.</p>
+        <p>Diagnóstico de uso de IA com Alexandre Klepa, aplicado ao que vocês já fazem: agilidade na proposta comercial, apoio ao projeto e produtividade da pré-venda em dois idiomas.</p>
       </article>
       <article class="eco">
         <div class="symbol">✦</div>
         <h3>Sócio Talentos</h3>
-        <p>Atração e retenção para um time que cresce em dois países, com perfis raros — de projetistas de layout a SDRs nativos em espanhol.</p>
+        <p>Benefício de recrutamento para posições de gerência e coordenação para baixo — útil para um time que cresce em dois países, com perfis raros como SDRs nativos em espanhol.</p>
       </article>
     </div>
   </div>
@@ -865,16 +873,47 @@ body{
 <section class="slide" data-chapter="Entregáveis">
   <div class="aura one"></div>
   <div class="inner">
-    <div class="eyebrow reveal">Mapa consolidado</div>
-    <h2 class="headline reveal">A sociedade vista em <em>entregas e cadências.</em></h2>
-    <div class="deliverables reveal">
-      <div class="d-row header"><div>Frente</div><div>Cadência</div><div>Como se materializa na ProjeFarma</div></div>
-      <div class="d-row"><div><b>Onboarding estratégico</b></div><div>Primeiros 30 dias</div><div>Formulário de 100+ perguntas, entrevistas de descoberta com a gestão e rota inicial definida.</div></div>
-      <div class="d-row"><div><b>Implementação assistida</b></div><div>Meses 2 a 12</div><div>Execução das prioridades de receita, gestão e operação ao lado da liderança, até virarem rotina.</div></div>
-      <div class="d-row"><div><b>Governança executiva</b></div><div>Mensal e trimestral</div><div>Conselho Executivo e replanejamento com a liderança do Brasil e do Mercosul.</div></div>
-      <div class="d-row"><div><b>Desafios críticos</b></div><div>Sob demanda</div><div>War Room para gargalos de entrega, entrada em novos mercados e decisões de peso.</div></div>
-      <div class="d-row"><div><b>Camada de aceleração</b></div><div>Ao longo do ciclo</div><div>Treinamentos que alinham o time ao planejamento, networking, dois encontros em SP e CEO in Company.</div></div>
-      <div class="d-row"><div><b>Ecossistema Sócio</b></div><div>Quando o tema pedir</div><div>Frentes de Financeiro, IA e Talentos acionadas dentro do mesmo contexto de trabalho.</div></div>
+    <div class="eyebrow reveal">Mapa consolidado de entregáveis</div>
+    <h2 class="headline reveal">O que a ProjeFarma recebe, <em>fase por fase.</em></h2>
+    <div class="deliv-grid reveal">
+      <article class="deliv">
+        <div class="when">Fase 01 · primeiros 30 dias</div>
+        <h3>Onboarding</h3>
+        <ul>
+          <li>Formulário de kick-off com mais de 100 perguntas</li>
+          <li>Entrevistas de descoberta com Eliz, Tiago e os gestores</li>
+          <li>Diagnóstico profundo do negócio</li>
+          <li>Planejamento estratégico conduzido com o Sócio Estratégico</li>
+          <li>Roadmap anual e plano de execução dos primeiros 90 dias</li>
+          <li>Indicadores e cadências de acompanhamento definidos</li>
+        </ul>
+      </article>
+      <article class="deliv">
+        <div class="when">Fase 02 · meses 2 a 12</div>
+        <h3>Implementação</h3>
+        <ul>
+          <li>Execução dos projetos prioritários pelo time Sócio</li>
+          <li>Processos, rotinas e ativos de gestão estruturados</li>
+          <li>SOPs, playbooks e documentação da operação</li>
+          <li>Acompanhamento contínuo das iniciativas prioritárias</li>
+          <li>Apoio executivo nas decisões de maior impacto</li>
+          <li>Correção de rota conforme resultado e contexto</li>
+        </ul>
+      </article>
+      <article class="deliv">
+        <div class="when">Fase 03 · ciclo inteiro</div>
+        <h3>Aceleração</h3>
+        <ul>
+          <li>Conselho Executivo mensal com o Sócio Estratégico</li>
+          <li>Replanejamento estratégico trimestral + novo plano de 90 dias</li>
+          <li>War Room quando a decisão não puder esperar a cadência</li>
+          <li>Treinamentos quinzenais com gestores e equipes</li>
+          <li>Introduções proativas à rede do Sócio Estratégico</li>
+          <li>Dois encontros presenciais por ano em São Paulo</li>
+          <li>CEO in Company uma vez por ano</li>
+          <li>Ecossistema: diagnóstico financeiro, de IA e recrutamento</li>
+        </ul>
+      </article>
     </div>
   </div>
   <div class="footer">15 · Entregáveis</div>
