@@ -56,12 +56,21 @@ da empresa. Qualifica melhor e faz o lead se identificar antes de falar de preç
 
 ---
 
-## Parte 2 — Alavancas que dependem da sua decisão comercial
+### 8. Termos da sociedade — risco do nosso lado *(aprovado)*
+Slide próprio antes da decisão, com as duas condições validadas: **compromisso do primeiro
+trimestre** (se ao fim do terceiro mês não existirem Mapa da Dívida medido, Rota 360 desenhada e
+donos definidos, a sociedade se encerra sem multa) e **limite de sociedades por ciclo**. A garantia
+ficou amarrada a entregáveis objetivos, não a satisfação subjetiva — por isso é segura de oferecer.
+O fechamento repete o compromisso, para que a última coisa lida antes do preço seja a redução de
+risco.
 
-Estas são as que mais aumentam conversão, e nenhuma entrou no deck porque comprometem a operação ou
-a política de preço. Copy pronta para cada uma.
+> Slide 25 · pendência única: substituir `[N]` pelo número real de sociedades por ciclo.
 
-### A. Porta de saída no primeiro trimestre (reversão de risco)
+---
+
+## Parte 2 — Alavancas ainda pendentes da sua decisão
+
+### A. ~~Porta de saída no primeiro trimestre~~ — **implementada**
 > *"Se ao fim do terceiro mês a empresa não tiver o Mapa da Dívida, a Rota 360 e os donos definidos,
 > você encerra a sociedade sem multa."*
 
@@ -74,21 +83,24 @@ elimina a maior objeção de um contrato anual de alto valor.
 
 Escassez honesta e verificável, que ainda eleva o valor percebido e reduz a comparação de preço.
 
-### C. Número de sociedades por ciclo
-> *"São X sociedades ativas por ano — é o limite do que dá para acompanhar com presença real."*
-
-Só use se for verdade operacional. A justificativa ("é o limite do que dá para acompanhar") é o que
-a torna crível em vez de artificial.
+### C. ~~Número de sociedades por ciclo~~ — **implementada**
+Falta apenas o número. No arquivo, o token é `[N]`.
 
 ### D. Acesso entre os rituais
 > *"Canal direto com o sócio, com resposta em até 24 horas úteis."*
 
 É o que faz a palavra "sócio" parar de ser metáfora. Precisa de um SLA que a operação sustente.
 
-### E. Prova real
-Um único caso com o antes e o depois do Índice de Integração vale mais que os cinco slides
-anteriores juntos. Deixei o deck sem prova de propósito: **caso inventado destrói o mecanismo.**
-Assim que houver um cliente com o índice medido, esse slide entra entre a Escada e o Valor.
+### E. Prova real — **aguardando seu caso**
+Um único caso com antes e depois vale mais que os cinco slides anteriores juntos. O slide entra
+entre a Escada (20) e o Valor (21). Para montá-lo, preciso de:
+
+1. setor e porte da empresa (pode ser anonimizado: "indústria de embalagens, ~180 funcionários");
+2. a situação inicial em uma frase — o que passava pelo dono, o que estava travado;
+3. o que mudou concretamente ao longo do ciclo (rituais que passaram a rodar, frentes que ganharam
+   dono, decisões que destravaram);
+4. qualquer número que você possa sustentar publicamente — e, se não houver, seguimos sem número;
+5. se pode citar o nome da empresa ou se entra como caso anonimizado.
 
 ### F. Escada de preço
 O ciclo 1 quita a dívida; o ciclo 2 escala a empresa integrada. Nomear o segundo ciclo desde a
