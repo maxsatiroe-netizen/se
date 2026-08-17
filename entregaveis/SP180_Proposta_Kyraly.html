@@ -235,8 +235,15 @@
   /* ============ PEOPLE ============ */
   .people{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
   @media(max-width:820px){.people{grid-template-columns:1fr}}
-  .person{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:24px;
-    box-shadow:var(--shadow);display:flex;gap:18px;align-items:flex-start}
+  .person{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:24px 50px 24px 24px;
+    box-shadow:var(--shadow);display:flex;gap:18px;align-items:flex-start;position:relative}
+  .li-link{position:absolute;top:16px;right:16px;width:28px;height:28px;display:grid;place-items:center;
+    color:#0A66C2;border-radius:6px;text-decoration:none;transition:transform .15s,background .2s}
+  .li-link:hover{transform:translateY(-1px);background:color-mix(in srgb,#0A66C2 14%,transparent)}
+  .li-link:focus-visible{outline:2px solid #0A66C2;outline-offset:2px}
+  .li-link svg{width:20px;height:20px;display:block}
+  .person.feat .li-link{color:#6CB2F2}
+  .person.feat .li-link:hover{background:rgba(108,178,242,.16)}
   .person .av{flex:none;width:46px;height:46px;border-radius:11px;background:var(--navy);color:var(--signal-bright);
     display:grid;place-items:center;font-family:"SF Mono",ui-monospace,Menlo,monospace;font-weight:700;font-size:15px}
   .person .role{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.1em;
@@ -628,23 +635,23 @@
         minha supervisão. É a capacidade de execução que colocamos à disposição — não um número prometido.</p>
     </div>
     <div class="people reveal" style="margin-top:40px">
-      <div class="person feat"><div class="av">MS</div><div>
+      <div class="person feat"><a class="li-link" href="https://www.linkedin.com/in/maxsatiroe/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Max Satiro" title="Ver no LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.73v20.54C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .78 23.2 0 22.22 0z"/></svg></a><div class="av">MS</div><div>
         <div class="role">Responsável pelo projeto · Sócio Estratégico</div>
         <h4>Max Satiro</h4>
         <p>Conduz a SP180 dentro da Kyraly, é o ponto focal com o Rodrigo e os sócios e responde pela
           entrega. Não é supervisão de longe — entra junto no dia a dia da receita.</p>
         <span class="tagline">O &ldquo;SE&rdquo; do cronograma sou eu</span></div></div>
-      <div class="person"><div class="av">MM</div><div>
+      <div class="person"><a class="li-link" href="https://www.linkedin.com/in/micaias-moraes-b42284123/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Micaias Moraes" title="Ver no LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.73v20.54C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .78 23.2 0 22.22 0z"/></svg></a><div class="av">MM</div><div>
         <div class="role">Especialista em Growth · Aquisição</div>
         <h4>Micaias Moraes</h4>
         <p>Abre e opera os canais, roda a engenharia reversa do plano comercial, entra nos pitches e treina
           o time no método de aquisição.</p></div></div>
-      <div class="person"><div class="av">KV</div><div>
+      <div class="person"><a class="li-link" href="https://www.linkedin.com/in/ketelin-vsl/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Ketelin" title="Ver no LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.73v20.54C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .78 23.2 0 22.22 0z"/></svg></a><div class="av">KV</div><div>
         <div class="role">Gestora de Projetos · PMO &amp; cadência</div>
         <h4>Ketelin</h4>
         <p>Toca o PMO da SP180: donos, ritos e gates mensais, documentação e o modelo de previsão de
           receita com os indicadores de cada frente.</p></div></div>
-      <div class="person"><div class="av">GR</div><div>
+      <div class="person"><a class="li-link" href="https://www.linkedin.com/in/gabriel-reis-70a868202/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Gabriel Reis" title="Ver no LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.73v20.54C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .78 23.2 0 22.22 0z"/></svg></a><div class="av">GR</div><div>
         <div class="role">Especialista em Processos &amp; IA</div>
         <h4>Gabriel Reis</h4>
         <p>Estrutura processos e a operação com foco em NRR, e aplica IA na prática — Kyraly Lab e
