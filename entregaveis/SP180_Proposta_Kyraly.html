@@ -15,6 +15,8 @@
     --navy-2:#1A2C20;
     --signal:#957A38;       /* ouro profundo — acento em fundo claro */
     --signal-bright:#DBBE7A;/* ouro da marca — em fundo escuro */
+    --gold-s:#A89055;       /* o "S" da marca (bright perde contraste no bege) */
+    --gold-word:#8A7238;    /* ESTRATÉGICO — ouro profundo */
     --jade:#5C7A4C;         /* verde — delta positivo */
     --on-navy:#F0ECE2;
     --on-navy-soft:#B8B09A;
@@ -36,6 +38,8 @@
       --navy-2:#152318;
       --signal:#DBBE7A;
       --signal-bright:#E8CF94;
+      --gold-s:#DBBE7A;
+      --gold-word:#A89055;
       --jade:#8BA778;
       --on-navy:#F0ECE2;
       --on-navy-soft:#B8B09A;
@@ -56,6 +60,8 @@
     --navy-2:#152318;
     --signal:#DBBE7A;
     --signal-bright:#E8CF94;
+      --gold-s:#DBBE7A;
+      --gold-word:#A89055;
     --jade:#8BA778;
     --on-navy:#F0ECE2;
     --on-navy-soft:#B8B09A;
@@ -87,11 +93,20 @@
   .nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 85%,transparent);
     backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft)}
   .nav-in{max-width:var(--maxw);margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:20px}
-  .brand{display:flex;align-items:center;gap:11px;font-weight:700;letter-spacing:-.01em}
-  .brand .mark{width:34px;height:30px;border-radius:7px;background:var(--navy);color:var(--signal-bright);
-    display:grid;place-items:center;font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:12.5px;font-weight:700;letter-spacing:.02em}
-  .brand small{display:block;font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:10.5px;
-    letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);font-weight:600;margin-top:1px}
+  /* ---- SÓCIO ESTRATÉGICO lockup ---- */
+  .lockup{display:flex;align-items:center;gap:11px;text-decoration:none}
+  .lockup .ring{flex:none;width:36px;height:36px;border-radius:50%;border:1.5px solid var(--gold-s);
+    display:grid;place-items:center;position:relative}
+  .lockup .ring::after{content:"";position:absolute;inset:3px;border-radius:50%;border:1px solid var(--gold-s);opacity:.35}
+  .lockup .ring span{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    font-size:20px;line-height:1;color:var(--gold-s);font-weight:600;font-style:italic}
+  .lockup .wm{display:flex;flex-direction:column;line-height:1.05}
+  .lockup .wm .a{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    font-size:15.5px;font-weight:600;letter-spacing:.02em;color:var(--ink)}
+  .lockup .wm .b{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:8.5px;font-weight:600;
+    letter-spacing:.34em;text-transform:uppercase;color:var(--gold-word);margin-top:3px}
+  .hero .lockup .wm .a,.cta-lockup .wm .a{color:var(--on-navy)}
+  .brand{display:flex;align-items:center;gap:11px}
   .nav-links{margin-left:auto;display:flex;gap:24px;align-items:center}
   .nav-links a{font-size:13.5px;color:var(--ink-soft);text-decoration:none;transition:color .2s}
   .nav-links a:hover{color:var(--ink)}
@@ -112,7 +127,12 @@
       linear-gradient(rgba(219,190,122,.07) 1px,transparent 1px),
       linear-gradient(90deg,rgba(219,190,122,.07) 1px,transparent 1px);
     background-size:34px 34px;mask-image:radial-gradient(120% 100% at 70% 0%,#000,transparent 75%)}
-  .hero-in{max-width:var(--maxw);margin:0 auto;padding:74px 28px 96px}
+  .hero-in{max-width:var(--maxw);margin:0 auto;padding:64px 28px 96px}
+  .hero-brand{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:34px}
+  .hero-brand .sep{width:1px;height:30px;background:rgba(240,236,226,.16)}
+  .hero-brand .to{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--on-navy-soft)}
+  .hero-brand .to b{color:var(--signal-bright);font-weight:600}
   .hero .eyebrow{color:var(--signal-bright)}
   .hero h1{font-size:clamp(38px,6.6vw,76px);margin:20px 0 0;max-width:16ch;letter-spacing:-.03em}
   .hero h1 em{font-style:normal;color:var(--signal-bright)}
@@ -311,7 +331,10 @@
 <!-- ============ NAV ============ -->
 <nav class="nav">
   <div class="nav-in">
-    <div class="brand"><span class="mark">SP180</span><span>Sócios por 180 dias<small>Implementadora · Kyraly</small></span></div>
+    <a class="brand lockup" href="#top" aria-label="Sócio Estratégico">
+      <span class="ring"><span>S</span></span>
+      <span class="wm"><span class="a">Sócio</span><span class="b">Estratégico</span></span>
+    </a>
     <div class="nav-links">
       <a href="#momento">Momento</a>
       <a href="#implementadora">Implementadora</a>
@@ -325,9 +348,17 @@
 </nav>
 
 <!-- ============ HERO ============ -->
-<header class="hero">
+<header class="hero" id="top">
   <div class="hero-in">
-    <span class="eyebrow">Proposta · Sócio Estratégico de Implementação · Foco em Receita</span>
+    <div class="hero-brand">
+      <span class="lockup">
+        <span class="ring"><span>S</span></span>
+        <span class="wm"><span class="a">Sócio</span><span class="b">Estratégico</span></span>
+      </span>
+      <span class="sep"></span>
+      <span class="to">Proposta para <b>Kyraly</b></span>
+    </div>
+    <span class="eyebrow">Implementadora de Receita · SP180 · Sócios por 180 dias</span>
     <h1>Entramos como sócios por <em>180 dias</em> para meter a mão na massa da receita.</h1>
     <p class="lead">A Kyraly já tem a estratégia desenhada. A SP180 assume a execução das frentes de
       receita — dentro de estratégia, gestão e operação — com um time dedicado, sob supervisão direta,
@@ -669,6 +700,10 @@
 <section id="cta">
   <div class="wrap">
     <div class="cta reveal">
+      <span class="lockup cta-lockup" style="justify-content:center;margin-bottom:22px">
+        <span class="ring"><span>S</span></span>
+        <span class="wm"><span class="a">Sócio</span><span class="b">Estratégico</span></span>
+      </span>
       <span class="eyebrow">Próximo passo</span>
       <h2>180 dias para tirar o plano do papel e botar receita na rua.</h2>
       <p>Fechamos o escopo de receita, montamos o squad e começamos pelo motor de aquisição. A Kyraly
@@ -688,6 +723,10 @@
 </section>
 
 <footer>
+  <span class="lockup" style="justify-content:center;margin-bottom:18px">
+    <span class="ring"><span>S</span></span>
+    <span class="wm"><span class="a">Sócio</span><span class="b">Estratégico</span></span>
+  </span>
   <p class="fnote">SP180 · Sócios por 180 dias — proposta de implementadora para a Kyraly. Escopo derivado do
     Planejamento Estratégico 2026–2028 e do Cronograma Kyraly. Metas de referência a homologar com dados
     internos no Mês 1. Documento confidencial.</p>
