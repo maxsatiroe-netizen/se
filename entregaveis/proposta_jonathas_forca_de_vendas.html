@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<title>Força de Vendas em 45 dias</title>
+<title>Força de Vendas em 45+15 dias</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
   /* ============ TOKENS ============ */
@@ -264,10 +264,32 @@
   .phase .out{margin-top:auto;padding-top:18px;font-size:12.5px;color:var(--ink-faint);border-top:1px solid var(--line-soft)}
   .phase .out b{color:var(--emerald);font-weight:600}
 
+  /* ============ BLOCO DE PRÁTICA ASSISTIDA ============ */
+  .phase-land{margin-top:20px;background:var(--pine);color:var(--on-pine);border-radius:16px;
+    padding:34px 36px;box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
+  @media(max-width:600px){.phase-land{padding:28px 24px}}
+  .phase-land::before{content:"";position:absolute;inset:0;z-index:0;opacity:.55;pointer-events:none;
+    background:radial-gradient(90% 130% at 88% -10%,rgba(200,162,75,.22),transparent 55%)}
+  .phase-land>*{position:relative;z-index:1}
+  .pl-win{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--brass-bright);font-weight:700}
+  .pl-title{font-family:"Iowan Old Style",Georgia,serif;font-size:24px;font-weight:600;margin:10px 0 12px;line-height:1.15}
+  .pl-desc{color:var(--on-pine-soft);font-size:15.5px;max-width:70ch}
+  .pl-desc strong{color:var(--on-pine);font-weight:600}
+  .pl-desc em{color:var(--brass-bright);font-style:italic}
+  .pl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+  @media(max-width:820px){.pl-grid{grid-template-columns:1fr}}
+  .pl-item{border:1px solid rgba(234,240,233,.16);border-radius:12px;padding:16px 18px;background:rgba(234,240,233,.045)}
+  .pl-item .pi-t{font-size:14px;font-weight:600;color:var(--on-pine);line-height:1.3}
+  .pl-item .pi-d{font-size:13px;color:var(--on-pine-soft);margin-top:5px;line-height:1.45}
+  .phase .out b{color:var(--emerald);font-weight:600}
+
   /* ============ INVESTIMENTO (sem preço) ============ */
   .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch;margin-top:44px}
   .pricing.four{grid-template-columns:repeat(2,1fr)}
-  @media(max-width:860px){.pricing{grid-template-columns:1fr}.pricing.four{grid-template-columns:1fr}}
+  .price.wide{grid-column:1/-1}
+  @media(max-width:860px){.pricing{grid-template-columns:1fr}.pricing.four{grid-template-columns:1fr}
+    .price.wide{grid-column:auto}}
   .price{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:30px;
     display:flex;flex-direction:column;box-shadow:var(--shadow)}
   .price.feat{background:var(--pine);color:var(--on-pine);border-color:var(--pine)}
@@ -351,8 +373,7 @@
     display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:center;color:var(--on-pine-soft);font-size:14px}
   .contact b{color:var(--on-pine);font-weight:600}
 
-  footer{padding:44px 0;text-align:center;color:var(--ink-faint);font-size:13px}
-  .fnote{max-width:72ch;margin:0 auto 10px}
+  .tail-space{height:56px}
 
   /* ============ REVEAL ============ */
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
@@ -368,12 +389,12 @@
 <!-- ============ NAV ============ -->
 <nav class="nav">
   <div class="nav-in">
-    <div class="brand"><span class="mark">SE</span><span>Força de Vendas em 45 dias&nbsp;·&nbsp;Jonathas</span></div>
+    <div class="brand"><span class="mark">SE</span><span>Força de Vendas 45+15&nbsp;·&nbsp;Jonathas</span></div>
     <div class="nav-links">
       <a href="#promessa">A entrega</a>
       <a href="#unidades">O que o time vende</a>
       <a href="#metodo">Método</a>
-      <a href="#fases">Os 45 dias</a>
+      <a href="#fases">O ciclo</a>
       <a href="#investimento">Investimento</a>
     </div>
     <button class="toggle" id="tgl" aria-label="Alternar tema claro/escuro" title="Alternar tema">◑</button>
@@ -383,14 +404,9 @@
 <!-- ============ HERO ============ -->
 <header class="hero">
   <div class="hero-in">
-    <span class="eyebrow">Força de vendas em 45 dias · Proposta para Jonathas</span>
+    <span class="eyebrow">Força de vendas em 45+15 dias · Proposta para Jonathas</span>
     <h1 class="serif">Um time de pré-vendas e vendas contratado, treinado <em>e entregue vendendo.</em></h1>
-    <p class="lead">Não é diagnóstico. É <strong>montar e entregar a força de vendas</strong> da agência de marketing e da agência de IA: recrutar SDR e closer, formar os dois num intensivão de vendas, deixar o CRM azeitado com política, indicador e ritual — e conduzir esse time <strong>sob a minha tutela</strong> até que ele esteja vendendo. No dia 45, ele passa para as suas mãos operando.</p>
-    <div class="hero-meta">
-      <span>Preparado para <b>Jonathas</b> · agência de marketing + agência de IA</span>
-      <span class="dot"></span><span>Sócio Estratégico · SE Capital</span>
-      <span class="dot"></span><span>Confidencial · v2.0 · Ago/2026</span>
-    </div>
+    <p class="lead">Não é diagnóstico. É <strong>montar e entregar a força de vendas</strong> da agência de marketing e da agência de IA: recrutar SDR e closer, formar os dois num intensivão de vendas, deixar o CRM azeitado com política, indicador e ritual — e conduzir esse time <strong>sob a minha tutela</strong> até que ele esteja vendendo. São <strong>45 dias na Sócio Estratégico</strong> e mais <strong>15 de prática assistida dentro da sua agência</strong>, para o time não só ser entregue, mas pegar.</p>
     <div class="cta-row">
       <a href="#contratar" class="btn btn-primary">Montar a força de vendas →</a>
       <a href="#metodo" class="btn btn-ghost">Ver o método</a>
@@ -399,7 +415,7 @@
 </header>
 
 <div class="hero-metrics reveal">
-  <div class="metric"><div class="num">45<span>d</span></div><div class="lbl">do zero ao time de vendas entregue e operando</div></div>
+  <div class="metric"><div class="num">45<span>+15</span></div><div class="lbl">dias — 45 na Sócio Estratégico, 15 de prática assistida na sua agência</div></div>
   <div class="metric"><div class="num">2</div><div class="lbl">funções contratadas e formadas: pré-vendas e vendas</div></div>
   <div class="metric"><div class="num">24<span>h</span></div><div class="lbl">de intensivão de vendas ao vivo, com roleplay sobre call real</div></div>
   <div class="metric"><div class="num">90<span>%</span></div><div class="lbl">a régua de meta que o time passa a bater</div></div>
@@ -523,8 +539,8 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">O mecanismo</span>
-      <h2 class="serif">Quatro frentes, comprimidas em 45 dias. <em>Fundação, gente, formação e campo.</em></h2>
-      <p class="lead">A ordem é curta de propósito: a fundação — CRM, política, meta e ritual — sobe em dez dias, não em um trimestre, porque ela existe para receber gente, não para virar relatório. Depois entra a contratação, o intensivão e a operação assistida. <em>Nada aqui termina em recomendação: termina em pessoa contratada, treinada e batendo indicador.</em></p>
+      <h2 class="serif">Cinco frentes. <em>Fundação, gente, formação, campo — e a aterrissagem.</em></h2>
+      <p class="lead">A ordem é curta de propósito: a fundação — CRM, política, meta e ritual — sobe em dez dias, não em um trimestre, porque ela existe para receber gente, não para virar relatório. Depois entram a contratação, o intensivão e a operação sob tutela. A quinta frente acontece já na sua agência, quando o time passa a responder ao seu gestor. <em>Nada aqui termina em recomendação: termina em pessoa contratada, treinada e batendo indicador.</em></p>
     </div>
 
     <div style="margin-top:44px">
@@ -672,7 +688,42 @@
               <div class="deliver">
                 <div class="deliver-item"><span class="deliver-num">10</span><div><div class="deliver-title">15 dias de operação assistida</div><div class="deliver-desc">O time em campo sob condução sênior, com o ciclo inteiro de rituais rodando ao menos duas vezes antes da entrega.</div></div></div>
                 <div class="deliver-item"><span class="deliver-num">11</span><div><div class="deliver-title">Suporte via WhatsApp durante todo o ciclo</div><div class="deliver-desc">Grupo dedicado com o time e com você, para corrigir desvio em tempo real em vez de esperar a próxima reunião.</div></div></div>
-                <div class="deliver-item"><span class="deliver-num">12</span><div><div class="deliver-title">Passagem de bastão documentada</div><div class="deliver-desc">Reunião de transição com o estado de cada vendedor, os números do ciclo, os riscos abertos e o plano dos 30 dias seguintes. <strong>É o entregável que devolve o seu tempo.</strong></div></div></div>
+                <div class="deliver-item"><span class="deliver-num">12</span><div><div class="deliver-title">Passagem de bastão documentada</div><div class="deliver-desc">Reunião de transição com o estado de cada vendedor, os números do ciclo, os riscos abertos e o plano das semanas seguintes. <strong>É o entregável que devolve o seu tempo.</strong></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRODUTO 5 -->
+      <div class="product reveal">
+        <div class="product-head">
+          <div class="product-num">05</div>
+          <div>
+            <div class="product-kick">Frente 5 · Dias 46–60 · Dentro da sua agência</div>
+            <div class="product-title">Prática Assistida na Agência</div>
+          </div>
+        </div>
+        <div class="product-body">
+          <p class="product-desc">Os 45 dias entregam o time formado e vendendo. <strong>Os 15 seguintes garantem que ele continue vendendo depois que eu saio.</strong> Aqui o time já está sob a sua gestão, na sua rotina e no seu ritmo — o seu gestor conduz o ritual, o seu time bate o telefone, e eu acompanho de fora, corrigindo o que desandar. <em>É a diferença entre entregar um time e garantir que ele pegou.</em> O erro clássico de todo projeto comercial é a queda de performance na semana seguinte à saída do consultor; esta frente existe exatamente para cobrir essa janela.</p>
+          <div class="product-cols">
+            <div>
+              <div class="col-label">O que acontece nos 15 dias</div>
+              <ul class="p-list">
+                <li><strong>Ritual conduzido pelo seu gestor</strong> — eu assisto sem conduzir, e a correção vai para o gestor, não para o vendedor. É ele que precisa aprender a cobrar</li>
+                <li><strong>Leitura semanal dos indicadores</strong> — acompanhamento dos números pós-transição, para flagrar queda antes que ela vire mês perdido</li>
+                <li><strong>2 calls adicionais revisadas</strong> — sobre gravações já feitas dentro da sua operação, com o time no ambiente real</li>
+                <li><strong>Ajuste fino de política e CRM</strong> — o que só aparece no uso real: etapa que trava, campo que ninguém preenche, regra que não pegou</li>
+                <li><strong>Canal aberto para dúvida do dia a dia</strong> — para o gestor e para você, durante toda a janela</li>
+                <li><strong>Reunião de encerramento</strong> — o que sustentou, o que ainda é frágil e onde concentrar atenção nos 90 dias seguintes</li>
+              </ul>
+            </div>
+            <div>
+              <div class="col-label">Formato de entrega</div>
+              <div class="deliver">
+                <div class="deliver-item"><span class="deliver-num">13</span><div><div class="deliver-title">15 dias de acompanhamento, sem condução</div><div class="deliver-desc">A mudança de postura é o ponto: <strong>eu saio do comando e entro na observação.</strong> Se o time só performa comigo conduzindo, é aqui que isso aparece — com tempo de corrigir.</div></div></div>
+                <div class="deliver-item"><span class="deliver-num">14</span><div><div class="deliver-title">2 encontros de acompanhamento</div><div class="deliver-desc">Um no meio da janela e um no encerramento, com você e o gestor comercial, sobre os números reais do período.</div></div></div>
+                <div class="deliver-item"><span class="deliver-num">15</span><div><div class="deliver-title">Relatório de encerramento</div><div class="deliver-desc">Diagnóstico honesto do estado do time na saída: quem sustenta a meta, quem precisa de atenção e o que ainda depende de você.</div></div></div>
               </div>
             </div>
           </div>
@@ -686,9 +737,9 @@
 <section id="fases">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">Como os 45 dias se organizam</span>
-      <h2 class="serif">Quarenta e cinco dias só fecham <em>se as frentes se sobrepuserem.</em></h2>
-      <p class="lead">Em sequência pura, este escopo levaria um trimestre. O que faz ele caber em 45 dias é a sobreposição deliberada: a vaga abre enquanto a fundação ainda sobe, o intensivão começa com o time recém-contratado, e a última semana de formação já acontece com o vendedor prospectando de verdade.</p>
+      <span class="eyebrow">Como o ciclo se organiza</span>
+      <h2 class="serif">Quarenta e cinco dias na Sócio — <em>e mais quinze já dentro da sua agência.</em></h2>
+      <p class="lead">Em sequência pura, este escopo levaria um trimestre. O que faz ele caber em 45 dias é a sobreposição deliberada: a vaga abre enquanto a fundação ainda sobe, o intensivão começa com o time recém-contratado, e a última semana de formação já acontece com o vendedor prospectando de verdade. Depois disso vem a janela que a maioria dos projetos não tem — <em>quinze dias de prática assistida, com o time já sob a sua gestão.</em></p>
     </div>
     <div class="phases">
       <div class="phase reveal">
@@ -740,6 +791,17 @@
         <div class="out">Saída: <b>força de vendas entregue vendendo</b></div>
       </div>
     </div>
+
+    <div class="phase-land reveal">
+      <div class="pl-win">Dias 46–60 · já na sua agência</div>
+      <div class="pl-title serif">Prática assistida — os 15 dias que garantem que o time pegou</div>
+      <p class="pl-desc">A partir daqui a operação é sua: <strong>o seu gestor conduz o ritual e o time responde a ele</strong>, não a mim. Eu passo de comando para observação e acompanho de fora, corrigindo o que desandar enquanto ainda dá tempo. <em>É a janela em que todo projeto comercial normalmente perde performance — e a única forma de saber se o time anda sozinho é vê-lo andando sozinho, com rede.</em></p>
+      <div class="pl-grid">
+        <div class="pl-item"><div class="pi-t">Gestor no comando, eu na observação</div><div class="pi-d">A correção vai para quem cobra, não para quem vende. É o gestor que precisa sustentar a cadência depois.</div></div>
+        <div class="pl-item"><div class="pi-t">Indicadores lidos toda semana</div><div class="pi-d">Queda de performance flagrada em dias, não no fechamento do mês. Mais 2 calls revisadas no ambiente real.</div></div>
+        <div class="pl-item"><div class="pi-t">Relatório de encerramento</div><div class="pi-d">Quem sustenta a meta, quem precisa de atenção e o que ainda depende de você nos 90 dias seguintes.</div></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -748,8 +810,8 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Modelo de investimento</span>
-      <h2 class="serif">Um programa fechado de 45 dias — <em>com as quatro frentes sobrepostas.</em></h2>
-      <p class="lead">As frentes se sobrepõem no calendário, então funcionam como um programa único e não como quatro compras separadas. A leitura abaixo mostra o que cada camada entrega dentro do mesmo ciclo — e o que fica com você depois que ele acaba.</p>
+      <h2 class="serif">Um programa fechado de 45+15 dias — <em>com as frentes sobrepostas.</em></h2>
+      <p class="lead">As frentes se sobrepõem no calendário, então funcionam como um programa único e não como cinco compras separadas. A leitura abaixo mostra o que cada camada entrega dentro do mesmo ciclo — e o que fica com você depois que ele acaba.</p>
     </div>
     <div class="pricing four reveal">
       <div class="price">
@@ -804,6 +866,19 @@
         </ul>
         <div class="tag">A frente que devolve o seu tempo</div>
       </div>
+      <div class="price wide">
+        <span class="p-kick">Frente 5 · dias 46–60 · na sua agência</span>
+        <h3 class="serif">Prática Assistida</h3>
+        <div class="p-model">acompanhamento sem condução · 15 dias</div>
+        <p class="p-desc">O time já sob a sua gestão, com o seu gestor conduzindo o ritual e o acompanhamento de fora garantindo que a performance não caia na semana seguinte à saída.</p>
+        <ul>
+          <li>Ritual conduzido pelo seu gestor, com correção dirigida a ele</li>
+          <li>Leitura semanal dos indicadores pós-transição</li>
+          <li>2 calls adicionais revisadas · ajuste fino de política e CRM</li>
+          <li>2 encontros de acompanhamento e relatório de encerramento</li>
+        </ul>
+        <div class="tag">A frente que garante que o time pegou</div>
+      </div>
     </div>
 
     <div class="combo reveal">
@@ -811,8 +886,8 @@
       <div class="combo-grid">
         <div>
           <span class="p-kick" style="color:var(--brass-bright)">A entrega, em uma frase</span>
-          <div class="combo-title">Força de Vendas em 45 dias · time contratado, formado e entregue vendendo</div>
-          <p class="combo-desc">Fundação · Seleção · Intensivão · Campo e Transição — as quatro frentes sobrepostas dentro de um único ciclo de 45 dias, atendendo as duas unidades. Você entra na banca final e na reunião de transição; o resto roda fora da sua agenda.</p>
+          <div class="combo-title">Força de Vendas em 45+15 dias · time contratado, formado, entregue vendendo e acompanhado até andar sozinho</div>
+          <p class="combo-desc">Fundação · Seleção · Intensivão · Campo e Transição, sobrepostas em 45 dias na Sócio Estratégico — e mais 15 dias de prática assistida dentro da sua agência, com o time já sob a sua gestão. As duas unidades atendidas. Você entra na banca final, na transição e nos encontros de acompanhamento; o resto roda fora da sua agenda.</p>
         </div>
       </div>
     </div>
@@ -881,7 +956,7 @@
       <div class="path feat reveal">
         <div class="path-num">03</div>
         <div class="path-title serif">Receber o time pronto</div>
-        <p class="path-desc">Deixar que a base suba, o time seja recrutado com filtro, formado num intensivão e conduzido em campo sob tutela sênior — e receber tudo isso funcionando no dia 45. Você entra na banca final e na transição; o resto acontece fora da sua agenda. <strong>Você volta a ser sócio do negócio, não o vendedor dele.</strong></p>
+        <p class="path-desc">Deixar que a base suba, o time seja recrutado com filtro, formado num intensivão e conduzido em campo sob tutela sênior — e receber tudo isso funcionando no dia 45, com mais quinze dias de acompanhamento até andar sozinho. Você entra na banca final, na transição e nos encontros de acompanhamento; o resto acontece fora da sua agenda. <strong>Você volta a ser sócio do negócio, não o vendedor dele.</strong></p>
         <div class="badge">A escolha que devolve tempo</div>
       </div>
     </div>
@@ -901,7 +976,8 @@
       <div class="step"><div><h4>Fundação · dias 1–10</h4><p>CRM configurado, política comercial escrita, indicadores e metas definidos por função, rituais no calendário e vagas prontas para abrir.</p></div></div>
       <div class="step"><div><h4>Seleção · dias 5–20</h4><p>Vagas divulgadas, triagem e entrevistas conduzidas por mim, dinâmica com simulação de call e banca final com você. Contratações fechadas e onboarding rodando.</p></div></div>
       <div class="step"><div><h4>Intensivão · dias 18–35</h4><p>8 módulos e 24 horas ao vivo, com roleplay gravado, devolutiva individual e prospecção real acontecendo em paralelo.</p></div></div>
-      <div class="step"><div><h4>Campo e transição · dias 30–45</h4><p>Time em campo sob minha condução, Call Review sobre gravações reais, gestor comercial formado e reunião de passagem de bastão com o estado de cada vendedor e o plano dos 30 dias seguintes.</p></div></div>
+      <div class="step"><div><h4>Campo e transição · dias 30–45</h4><p>Time em campo sob minha condução, Call Review sobre gravações reais, gestor comercial formado e reunião de passagem de bastão com o estado de cada vendedor.</p></div></div>
+      <div class="step"><div><h4>Prática assistida · dias 46–60</h4><p>Time já sob a sua gestão, na sua agência, com o seu gestor conduzindo o ritual. Acompanhamento de fora, leitura semanal dos indicadores, 2 calls revisadas e relatório de encerramento.</p></div></div>
     </div>
   </div>
 </section>
@@ -912,24 +988,16 @@
     <div class="cta reveal">
       <span class="eyebrow">A decisão é agora</span>
       <h2 class="serif">Você não precisa de mais um diagnóstico. <em>Precisa de gente vendendo.</em></h2>
-      <p>As duas operações já estão de pé e a direção já está clara. O que falta é quem recrute, forme e conduza a força de vendas até ela andar sozinha — e depois entregue a chave. Quarenta e cinco dias, com o time saindo do outro lado já vendendo.</p>
+      <p>As duas operações já estão de pé e a direção já está clara. O que falta é quem recrute, forme e conduza a força de vendas até ela andar sozinha — e depois acompanhe os primeiros passos dela sem você. Quarenta e cinco dias para montar, quinze para garantir que pegou.</p>
       <div class="cta-row">
         <a href="#contratar" class="btn btn-primary">Montar a força de vendas →</a>
         <a href="#metodo" class="btn btn-ghost">Rever o método</a>
-      </div>
-      <div class="contact">
-        <span><b>Sócio Estratégico</b> · SE Capital</span>
-        <span>·</span><span>Proposta para Jonathas</span>
-        <span>·</span><span>Confidencial · v2.0</span>
       </div>
     </div>
   </div>
 </section>
 
-<footer>
-  <p class="fnote">Documento confidencial preparado para Jonathas — agência de marketing e agência de IA. Depoimentos e resultados citados referem-se a clientes e parceiros do Sócio Estratégico e não constituem promessa de resultado.</p>
-  <p>Força de Vendas em 45 dias · Proposta comercial · v2.0 · Agosto de 2026</p>
-</footer>
+<div class="tail-space"></div>
 
 <script>
   // Theme toggle
