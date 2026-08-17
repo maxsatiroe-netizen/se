@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<title>Força de Vendas em 90 dias</title>
+<title>Força de Vendas em 45 dias</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
   /* ============ TOKENS ============ */
@@ -239,9 +239,19 @@
   .deliver-desc{font-size:13.5px;color:var(--ink-soft);margin-top:3px}
   .deliver-desc strong{color:var(--ink)}
 
-  /* ============ LINHA DO TEMPO 90 DIAS ============ */
-  .phases{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
-  @media(max-width:860px){.phases{grid-template-columns:1fr}}
+  /* ============ MÓDULOS DO INTENSIVÃO ============ */
+  .mods{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
+  @media(max-width:900px){.mods{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.mods{grid-template-columns:1fr}}
+  .mod{background:var(--surface-2);border:1px solid var(--line-soft);border-radius:11px;padding:15px 16px}
+  .mod .m-n{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.14em;color:var(--brass);font-weight:700}
+  .mod .m-t{font-size:14px;font-weight:600;color:var(--ink);margin-top:5px;line-height:1.3}
+  .mod .m-d{font-size:12.5px;color:var(--ink-soft);margin-top:5px;line-height:1.45}
+
+  /* ============ LINHA DO TEMPO 45 DIAS ============ */
+  .phases{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px}
+  @media(max-width:1000px){.phases{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:620px){.phases{grid-template-columns:1fr}}
   .phase{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;box-shadow:var(--shadow);
     display:flex;flex-direction:column}
   .phase-win{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.14em;
@@ -358,12 +368,12 @@
 <!-- ============ NAV ============ -->
 <nav class="nav">
   <div class="nav-in">
-    <div class="brand"><span class="mark">SE</span><span>Força de Vendas&nbsp;·&nbsp;Jonathas</span></div>
+    <div class="brand"><span class="mark">SE</span><span>Força de Vendas em 45 dias&nbsp;·&nbsp;Jonathas</span></div>
     <div class="nav-links">
       <a href="#promessa">A entrega</a>
-      <a href="#unidades">As duas frentes</a>
-      <a href="#autoridade">Autoridade</a>
+      <a href="#unidades">O que o time vende</a>
       <a href="#metodo">Método</a>
+      <a href="#fases">Os 45 dias</a>
       <a href="#investimento">Investimento</a>
     </div>
     <button class="toggle" id="tgl" aria-label="Alternar tema claro/escuro" title="Alternar tema">◑</button>
@@ -373,26 +383,26 @@
 <!-- ============ HERO ============ -->
 <header class="hero">
   <div class="hero-in">
-    <span class="eyebrow">Estruturação comercial · Proposta para Jonathas</span>
-    <h1 class="serif">Duas operações vendendo — <em>sem depender do seu tempo para vender.</em></h1>
-    <p class="lead">Hoje a aquisição da agência de marketing e da agência de IA passa por você. Não por falta de estratégia — por falta de <strong>tempo e foco</strong> para instalar o que já foi decidido. <strong>Passo 1:</strong> desenhar a máquina comercial das duas unidades. <strong>Passo 2:</strong> colocar as pessoas, formar a força de vendas e instalar a cadência de gestão que roda sem você no centro.</p>
+    <span class="eyebrow">Força de vendas em 45 dias · Proposta para Jonathas</span>
+    <h1 class="serif">Um time de pré-vendas e vendas contratado, treinado <em>e entregue vendendo.</em></h1>
+    <p class="lead">Não é diagnóstico. É <strong>montar e entregar a força de vendas</strong> da agência de marketing e da agência de IA: recrutar SDR e closer, formar os dois num intensivão de vendas, deixar o CRM azeitado com política, indicador e ritual — e conduzir esse time <strong>sob a minha tutela</strong> até que ele esteja vendendo. No dia 45, ele passa para as suas mãos operando.</p>
     <div class="hero-meta">
       <span>Preparado para <b>Jonathas</b> · agência de marketing + agência de IA</span>
       <span class="dot"></span><span>Sócio Estratégico · SE Capital</span>
-      <span class="dot"></span><span>Confidencial · v1.0 · Ago/2026</span>
+      <span class="dot"></span><span>Confidencial · v2.0 · Ago/2026</span>
     </div>
     <div class="cta-row">
-      <a href="#contratar" class="btn btn-primary">Estruturar a força de vendas →</a>
+      <a href="#contratar" class="btn btn-primary">Montar a força de vendas →</a>
       <a href="#metodo" class="btn btn-ghost">Ver o método</a>
     </div>
   </div>
 </header>
 
 <div class="hero-metrics reveal">
-  <div class="metric"><div class="num">90<span>d</span></div><div class="lbl">do desenho da máquina à força de vendas rodando</div></div>
-  <div class="metric"><div class="num">2</div><div class="lbl">unidades estruturadas: marketing e IA, sob um só motor</div></div>
-  <div class="metric"><div class="num">4</div><div class="lbl">frentes: estrutura, pessoas, formação e gestão</div></div>
-  <div class="metric"><div class="num">90<span>%</span></div><div class="lbl">a régua de meta que o time inteiro passa a bater</div></div>
+  <div class="metric"><div class="num">45<span>d</span></div><div class="lbl">do zero ao time de vendas entregue e operando</div></div>
+  <div class="metric"><div class="num">2</div><div class="lbl">funções contratadas e formadas: pré-vendas e vendas</div></div>
+  <div class="metric"><div class="num">24<span>h</span></div><div class="lbl">de intensivão de vendas ao vivo, com roleplay sobre call real</div></div>
+  <div class="metric"><div class="num">90<span>%</span></div><div class="lbl">a régua de meta que o time passa a bater</div></div>
 </div>
 <div class="spacer-metrics"></div>
 
@@ -400,30 +410,30 @@
 <section id="promessa">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">O que a estruturação entrega</span>
-      <h2 class="serif">O problema não é saber o que fazer. É que <em>tudo ainda depende de você fazer.</em></h2>
-      <p class="lead">Você já tem duas operações de pé, já tem direção de mentoria e já sabe o caminho. O que falta é braço sênior para instalar: desenhar o processo, contratar as pessoas certas, treinar o time e deixar a cadência de gestão de pé. Essa é a entrega — não conselho, <em>implantação</em>.</p>
+      <span class="eyebrow">O que sai deste ciclo</span>
+      <h2 class="serif">Você não está comprando um diagnóstico. <em>Está comprando um time de vendas pronto.</em></h2>
+      <p class="lead">O entregável é gente: pré-vendas e vendas contratados, formados e vendendo, com o CRM configurado, a política escrita, o indicador na tela e o ritual acontecendo toda semana. <em>Slide de diagnóstico não bate meta — vendedor treinado com processo por trás bate.</em></p>
     </div>
     <div class="grid g4" style="margin-top:44px">
       <div class="card reveal">
-        <div class="ico">1</div><div class="kicker">Tempo</div>
-        <h3 class="serif">Sair do centro do funil</h3>
-        <p>Você deixa de ser o principal vendedor, o principal SDR e o principal gestor das duas operações. <strong>O comercial passa a existir sem você dentro dele.</strong></p>
+        <div class="ico">1</div><div class="kicker">Gente</div>
+        <h3 class="serif">Pré-vendas e vendas contratados</h3>
+        <p>Recrutamento, seleção com simulação de call e onboarding conduzidos por mim. <strong>Você entra na decisão final, não no processo inteiro.</strong></p>
       </div>
       <div class="card reveal">
-        <div class="ico">2</div><div class="kicker">Processo antes de gente</div>
-        <h3 class="serif">Máquina, não pessoas soltas</h3>
-        <p>Contratar vendedor sem processo é rodízio caro. Primeiro instala-se o funil, o script e a meta — <strong>depois entra gente.</strong></p>
+        <div class="ico">2</div><div class="kicker">Repertório</div>
+        <h3 class="serif">Intensivão de vendas</h3>
+        <p>Imersão que cobre o arco completo: prospecção, qualificação, os tipos de venda, negociação e fechamento. <strong>24 horas ao vivo, com roleplay pesado.</strong></p>
       </div>
       <div class="card reveal">
-        <div class="ico">3</div><div class="kicker">Duas ofertas</div>
-        <h3 class="serif">Um só motor de aquisição</h3>
-        <p>Marketing e IA compartilham topo de funil e disciplina de gestão, mas exigem <strong>discursos e qualificação distintos.</strong> A estrutura contempla os dois.</p>
+        <div class="ico">3</div><div class="kicker">Infraestrutura</div>
+        <h3 class="serif">CRM, política, meta e ritual</h3>
+        <p>CRM azeitado, política comercial escrita, indicadores por função e a cadência de reuniões que faz o time <strong>ter disciplina sem alguém empurrando.</strong></p>
       </div>
       <div class="card reveal">
-        <div class="ico">4</div><div class="kicker">Backlog parado</div>
-        <h3 class="serif">O que a mentoria apontou, executado</h3>
-        <p>Os pontos que estão na fila há meses viram backlog priorizado com dono, prazo e acompanhamento. <strong>Saem do papel dentro do ciclo.</strong></p>
+        <div class="ico">4</div><div class="kicker">Tutela</div>
+        <h3 class="serif">O time nasce comigo, depois é seu</h3>
+        <p>Durante os 45 dias o time responde a mim — eu cobro, ouço call e corrijo. <strong>No fechamento, é transferido para você já vendendo.</strong></p>
       </div>
     </div>
   </div>
@@ -433,9 +443,9 @@
 <section id="unidades" style="background:var(--surface-2)">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">O recorte do trabalho</span>
-      <h2 class="serif">Duas unidades, dois compradores — <em>e uma disciplina comercial só.</em></h2>
-      <p class="lead">Tratar as duas como se fossem o mesmo negócio é o erro mais comum de quem opera duas frentes ao mesmo tempo. Elas dividem o motor de aquisição e a gestão; separam-se na qualificação, no discurso e no ciclo.</p>
+      <span class="eyebrow">O que o time vai vender</span>
+      <h2 class="serif">Dois produtos, dois compradores — <em>e um time formado para os dois.</em></h2>
+      <p class="lead">O time é contratado uma vez e formado para atender as duas frentes. O que muda entre elas não é o processo — é a qualificação, o discurso na call e o tempo até a decisão. O intensivão prepara o vendedor para reconhecer qual porta o lead entrou e conduzir a conversa certa.</p>
     </div>
     <div class="units">
       <div class="unit reveal">
@@ -452,7 +462,7 @@
       </div>
     </div>
     <div class="units-note reveal">
-      <strong>Como isso se resolve na prática:</strong> um único processo comercial e uma única cadência de gestão, com <strong>duas trilhas de qualificação e dois playbooks de call</strong>. O time é formado para ler qual porta o lead entrou — e conduzir a conversa certa. Sem isso, o vendedor pega o discurso de marketing e tenta vender IA com ele, ou o contrário: os dois vazam venda.
+      <strong>Como isso se resolve na prática:</strong> um único CRM, um único ritual e uma única política de comissão, com <strong>duas trilhas de qualificação e dois playbooks de call</strong> dentro do mesmo funil. Sem essa separação, o vendedor pega o discurso de marketing e tenta vender IA com ele — ou o contrário. Os dois vazam venda, e a culpa costuma cair no vendedor.
     </div>
   </div>
 </section>
@@ -513,8 +523,8 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">O mecanismo</span>
-      <h2 class="serif">Quatro frentes, na ordem certa. <em>Estrutura, pessoas, formação e gestão.</em></h2>
-      <p class="lead">Força de vendas não nasce de contratar vendedor. Nasce de instalar processo, então selecionar gente com filtro, então formar essa gente no seu discurso — e só então entregar a cadência de gestão que sustenta tudo. <em>Fora dessa ordem, o custo é rodízio de vendedor e você de volta ao centro do funil.</em></p>
+      <h2 class="serif">Quatro frentes, comprimidas em 45 dias. <em>Fundação, gente, formação e campo.</em></h2>
+      <p class="lead">A ordem é curta de propósito: a fundação — CRM, política, meta e ritual — sobe em dez dias, não em um trimestre, porque ela existe para receber gente, não para virar relatório. Depois entra a contratação, o intensivão e a operação assistida. <em>Nada aqui termina em recomendação: termina em pessoa contratada, treinada e batendo indicador.</em></p>
     </div>
 
     <div style="margin-top:44px">
@@ -523,31 +533,31 @@
         <div class="product-head">
           <div class="product-num">01</div>
           <div>
-            <div class="product-kick">Frente 1 · A máquina antes das pessoas</div>
-            <div class="product-title">Arquitetura Comercial das Duas Unidades</div>
+            <div class="product-kick">Frente 1 · Dias 1–10 · A base que recebe o time</div>
+            <div class="product-title">Fundação Comercial: CRM, Políticas, Indicadores e Rituais</div>
           </div>
         </div>
         <div class="product-body">
-          <p class="product-desc"><strong>Aqui se desenha o motor.</strong> Diagnóstico de como a aquisição funciona hoje nas duas frentes — de onde vêm os leads, quem qualifica, quem fecha, o que se perde no meio — e desenho do processo comercial completo: ICP e trilha de qualificação por unidade, estrutura do funil, metas, política de comissão, indicadores e rituais de gestão. Sobre os três pilares da previsibilidade de receita: <strong>processos, gestão e pessoas</strong>. Saída principal: <em>o playbook que torna a operação replicável sem você explicando.</em></p>
+          <p class="product-desc">Dez dias para deixar de pé a infraestrutura que o vendedor vai usar no primeiro dia. <strong>Não é diagnóstico</strong> — é configuração: CRM azeitado com funil, campos e automações; política comercial escrita e assinada; indicadores definidos por função; e o calendário de rituais que vai sustentar a disciplina do time. A leitura da operação atual acontece dentro dessa janela e serve a um único propósito: <em>calibrar o que se instala, não produzir um relatório sobre o que existe.</em></p>
           <div class="product-cols">
             <div>
-              <div class="col-label">O que entra na frente</div>
+              <div class="col-label">O que fica de pé</div>
               <ul class="p-list">
-                <li><strong>Diagnóstico da aquisição atual</strong> — mapa de como marketing e IA vendem hoje, onde a receita vaza e o que depende exclusivamente de você</li>
-                <li><strong>Desenho do funil por unidade</strong> — ICP, trilha de qualificação, critérios de passagem e definição de oportunidade para cada frente</li>
-                <li><strong>Estrutura do time</strong> — quantas cabeças, quais papéis (SDR, closer, gestor), em que ordem contratar e a que custo</li>
-                <li><strong>Política de comissão</strong> — remuneração variável que premia o comportamento certo e não distorce esforço e ganho entre as duas unidades</li>
-                <li><strong>Metas e indicadores</strong> — a régua em que <strong>todo o time bate 90% da meta</strong>, com números de topo, meio e fim de funil</li>
-                <li><strong>Rituais e cadência</strong> — reuniões, one-on-ones, forecast e ajuste de rota da liderança comercial</li>
-                <li><strong>Backlog da mentoria priorizado</strong> — o que está parado ganha dono, prazo e ordem de execução</li>
+                <li><strong>CRM implantado e azeitado</strong> — funil configurado por etapa, campos obrigatórios, motivos de perda, automações de follow-up e higiene de base</li>
+                <li><strong>Política comercial escrita</strong> — comissão, alçada de desconto, regra de repasse pré-vendas → vendas, SLA de contato e critério de descarte de lead</li>
+                <li><strong>Indicadores por função</strong> — pré-vendas: tentativas, conexões, reuniões agendadas, no-show. Vendas: propostas, conversão, ticket, ciclo</li>
+                <li><strong>Metas por papel</strong> — a régua em que <strong>o time bate 90% da meta</strong>, decomposta em número diário para cada pessoa</li>
+                <li><strong>Rituais e cadência</strong> — daily de pré-vendas, weekly de pipeline, one-on-one, forecast e revisão de meta, com pauta e responsável definidos</li>
+                <li><strong>Trilhas de qualificação</strong> — os dois caminhos, marketing e IA, dentro do mesmo funil</li>
+                <li><strong>Perfis de vaga</strong> — descritivo, faixa de remuneração e competências de SDR e closer, prontos para abrir</li>
               </ul>
             </div>
             <div>
               <div class="col-label">Formato de entrega</div>
               <div class="deliver">
-                <div class="deliver-item"><span class="deliver-num">01</span><div><div class="deliver-title">45 dias · 18 horas de entrega estruturada</div><div class="deliver-desc">Reuniões semanais por pilar e <strong>1 reunião de direcionamento com você por pilar</strong>. Janela desenhada para acomodar comissão, estrutura de time e onboarding com profundidade.</div></div></div>
-                <div class="deliver-item"><span class="deliver-num">02</span><div><div class="deliver-title">Playbook comercial estruturado</div><div class="deliver-desc">Documento operacional com processos, scripts, frameworks, rituais, comissão e onboarding — <strong>com as duas trilhas, marketing e IA.</strong> Sai do improviso e vira ativo replicável e auditável.</div></div></div>
-                <div class="deliver-item"><span class="deliver-num">03</span><div><div class="deliver-title">Suporte via WhatsApp durante o ciclo</div><div class="deliver-desc">Grupo dedicado para consolidar a implementação e corrigir desvios em tempo real.</div></div></div>
+                <div class="deliver-item"><span class="deliver-num">01</span><div><div class="deliver-title">Sprint de 10 dias · configuração conduzida</div><div class="deliver-desc">Sessões de trabalho, não apresentações. <strong>O CRM é configurado durante o ciclo</strong>, com a sua operação dentro dele — não entregue como especificação para alguém executar depois.</div></div></div>
+                <div class="deliver-item"><span class="deliver-num">02</span><div><div class="deliver-title">Playbook comercial estruturado</div><div class="deliver-desc">Processos, scripts, roteiros de call, política de comissão, rituais e onboarding — <strong>com as duas trilhas, marketing e IA</strong>. Ativo replicável e auditável.</div></div></div>
+                <div class="deliver-item"><span class="deliver-num">03</span><div><div class="deliver-title">Painel de indicadores</div><div class="deliver-desc">A tela que a liderança olha toda semana: número de topo, meio e fim de funil por pessoa. <strong>Meta deixa de ser conversa e vira leitura.</strong></div></div></div>
               </div>
             </div>
           </div>
@@ -559,30 +569,31 @@
         <div class="product-head">
           <div class="product-num">02</div>
           <div>
-            <div class="product-kick">Frente 2 · Colocar as pessoas certas</div>
-            <div class="product-title">Montagem do Time Comercial</div>
+            <div class="product-kick">Frente 2 · Dias 5–20 · Colocar as pessoas</div>
+            <div class="product-title">Recrutamento e Seleção de Pré-Vendas e Vendas</div>
           </div>
         </div>
         <div class="product-body">
-          <p class="product-desc">Esta é a frente que responde diretamente ao “<strong>eu não tenho tempo para isso</strong>”. Recrutamento e seleção conduzidos com você — não por você. Desenho das vagas, filtro técnico e comportamental, dinâmica de seleção com simulação de call real e onboarding estruturado para que o vendedor produza cedo em vez de tatear por dois meses. <em>Contratar sem filtro é o gasto mais silencioso de uma operação comercial: o custo não é o salário, é o trimestre perdido.</em></p>
+          <p class="product-desc">A frente que responde direto ao “<strong>eu não tenho tempo para isso</strong>”. Abertura das vagas, atração, triagem, entrevista estruturada e dinâmica com simulação de call real — <strong>conduzidas por mim, com você entrando só na banca final</strong>. Você decide quem entra; não gasta as três semanas que levam até essa decisão. <em>O custo de contratar sem filtro não é o salário: é o mês e meio de rampagem que se perde com a pessoa errada dentro de um ciclo de 45 dias.</em></p>
           <div class="product-cols">
             <div>
               <div class="col-label">O que entra na frente</div>
               <ul class="p-list">
-                <li><strong>Perfil das vagas</strong> — descrição, faixa de remuneração e competências por papel, alinhadas ao funil desenhado na Frente 1</li>
-                <li><strong>Fonte e atração</strong> — anúncio, canais e abordagem ativa para gerar volume de candidatos qualificados</li>
-                <li><strong>Filtro técnico e comportamental</strong> — triagem, entrevista estruturada e critérios objetivos de corte</li>
-                <li><strong>Dinâmica de seleção</strong> — simulação de call real com avaliação sênior, para ver o candidato vendendo antes de contratar</li>
-                <li><strong>Onboarding estruturado</strong> — trilha dos primeiros 30 dias, com marcos de rampagem por semana</li>
-                <li><strong>Plano de rampagem</strong> — o que se espera do vendedor no mês 1, 2 e 3, e o gatilho objetivo de desligamento</li>
+                <li><strong>Abertura e divulgação das vagas</strong> — anúncio, canais e abordagem ativa para gerar volume real de candidatos</li>
+                <li><strong>Triagem e entrevista estruturada</strong> — roteiro fixo e grade de avaliação, para comparar candidato com candidato e não com impressão</li>
+                <li><strong>Filtro técnico e comportamental</strong> — critérios objetivos de corte definidos antes da primeira entrevista</li>
+                <li><strong>Dinâmica com simulação de call</strong> — <strong>ver o candidato vendendo antes de contratar</strong>, avaliado por quem já fez isso em escala</li>
+                <li><strong>Banca final com você</strong> — a decisão é sua, com contraditório qualificado ao lado</li>
+                <li><strong>Onboarding estruturado</strong> — trilha dos primeiros dias, com acesso, contexto de produto e CRM na veia desde a semana um</li>
+                <li><strong>Kit de contratação replicável</strong> — descritivos, roteiro, grade e trilha ficam com você para a próxima vaga</li>
               </ul>
             </div>
             <div>
               <div class="col-label">Formato de entrega</div>
               <div class="deliver">
-                <div class="deliver-item"><span class="deliver-num">04</span><div><div class="deliver-title">Processo seletivo conduzido em conjunto</div><div class="deliver-desc">Estruturação completa do processo e <strong>participação sênior nas bancas finais</strong>. A decisão de contratar é sua — com contraditório qualificado ao lado.</div></div></div>
-                <div class="deliver-item"><span class="deliver-num">05</span><div><div class="deliver-title">Kit de contratação replicável</div><div class="deliver-desc">Descritivos de vaga, roteiro de entrevista, grade de avaliação e trilha de onboarding. <strong>Serve para a próxima contratação sem me chamar de novo.</strong></div></div></div>
-                <div class="deliver-item"><span class="deliver-num">06</span><div><div class="deliver-title">Janela de 45 dias</div><div class="deliver-desc">Sobreposta ao final da Frente 1, para que a estrutura chegue pronta no dia em que o primeiro vendedor senta.</div></div></div>
+                <div class="deliver-item"><span class="deliver-num">04</span><div><div class="deliver-title">Processo conduzido em 15 dias</div><div class="deliver-desc">Aberto no dia 5, com a fundação já em pé, e fechado até o dia 20 — <strong>para o time chegar a tempo de ser formado e rampado dentro do ciclo.</strong></div></div></div>
+                <div class="deliver-item"><span class="deliver-num">05</span><div><div class="deliver-title">Escopo por posições</div><div class="deliver-desc">Número de vagas de pré-vendas e vendas definido no alinhamento inicial, conforme a capacidade de geração de lead das duas unidades.</div></div></div>
+                <div class="deliver-item"><span class="deliver-num">06</span><div><div class="deliver-title">Sua agenda: só a banca final</div><div class="deliver-desc">Toda a operação de recrutamento roda fora do seu calendário. <strong>Você aparece para decidir, não para triar currículo.</strong></div></div></div>
               </div>
             </div>
           </div>
@@ -594,30 +605,39 @@
         <div class="product-head">
           <div class="product-num">03</div>
           <div>
-            <div class="product-kick">Frente 3 · Repertório técnico do time</div>
-            <div class="product-title">Formação da Força de Vendas</div>
+            <div class="product-kick">Frente 3 · Dias 18–35 · O coração do programa</div>
+            <div class="product-title">Intensivão de Vendas</div>
           </div>
         </div>
         <div class="product-body">
-          <p class="product-desc">Programa ao vivo para formar o time nos eixos que separam vendedor mediano de fechador profissional: <strong>autoridade, leitura comportamental, condução desafiadora e negociação</strong> — com um módulo dedicado à venda consultiva de IA, onde o comprador ainda não sabe formular o próprio problema. Não é motivacional, é instrumental. Mas começa por uma pergunta que a maioria dos treinamentos pula: <em>onde cada um quer chegar?</em> Sem isso, técnica vira repetição vazia.</p>
+          <p class="product-desc">Imersão pesada para o time sair sabendo <strong>o máximo possível sobre vender</strong> — não um recorte, o arco completo: da prospecção fria ao fechamento, passando por todos os tipos de venda que ele vai encontrar nas duas unidades. Transacional, consultiva, desafiadora, técnica e recorrente têm lógicas diferentes, e o vendedor que só conhece uma tenta aplicá-la em toda call. <strong>24 horas ao vivo, com roleplay gravado e devolutiva individual.</strong> <em>Não é vídeo gravado nem PDF.</em></p>
+          <div class="mods">
+            <div class="mod"><div class="m-n">MÓD 01</div><div class="m-t">Fundamentos e mentalidade</div><div class="m-d">O que é vender, o processo comercial, onde cada função atua e onde cada um quer chegar.</div></div>
+            <div class="mod"><div class="m-n">MÓD 02</div><div class="m-t">Prospecção e pré-venda</div><div class="m-d">Cold call, abordagem ativa, cadência de contato e quebra de objeção de porta.</div></div>
+            <div class="mod"><div class="m-n">MÓD 03</div><div class="m-t">Qualificação</div><div class="m-d">Frameworks de diagnóstico, critério de oportunidade e a passagem limpa para o closer.</div></div>
+            <div class="mod"><div class="m-n">MÓD 04</div><div class="m-t">Os tipos de venda</div><div class="m-d">Transacional, consultiva, desafiadora, técnica e recorrente — quando cada uma se aplica.</div></div>
+            <div class="mod"><div class="m-n">MÓD 05</div><div class="m-t">Autoridade e leitura de perfil</div><div class="m-d">Percepção de valor para sustentar ticket, e DISC para adaptar a conversa a quem decide.</div></div>
+            <div class="mod"><div class="m-n">MÓD 06</div><div class="m-t">Estrutura de call</div><div class="m-d">Condução, racional das perguntas e como levar o cliente a decidir dentro da reunião.</div></div>
+            <div class="mod"><div class="m-n">MÓD 07</div><div class="m-t">Negociação e fechamento</div><div class="m-d">Defesa de fee, alçada de desconto e como vender mais valor sem desconto reflexo.</div></div>
+            <div class="mod"><div class="m-n">MÓD 08</div><div class="m-t">Venda consultiva de IA</div><div class="m-d">Conduzir quem não sabe o que pedir, dimensionar escopo na call e não prometer o inentregável.</div></div>
+          </div>
           <div class="product-cols">
             <div>
-              <div class="col-label">Os eixos do programa</div>
+              <div class="col-label">Como o intensivão é conduzido</div>
               <ul class="p-list">
-                <li><strong>Encontro 0 · Treinamento de coração</strong> — propósito e direção. Onde cada vendedor quer chegar, e por que isso importa antes de qualquer técnica</li>
-                <li><strong>Autoridade comercial</strong> — pilares que elevam a percepção do cliente e comunicação focada em valor para sustentar <strong>ticket maior</strong></li>
-                <li><strong>Perfil comportamental (DISC)</strong> — palavras que convencem cada perfil, identificação na pré-venda e pontos para decisão e follow-up</li>
-                <li><strong>Venda desafiadora</strong> — estrutura de call e racional das perguntas para conduzir <strong>decisões imediatas e encurtar o ciclo</strong></li>
-                <li><strong>Venda consultiva de IA</strong> — como conduzir o comprador que não sabe o que pedir, dimensionar escopo na call e <strong>vender projeto sem prometer o inentregável</strong></li>
-                <li><strong>Negociação</strong> — frameworks e simulações para defender fee e <strong>vender maior valor sem desconto reflexo</strong></li>
+                <li><strong>Roleplay em todo encontro</strong> — o time treina vendendo, gravado, com correção na hora e não só ouvindo conceito</li>
+                <li><strong>Sobre as suas ofertas reais</strong> — turma fechada, casos e objeções das duas unidades, <strong>não exemplo genérico de mercado</strong></li>
+                <li><strong>Prova prática por módulo</strong> — quem não sustenta o módulo refaz antes de ir a campo</li>
+                <li><strong>Aplicação imediata</strong> — o vendedor prospecta de verdade durante o programa, com o CRM já rodando</li>
+                <li><strong>Materiais complementares</strong> — frameworks, scripts e referências de apoio como bônus</li>
               </ul>
             </div>
             <div>
               <div class="col-label">Formato de entrega</div>
               <div class="deliver">
-                <div class="deliver-item"><span class="deliver-num">07</span><div><div class="deliver-title">6 encontros ao vivo · 90 minutos cada</div><div class="deliver-desc">1 abertura (coração) + 4 encontros técnicos + 1 de venda consultiva de IA. 9 horas de programa ao vivo, com aplicação prática. <strong>Não é vídeo gravado nem PDF.</strong></div></div></div>
-                <div class="deliver-item"><span class="deliver-num">08</span><div><div class="deliver-title">Materiais complementares como bônus</div><div class="deliver-desc">Frameworks, scripts e referências de apoio para sustentar a aplicação no dia a dia após o programa.</div></div></div>
-                <div class="deliver-item"><span class="deliver-num">09</span><div><div class="deliver-title">Turma fechada do seu time</div><div class="deliver-desc">Conteúdo aplicado sobre as suas duas ofertas e os seus casos reais — <strong>não sobre exemplo genérico de mercado.</strong></div></div></div>
+                <div class="deliver-item"><span class="deliver-num">07</span><div><div class="deliver-title">24 horas ao vivo em 2,5 semanas</div><div class="deliver-desc">8 módulos em ritmo de imersão, não encontros espaçados. <strong>Densidade concentrada para o time estar pronto no dia 35.</strong></div></div></div>
+                <div class="deliver-item"><span class="deliver-num">08</span><div><div class="deliver-title">Devolutiva individual por vendedor</div><div class="deliver-desc">Cada pessoa recebe leitura crítica do próprio roleplay: o que sustenta, o que quebra e o que treinar antes de ir a campo.</div></div></div>
+                <div class="deliver-item"><span class="deliver-num">09</span><div><div class="deliver-title">Certificação interna de saída</div><div class="deliver-desc">Ao final, cada vendedor tem uma nota por competência. <strong>Você sabe exatamente quem entrega o quê antes de distribuir a meta.</strong></div></div></div>
               </div>
             </div>
           </div>
@@ -629,31 +649,30 @@
         <div class="product-head">
           <div class="product-num">04</div>
           <div>
-            <div class="product-kick">Frente 4 · Onde o dono sai do centro</div>
-            <div class="product-title">Call Review &amp; Cadência de Gestão</div>
+            <div class="product-kick">Frente 4 · Dias 30–45 · Sob minha tutela, depois seu</div>
+            <div class="product-title">Operação Assistida, Call Review e Transição do Time</div>
           </div>
         </div>
         <div class="product-body">
-          <p class="product-desc">Análise de calls reais com devolutiva ao vivo, somada à instalação da rotina de gestão do comercial. Onde a formação entrega repertório, esta frente entrega <strong>correção em campo e autonomia de liderança</strong>: cada vendedor recebe leitura crítica sobre as próprias gravações, e a gestão passa a rodar em rituais definidos — <em>com um responsável que não é você.</em></p>
+          <p class="product-desc"><strong>Esta é a frente que diferencia a proposta.</strong> Nas últimas semanas o time já está em campo — prospectando, agendando e fechando — e <strong>responde diretamente a mim</strong>: eu conduzo o ritual, cobro o indicador, ouço as gravações e corrijo o vendedor em cima da própria call. Você acompanha sem precisar operar. <em>No dia 45, o time é transferido para você já vendendo, com ritual instalado, gestor apontado e passagem de bastão documentada</em> — não com um manual e um voto de confiança.</p>
           <div class="product-cols">
             <div>
-              <div class="col-label">O que o ciclo cobre</div>
+              <div class="col-label">O que acontece no campo</div>
               <ul class="p-list">
-                <li><strong>8 calls de vendas avaliadas</strong> — cobertura distribuída ao longo do ciclo, nas duas unidades</li>
-                <li><strong>Análise macro</strong> dos pontos positivos e negativos de cada call</li>
-                <li><strong>Detalhamento prático</strong> de como corrigir pontos falhos</li>
-                <li><strong>Ajustes ao vivo</strong> no pitch, na estrutura da call e no direcionamento do time</li>
-                <li><strong>Instalação da cadência de gestão</strong> — daily, forecast semanal, one-on-one e revisão de pipeline, com quem conduz cada uma</li>
+                <li><strong>Comando do ritual por mim</strong> — daily, weekly de pipeline e one-on-one conduzidos por quem já fez isso em escala, com o time aprendendo a cadência pelo hábito</li>
+                <li><strong>8 calls reais avaliadas</strong> — gravações do próprio time, nas duas unidades, com análise macro e correção detalhada</li>
+                <li><strong>Devolutivas quinzenais ao vivo</strong> — ajuste de pitch, de estrutura de call e de direcionamento, sobre padrão e não sobre evento isolado</li>
+                <li><strong>Auditoria semanal do CRM</strong> — higiene de funil, motivo de perda e follow-up em dia, para o indicador refletir a realidade</li>
+                <li><strong>Mentoria individual de 30 min</strong> por vendedor — até 6 pessoas</li>
                 <li><strong>Formação do gestor comercial</strong> — quem assume a cobrança no seu lugar, treinado para ler indicador e corrigir rota</li>
-                <li><strong>Mentoria individual de 30 min por vendedor</strong> — até 6 pessoas</li>
               </ul>
             </div>
             <div>
               <div class="col-label">Formato de entrega</div>
               <div class="deliver">
-                <div class="deliver-item"><span class="deliver-num">10</span><div><div class="deliver-title">3 encontros ao vivo quinzenais</div><div class="deliver-desc">Devolutiva quinzenal com <strong>2 calls analisadas por encontro</strong>. Densidade real para corrigir padrão, não comentar evento isolado.</div></div></div>
-                <div class="deliver-item"><span class="deliver-num">11</span><div><div class="deliver-title">Ciclo de 45 dias</div><div class="deliver-desc">Curto o bastante para manter contexto vivo entre devolutivas, longo o bastante para o time aplicar a correção da rodada anterior.</div></div></div>
-                <div class="deliver-item"><span class="deliver-num">12</span><div><div class="deliver-title">Passagem de bastão documentada</div><div class="deliver-desc">Ao final, a rotina de gestão fica escrita e com dono. <strong>É o entregável que devolve o seu tempo.</strong></div></div></div>
+                <div class="deliver-item"><span class="deliver-num">10</span><div><div class="deliver-title">15 dias de operação assistida</div><div class="deliver-desc">O time em campo sob condução sênior, com o ciclo inteiro de rituais rodando ao menos duas vezes antes da entrega.</div></div></div>
+                <div class="deliver-item"><span class="deliver-num">11</span><div><div class="deliver-title">Suporte via WhatsApp durante todo o ciclo</div><div class="deliver-desc">Grupo dedicado com o time e com você, para corrigir desvio em tempo real em vez de esperar a próxima reunião.</div></div></div>
+                <div class="deliver-item"><span class="deliver-num">12</span><div><div class="deliver-title">Passagem de bastão documentada</div><div class="deliver-desc">Reunião de transição com o estado de cada vendedor, os números do ciclo, os riscos abertos e o plano dos 30 dias seguintes. <strong>É o entregável que devolve o seu tempo.</strong></div></div></div>
               </div>
             </div>
           </div>
@@ -667,46 +686,58 @@
 <section id="fases">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">Como os 90 dias se organizam</span>
-      <h2 class="serif">Nada acontece em paralelo por acaso. <em>Cada bloco só abre quando o anterior sustenta.</em></h2>
-      <p class="lead">O ciclo completo roda em 90 dias, em três blocos de 30. As frentes se sobrepõem de propósito: a estrutura precisa estar pronta quando a primeira contratação chega, e a formação precisa acontecer com o time já dentro.</p>
+      <span class="eyebrow">Como os 45 dias se organizam</span>
+      <h2 class="serif">Quarenta e cinco dias só fecham <em>se as frentes se sobrepuserem.</em></h2>
+      <p class="lead">Em sequência pura, este escopo levaria um trimestre. O que faz ele caber em 45 dias é a sobreposição deliberada: a vaga abre enquanto a fundação ainda sobe, o intensivão começa com o time recém-contratado, e a última semana de formação já acontece com o vendedor prospectando de verdade.</p>
     </div>
     <div class="phases">
       <div class="phase reveal">
-        <div class="phase-win">Dias 1–30</div>
-        <h3 class="serif">Desenhar</h3>
-        <p>Diagnóstico da aquisição das duas unidades e desenho do motor comercial.</p>
+        <div class="phase-win">Dias 1–10</div>
+        <h3 class="serif">Fundação</h3>
+        <p>A infraestrutura que vai receber o time sobe primeiro.</p>
         <ul>
-          <li>Mapa do funil atual e pontos de fuga</li>
-          <li>ICP e trilhas de qualificação por unidade</li>
-          <li>Estrutura de time, metas e comissão</li>
-          <li>Backlog da mentoria priorizado</li>
+          <li>CRM configurado e azeitado</li>
+          <li>Política comercial escrita</li>
+          <li>Indicadores e metas por função</li>
+          <li>Rituais e cadência no calendário</li>
         </ul>
-        <div class="out">Saída: <b>playbook comercial em construção e desenho de time aprovado</b></div>
+        <div class="out">Saída: <b>base pronta para receber vendedor</b></div>
       </div>
       <div class="phase reveal">
-        <div class="phase-win">Dias 25–60</div>
-        <h3 class="serif">Montar</h3>
-        <p>Seleção conduzida em conjunto e entrada do time na operação.</p>
+        <div class="phase-win">Dias 5–20</div>
+        <h3 class="serif">Seleção</h3>
+        <p>Recrutamento conduzido por mim, decisão final com você.</p>
         <ul>
           <li>Vagas abertas e funil de candidatos</li>
-          <li>Filtro técnico, comportamental e simulação de call</li>
-          <li>Contratações fechadas e onboarding rodando</li>
-          <li>Início da formação da força de vendas</li>
+          <li>Triagem e entrevista estruturada</li>
+          <li>Dinâmica com simulação de call</li>
+          <li>Contratações fechadas e onboarding</li>
         </ul>
-        <div class="out">Saída: <b>time contratado, integrado e em rampagem</b></div>
+        <div class="out">Saída: <b>pré-vendas e vendas contratados</b></div>
       </div>
       <div class="phase reveal">
-        <div class="phase-win">Dias 45–90</div>
-        <h3 class="serif">Rodar sem você</h3>
-        <p>Correção em campo e transferência da cadência de gestão.</p>
+        <div class="phase-win">Dias 18–35</div>
+        <h3 class="serif">Intensivão</h3>
+        <p>Imersão de vendas com o time já dentro da operação.</p>
         <ul>
-          <li>Formação concluída · 6 encontros ao vivo</li>
-          <li>Call Review sobre gravações reais</li>
-          <li>Rituais de gestão instalados com dono</li>
-          <li>Gestor comercial formado e cobrando</li>
+          <li>8 módulos · 24h ao vivo</li>
+          <li>Roleplay gravado e devolutiva individual</li>
+          <li>Prospecção real desde a primeira semana</li>
+          <li>Certificação interna por competência</li>
         </ul>
-        <div class="out">Saída: <b>comercial operando sem o fundador no centro</b></div>
+        <div class="out">Saída: <b>time formado e em campo</b></div>
+      </div>
+      <div class="phase reveal">
+        <div class="phase-win">Dias 30–45</div>
+        <h3 class="serif">Campo e transição</h3>
+        <p>O time opera sob minha tutela e depois passa para você.</p>
+        <ul>
+          <li>Ritual conduzido por mim</li>
+          <li>Call Review sobre gravações reais</li>
+          <li>Gestor comercial formado</li>
+          <li>Passagem de bastão documentada</li>
+        </ul>
+        <div class="out">Saída: <b>força de vendas entregue vendendo</b></div>
       </div>
     </div>
   </div>
@@ -717,71 +748,71 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Modelo de investimento</span>
-      <h2 class="serif">Escopo fechado por frente — <em>à la carte ou como programa completo.</em></h2>
-      <p class="lead">Cada frente resolve uma camada e pode entrar avulsa. Mas a ordem importa: sem a Frente 1, contratar e treinar é construir sobre areia. A recomendação para o seu cenário é o programa completo, com as frentes sequenciadas em 90 dias.</p>
+      <h2 class="serif">Um programa fechado de 45 dias — <em>com as quatro frentes sobrepostas.</em></h2>
+      <p class="lead">As frentes se sobrepõem no calendário, então funcionam como um programa único e não como quatro compras separadas. A leitura abaixo mostra o que cada camada entrega dentro do mesmo ciclo — e o que fica com você depois que ele acaba.</p>
     </div>
     <div class="pricing four reveal">
       <div class="price">
-        <span class="p-kick">Frente 1</span>
-        <h3 class="serif">Arquitetura Comercial</h3>
-        <div class="p-model">projeto fechado · 45 dias · 18h</div>
-        <p class="p-desc">Diagnóstico e desenho do motor de aquisição das duas unidades, sobre processos, gestão e pessoas.</p>
+        <span class="p-kick">Frente 1 · dias 1–10</span>
+        <h3 class="serif">Fundação Comercial</h3>
+        <div class="p-model">CRM · política · indicador · ritual</div>
+        <p class="p-desc">A infraestrutura que recebe o time, configurada durante o ciclo e não entregue como especificação.</p>
         <ul>
-          <li>Escopo fechado por entregável</li>
-          <li>Playbook comercial com as duas trilhas</li>
-          <li>Estrutura de time, metas e política de comissão</li>
-          <li>Backlog da mentoria priorizado</li>
+          <li>CRM implantado e azeitado</li>
+          <li>Política comercial e de comissão escrita</li>
+          <li>Indicadores e metas por função</li>
+          <li>Rituais no calendário · playbook das duas trilhas</li>
         </ul>
-        <div class="tag">Pré-requisito das demais frentes</div>
+        <div class="tag">Fica com você: playbook e painel</div>
       </div>
       <div class="price">
-        <span class="p-kick">Frente 2</span>
-        <h3 class="serif">Montagem do Time</h3>
-        <div class="p-model">projeto fechado · 45 dias</div>
-        <p class="p-desc">Recrutamento, seleção e onboarding conduzidos com você — a frente que devolve tempo mais rápido.</p>
+        <span class="p-kick">Frente 2 · dias 5–20</span>
+        <h3 class="serif">Recrutamento e Seleção</h3>
+        <div class="p-model">pré-vendas + vendas contratados</div>
+        <p class="p-desc">Todo o processo conduzido por mim. Você entra apenas na banca final para decidir quem entra.</p>
         <ul>
           <li>Vagas, atração e triagem estruturadas</li>
-          <li>Banca final com participação sênior</li>
-          <li>Onboarding e plano de rampagem</li>
+          <li>Dinâmica com simulação de call real</li>
+          <li>Onboarding e CRM desde a semana um</li>
           <li>Kit de contratação replicável</li>
         </ul>
         <div class="tag">Escopo por número de posições</div>
       </div>
       <div class="price">
-        <span class="p-kick">Frente 3</span>
-        <h3 class="serif">Formação da Força de Vendas</h3>
-        <div class="p-model">programa fechado · 6 encontros ao vivo</div>
-        <p class="p-desc">Repertório técnico do time em autoridade, DISC, venda desafiadora, venda consultiva de IA e negociação.</p>
+        <span class="p-kick">Frente 3 · dias 18–35</span>
+        <h3 class="serif">Intensivão de Vendas</h3>
+        <div class="p-model">8 módulos · 24h ao vivo</div>
+        <p class="p-desc">O arco completo de vendas, dos fundamentos ao fechamento, com roleplay gravado em todo encontro.</p>
         <ul>
-          <li>6 × 90min ao vivo · 9h de programa</li>
-          <li>Módulo dedicado à venda consultiva de IA</li>
-          <li>Turma fechada, sobre as suas ofertas</li>
-          <li>Materiais complementares como bônus</li>
+          <li>Prospecção, qualificação e tipos de venda</li>
+          <li>Autoridade, DISC, negociação e fechamento</li>
+          <li>Módulo de venda consultiva de IA</li>
+          <li>Certificação interna por competência</li>
         </ul>
-        <div class="tag">Turma de até 12 pessoas</div>
+        <div class="tag">Turma fechada, sobre as suas ofertas</div>
       </div>
       <div class="price">
-        <span class="p-kick">Frente 4</span>
-        <h3 class="serif">Call Review &amp; Cadência de Gestão</h3>
-        <div class="p-model">ciclo de 45 dias</div>
-        <p class="p-desc">Correção em campo sobre gravações reais e instalação da rotina de gestão com dono definido.</p>
+        <span class="p-kick">Frente 4 · dias 30–45</span>
+        <h3 class="serif">Campo e Transição</h3>
+        <div class="p-model">tutela · call review · passagem de bastão</div>
+        <p class="p-desc">O time em campo respondendo a mim, com o ritual rodando — e transferido para você ao final.</p>
         <ul>
-          <li>8 calls reais avaliadas · 3 devolutivas quinzenais</li>
+          <li>Ritual e cobrança conduzidos por mim</li>
+          <li>8 calls reais avaliadas · devolutivas quinzenais</li>
           <li>Mentoria 1:1 de 30min · até 6 vendedores</li>
-          <li>Rituais de gestão instalados</li>
-          <li>Formação do gestor comercial</li>
+          <li>Gestor comercial formado e bastão documentado</li>
         </ul>
-        <div class="tag">A frente que consolida a saída do fundador</div>
+        <div class="tag">A frente que devolve o seu tempo</div>
       </div>
     </div>
 
     <div class="combo reveal">
-      <div class="combo-badge">Recomendado para o seu cenário</div>
+      <div class="combo-badge">Programa fechado</div>
       <div class="combo-grid">
         <div>
-          <span class="p-kick" style="color:var(--brass-bright)">Programa completo</span>
-          <div class="combo-title">Força de Vendas em 90 dias · as quatro frentes sequenciadas</div>
-          <p class="combo-desc">Arquitetura · Montagem do Time · Formação · Call Review e Gestão — na ordem que instala processo, coloca gente, forma o time e depois transfere a condução. Prazo total de 90 dias, com as duas unidades contempladas.</p>
+          <span class="p-kick" style="color:var(--brass-bright)">A entrega, em uma frase</span>
+          <div class="combo-title">Força de Vendas em 45 dias · time contratado, formado e entregue vendendo</div>
+          <p class="combo-desc">Fundação · Seleção · Intensivão · Campo e Transição — as quatro frentes sobrepostas dentro de um único ciclo de 45 dias, atendendo as duas unidades. Você entra na banca final e na reunião de transição; o resto roda fora da sua agenda.</p>
         </div>
       </div>
     </div>
@@ -791,7 +822,7 @@
       <p><strong>Condição de pagamento:</strong> parcelamento facilitado no cartão. Aplicável a qualquer frente — avulsa ou programa completo. Faturamento contra CNPJ da empresa.</p>
     </div>
 
-    <p class="invest-note reveal">Comparar com uma consultoria pontual ou com o custo de um recrutador é categoria errada. A comparação honesta é com o custo de continuar sendo o comercial das duas operações — o trimestre que não cresce porque a sua agenda não coube, e a contratação errada que custa três meses de rampagem perdida.</p>
+    <p class="invest-note reveal">Comparar com um recrutador, com um treinamento avulso ou com uma consultoria de CRM é categoria errada — são três fornecedores diferentes, três contratos e ninguém respondendo pelo resultado do conjunto. A comparação honesta é com o custo de continuar sendo o comercial das duas operações: o trimestre que não cresce porque a sua agenda não coube, e a contratação sem filtro que queima um mês e meio de rampagem.</p>
   </div>
 </section>
 
@@ -840,17 +871,17 @@
       <div class="path reveal">
         <div class="path-num">01</div>
         <div class="path-title serif">Continuar sendo o comercial</div>
-        <p class="path-desc">Manter as duas operações vendendo pela sua agenda. Funciona — até o limite do seu dia. Em 12 meses, com tudo correndo razoavelmente bem, você estará no mesmo lugar: mais cansado, com os mesmos pontos da mentoria pendentes e com o crescimento das duas frentes limitado pelo mesmo gargalo. O custo não aparece em boleto. Aparece no trimestre que não cresceu.</p>
+        <p class="path-desc">Manter as duas operações vendendo pela sua agenda. Funciona — até o limite do seu dia. Em 12 meses, com tudo correndo razoavelmente bem, você estará no mesmo lugar: mais cansado, com os mesmos pontos pendentes e com o crescimento das duas frentes limitado pelo mesmo gargalo. O custo não aparece em boleto. Aparece no trimestre que não cresceu.</p>
       </div>
       <div class="path reveal">
         <div class="path-num">02</div>
         <div class="path-title serif">Contratar um vendedor e torcer</div>
-        <p class="path-desc">Abrir uma vaga, contratar rápido e esperar que a pessoa se vire. Sem playbook, sem trilha de qualificação, sem meta clara e sem quem cobre, o vendedor tateia por três meses e sai — ou pior, fica performando pouco. Aí você conclui que “vendedor bom não existe” e volta a vender você mesmo. O ciclo se repete com o custo de uma rampagem perdida.</p>
+        <p class="path-desc">Abrir uma vaga, contratar rápido e esperar que a pessoa se vire. Sem CRM configurado, sem política, sem meta clara, sem treinamento e sem quem cobre, o vendedor tateia por três meses e sai — ou pior, fica performando pouco. Aí você conclui que “vendedor bom não existe” e volta a vender você mesmo. O ciclo se repete com o custo de uma rampagem queimada.</p>
       </div>
       <div class="path feat reveal">
         <div class="path-num">03</div>
-        <div class="path-title serif">Estruturar antes de escalar</div>
-        <p class="path-desc">Instalar a máquina comercial das duas unidades, selecionar com filtro, formar o time no seu discurso e transferir a cadência de gestão para um dono que não é você. Em 90 dias o comercial existe fora da sua agenda — com processo escrito, gente treinada e indicador cobrado. <strong>Você volta a ser sócio do negócio, não o vendedor dele.</strong></p>
+        <div class="path-title serif">Receber o time pronto</div>
+        <p class="path-desc">Deixar que a base suba, o time seja recrutado com filtro, formado num intensivão e conduzido em campo sob tutela sênior — e receber tudo isso funcionando no dia 45. Você entra na banca final e na transição; o resto acontece fora da sua agenda. <strong>Você volta a ser sócio do negócio, não o vendedor dele.</strong></p>
         <div class="badge">A escolha que devolve tempo</div>
       </div>
     </div>
@@ -865,11 +896,12 @@
       <h2 class="serif">Como a parceria <em>entra em funcionamento.</em></h2>
     </div>
     <div class="steps reveal">
-      <div class="step"><div><h4>Alinhamento de escopo</h4><p>Conversa para dimensionar as duas unidades: volume atual, número de posições a contratar, o que já existe de processo e quais pontos da mentoria estão pendentes. Daí sai o escopo e o investimento fechados.</p></div></div>
-      <div class="step"><div><h4>Contrato e início</h4><p>Formalização do acordo, definição das datas e abertura dos acessos: funil, CRM, gravações e números das duas frentes.</p></div></div>
-      <div class="step"><div><h4>Desenhar · dias 1–30</h4><p>Diagnóstico da aquisição e desenho do motor comercial: funil, trilhas, estrutura de time, metas, comissão e rituais.</p></div></div>
-      <div class="step"><div><h4>Montar · dias 25–60</h4><p>Processo seletivo conduzido em conjunto, contratações fechadas, onboarding rodando e formação da força de vendas iniciada.</p></div></div>
-      <div class="step"><div><h4>Rodar sem você · dias 45–90</h4><p>Call Review sobre gravações reais, cadência de gestão instalada com dono definido e gestor comercial formado para cobrar no seu lugar.</p></div></div>
+      <div class="step"><div><h4>Alinhamento de escopo</h4><p>Conversa para dimensionar o ciclo: quantas posições de pré-vendas e vendas contratar, qual CRM será usado, volume de lead disponível nas duas unidades e quem será o candidato a gestor comercial. Daí saem o escopo e o investimento fechados.</p></div></div>
+      <div class="step"><div><h4>Contrato e início</h4><p>Formalização do acordo, datas travadas e abertura dos acessos: CRM, base atual, gravações e números das duas frentes.</p></div></div>
+      <div class="step"><div><h4>Fundação · dias 1–10</h4><p>CRM configurado, política comercial escrita, indicadores e metas definidos por função, rituais no calendário e vagas prontas para abrir.</p></div></div>
+      <div class="step"><div><h4>Seleção · dias 5–20</h4><p>Vagas divulgadas, triagem e entrevistas conduzidas por mim, dinâmica com simulação de call e banca final com você. Contratações fechadas e onboarding rodando.</p></div></div>
+      <div class="step"><div><h4>Intensivão · dias 18–35</h4><p>8 módulos e 24 horas ao vivo, com roleplay gravado, devolutiva individual e prospecção real acontecendo em paralelo.</p></div></div>
+      <div class="step"><div><h4>Campo e transição · dias 30–45</h4><p>Time em campo sob minha condução, Call Review sobre gravações reais, gestor comercial formado e reunião de passagem de bastão com o estado de cada vendedor e o plano dos 30 dias seguintes.</p></div></div>
     </div>
   </div>
 </section>
@@ -879,16 +911,16 @@
   <div class="wrap">
     <div class="cta reveal">
       <span class="eyebrow">A decisão é agora</span>
-      <h2 class="serif">Você não precisa de mais uma ideia boa. <em>Precisa de alguém que instale as que já existem.</em></h2>
-      <p>As duas operações já estão de pé e a direção já está clara. O que falta é braço sênior para desenhar o processo, colocar as pessoas e entregar a chave — para que o crescimento pare de depender do seu calendário.</p>
+      <h2 class="serif">Você não precisa de mais um diagnóstico. <em>Precisa de gente vendendo.</em></h2>
+      <p>As duas operações já estão de pé e a direção já está clara. O que falta é quem recrute, forme e conduza a força de vendas até ela andar sozinha — e depois entregue a chave. Quarenta e cinco dias, com o time saindo do outro lado já vendendo.</p>
       <div class="cta-row">
-        <a href="#contratar" class="btn btn-primary">Estruturar a força de vendas →</a>
+        <a href="#contratar" class="btn btn-primary">Montar a força de vendas →</a>
         <a href="#metodo" class="btn btn-ghost">Rever o método</a>
       </div>
       <div class="contact">
         <span><b>Sócio Estratégico</b> · SE Capital</span>
         <span>·</span><span>Proposta para Jonathas</span>
-        <span>·</span><span>Confidencial · v1.0</span>
+        <span>·</span><span>Confidencial · v2.0</span>
       </div>
     </div>
   </div>
@@ -896,7 +928,7 @@
 
 <footer>
   <p class="fnote">Documento confidencial preparado para Jonathas — agência de marketing e agência de IA. Depoimentos e resultados citados referem-se a clientes e parceiros do Sócio Estratégico e não constituem promessa de resultado.</p>
-  <p>Força de Vendas em 90 dias · Proposta comercial · v1.0 · Agosto de 2026</p>
+  <p>Força de Vendas em 45 dias · Proposta comercial · v2.0 · Agosto de 2026</p>
 </footer>
 
 <script>
