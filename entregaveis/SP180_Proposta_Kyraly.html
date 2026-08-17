@@ -202,6 +202,21 @@
   .def .tags span{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.04em;
     padding:7px 13px;border-radius:999px;border:1px solid rgba(234,238,246,.2);color:var(--on-navy)}
 
+  /* ============ COMPROMISSO ============ */
+  .commit-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:30px;box-shadow:var(--shadow)}
+  .commit-card.yes{border-color:color-mix(in srgb,var(--signal) 45%,var(--line))}
+  .commit-card .h{display:flex;align-items:center;gap:11px;margin-bottom:6px}
+  .commit-card .h .tick{flex:none;width:28px;height:28px;border-radius:8px;display:grid;place-items:center;font-weight:700;font-size:15px}
+  .commit-card.yes .h .tick{background:var(--signal);color:#0E1A12}
+  .commit-card.no .h .tick{background:var(--surface-2);color:var(--ink-faint);border:1px solid var(--line)}
+  .commit-card .h h3{font-size:19px;letter-spacing:-.01em}
+  .commit-card .sub{font-size:13.5px;color:var(--ink-faint);margin:2px 0 16px}
+  .clist{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+  .clist li{font-size:15px;color:var(--ink-soft);padding-left:27px;position:relative;line-height:1.45}
+  .clist li b{color:var(--ink);font-weight:600}
+  .clist.yes li::before{content:"✓";position:absolute;left:0;top:0;color:var(--signal);font-weight:700}
+  .clist.no li::before{content:"✕";position:absolute;left:1px;top:0;color:var(--ink-faint);font-weight:600}
+
   /* ============ TABLE ============ */
   .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface);box-shadow:var(--shadow)}
   table{width:100%;border-collapse:collapse;min-width:640px}
@@ -228,6 +243,14 @@
     text-transform:uppercase;color:var(--signal);font-weight:600}
   .person h4{font-size:17px;margin:5px 0 6px;letter-spacing:-.01em}
   .person p{font-size:14px;color:var(--ink-soft)}
+  .person.feat{background:var(--navy);border-color:var(--navy)}
+  .person.feat .av{background:var(--signal-bright);color:#0E1A12}
+  .person.feat .role{color:var(--signal-bright)}
+  .person.feat h4{color:var(--on-navy)}
+  .person.feat p{color:var(--on-navy-soft)}
+  .person.feat .tagline{display:inline-block;margin-top:8px;font-family:"SF Mono",ui-monospace,Menlo,monospace;
+    font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--signal-bright);
+    border:1px solid rgba(219,190,122,.35);border-radius:999px;padding:3px 10px}
   .supervisor{margin-top:20px;background:var(--surface-2);border:1px solid var(--line);border-radius:14px;
     padding:20px 24px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
   .supervisor .badge{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:11px;font-weight:600;
@@ -338,6 +361,7 @@
     <div class="nav-links">
       <a href="#momento">Momento</a>
       <a href="#implementadora">Implementadora</a>
+      <a href="#compromisso">Compromisso</a>
       <a href="#frentes">Frentes</a>
       <a href="#pessoas">O time</a>
       <a href="#planificacao">Planificação</a>
@@ -360,10 +384,10 @@
     </div>
     <span class="eyebrow">Implementadora de Receita · SP180 · Sócios por 180 dias</span>
     <h1>Entramos como sócios por <em>180 dias</em> para meter a mão na massa da receita.</h1>
-    <p class="lead">A Kyraly já tem a estratégia desenhada. A SP180 assume a execução das frentes de
-      receita — dentro de estratégia, gestão e operação — com um time dedicado, sob supervisão direta,
-      transformando o planejamento em máquina comercial rodando. E com <em>skin in the game</em>:
-      metade do investimento vira equity.</p>
+    <p class="lead">O que estamos oferecendo é claro: <em>o meu envolvimento direto</em> e um time de
+      <em>mais 3 pessoas</em> dedicadas à receita, metendo a mão na massa dentro de estratégia, gestão e
+      operação — ao lado do Rodrigo e dos sócios. Não é a promessa de um número; é gente boa, método e
+      presença para executar o plano que a Kyraly já desenhou.</p>
     <div class="hero-meta">
       <span>Preparado para <b>Kyraly · Vamos além do marketing</b></span>
       <span class="dot"></span><span>Ciclo 2026–2028</span>
@@ -378,10 +402,10 @@
 </header>
 
 <div class="hero-metrics reveal">
-  <div class="metric"><div class="num">180<span> dias</span></div><div class="lbl">de execução conjunta, com metas e gates mensais</div></div>
+  <div class="metric"><div class="num">1<span> + 3</span></div><div class="lbl">o meu envolvimento direto + 3 especialistas de receita</div></div>
+  <div class="metric"><div class="num">180<span> dias</span></div><div class="lbl">de execução conjunta, com gates de trabalho mensais</div></div>
   <div class="metric"><div class="num">R$120<span>k</span></div><div class="lbl">investimento — metade em caixa, metade convertida em equity</div></div>
-  <div class="metric"><div class="num">~25</div><div class="lbl">ações marcadas como sócio / sócio estratégico assumidas</div></div>
-  <div class="metric"><div class="num">5<span>/mês</span></div><div class="lbl">novos clientes — meta-âncora da máquina de aquisição</div></div>
+  <div class="metric"><div class="num">~25</div><div class="lbl">ações de receita (sócio / SE) que assumimos e executamos</div></div>
 </div>
 <div class="spacer-metrics"></div>
 
@@ -446,6 +470,48 @@
         <span>Deixa rodando</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============ NOSSO COMPROMISSO ============ -->
+<section id="compromisso">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Nosso compromisso</span>
+      <h2>O que estamos oferecendo — e o que não estamos prometendo.</h2>
+      <p class="lead">Para não haver ruído: o que vendemos é <b style="color:var(--ink)">meio</b>, não
+        <b style="color:var(--ink)">fim</b>. Colocamos gente qualificada e presença dentro da Kyraly para
+        empurrar a receita. Os números do plano são metas da Kyraly que ajudamos a perseguir — não
+        resultados que garantimos em contrato.</p>
+    </div>
+    <div class="grid g2 reveal" style="margin-top:44px">
+      <div class="commit-card yes">
+        <div class="h"><span class="tick">✓</span><h3>Estamos oferecendo</h3></div>
+        <p class="sub">O compromisso desta proposta — o que entra em contrato.</p>
+        <ul class="clist yes">
+          <li><b>O meu envolvimento direto</b> na condução das frentes de receita, no dia a dia.</li>
+          <li><b>Um time de mais 3 pessoas</b> dedicadas à receita, sob a minha supervisão.</li>
+          <li><b>Mão na massa</b> nas ações de sócio / sócio estratégico do cronograma.</li>
+          <li><b>Método, cadência e presença</b>: playbooks, ritos, donos e revisão de proposta comercial.</li>
+          <li><b>Abrir e operar canais de aquisição</b> na prática e entrar nos pitches com o time.</li>
+          <li><b>Requisitos de contratação</b> e apoio à seleção das posições-chave.</li>
+        </ul>
+      </div>
+      <div class="commit-card no">
+        <div class="h"><span class="tick">✕</span><h3>Não estamos prometendo</h3></div>
+        <p class="sub">O que seria irresponsável garantir — e por isso não garantimos.</p>
+        <ul class="clist no">
+          <li>Um <b>número de vendas</b> ou de novos clientes garantido no período.</li>
+          <li>Um <b>patamar de faturamento</b> ou de EBITDA como obrigação contratual.</li>
+          <li>Atingir <b>NRR, R$20M ou 5 clientes/mês</b> — são metas da Kyraly, não cláusulas nossas.</li>
+          <li>Resultado condicionando pagamento: o investimento remunera <b>o trabalho e o time</b>.</li>
+          <li>Substituir a decisão dos sócios — a Kyraly segue dona do produto e das escolhas.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="lead reveal" style="margin-top:22px;font-size:15px;color:var(--ink-faint)">
+      A parcela de equity é aposta de longo prazo e alinhamento de sociedade — não um <span class="mono">success fee</span>
+      nem uma garantia de resultado.</p>
   </div>
 </section>
 
@@ -555,39 +621,40 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Quem opera o projeto</span>
-      <h2>As pessoas que entram junto com você — sob a nossa supervisão.</h2>
-      <p class="lead">O Rodrigo pediu clareza sobre quem, do nosso lado, vai operar a SP180 no dia a dia.
-        É um squad dedicado, dentro da rotina da Kyraly, com papéis definidos — e todos respondem à
-        supervisão direta do sócio estratégico.</p>
+      <h2>É isto que estamos oferecendo: eu, envolvido, e mais 3 pessoas na receita.</h2>
+      <p class="lead">O Rodrigo pediu clareza sobre quem, do nosso lado, vai operar a SP180 no dia a dia. A
+        resposta é concreta: <b style="color:var(--ink)">o meu envolvimento direto</b> mais um time de
+        <b style="color:var(--ink)">3 especialistas dedicados</b>, dentro da rotina da Kyraly, todos sob a
+        minha supervisão. É a capacidade de execução que colocamos à disposição — não um número prometido.</p>
     </div>
     <div class="people reveal" style="margin-top:40px">
-      <div class="person"><div class="av">LI</div><div>
-        <div class="role">Líder de Implementação · Receita</div>
-        <h4>Dono da execução ponta a ponta</h4>
-        <p>Conduz o dia a dia da SP180 dentro da Kyraly, garante os gates mensais e é o ponto focal com o
-          Rodrigo e os sócios.</p></div></div>
-      <div class="person"><div class="av">EC</div><div>
-        <div class="role">Especialista Comercial · Aquisição</div>
+      <div class="person feat"><div class="av">M</div><div>
+        <div class="role">Sócio Estratégico · você conta comigo</div>
+        <h4>Eu, diretamente envolvido</h4>
+        <p>Conduzo a SP180 dentro da Kyraly, sou o ponto focal com o Rodrigo e os sócios e respondo pela
+          entrega. Não é supervisão de longe — entro junto no dia a dia da receita.</p>
+        <span class="tagline">O &ldquo;SE&rdquo; do cronograma sou eu</span></div></div>
+      <div class="person"><div class="av">1</div><div>
+        <div class="role">Pessoa 1 · Comercial &amp; Aquisição</div>
         <h4>Motor de aquisição na prática</h4>
-        <p>Abre e opera os canais, roda a engenharia reversa dos 5 clientes/mês, entra nos pitches e treina
-          o comercial no método.</p></div></div>
-      <div class="person"><div class="av">EM</div><div>
-        <div class="role">Especialista · Monetização &amp; NRR</div>
+        <p>Abre e opera os canais, roda a engenharia reversa do plano comercial, entra nos pitches e treina
+          o time no método.</p></div></div>
+      <div class="person"><div class="av">2</div><div>
+        <div class="role">Pessoa 2 · Monetização &amp; NRR</div>
         <h4>Receita da base e retenção</h4>
         <p>Estrutura monetização, upsell e o foco da operação em NRR, junto ao Junio e ao time de
           operação/CS.</p></div></div>
-      <div class="person"><div class="av">AG</div><div>
-        <div class="role">Analista · Growth &amp; Dados</div>
-        <h4>Previsibilidade e números</h4>
-        <p>Monta o modelo de previsão de receita, os indicadores das frentes e o PMO que dá dono e cadência
-          à execução.</p></div></div>
+      <div class="person"><div class="av">3</div><div>
+        <div class="role">Pessoa 3 · Growth, Dados &amp; PMO</div>
+        <h4>Previsibilidade e cadência</h4>
+        <p>Monta o modelo de previsão de receita, os indicadores das frentes e o PMO que dá dono e ritmo à
+          execução.</p></div></div>
     </div>
     <div class="supervisor reveal">
-      <span class="badge">Supervisão direta</span>
-      <p>Todo o squad opera <b>sob a supervisão do Max, na figura de Sócio Estratégico (SE)</b> — o mesmo
-        &ldquo;SE&rdquo; que já aparece como responsável no cronograma da Kyraly. As pessoas são da SP180,
-        respondem à SP180, e o Rodrigo tem um único ponto de responsabilização pela entrega. Nomes e
-        alocação são fechados no kickoff.</p>
+      <span class="badge">Sob minha supervisão</span>
+      <p>As 3 pessoas são da SP180 e respondem a mim — <b>Max, na figura de Sócio Estratégico (SE)</b>, o
+        mesmo &ldquo;SE&rdquo; que já aparece no cronograma da Kyraly. O Rodrigo tem um único ponto de
+        responsabilização pela entrega. Perfis, nomes e alocação são fechados no kickoff.</p>
     </div>
   </div>
 </section>
@@ -597,8 +664,8 @@
   <div class="wrap">
     <div class="pull reveal">
       <span class="eyebrow">Princípio da SP180</span>
-      <blockquote>Não entregamos recomendação. Entregamos <em>máquina de receita rodando</em> — e o time da Kyraly sabendo tocá-la.</blockquote>
-      <p class="attrib">// sucesso = a Kyraly menos dependente de pessoas-chave e mais apoiada em método, donos e canal.</p>
+      <blockquote>Não entregamos recomendação, nem prometemos número. Entregamos <em>gente boa metendo a mão na massa</em> da sua receita, ao seu lado, todo dia.</blockquote>
+      <p class="attrib">// o que oferecemos é envolvimento, time e método — não a garantia de um resultado.</p>
     </div>
   </div>
 </section>
@@ -628,12 +695,12 @@
         <p>Abertura e operação dos canais de aquisição, revisão da proposta comercial e precificação, e
           entrada nos pitches para elevar a taxa de conversão.</p>
         <div class="codes"><code>KY-20</code><code>canais</code><code>proposta</code><code>pitch</code></div>
-        <span class="gate">✓ Primeiro canal rodando</span></div>
+        <span class="gate">✓ Primeiro canal em operação</span></div>
       <div class="phase"><div class="pn">Mês 4 · Monetização &amp; NRR</div><h4>Capturar o dinheiro na mesa</h4>
         <p>Time de monetização de pé, motor de upsell na base e foco da operação em NRR, apoiado na
           documentação e no Drive único dos clientes.</p>
         <div class="codes"><code>KY-17</code><code>KY-48</code><code>KY-50</code><code>KY-49</code><code>KY-37</code></div>
-        <span class="gate">✓ Upsell e NRR ativos</span></div>
+        <span class="gate">✓ Motor de upsell implantado</span></div>
       <div class="phase"><div class="pn">Mês 5 · Escala &amp; Contratação</div><h4>Crescer o time com método</h4>
         <p>Projeto de crescimento do comercial, contratações-chave com requisitos escritos, estrutura de CS
           e aculturamento das camadas pelas All Hands.</p>
@@ -643,7 +710,7 @@
         <p>Modelo de partnership estruturado, matriz de ritos e donos, previsão de receita validada e plano
           de continuidade — a Kyraly assume o motor com autonomia.</p>
         <div class="codes"><code>KY-58</code><code>KY-25</code><code>KY-59</code><code>partnership</code></div>
-        <span class="gate">✓ Máquina entregue à Kyraly</span></div>
+        <span class="gate">✓ Operação e playbooks entregues</span></div>
     </div>
   </div>
 </section>
@@ -654,9 +721,10 @@
     <div class="sec-head reveal">
       <span class="eyebrow">Investimento</span>
       <h2>SP180 — Sócios por 180 dias. Metade em caixa, metade em equity.</h2>
-      <p class="lead">Um compromisso fechado de sociedade estratégica de execução por seis meses, com time
-        dedicado e foco em receita. E não é fornecedor: metade do investimento é convertida em
-        participação — o incentivo fica 100% alinhado ao resultado da Kyraly.</p>
+      <p class="lead">Um valor fechado por seis meses de execução — o meu envolvimento e o time de 3
+        pessoas. Não é fornecedor: metade do investimento vira participação, porque entramos como sócios
+        de verdade e apostamos na Kyraly no longo prazo. O pagamento remunera o trabalho e o time — não
+        está condicionado a atingir um número.</p>
     </div>
     <div class="invest reveal" style="margin-top:44px">
       <div class="price">
@@ -705,9 +773,10 @@
         <span class="wm"><span class="a">Sócio</span><span class="b">Estratégico</span></span>
       </span>
       <span class="eyebrow">Próximo passo</span>
-      <h2>180 dias para tirar o plano do papel e botar receita na rua.</h2>
-      <p>Fechamos o escopo de receita, montamos o squad e começamos pelo motor de aquisição. A Kyraly
-        continua dona do produto e da regulação; a SP180 entrega a execução.</p>
+      <h2>180 dias metendo a mão na massa da sua receita — com gente, método e presença.</h2>
+      <p>Fechamos o escopo, eu entro junto e montamos o time de 3 pessoas para executar as frentes de
+        receita ao lado do Rodrigo e dos sócios. A Kyraly continua dona do produto e das decisões; a SP180
+        entrega envolvimento e execução.</p>
       <div class="cta-row">
         <a href="#investimento" class="btn btn-primary">Aprovar a SP180 →</a>
         <a href="#planificacao" class="btn btn-ghost">Rever a planificação</a>
