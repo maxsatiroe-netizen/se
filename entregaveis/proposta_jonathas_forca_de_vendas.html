@@ -304,6 +304,23 @@
   .price.feat li::before{color:var(--brass-bright)}
   .price .tag{margin-top:auto;padding-top:18px;font-size:12.5px;color:var(--ink-faint)}
   .price.feat .tag{color:var(--on-pine-soft)}
+  .bd-head{margin-top:26px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+  .bd-head .bd-t{font-family:"Iowan Old Style",Georgia,serif;font-size:19px;font-weight:600;color:var(--ink)}
+  .bd-head .bd-s{font-size:13.5px;color:var(--ink-faint)}
+  .breakdown{margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:860px){.breakdown{grid-template-columns:1fr}}
+  .bd{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;
+    box-shadow:var(--shadow);position:relative;overflow:hidden;display:flex;flex-direction:column}
+  .bd::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--brass)}
+  .bd-stage{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--brass);font-weight:700}
+  .bd-name{font-family:"Iowan Old Style",Georgia,serif;font-size:20px;font-weight:600;color:var(--ink);margin-top:7px}
+  .bd-val{font-family:"Iowan Old Style",Georgia,serif;font-size:32px;font-weight:700;color:var(--ink);
+    letter-spacing:-.02em;margin-top:12px;line-height:1;font-variant-numeric:tabular-nums}
+  .bd-per{font-size:12.5px;color:var(--ink-faint);margin-top:6px;font-variant-numeric:tabular-nums}
+  .bd-desc{font-size:14px;color:var(--ink-soft);margin-top:14px;padding-top:14px;
+    border-top:1px solid var(--line-soft);line-height:1.5}
+  .bd-desc strong{color:var(--ink);font-weight:600}
   .invest-note{margin-top:22px;font-size:13.5px;color:var(--ink-faint);max-width:74ch}
   .combo{margin-top:20px;background:var(--pine);color:var(--on-pine);border-radius:18px;padding:34px 36px;
     position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
@@ -915,10 +932,38 @@
         </div>
         <div class="combo-price">
           <div class="cp-label">Programa completo · 60 dias</div>
-          <div class="cp-now">R$ 60.000</div>
+          <div class="cp-now">R$ 54.000</div>
           <div class="cp-add">Até <b>4 posições</b> de pré-vendas e vendas incluídas.<br>Posição adicional: <b>R$ 5.000</b>.</div>
-          <div class="cp-typ">Por vendedor contratado, formado e entregue rampando<b>R$ 15.000</b></div>
+          <div class="cp-typ">Por vendedor contratado, formado e entregue rampando<b>R$ 13.500</b></div>
         </div>
+      </div>
+    </div>
+
+    <div class="bd-head reveal">
+      <span class="bd-t serif">Onde vai cada real, por vendedor</span>
+      <span class="bd-s">R$ 13.500 por pessoa · R$ 54.000 pelas quatro</span>
+    </div>
+    <div class="breakdown reveal">
+      <div class="bd">
+        <div class="bd-stage">Etapa 1</div>
+        <div class="bd-name serif">Contratação</div>
+        <div class="bd-val">R$ 3.500</div>
+        <div class="bd-per">por vendedor · R$ 14.000 no total</div>
+        <p class="bd-desc">Vaga, atração, triagem, entrevista estruturada e dinâmica com simulação de call real. <strong>Menos que a taxa de uma recrutadora</strong> — que entrega a cabeça e para por aí.</p>
+      </div>
+      <div class="bd">
+        <div class="bd-stage">Etapa 2</div>
+        <div class="bd-name serif">Formação</div>
+        <div class="bd-val">R$ 4.000</div>
+        <div class="bd-per">por vendedor · R$ 16.000 no total</div>
+        <p class="bd-desc">24h de intensivão ao vivo, roleplay gravado, devolutiva individual, playbook e onboarding. <strong>O vendedor chega ao campo sabendo vender as suas duas ofertas</strong>, não vendas em geral.</p>
+      </div>
+      <div class="bd">
+        <div class="bd-stage">Etapa 3</div>
+        <div class="bd-name serif">Rampagem</div>
+        <div class="bd-val">R$ 6.000</div>
+        <div class="bd-per">por vendedor · R$ 24.000 no total</div>
+        <p class="bd-desc">CRM, política, indicadores e rituais de pé, 30 dias de condução sênior, call review sobre gravação real e gestor formado. <strong>É a etapa que ninguém mais entrega</strong> — e a que decide se o time fica.</p>
       </div>
     </div>
 
