@@ -313,9 +313,24 @@
   .combo-badge{display:inline-block;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
     color:#20170A;background:var(--brass-bright);padding:6px 12px;border-radius:999px;margin-bottom:16px}
   .combo-grid{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
-  @media(max-width:720px){.combo-grid{grid-template-columns:1fr;gap:18px}}
+  @media(max-width:820px){.combo-grid{grid-template-columns:1fr;gap:24px}}
   .combo-title{font-family:"Iowan Old Style",Georgia,serif;font-size:24px;font-weight:600;margin:6px 0 10px}
   .combo-desc{color:var(--on-pine-soft);font-size:15.5px;max-width:60ch}
+  .combo-note{margin-top:16px;font-size:13px;color:var(--on-pine-soft);max-width:62ch;
+    padding-top:14px;border-top:1px solid rgba(234,240,233,.14)}
+  .combo-note b{color:var(--brass-bright);font-weight:600}
+  .combo-price{text-align:right;min-width:250px;border-left:1px solid rgba(234,240,233,.16);padding-left:32px}
+  @media(max-width:820px){.combo-price{text-align:left;border-left:none;padding-left:0;
+    border-top:1px solid rgba(234,240,233,.16);padding-top:22px;min-width:0}}
+  .cp-label{font-size:12.5px;color:var(--on-pine-soft);letter-spacing:.03em}
+  .cp-now{font-family:"Iowan Old Style",Georgia,serif;font-size:clamp(34px,5vw,46px);font-weight:700;
+    color:var(--brass-bright);letter-spacing:-.02em;line-height:1;margin:7px 0 9px;font-variant-numeric:tabular-nums}
+  .cp-add{font-size:13.5px;color:var(--on-pine);line-height:1.45}
+  .cp-add b{color:var(--brass-bright);font-weight:700;font-variant-numeric:tabular-nums}
+  .cp-typ{margin-top:18px;padding-top:15px;border-top:1px solid rgba(234,240,233,.14);
+    font-size:12.5px;color:var(--on-pine-soft)}
+  .cp-typ b{display:block;font-family:"Iowan Old Style",Georgia,serif;font-size:24px;color:var(--on-pine);
+    font-weight:600;margin-top:5px;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
   .pay-note{margin-top:22px;display:flex;gap:14px;align-items:flex-start;background:var(--surface);
     border:1px solid var(--line);border-radius:13px;padding:18px 20px;box-shadow:var(--shadow)}
   .pay-ico{flex:none;width:34px;height:34px;border-radius:9px;background:var(--surface-2);color:var(--brass);
@@ -846,7 +861,7 @@
           <li>Onboarding e CRM desde a semana um</li>
           <li>Kit de contratação replicável</li>
         </ul>
-        <div class="tag">Escopo por número de posições</div>
+        <div class="tag">R$ 6.000 por posição contratada</div>
       </div>
       <div class="price">
         <span class="p-kick">Frente 3 · dias 18–35</span>
@@ -890,19 +905,26 @@
     </div>
 
     <div class="combo reveal">
-      <div class="combo-badge">Programa fechado</div>
+      <div class="combo-badge">Condição de primeiro ciclo</div>
       <div class="combo-grid">
         <div>
           <span class="p-kick" style="color:var(--brass-bright)">A entrega, em uma frase</span>
           <div class="combo-title">Sócio por 60 dias · time contratado, formado, entregue vendendo e acompanhado até andar sozinho</div>
-          <p class="combo-desc">Fundação · Seleção · Intensivão · Campo e Transição, sobrepostas em 45 dias na Sócio Estratégico — e mais 15 dias de prática assistida dentro da sua agência, com o time já sob a sua gestão. As duas unidades atendidas. Você entra na banca final, na transição e nos encontros de acompanhamento; o resto roda fora da sua agenda.</p>
+          <p class="combo-desc">Fundação · Seleção · Intensivão · Campo e Transição, sobrepostas em 45 dias — e mais 15 dias de prática assistida dentro da sua agência, com o time já sob a sua gestão. As duas unidades atendidas. Você entra na banca final, na transição e nos encontros de acompanhamento; o resto roda fora da sua agenda.</p>
+          <p class="combo-note">Este é um <b>valor de primeiro ciclo</b>, praticado nesta turma em contrapartida a depoimento em vídeo, aos números do período abertos como case e a indicação qualificada. Não é a tabela do programa.</p>
+        </div>
+        <div class="combo-price">
+          <div class="cp-label">Programa base</div>
+          <div class="cp-now">R$ 45.000</div>
+          <div class="cp-add">+ <b>R$ 6.000</b> por posição<br>de pré-vendas ou vendas contratada</div>
+          <div class="cp-typ">Cenário típico · 3 posições<b>R$ 63.000</b></div>
         </div>
       </div>
     </div>
 
     <div class="pay-note reveal">
       <span class="pay-ico">$</span>
-      <p><strong>Condição de pagamento:</strong> parcelamento facilitado no cartão. Aplicável a qualquer frente — avulsa ou programa completo. Faturamento contra CNPJ da empresa.</p>
+      <p><strong>Condição de pagamento:</strong> 40% na assinatura, 30% na entrega do time contratado e 30% na reunião de transição — o pagamento acompanha a entrega. Parcelamento facilitado no cartão disponível em cada etapa. Faturamento contra CNPJ da empresa.</p>
     </div>
 
     <p class="invest-note reveal">Comparar com um recrutador, com um treinamento avulso ou com uma consultoria de CRM é categoria errada — são três fornecedores diferentes, três contratos e ninguém respondendo pelo resultado do conjunto. A comparação honesta é com o custo de continuar sendo o comercial das duas operações: o trimestre que não cresce porque a sua agenda não coube, e a contratação sem filtro que queima um mês e meio de rampagem.</p>
@@ -929,14 +951,14 @@
         </text>
         <circle cx="20" cy="70" r="1.5" fill="#C8A24B"/>
         <circle cx="120" cy="70" r="1.5" fill="#C8A24B"/>
-        <text x="70" y="66" text-anchor="middle" font-family="'Iowan Old Style',Georgia,serif" font-size="32" font-weight="700" fill="#C8A24B" dominant-baseline="middle">30</text>
+        <text x="70" y="66" text-anchor="middle" font-family="'Iowan Old Style',Georgia,serif" font-size="32" font-weight="700" fill="#C8A24B" dominant-baseline="middle">10</text>
         <line x1="58" y1="78" x2="82" y2="78" stroke="#C8A24B" stroke-width="0.6" opacity="0.5"/>
         <text x="70" y="89" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="7" font-weight="700" letter-spacing="3" fill="#C8A24B">DIAS</text>
       </svg>
       <div>
         <span class="eyebrow">Se a parceria exige compromisso sério</span>
-        <div class="g-title">O compromisso também é meu.</div>
-        <p class="g-desc">Não faz sentido você entrar sozinho com todo o risco. Se, ao final dos primeiros 30 dias, você não estiver convicto sobre a direção, a clareza e a qualidade da parceria — <strong>todo o investimento é devolvido, integralmente, sem perguntas.</strong> Você decide com cabeça fria. Sem amarras, sem fricção, sem asterisco.</p>
+        <div class="g-title">Você decide com a primeira entrega na mão.</div>
+        <p class="g-desc">Não faz sentido você entrar sozinho com todo o risco. Nos primeiros 10 dias eu entrego a fundação inteira — CRM configurado, política comercial escrita, indicadores definidos e rituais no calendário. <strong>Se ao final desses 10 dias você não estiver convicto sobre a direção, a clareza e a qualidade da parceria, todo o investimento é devolvido, integralmente, e encerramos ali.</strong> Você não julga uma promessa: julga um entregável que já está de pé. Sem amarras, sem fricção, sem asterisco.</p>
       </div>
     </div>
   </div>
