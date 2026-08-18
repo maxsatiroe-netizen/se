@@ -319,6 +319,36 @@
   footer{padding:44px 0;text-align:center;color:var(--ink-faint);font-size:13px}
   .fnote{max-width:72ch;margin:0 auto 10px}
 
+  /* ============ A BANDEIRA ============ */
+  .flag{margin-top:34px;background:var(--pine);color:var(--on-pine);border-radius:22px;
+    padding:46px 48px;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+  @media(max-width:600px){.flag{padding:36px 26px}}
+  .flag::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.6;
+    background:radial-gradient(85% 120% at 90% -20%,rgba(200,162,75,.24),transparent 55%)}
+  .flag>*{position:relative;z-index:1}
+  .flag .eyebrow{color:var(--brass-bright)}
+  .flag-phrase{font-family:"Iowan Old Style",Georgia,serif;font-weight:600;
+    font-size:clamp(25px,3.4vw,38px);line-height:1.14;letter-spacing:-.01em;margin:16px 0 0;max-width:20ch}
+  .flag-phrase em{font-style:italic;color:var(--brass-bright)}
+  .flag-sub{color:var(--on-pine-soft);font-size:16.5px;margin-top:18px;max-width:60ch}
+  .flag-out{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:30px;padding-top:26px;
+    border-top:1px solid rgba(234,240,233,.18)}
+  @media(max-width:720px){.flag-out{grid-template-columns:1fr;gap:22px}}
+  .fo-label{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--brass-bright);font-weight:600}
+  .fo h4{font-family:"Iowan Old Style",Georgia,serif;font-size:21px;font-weight:600;margin:8px 0 8px;color:var(--on-pine)}
+  .fo p{font-size:15px;color:var(--on-pine-soft);line-height:1.55}
+  .fcard .outcome{margin-top:16px;padding-top:14px;border-top:1px solid var(--line-soft);
+    font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--brass);font-weight:600}
+  .fcard.house .outcome{color:var(--emerald)}
+  .term-note{margin-top:20px;display:flex;gap:14px;align-items:flex-start;background:var(--surface);
+    border:1px solid var(--line);border-radius:13px;padding:18px 20px;box-shadow:var(--shadow)}
+  .term-ico{flex:none;width:34px;height:34px;border-radius:9px;background:var(--surface-2);color:var(--brass);
+    display:grid;place-items:center;font-weight:700;font-family:"Iowan Old Style",Georgia,serif;font-size:15px}
+  .term-note p{font-size:14.5px;color:var(--ink-soft)}
+  .term-note strong{color:var(--ink);font-weight:600}
+
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
   .reveal.in{opacity:1;transform:none}
   @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
@@ -349,11 +379,11 @@
   <div class="hero-in">
     <span class="eyebrow">Sócio 360 · Proposta para o Grupo ProjeFarma</span>
     <h1 class="serif">Aumentar a receita <em>enquanto organizamos a casa.</em></h1>
-    <p class="lead">Duas frentes, ao mesmo tempo, por 12 meses. <strong>Uma</strong> estrutura o motor de receita da ProjeFarma. <strong>A outra</strong> organiza a gestão que sustenta esse crescimento. É essa a proposta.</p>
+    <p class="lead">Crescimento estruturado da receita, em duas frentes que correm ao mesmo tempo por 12 meses. <strong>Uma</strong> estrutura o motor de receita da ProjeFarma. <strong>A outra</strong> organiza a gestão que sustenta esse crescimento.</p>
     <div class="hero-meta">
       <span>Preparado para <b>Eliz e Tiago</b> · sócios-fundadores</span>
       <span class="dot"></span><span>Sócio Estratégico · SE Capital</span>
-      <span class="dot"></span><span>Confidencial · v2.0 · Ago/2026</span>
+      <span class="dot"></span><span>Confidencial · v3.0 · Ago/2026</span>
     </div>
     <div class="cta-row">
       <a href="#contratar" class="btn btn-primary">Iniciar o Sócio 360 →</a>
@@ -409,11 +439,31 @@
         <div class="kicker">Frente 1 · o motor</div>
         <h3 class="serif">Se a receita não cresce, nada mais importa</h3>
         <p>Por isso ela entra primeiro na agenda. A ProjeFarma já provou que o mercado responde — falta transformar volume de atendimento em receita previsível. <strong>É a frente que paga a sociedade.</strong></p>
+        <div class="outcome">Resultado → previsibilidade</div>
       </div>
       <div class="fcard house">
         <div class="kicker">Frente 2 · o alicerce</div>
         <h3 class="serif">Se a casa não organiza, a receita não fica</h3>
         <p>Cada degrau de crescimento precisa encontrar uma empresa capaz de entregá-lo, sem prazo estourado nem sócio apagando incêndio. <strong>É a frente que impede o crescimento de virar caos.</strong></p>
+        <div class="outcome">Resultado → ganho de eficiência</div>
+      </div>
+    </div>
+
+    <div class="flag reveal">
+      <span class="eyebrow">A bandeira que eu carrego</span>
+      <p class="flag-phrase serif">Minha bandeira é <em>Crescimento Estruturado da Receita.</em></p>
+      <p class="flag-sub">Não é crescer a qualquer custo, nem organizar por organizar. É fazer a receita subir de um jeito que a empresa consiga repetir no mês seguinte — e isso tem duas consequências práticas, uma de cada frente.</p>
+      <div class="flag-out">
+        <div class="fo">
+          <div class="fo-label">Vem da frente 1</div>
+          <h4>Previsibilidade</h4>
+          <p>Saber de onde vem a próxima venda, quanto o funil comporta e o que cada país entrega. A meta deixa de ser torcida no fim do mês e vira conta que se acompanha desde o começo.</p>
+        </div>
+        <div class="fo">
+          <div class="fo-label">Vem da frente 2</div>
+          <h4>Ganho de eficiência</h4>
+          <p>Mais receita sem multiplicar esforço, retrabalho e horas de Eliz e Tiago. Cada degrau de crescimento passa a custar menos atrito para a empresa entregar.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -626,6 +676,11 @@
         <p class="g-desc">Ao final dos primeiros 30 dias — com o onboarding inteiro entregue, diagnóstico, roadmap e plano de 90 dias na mão — se não estiverem convictos sobre a direção e a qualidade da parceria, <strong>todo o investimento é devolvido, integralmente, sem perguntas.</strong></p>
       </div>
     </div>
+
+    <div class="term-note reveal">
+      <span class="term-ico">↺</span>
+      <p><strong>Cancelamento:</strong> a sociedade pode ser encerrada a qualquer momento, mediante aviso prévio de 30 dias. Vocês não ficam presos a um ciclo que deixou de fazer sentido.</p>
+    </div>
   </div>
 </section>
 
@@ -686,7 +741,7 @@
       <div class="contact">
         <span><b>Sócio Estratégico</b> · SE Capital</span>
         <span>·</span><span>Proposta para o Grupo ProjeFarma</span>
-        <span>·</span><span>Confidencial · v2.0</span>
+        <span>·</span><span>Confidencial · v3.0</span>
       </div>
     </div>
   </div>
@@ -694,7 +749,7 @@
 
 <footer>
   <p class="fnote">Documento confidencial preparado para o Grupo ProjeFarma. Depoimentos e resultados citados referem-se a clientes e parceiros do Sócio Estratégico e não constituem promessa de resultado.</p>
-  <p>Sócio 360 · Proposta comercial · v2.0 · Agosto de 2026</p>
+  <p>Sócio 360 · Proposta comercial · v3.0 · Agosto de 2026</p>
 </footer>
 
 <script>
