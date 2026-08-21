@@ -250,6 +250,74 @@
   .gapcheck p strong{color:var(--ink);font-weight:600}
   .gapcheck p em{color:var(--jade);font-style:italic}
 
+  /* ============ O TIME ============ */
+  .people{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:22px}
+  @media(max-width:1000px){.people{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.people{grid-template-columns:1fr}}
+  .person{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:24px;
+    box-shadow:var(--shadow);display:flex;flex-direction:column}
+  .person .av{width:48px;height:48px;border-radius:50%;background:var(--navy);color:var(--signal-bright);
+    display:grid;place-items:center;font-family:"Iowan Old Style",Georgia,serif;font-weight:700;
+    font-size:16px;letter-spacing:.02em}
+  .person .role{font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--signal);
+    font-weight:600;margin-top:16px;line-height:1.4}
+  .person .nm{font-family:"Iowan Old Style",Georgia,serif;font-size:19px;font-weight:600;color:var(--ink);margin-top:6px}
+  .person p{font-size:14px;color:var(--ink-soft);margin-top:10px;line-height:1.5}
+  .lead-person{background:var(--navy);color:var(--on-navy);border-radius:16px;padding:28px 30px;
+    display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;box-shadow:var(--shadow-lg);
+    position:relative;overflow:hidden;margin-top:40px}
+  @media(max-width:660px){.lead-person{grid-template-columns:1fr;gap:16px}}
+  .lead-person::before{content:"";position:absolute;inset:0;z-index:0;opacity:.6;pointer-events:none;
+    background:radial-gradient(90% 140% at 90% -10%,rgba(219,190,122,.2),transparent 56%)}
+  .lead-person>*{position:relative;z-index:1}
+  .lead-person .av{width:58px;height:58px;border-radius:50%;border:1.5px solid var(--signal-bright);
+    color:var(--signal-bright);display:grid;place-items:center;font-family:"Iowan Old Style",Georgia,serif;
+    font-weight:700;font-size:19px}
+  .lead-person .role{font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--signal-bright);font-weight:700}
+  .lead-person .nm{font-family:"Iowan Old Style",Georgia,serif;font-size:21px;font-weight:600;color:var(--on-navy);margin-top:5px}
+  .lead-person p{font-size:14.5px;color:var(--on-navy-soft);margin-top:8px;max-width:74ch}
+  .lead-person p strong{color:var(--on-navy);font-weight:600}
+
+  /* ============ TRÊS CAMINHOS ============ */
+  .paths{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px;align-items:stretch}
+  @media(max-width:880px){.paths{grid-template-columns:1fr}}
+  .path{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:30px;
+    box-shadow:var(--shadow);display:flex;flex-direction:column;position:relative;overflow:hidden}
+  .path.feat{background:var(--navy);color:var(--on-navy);border-color:var(--navy)}
+  .path.feat .path-desc{color:var(--on-navy-soft)}
+  .path.feat .path-title{color:var(--on-navy)}
+  .path.feat .path-num{color:var(--signal-bright);border-color:rgba(219,190,122,.42)}
+  .path.feat .path-desc strong{color:var(--on-navy)}
+  .path-num{font-family:"Iowan Old Style",Georgia,serif;font-size:16px;font-weight:700;color:var(--signal);
+    border:1px solid var(--line);border-radius:8px;width:40px;height:40px;display:grid;place-items:center;margin-bottom:18px}
+  .path-title{font-family:"Iowan Old Style",Georgia,serif;font-size:22px;font-weight:600;margin-bottom:12px;color:var(--ink)}
+  .path-desc{color:var(--ink-soft);font-size:15px;line-height:1.6}
+  .path-desc strong{color:var(--ink);font-weight:600}
+  .path .badge{margin-top:18px;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+    font-weight:700;color:var(--signal-bright)}
+
+  /* ============ MATEMÁTICA DO CICLO ============ */
+  .mathbox{margin-top:22px;background:var(--surface);border:1px solid var(--line);border-radius:16px;
+    padding:30px 32px;box-shadow:var(--shadow)}
+  .mathbox .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--signal);font-weight:600}
+  .mathbox h3{font-size:21px;margin:10px 0 20px}
+  .math-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:26px;align-items:center}
+  @media(max-width:820px){.math-grid{grid-template-columns:1fr;gap:18px}}
+  .mcol .ml{font-size:13px;color:var(--ink-faint);line-height:1.4}
+  .mcol .mv{font-family:"Iowan Old Style",Georgia,serif;font-size:clamp(26px,3.4vw,34px);font-weight:700;
+    letter-spacing:-.02em;margin:8px 0 7px;font-variant-numeric:tabular-nums;line-height:1}
+  .mcol.a .mv{color:var(--jade)}
+  .mcol.b .mv{color:var(--ink-faint)}
+  .mcol .md{font-size:13.5px;color:var(--ink-soft);line-height:1.5}
+  .mvs{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--signal);font-weight:700;text-align:center}
+  @media(max-width:820px){.mvs{text-align:left}}
+  .math-note{margin-top:20px;padding-top:18px;border-top:1px solid var(--line-soft);
+    font-size:14px;color:var(--ink-soft);line-height:1.55}
+  .math-note strong{color:var(--ink)}
+  .cp-was{font-family:"Iowan Old Style",Georgia,serif;font-size:20px;color:var(--on-navy-soft);
+    text-decoration:line-through;opacity:.8;margin-top:8px;font-variant-numeric:tabular-nums}
+
   /* ============ INVESTIMENTO ============ */
   .pricing{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:44px}
   @media(max-width:880px){.pricing{grid-template-columns:1fr}}
@@ -383,8 +451,10 @@
       <a href="#planejamento">Planejamento 30D</a>
       <a href="#mpse">Método</a>
       <a href="#conselho">O Conselho</a>
+      <a href="#time">O time</a>
       <a href="#investimento">Investimento</a>
       <a href="#garantia">Garantia</a>
+      <a href="#caminhos">A decisão</a>
     </div>
     <button class="toggle" id="tgl" aria-label="Alternar tema claro/escuro" title="Alternar tema">◑</button>
   </div>
@@ -642,6 +712,53 @@
     </div>
   </div>
 </section>
+<!-- ============ O TIME ============ -->
+<section id="time">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Quem opera o Conselho</span>
+      <h2 class="serif">Duas das quatro reuniões são com o meu time. <em>Estes são os nomes.</em></h2>
+      <p class="lead">Não é uma equipe genérica por trás de uma marca. São quatro especialistas dedicados, cada um com uma frente, todos sob a minha supervisão — <em>e é com eles que os gestores da Laquila vão trabalhar todo mês.</em></p>
+    </div>
+
+    <div class="lead-person reveal">
+      <span class="av">MS</span>
+      <div>
+        <div class="role">Responsável pelo projeto</div>
+        <div class="nm serif">Max Satiro</div>
+        <p>Conduz o Conselho, é o ponto focal com Felipe, Brian e os sócios, e <strong>responde pela entrega inteira</strong>. As duas calls mensais de gestão e receita são comigo, diretamente — e o time abaixo responde a mim. Vocês têm um único ponto de responsabilização.</p>
+      </div>
+    </div>
+
+    <div class="people">
+      <div class="person reveal">
+        <span class="av">MM</span>
+        <div class="role">Growth &amp; Aquisição</div>
+        <div class="nm">Micaias Moraes</div>
+        <p>Canais, engenharia reversa do plano comercial e método de aquisição. Entra onde a discussão é de topo de funil e geração de demanda.</p>
+      </div>
+      <div class="person reveal">
+        <span class="av">PS</span>
+        <div class="role">Receita</div>
+        <div class="nm">Polyana Satiro</div>
+        <p>Monetização, expansão da base e retenção. Trabalha a conversão das frentes comerciais em receita efetivamente capturada.</p>
+      </div>
+      <div class="person reveal">
+        <span class="av">KL</span>
+        <div class="role">Gestão de Projetos</div>
+        <div class="nm">Ketelin Lacerda</div>
+        <p>Donos, ritos, gates mensais e documentação. É quem garante que o plano tático tenha rastro — e que nada saia do radar entre uma reunião e outra.</p>
+      </div>
+      <div class="person reveal">
+        <span class="av">GR</span>
+        <div class="role">Processos &amp; IA</div>
+        <div class="nm">Gabriel Reis</div>
+        <p>Estruturação de processos e aplicação prática de IA na operação, para o negócio andar mais rápido com a mesma estrutura.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ INVESTIMENTO ============ -->
 <section id="investimento">
   <div class="wrap">
@@ -683,10 +800,30 @@
         </div>
         <div class="combo-price">
           <div class="cp-l">Investimento total no ciclo</div>
+          <div class="cp-was">R$ 120 mil</div>
           <div class="cp-v">R$ 80 mil</div>
-          <div class="cp-s"><b>R$ 40 mil</b> abaixo da<br>contratação avulsa</div>
+          <div class="cp-s"><b>R$ 40 mil</b> a menos — <b>33%</b><br>abaixo da contratação avulsa</div>
         </div>
       </div>
+    </div>
+
+    <div class="mathbox reveal">
+      <div class="k">A régua</div>
+      <h3 class="serif">O que R$ 80 mil compram, por mês.</h3>
+      <div class="math-grid">
+        <div class="mcol a">
+          <div class="ml">Conselho SP180 · ciclo completo</div>
+          <div class="mv">R$ 11,4 mil<span style="font-size:.45em;font-weight:600;color:var(--ink-faint)"> / mês</span></div>
+          <div class="md">R$ 80 mil diluídos nos 210 dias do ciclo. Entrega <strong>cinco pessoas</strong>: eu nas decisões de gestão e receita, mais quatro especialistas na rotina dos gestores.</div>
+        </div>
+        <div class="mvs">versus</div>
+        <div class="mcol b">
+          <div class="ml">Contratar um head de estratégia sênior</div>
+          <div class="mv">R$ 42 a 68 mil<span style="font-size:.45em;font-weight:600;color:var(--ink-faint)"> / mês</span></div>
+          <div class="md">Salário de R$ 25 a 40 mil, que com encargos chega nessa faixa. É <strong>uma pessoa só</strong> — e que ainda leva seis meses só para entender o negócio.</div>
+        </div>
+      </div>
+      <p class="math-note">A comparação honesta não é com uma consultoria pontual. É com o custo de colocar senioridade estratégica dentro da empresa — <strong>por um quarto do preço, com cinco pessoas em vez de uma, e sem os seis meses de curva de aprendizado.</strong></p>
     </div>
 
     <div class="paygrid reveal">
@@ -746,8 +883,37 @@
   </div>
 </section>
 
+<!-- ============ TRÊS CAMINHOS ============ -->
+<section id="caminhos" style="background:var(--surface-2)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">A decisão</span>
+      <h2 class="serif">A partir daqui existem três caminhos. <em>Dois deles cobram em silêncio.</em></h2>
+      <p class="lead">A Laquila não está diante de um problema — está diante de uma bifurcação. Uma empresa de dois anos, crescendo rápido, com produto, tecnologia e núcleos disputando a mesma atenção, o mesmo caixa e as mesmas pessoas. <em>Nenhum dos três caminhos é neutro.</em></p>
+    </div>
+    <div class="paths">
+      <div class="path reveal">
+        <div class="path-num serif">01</div>
+        <div class="path-title serif">Seguir no ritmo atual</div>
+        <p class="path-desc">O risco aqui não é estagnação — a Laquila cresce mesmo sem decidir nada. <strong>O risco é dispersão.</strong> Em doze meses haverá mais frentes abertas, nenhuma dominada, e a decisão de foco continuará exatamente onde está hoje: pendente. O custo não aparece em boleto. Aparece no núcleo que não escalou porque a atenção estava dividida em cinco.</p>
+      </div>
+      <div class="path reveal">
+        <div class="path-num serif">02</div>
+        <div class="path-title serif">Fazer o planejamento internamente</div>
+        <p class="path-desc">Marcar dois dias fora, reunir os sócios e sair com um documento. Costuma funcionar até a segunda semana. <strong>Sem alguém de fora para tensionar a leitura</strong>, o planejamento confirma o que a liderança já pensava — e sem cadência para cobrar, ele vira apresentação guardada. O problema raramente é a qualidade do plano. É que ninguém tem tempo de perseguir o plano enquanto opera.</p>
+      </div>
+      <div class="path feat reveal">
+        <div class="path-num serif">03</div>
+        <div class="path-title serif">Planejar e sustentar com conselho</div>
+        <p class="path-desc">Trinta dias para decidir com contraditório qualificado na mesa, e seis meses de conselho para que a decisão sobreviva ao dia a dia. <strong>Prioridade com dono, indicador e cobrança mensal</strong> — mais um War Room à disposição sempre que a urgência aparecer. É o único caminho em que, doze meses à frente, a Laquila está num lugar diferente de onde está hoje.</p>
+        <div class="badge">A escolha que muda de lugar</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ PRÓXIMO PASSO ============ -->
-<section id="passos">
+<section id="passos" style="background:var(--surface-2)">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Próximo passo</span>
@@ -756,7 +922,7 @@
     <div class="steps reveal">
       <div class="step"><div><h4>Retorno até quinta, 27/08</h4><p>Confirmação do interesse e da modalidade — ciclo completo ou entregas avulsas — dentro do prazo de validade da proposta.</p></div></div>
       <div class="step"><div><h4>Alinhamento de escopo</h4><p>Conversa com Felipe e Brian para alinhar o desenho do projeto: quem entra nas entrevistas, formato da sessão de planejamento, datas e condições.</p></div></div>
-      <div class="step"><div><h4>Planejamento Estratégico · 30 dias</h4><p>Entrevistas com sócios e time, leitura do negócio pelas quatro lentes do MPSE, sessão de planejamento e fechamento com a execução estratégica completa.</p></div></div>
+      <div class="step"><div><h4>Planejamento Estratégico · 30 dias</h4><p>Entrevistas com sócios e time, leitura do negócio pela Matriz de Planejamento Sócio Estratégico, sessão de planejamento e fechamento com a execução estratégica completa.</p></div></div>
       <div class="step"><div><h4>Início do Conselho</h4><p>Entrada na cadência: duas calls mensais comigo — gestão e receita — e duas do meu time com os gestores da Laquila.</p></div></div>
       <div class="step"><div><h4>War Room sob demanda</h4><p>Sessão online que vocês acionam quando um problema urgente aparece — disponível até uma vez por mês, ao longo de todo o ciclo.</p></div></div>
       <div class="step"><div><h4>Revisão do ciclo</h4><p>Ao final dos seis meses, leitura do que avançou, do que ficou pendente e da direção para o período seguinte.</p></div></div>
