@@ -278,6 +278,56 @@
   .cp-s{font-size:13.5px;color:var(--on-navy)}
   .cp-s b{color:var(--signal-bright);font-weight:700}
 
+  /* ============ MATRIZ MPSE ============ */
+  .matrix{display:grid;grid-template-columns:1.15fr .85fr;gap:20px;margin-top:40px}
+  @media(max-width:880px){.matrix{grid-template-columns:1fr}}
+  .mx-body{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:32px;
+    box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .mx-body::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--signal)}
+  .mx-body .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--signal);font-weight:600}
+  .mx-body h3{font-size:22px;margin:11px 0 13px}
+  .mx-body p{color:var(--ink-soft);font-size:15.5px}
+  .mx-body p strong{color:var(--ink)}
+  .mx-side{display:flex;flex-direction:column;gap:14px}
+  .mx-item{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 22px;
+    box-shadow:var(--shadow);font-size:14px;color:var(--ink-soft);line-height:1.5}
+  .mx-item b{display:block;font-family:"Iowan Old Style",Georgia,serif;font-size:17px;color:var(--ink);
+    font-weight:600;margin-bottom:6px}
+
+  /* ============ PAGAMENTO / PRAZO ============ */
+  .paygrid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:22px}
+  @media(max-width:880px){.paygrid{grid-template-columns:1fr}}
+  .pay{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
+    box-shadow:var(--shadow);display:flex;gap:16px;align-items:flex-start}
+  .pay .ic{flex:none;width:34px;height:34px;border-radius:9px;background:var(--surface-2);color:var(--signal);
+    display:grid;place-items:center;font-weight:700;font-family:"Iowan Old Style",Georgia,serif;font-size:15px}
+  .pay h4{font-family:-apple-system,"Segoe UI",sans-serif;font-size:15px;font-weight:700;margin:2px 0 5px;color:var(--ink)}
+  .pay p{font-size:14px;color:var(--ink-soft);line-height:1.5}
+  .pay p strong{color:var(--ink)}
+  .deadline{margin-top:22px;background:var(--navy);color:var(--on-navy);border-radius:14px;
+    padding:20px 26px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;box-shadow:var(--shadow-lg)}
+  .deadline .dl-k{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:700;color:#17200F;background:var(--signal-bright);
+    padding:6px 12px;border-radius:999px;flex:none}
+  .deadline p{font-size:15px;color:var(--on-navy-soft)}
+  .deadline p b{color:var(--signal-bright);font-weight:700}
+
+  /* ============ GARANTIA ============ */
+  .guarantee{background:var(--navy);color:var(--on-navy);border-radius:22px;padding:46px;
+    display:grid;grid-template-columns:150px 1fr;gap:38px;align-items:center;position:relative;overflow:hidden;
+    box-shadow:var(--shadow-lg)}
+  @media(max-width:760px){.guarantee{grid-template-columns:1fr;justify-items:center;text-align:center;
+    padding:38px 26px;gap:26px}}
+  .guarantee::before{content:"";position:absolute;inset:0;z-index:0;opacity:.6;pointer-events:none;
+    background:radial-gradient(90% 130% at 88% -10%,rgba(219,190,122,.2),transparent 55%)}
+  .guarantee>*{position:relative;z-index:1}
+  .guarantee .eyebrow{color:var(--signal-bright)}
+  .g-title{font-family:"Iowan Old Style",Georgia,serif;font-size:clamp(22px,3vw,30px);font-weight:600;
+    margin:10px 0 12px;line-height:1.18;color:var(--on-navy)}
+  .g-desc{color:var(--on-navy-soft);font-size:16px;max-width:60ch}
+  .g-desc strong{color:var(--on-navy);font-weight:600}
+  .g-seal{width:150px;height:150px}
+
   /* ============ STEPS ============ */
   .steps{counter-reset:s;display:grid;gap:14px;margin-top:40px}
   .step{display:flex;gap:18px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);
@@ -319,6 +369,7 @@
       <a href="#mpse">Método</a>
       <a href="#conselho">O Conselho</a>
       <a href="#investimento">Investimento</a>
+      <a href="#garantia">Garantia</a>
     </div>
     <button class="toggle" id="tgl" aria-label="Alternar tema claro/escuro" title="Alternar tema">◑</button>
   </div>
@@ -346,7 +397,7 @@
   <div class="metric"><div class="num">30<span> dias</span></div><div class="lbl">de planejamento estratégico, do diagnóstico ao plano tático</div></div>
   <div class="metric"><div class="num">180<span> dias</span></div><div class="lbl">de Conselho, com a execução acompanhada mês a mês</div></div>
   <div class="metric"><div class="num">4<span>/mês</span></div><div class="lbl">2 calls comigo — gestão e receita — e 2 do meu time com os gestores</div></div>
-  <div class="metric"><div class="num">1</div><div class="lbl">War Room presencial para destravar o que a cadência não resolve</div></div>
+  <div class="metric"><div class="num">1<span>/mês</span></div><div class="lbl">War Room online sob demanda, para resolver urgência entre as reuniões</div></div>
 </div>
 <div class="spacer-metrics"></div>
 
@@ -458,30 +509,20 @@
 <section id="mpse">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">Método MPSE</span>
-      <h2 class="serif">Quatro lentes para ler o negócio e <em>definir prioridades.</em></h2>
-      <p class="lead">O MPSE é a estrutura central da leitura estratégica. Ele evita que o planejamento fique preso a um único problema ou departamento.</p>
+      <span class="eyebrow">Método</span>
+      <h2 class="serif">MPSE — a <em>Matriz de Planejamento Sócio Estratégico.</em></h2>
+      <p class="lead">Todo o trabalho dos 30 dias roda dentro da MPSE, a matriz proprietária que estrutura a leitura do negócio. É ela que impede o planejamento de virar opinião bem articulada — <em>e que garante que a conversa não fique presa a um único problema ou departamento.</em></p>
     </div>
-    <div class="mpse">
-      <div class="mp reveal">
-        <div class="letter serif">M</div>
-        <h3 class="serif">Mercado</h3>
-        <p>Onde a empresa está jogando, contra quem, com qual vantagem e quais movimentos externos merecem atenção.</p>
+    <div class="matrix reveal">
+      <div class="mx-body">
+        <div class="k">O que a matriz faz</div>
+        <h3 class="serif">Organiza diagnóstico em decisão, e decisão em rotina.</h3>
+        <p>A matriz recebe tudo o que sai das entrevistas e da leitura da operação e força esse material a virar escolha: <strong>o que entra, o que sai, quem responde e como se acompanha</strong>. Sem esse instrumento, planejamento vira lista de boas ideias sem hierarquia — e boa ideia sem prioridade não muda trimestre.</p>
       </div>
-      <div class="mp reveal">
-        <div class="letter serif">P</div>
-        <h3 class="serif">Produto</h3>
-        <p>O que sustenta crescimento e margem, o que precisa ser reposicionado e onde a oferta pode ganhar força.</p>
-      </div>
-      <div class="mp reveal">
-        <div class="letter serif">S</div>
-        <h3 class="serif">Sistema</h3>
-        <p>Como a operação funciona, onde estão gargalos, dependências, ruídos de processo e travas de gestão.</p>
-      </div>
-      <div class="mp reveal">
-        <div class="letter serif">E</div>
-        <h3 class="serif">Execução</h3>
-        <p>Quem decide, quem executa, com qual cadência e como o plano será acompanhado para não morrer depois da reunião.</p>
+      <div class="mx-side">
+        <div class="mx-item"><b>Estrutura</b>Cada tema entra na matriz pelo mesmo crivo, o que torna as decisões comparáveis entre si.</div>
+        <div class="mx-item"><b>Hierarquia</b>Prioridades e renúncias saem explícitas, não implícitas na cabeça de cada sócio.</div>
+        <div class="mx-item"><b>Rastreio</b>Toda decisão sai com dono, métrica e cadência — é o que o Conselho acompanha depois.</div>
       </div>
     </div>
   </div>
@@ -493,7 +534,7 @@
     <div class="sec-head reveal">
       <span class="eyebrow">Entrega 02 · SP180 · O Conselho</span>
       <h2 class="serif">Depois do plano, seis meses de conselho para <em>manter a execução em movimento.</em></h2>
-      <p class="lead">O SP180 existe para manter as prioridades vivas depois do planejamento. Entramos na cadência de gestão da Laquila, acompanhamos o que está andando, tensionamos o que travou e apoiamos a execução das frentes prioritárias. <em>Quatro reuniões por mês, mais um War Room ao longo do ciclo.</em></p>
+      <p class="lead">O SP180 existe para manter as prioridades vivas depois do planejamento. Entramos na cadência de gestão da Laquila, acompanhamos o que está andando, tensionamos o que travou e apoiamos a execução das frentes prioritárias. <em>Quatro reuniões por mês, mais um War Room que vocês podem acionar sempre que a urgência exigir.</em></p>
     </div>
     <div class="council">
       <div class="cc reveal">
@@ -517,12 +558,12 @@
         </ul>
       </div>
       <div class="cc reveal">
-        <span class="freq">1 no ciclo · presencial</span>
+        <span class="freq">até 1 por mês · online</span>
         <h3 class="serif">War Room</h3>
-        <p>Uma imersão presencial com sócios e lideranças para <strong>destravar o que a cadência mensal não resolve.</strong></p>
+        <p>Uma sessão online que <strong>você pode acionar até uma vez por mês</strong>, sempre que aparecer um problema urgente que não pode esperar a próxima reunião de conselho.</p>
         <ul>
-          <li>Tema definido pela prioridade real do momento</li>
-          <li>Decisão tomada na sala, não encaminhada para depois</li>
+          <li>Convocada por vocês, no momento em que a urgência aparece</li>
+          <li>Sócios e lideranças na mesma sala virtual, decidindo na hora</li>
           <li>Saída com plano de ataque e donos definidos</li>
         </ul>
       </div>
@@ -575,15 +616,15 @@
         <div class="m">diagnóstico · planejamento · plano tático</div>
         <p class="d">30 dias de trabalho para estruturar direção e prioridades com os sócios e o time, com a execução estratégica completa como saída.</p>
         <div class="v">R$ 30 mil</div>
-        <div class="fine">Pagamento via Pix ou cartão.</div>
+        <div class="fine">Pagamento à vista, via Pix ou cartão.</div>
       </div>
       <div class="price">
         <div class="k">Entrega 02</div>
         <h3 class="serif">SP180 · Conselho</h3>
-        <div class="m">6 meses · 4 calls/mês · 1 War Room</div>
+        <div class="m">6 meses · 4 calls/mês · War Room sob demanda</div>
         <p class="d">Max e o time acompanhando a execução por seis meses, com suporte contínuo e possibilidade de atuação prática da nossa equipe.</p>
         <div class="v">R$ 15 mil <span>/ mês</span></div>
-        <div class="fine">Período de 6 meses · R$ 90 mil no ciclo.</div>
+        <div class="fine">Período de 6 meses · R$ 90 mil no ciclo. Parcelável em 6 boletos mensais.</div>
       </div>
     </div>
     <div class="sum reveal">Contratados separadamente, os dois ciclos representam <b>R$ 120 mil</b> de investimento total.</div>
@@ -606,21 +647,77 @@
         </div>
       </div>
     </div>
+
+    <div class="paygrid reveal">
+      <div class="pay">
+        <span class="ic">1</span>
+        <div>
+          <h4>Planejamento Estratégico 30D</h4>
+          <p><strong>Pagamento à vista</strong>, via Pix ou cartão, no início do ciclo. É a condição que sustenta a garantia incondicional abaixo.</p>
+        </div>
+      </div>
+      <div class="pay">
+        <span class="ic">2</span>
+        <div>
+          <h4>SP180 · Conselho</h4>
+          <p>Mensalidade <strong>parcelável em 6 boletos mensais</strong>, acompanhando os seis meses de acompanhamento.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="deadline reveal">
+      <span class="dl-k">Prazo de resposta</span>
+      <p>Esta proposta e a condição para o ciclo completo valem até <b>quinta-feira, 27 de agosto de 2026</b>. Depois dessa data, a agenda do próximo ciclo passa a ser oferecida a outras empresas na fila.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GARANTIA ============ -->
+<section id="garantia" style="background:var(--surface-2)">
+  <div class="wrap">
+    <div class="guarantee reveal">
+      <svg class="g-seal" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg" aria-label="Garantia incondicional de 100%">
+        <defs>
+          <path id="g-arc-top" d="M 20,70 A 50,50 0 0 1 120,70" fill="none"/>
+          <path id="g-arc-bottom" d="M 20,70 A 50,50 0 0 0 120,70" fill="none"/>
+        </defs>
+        <circle cx="70" cy="70" r="66" fill="none" stroke="#DBBE7A" stroke-width="0.6" opacity="0.35"/>
+        <circle cx="70" cy="70" r="62" fill="none" stroke="#DBBE7A" stroke-width="1.2"/>
+        <circle cx="70" cy="70" r="37" fill="none" stroke="#DBBE7A" stroke-width="1" opacity="0.6"/>
+        <text font-family="ui-monospace,Menlo,monospace" font-size="8" font-weight="700" letter-spacing="3" fill="#DBBE7A">
+          <textPath href="#g-arc-top" startOffset="50%" text-anchor="middle">GARANTIA INCONDICIONAL</textPath>
+        </text>
+        <text font-family="ui-monospace,Menlo,monospace" font-size="7" font-weight="600" letter-spacing="3" fill="#DBBE7A" opacity="0.85">
+          <textPath href="#g-arc-bottom" startOffset="50%" text-anchor="middle">SEM BUROCRACIA</textPath>
+        </text>
+        <circle cx="20" cy="70" r="1.5" fill="#DBBE7A"/>
+        <circle cx="120" cy="70" r="1.5" fill="#DBBE7A"/>
+        <text x="70" y="66" text-anchor="middle" font-family="'Iowan Old Style',Georgia,serif" font-size="30" font-weight="700" fill="#DBBE7A" dominant-baseline="middle">100%</text>
+        <line x1="52" y1="79" x2="88" y2="79" stroke="#DBBE7A" stroke-width="0.6" opacity="0.5"/>
+        <text x="70" y="90" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="7" font-weight="700" letter-spacing="2.5" fill="#DBBE7A">DE VOLTA</text>
+      </svg>
+      <div>
+        <span class="eyebrow">O risco é meu, não de vocês</span>
+        <div class="g-title">Garantia incondicional no Planejamento Estratégico.</div>
+        <p class="g-desc">Se ao final do Planejamento Estratégico vocês não gostarem do que foi entregue, <strong>devolvo 100% do valor.</strong> Sem justificativa, sem perguntas, sem burocracia — basta dizer. É por isso que o planejamento é pago à vista: eu assumo o risco inteiro da primeira etapa, e vocês decidem sobre o Conselho já sabendo exatamente o que estão contratando.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ============ PRÓXIMO PASSO ============ -->
-<section id="passos" style="background:var(--surface-2)">
+<section id="passos">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Próximo passo</span>
       <h2 class="serif">Clareza para escolher o caminho. <em>Cadência para não sair dele.</em></h2>
     </div>
     <div class="steps reveal">
+      <div class="step"><div><h4>Retorno até quinta, 27/08</h4><p>Confirmação do interesse e da modalidade — ciclo completo ou entregas avulsas — dentro do prazo de validade da proposta.</p></div></div>
       <div class="step"><div><h4>Alinhamento de escopo</h4><p>Conversa com Felipe e Brian para alinhar o desenho do projeto: quem entra nas entrevistas, formato da sessão de planejamento, datas e condições.</p></div></div>
       <div class="step"><div><h4>Planejamento Estratégico · 30 dias</h4><p>Entrevistas com sócios e time, leitura do negócio pelas quatro lentes do MPSE, sessão de planejamento e fechamento com a execução estratégica completa.</p></div></div>
       <div class="step"><div><h4>Início do Conselho</h4><p>Entrada na cadência: duas calls mensais comigo — gestão e receita — e duas do meu time com os gestores da Laquila.</p></div></div>
-      <div class="step"><div><h4>War Room</h4><p>Imersão presencial ao longo do ciclo, sobre a prioridade que estiver pesando mais no momento.</p></div></div>
+      <div class="step"><div><h4>War Room sob demanda</h4><p>Sessão online que vocês acionam quando um problema urgente aparece — disponível até uma vez por mês, ao longo de todo o ciclo.</p></div></div>
       <div class="step"><div><h4>Revisão do ciclo</h4><p>Ao final dos seis meses, leitura do que avançou, do que ficou pendente e da direção para o período seguinte.</p></div></div>
     </div>
   </div>
