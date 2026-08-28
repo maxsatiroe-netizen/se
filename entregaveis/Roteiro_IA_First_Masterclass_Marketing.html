@@ -1,0 +1,1050 @@
+<title>Roteiro IA-First</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+
+<style>
+  :root {
+    --ground:      #FBF8F7;
+    --surface:     #FFFFFF;
+    --surface-2:   #F3EEED;
+    --ink:         #16100F;
+    --ink-2:       #4A3E3C;
+    --ink-3:       #7D6E6B;
+    --rule:        #E4DAD8;
+    --rule-strong: #CDBEBB;
+    --crimson:     #8B0D14;
+    --crimson-bg:  #F7E9E9;
+    --gold:        #8A6C33;
+    --gold-bg:     #F5EDDD;
+
+    --f-display: "Oswald", "Arial Narrow", Arial, sans-serif;
+    --f-speech:  "Spectral", Georgia, "Times New Roman", serif;
+    --f-ui:      "IBM Plex Sans", -apple-system, "Segoe UI", Arial, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:      #141010;
+      --surface:     #1C1615;
+      --surface-2:   #241D1C;
+      --ink:         #F4EEED;
+      --ink-2:       #C3B5B3;
+      --ink-3:       #8E7F7C;
+      --rule:        #362B2A;
+      --rule-strong: #4C3D3B;
+      --crimson:     #E9636B;
+      --crimson-bg:  #2B1416;
+      --gold:        #CBA967;
+      --gold-bg:     #2A2118;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:      #141010;
+    --surface:     #1C1615;
+    --surface-2:   #241D1C;
+    --ink:         #F4EEED;
+    --ink-2:       #C3B5B3;
+    --ink-3:       #8E7F7C;
+    --rule:        #362B2A;
+    --rule-strong: #4C3D3B;
+    --crimson:     #E9636B;
+    --crimson-bg:  #2B1416;
+    --gold:        #CBA967;
+    --gold-bg:     #2A2118;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--f-ui);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0 24px 96px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 880px; margin: 0 auto; }
+
+  /* ---------- masthead ---------- */
+
+  .masthead {
+    padding: 72px 0 44px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .eyebrow {
+    font-family: var(--f-display);
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin: 0 0 18px;
+  }
+  h1 {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: clamp(44px, 8vw, 78px);
+    line-height: 0.96;
+    letter-spacing: -0.005em;
+    text-transform: uppercase;
+    text-wrap: balance;
+    margin: 0 0 22px;
+  }
+  .standfirst {
+    font-family: var(--f-speech);
+    font-size: clamp(18px, 2.4vw, 21px);
+    line-height: 1.5;
+    color: var(--ink-2);
+    max-width: 34em;
+    margin: 0 0 28px;
+  }
+  .masthead-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 28px;
+    font-size: 13px;
+    color: var(--ink-3);
+  }
+  .masthead-meta b {
+    font-weight: 600;
+    color: var(--ink-2);
+  }
+
+  /* ---------- generic section ---------- */
+
+  section { padding-top: 60px; }
+
+  h2 {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: clamp(26px, 3.6vw, 34px);
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    margin: 0 0 10px;
+  }
+  .sect-note {
+    font-size: 15px;
+    color: var(--ink-3);
+    max-width: 40em;
+    margin: 0 0 34px;
+  }
+
+  h3 {
+    font-family: var(--f-display);
+    font-weight: 500;
+    font-size: 19px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 8px;
+  }
+
+  p { margin: 0 0 14px; max-width: 42em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 600; }
+  em { font-style: italic; }
+
+  /* ---------- the three moves ---------- */
+
+  .moves {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  }
+  .move {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 26px 24px 24px;
+  }
+  .move-num {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 1;
+    color: var(--crimson);
+    display: block;
+    margin-bottom: 12px;
+  }
+  .move p {
+    font-size: 14.5px;
+    color: var(--ink-2);
+    line-height: 1.55;
+  }
+
+  .testcard {
+    margin-top: 22px;
+    background: var(--gold-bg);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 24px;
+  }
+  .testcard h3 { color: var(--gold); }
+  .testcard p { font-size: 15px; color: var(--ink-2); }
+
+  /* ---------- act divider ---------- */
+
+  .act {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin: 72px 0 30px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--rule-strong);
+  }
+  .act-label {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: clamp(22px, 3vw, 29px);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin: 0;
+    flex: 1 1 auto;
+  }
+  .act-range {
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.14em;
+    color: var(--ink-3);
+    white-space: nowrap;
+  }
+
+  /* ---------- slide block ---------- */
+
+  .slide {
+    display: grid;
+    grid-template-columns: 76px 1fr;
+    gap: 0 26px;
+    padding: 30px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .slide:last-child { border-bottom: none; }
+
+  .slide-num {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 42px;
+    line-height: 0.9;
+    color: var(--rule-strong);
+    font-variant-numeric: tabular-nums;
+    padding-top: 2px;
+  }
+  .slide.key .slide-num { color: var(--crimson); }
+
+  .slide-body { min-width: 0; }
+
+  .slide-what {
+    font-family: var(--f-display);
+    font-weight: 500;
+    font-size: 12.5px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 4px;
+  }
+  .slide-title {
+    font-family: var(--f-ui);
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 1.35;
+    margin: 0 0 18px;
+    color: var(--ink);
+  }
+
+  /* the spoken line */
+  .say {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 22px 24px 20px 46px;
+    margin: 0 0 16px;
+  }
+  .say::before {
+    content: "\201C";
+    position: absolute;
+    left: 12px;
+    top: 6px;
+    font-family: var(--f-speech);
+    font-size: 52px;
+    line-height: 1;
+    color: var(--crimson);
+    opacity: 0.5;
+  }
+  .say p {
+    font-family: var(--f-speech);
+    font-size: 17.5px;
+    line-height: 1.52;
+    color: var(--ink);
+    max-width: 38em;
+  }
+  .say p + p { margin-top: 12px; }
+  .say .beat {
+    display: block;
+    font-family: var(--f-display);
+    font-weight: 500;
+    font-size: 11.5px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 10px;
+  }
+
+  .say.punch { background: var(--crimson-bg); border-color: transparent; }
+
+  .why {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--ink-2);
+    max-width: 42em;
+  }
+  .why b {
+    font-family: var(--f-display);
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-right: 8px;
+  }
+  .why + .why { margin-top: 9px; }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 14px;
+  }
+  .tag {
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 3px 9px;
+    white-space: nowrap;
+  }
+  .tag.t1 { color: var(--crimson); border-color: var(--crimson); }
+  .tag.t2 { color: var(--gold);    border-color: var(--gold); }
+  .tag.t3 { color: var(--ink-2);   border-color: var(--rule-strong); }
+
+  /* ---------- data callout on slide 12 ---------- */
+
+  .numbers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 0 0 16px;
+  }
+  .num {
+    background: var(--surface);
+    padding: 14px 14px 12px;
+  }
+  .num-k {
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-family: var(--f-display);
+    font-weight: 500;
+    margin: 0 0 5px;
+  }
+  .num-v {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 21px;
+    line-height: 1.05;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+    margin: 0;
+  }
+  .num.hot { background: var(--crimson-bg); }
+  .num.hot .num-v { color: var(--crimson); }
+
+  /* ---------- closing lists ---------- */
+
+  .closers {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    align-items: start;
+  }
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 26px 24px;
+  }
+  .panel.warn { background: var(--surface-2); }
+
+  ul.clean {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  ul.clean li {
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--ink-2);
+    padding-left: 18px;
+    position: relative;
+  }
+  ul.clean li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 6px;
+    height: 6px;
+    background: var(--crimson);
+    border-radius: 50%;
+  }
+  ul.clean.no li::before { background: var(--ink-3); border-radius: 0; height: 2px; width: 9px; top: 0.72em; }
+
+  .bordao {
+    font-family: var(--f-speech);
+    font-size: 18px;
+    line-height: 1.45;
+    color: var(--ink);
+    margin: 0 0 14px;
+    padding-left: 16px;
+    border-left: 2px solid var(--crimson);
+  }
+  .bordao:last-child { margin-bottom: 0; }
+  .bordao small {
+    display: block;
+    font-family: var(--f-ui);
+    font-size: 13px;
+    color: var(--ink-3);
+    margin-top: 5px;
+    line-height: 1.45;
+  }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--ink-3);
+    max-width: 46em;
+  }
+
+  @media (max-width: 620px) {
+    body { padding: 0 18px 64px; }
+    .slide { grid-template-columns: 1fr; gap: 0; }
+    .slide-num { font-size: 30px; margin-bottom: 10px; }
+    .say { padding: 20px 18px 18px 38px; }
+    .say::before { left: 9px; font-size: 44px; }
+    .say p { font-size: 16.5px; }
+  }
+</style>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">Masterclass · Gestão de Marketing · Max Satiro</p>
+  <h1>Roteiro IA-First</h1>
+  <p class="standfirst">O que falar em cada um dos 32 slides para a palestra soar como alguém que <em>opera</em> com IA — e não como alguém que leu sobre ela. A estrutura do deck não muda. Muda o que sai da sua boca em cima dela.</p>
+  <div class="masthead-meta">
+    <span><b>32</b> slides</span>
+    <span><b>3</b> movimentos que se repetem</span>
+    <span><b>1</b> demo ao vivo (slide 17)</span>
+    <span><b>0</b> slides novos obrigatórios</span>
+  </div>
+</header>
+
+<section>
+  <h2>A tese antes das falas</h2>
+  <p class="sect-note">IA-first não é acrescentar um slide sobre IA. É trocar a unidade de trabalho em cada afirmação que você já faz. Três movimentos dão conta da palestra inteira — todas as falas abaixo são um deles.</p>
+
+  <div class="moves">
+    <div class="move">
+      <span class="move-num">01</span>
+      <h3>Troque o sujeito do verbo</h3>
+      <p>Onde o roteiro diz "o time faz", passe a dizer "o sistema faz, o time decide". Toda descrição de execução manual vira uma frase sobre volume de tentativa mais julgamento humano.</p>
+    </div>
+    <div class="move">
+      <span class="move-num">02</span>
+      <h3>Mostre o custo marginal</h3>
+      <p>Diga o preço velho e o preço novo da mesma tarefa. "Isso levava três dias de analista. Agora leva quarenta segundos." Número concreto, tarefa concreta. É o que separa quem operou de quem opinou.</p>
+    </div>
+    <div class="move">
+      <span class="move-num">03</span>
+      <h3>Mova o gargalo</h3>
+      <p>Se a execução barateou, o gargalo virou outra coisa: ângulo, dado, oferta, marca, prova. Nomeie o novo gargalo em cada pilar. É o movimento mais raro — e o que faz a plateia sentir que você está um ano à frente.</p>
+    </div>
+  </div>
+
+  <div class="testcard">
+    <h3>O teste do "e daí"</h3>
+    <p>Antes de subir qualquer frase no slide, tire a palavra <em>IA</em> dela. Se a frase continuar igualmente verdadeira, ela não é IA-first — é IA decorativa, e a plateia percebe. "Usamos IA para criar anúncios melhores" passa no teste do marketing e reprova no teste do "e daí". "As duas linhas que mais mexem no meu ROAS são exatamente as duas onde o custo do teste caiu para zero" não sobrevive sem IA. Essa é a diferença.</p>
+  </div>
+</section>
+
+<!-- ============ ATO 1 ============ -->
+
+<div class="act">
+  <p class="act-label">Abertura &amp; posicionamento</p>
+  <span class="act-range">Slides 01 — 04</span>
+</div>
+
+<div class="slide key">
+  <div class="slide-num">01</div>
+  <div class="slide-body">
+    <p class="slide-what">Capa</p>
+    <p class="slide-title">Como crescer receita e lucro com previsibilidade</p>
+    <div class="say punch">
+      <p><span class="beat">Primeiros 30 segundos</span>Essa palestra tinha outro título há doze meses. O sistema é o mesmo — aquisição, marca e vendas. O que mudou foi <em>quem executa</em>. Boa parte do que eu vou mostrar aqui, hoje, uma pessoa sozinha entrega no lugar de um time de cinco. E é exatamente por isso que a vantagem competitiva saiu de <em>executar</em> e foi para <em>saber o que mandar executar</em>.</p>
+    </div>
+    <p class="why"><b>Por quê</b>Você planta a tese inteira antes do primeiro slide de conteúdo. Todo o resto da palestra passa a ser prova dessa frase, sem você precisar voltar a falar de IA a cada dez minutos.</p>
+    <p class="why"><b>No slide</b>Emende uma linha no subtítulo: "…que não depende de sorte — e não depende de headcount."</p>
+    <div class="tags"><span class="tag t1">Trocar o sujeito</span></div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-num">02</div>
+  <div class="slide-body">
+    <p class="slide-what">Quem sou eu · print do Instagram</p>
+    <p class="slide-title">Do zero a CMO — prova social</p>
+    <div class="say">
+      <p>Eu não vim aqui como entusiasta de IA. Vim como operador. [seu número: X clientes, R$ Y de mídia gerida, Z anos]. O que eu vou contar é o que sobreviveu ao contato com P&amp;L de verdade — antes e depois da IA entrar no processo.</p>
+    </div>
+    <p class="why"><b>Por quê</b>Numa palestra IA-first, o risco de credibilidade se inverte: a plateia já ouviu dez pessoas falando de IA sem nunca terem rodado uma conta. Sua autoridade não é "eu entendo de IA", é "eu tenho o antes e o depois da mesma operação".</p>
+    <div class="tags"><span class="tag t3">Credibilidade</span></div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-num">03</div>
+  <div class="slide-body">
+    <p class="slide-what">Quem sou eu · continuação</p>
+    <p class="slide-title">Podcast, bastidores, Instagram</p>
+    <div class="say">
+      <p>Um detalhe sobre esses bastidores: nada do que vocês estão vendo aqui foi feito por um time grande. Foi feito por um time pequeno com alavanca. Guarda essa palavra — <em>alavanca</em> — porque ela vai voltar em cada um dos três pilares.</p>
+    </div>
+    <p class="why"><b>Por quê</b>Transforma prova social em prova de tese. O print deixa de dizer "eu sou relevante" e passa a dizer "isso aqui é o resultado do modelo que eu vou te ensinar".</p>
+    <div class="tags"><span class="tag t1">Trocar o sujeito</span></div>
+  </div>
+</div>
+
+<div class="slide key">
+  <div class="slide-num">04</div>
+  <div class="slide-body">
+    <p class="slide-what">Transição para os pilares</p>
+    <p class="slide-title">Resolver o curto prazo enquanto constrói o longo prazo</p>
+    <div class="say punch">
+      <p>Sempre existiu um trade-off aqui: o que dá caixa esse mês rouba o time do que constrói marca. A IA não resolve a sua estratégia. Ela resolve o <em>trade-off de capacidade</em> — derruba o custo de executar o curto prazo e libera as suas melhores cabeças para o longo.</p>
+      <p>Quem usou IA só para fazer mais anúncio ficou mais rápido no curto prazo e não construiu nada. Quem usou IA para comprar tempo, construiu os dois.</p>
+    </div>
+    <p class="why"><b>Por quê</b>É o melhor slide do deck para plantar a tese, porque IA mexe precisamente na tensão que ele já descreve. Você não enxerta um assunto novo — você dá uma resposta nova a uma pergunta que o slide já fazia.</p>
+    <p class="why"><b>Frase de fechamento</b>"O gargalo deixou de ser capacidade de execução. Virou clareza de decisão."</p>
+    <div class="tags"><span class="tag t3">Mover o gargalo</span><span class="tag t2">Custo marginal</span></div>
+  </div>
+</div>
+
+<!-- ============ ATO 2 ============ -->
+
+<div class="act">
+  <p class="act-label">Pilar 1 · Aquisição</p>
+  <span class="act-range">Slides 05 — 17</span>
+</div>
+
+<div class="slide">
+  <div class="slide-num">05</div>
+  <div class="slide-body">
+    <p class="slide-what">Abertura do pilar</p>
+    <p class="slide-title">Aquisição — gerar demanda de forma previsível</p>
+    <div class="say">
+      <p>Previsibilidade em aquisição nunca foi sobre acertar o criativo. É sobre ter <em>volume de tentativa</em> suficiente para a média ser confiável. Antes, volume de tentativa custava time — e time é o recurso mais caro que existe. Hoje custa quase nada. Então "previsível" em 2026 quer dizer uma coisa diferente do que queria dizer em 2023: quer dizer testar mais em uma semana do que a gente testava num trimestre.</p>
+    </div>
+    <p class="why"><b>Por quê</b>Reancora "previsibilidade" em estatística, não em sorte. E prepara o terreno para a tabela do funil no slide 12, que é o clímax matemático da palestra.</p>
+    <div class="tags"><span class="tag t2">Custo marginal</span></div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-num">06</div>
+  <div class="slide-body">
+    <p class="slide-what">Citação</p>
+    <p class="slide-title">"90% das empresas dependem de um único canal de aquisição"</p>
+    <div class="say">
+      <p>Esse dado envelheceu — para pior. Porque agora não é só o algoritmo do canal que pode mudar. É a própria camada de descoberta. Uma parte crescente das suas buscas nunca mais vai virar clique: a resposta é dada dentro do ChatGPT, do Gemini, do resumo de IA do Google. O usuário pergunta, recebe a resposta e não vai a lugar nenhum.</p>
+      <p>Se a sua empresa depende de um canal só, você tem uma fragilidade. Se ela depende de um canal que a IA está reescrevendo por baixo, você tem duas.</p>
+    </div>
+    <p class="why"><b>Faça isto em vez de citar estatística de mercado</b>Abra o seu próprio Search Console e mostre a linha de impressões subindo enquanto a de cliques cai. Um print da sua conta vale mais que dez números de relatório — e é o slide mais IA-first que você pode ter, porque o dado é seu e ninguém pode contestar.</p>
+    <div class="tags"><span class="tag t3">Mover o gargalo</span></div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-num">07</div>
+  <div class="slide-body">
+    <p class="slide-what">Índice do bloco</p>
+    <p class="slide-title">Canais de geração de demanda — Framework POETIC &amp; Recomendações</p>
+    <div class="say">
+      <p>Antes de percorrer o framework, um aviso: apareceu um canal nessa lista que não existia na última vez que eu apresentei isso. E ele não é uma rede social. É a caixa de resposta de um modelo de linguagem.</p>
+      <p>Hoje eu trato "ser citado pela IA" como canal de aquisição de verdade: com dono, com meta, com ritual semanal. Exatamente igual eu trato tráfego pago.</p>
+    </div>
+    <p class="why"><b>Por quê</b>Acrescentar um canal a um framework de canais é a intervenção IA-first mais barata e mais convincente do deck inteiro. Você não está comentando sobre IA — está mudando o mapa.</p>
+    <p class="why"><b>Ritual concreto para citar</b>"Toda semana alguém do time pergunta ao ChatGPT e ao Gemini as cinco perguntas que um cliente faria antes de comprar de nós, e anota se a gente apareceu. É a nossa posição orgânica da era dos modelos."</p>
+    <div class="tags"><span class="tag t3">Mover o gargalo</span></div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-num">08</div>
+  <div class="slide-body">
+    <p class="slide-what">Divisória</p>
+    <p class="slide-title">POETIC Framework</p>
+    <div class="say">
+      <p>Esse framework continua inteiro. Nenhuma letra caiu. O que mudou foi o <em>custo de operar</em> cada uma delas — e mudou de forma desigual. Presta atenção nisso: as letras que barateram muito são as que deixaram de dar vantagem. A vantagem migrou para as que continuam caras.</p>
+    </div>
+    <p class="why"><b>Por quê</b>Prepara a plateia para ouvir o framework com uma lente nova em vez de reconhecê-lo e desligar. E instala o critério que você vai usar em cada letra.</p>
+    <div class="tags"><span class="tag t3">Mover o gargalo</span></div>
+  </div>
+</div>
+
+<div class="slide key">
+  <div class="slide-num">09</div>
+  <div class="slide-body">
+    <p class="slide-what">O framework, letra por letra</p>
+    <p class="slide-title">P · O · E · T · I · C</p>
+    <p class="why" style="margin-bottom:16px"><b>Como usar</b>Uma frase de "o que mudou" por letra, dita logo depois da definição de sempre. Abaixo, a fala pronta para cada família de canal — encaixe na letra correspondente do seu framework.</p>
+    <div class="say">
+      <p><span class="beat">Mídia paga</span>O leilão virou IA-first sem pedir a nossa licença. Advantage+, Performance Max — a plataforma decide segmentação, lance e entrega. Sobraram exatamente três alavancas para você: <em>criativo, sinal de conversão e oferta</em>. Quem ainda acha que o trabalho de mídia é mexer em público está operando um botão que não existe mais.</p>
+    </div>
+    <div class="say">
+      <p><span class="beat">Conteúdo / orgânico</span>O custo de produzir conteúdo foi a zero. Para você e para os seus concorrentes — e é essa segunda parte que ninguém fala. Volume parou de ser vantagem no dia em que virou grátis. Vantagem passou a ser o que o modelo não tem: o seu dado proprietário, o seu cliente, a sua opinião.</p>
+    </div>
+    <div class="say">
+      <p><span class="beat">Imprensa / conteúdo de terceiros</span>Assessoria hoje tem um segundo público, e ele não é humano. O que se publica sobre você é o que a IA vai repetir quando alguém perguntar quem é bom na sua categoria. Você não está mais só comprando reputação. Está alimentando um índice.</p>
+    </div>
+    <div class="say">
+      <p><span class="beat">Influência</span>Briefing, roteiro e curadoria de criador dá para fazer em escala agora. Mas <em>com quem</em> se associar continua sendo caro, e continua sendo humano — porque é uma aposta de reputação, não uma tarefa.</p>
+    </div>
+    <div class="say">
+      <p><span class="beat">Comunidade</span>É o único canal dessa lista que não dá para sintetizar. Não existe comunidade gerada. E é exatamente por isso que ela valorizou.</p>
+    </div>
+    <div class="tags"><span class="tag t3">Mover o gargalo</span><span class="tag t2">Custo marginal</span></div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-num">10</div>
+  <div class="slide-body">
+    <p class="slide-what">Canal · cinco estrelas</p>
+    <p class="slide-title">Recomendação</p>
+    <div class="say punch">
+      <p>Esse é o canal que mais valorizou com a IA, e por um motivo contraintuitivo: quando <em>tudo</em> pode ser gerado, a prova de que alguém real comprou e voltou vira o ativo mais escasso da internet. Review, print de conversa, áudio de cliente, vídeo sem produção — isso deixou de ser "prova social" e virou vantagem competitiva defensável.</p>
+      <p>E tem um uso direto e imediato: as suas avaliações são o texto que a IA lê quando alguém pergunta a ela qual empresa contratar. Review parou de ser vaidade. Virou o SEO da era dos modelos.</p>
+    </div>
+    <p class="why"><b>Por quê</b>É o único slide do deck onde você pode dizer que a IA <em>aumentou</em> o valor de uma coisa antiga. Isso quebra o padrão da palestra de IA (tudo mudou, tudo é novo) e soa como alguém que pensou de verdade.</p>
+    <div class="tags"><span class="tag t3">Mover o gargalo</span></div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-num">11</div>
+  <div class="slide-body">
+    <p class="slide-what">Abertura do bloco de otimização</p>
+    <p class="slide-title">Alavancas de otimização — quais são os nós da jornada?</p>
+    <div class="say">
+      <p>"Qual é o nó da jornada?" sempre foi uma pergunta cara. Um analista levava dias cruzando planilha para responder. Hoje eu jogo o funil inteiro num modelo e pergunto duas coisas: onde eu estou perdendo mais dinheiro, e o que eu ataco primeiro. Ele responde em segundos.</p>
+      <p>O que não mudou: alguém precisa saber se a resposta faz sentido. A IA achou o nó. Só você sabe se dá para desatar — porque só você sabe o que a empresa aguenta.</p>
+    </div>
+    <p class="why"><b>Por quê</b>Formulação exata do movimento 01. A máquina faz o diagnóstico, o humano faz a escolha. Repetida três ou quatro vezes na palestra, essa dobradinha vira a sua tese sem você precisar enunciá-la.</p>
+    <div class="tags"><span class="tag t1">Trocar o sujeito</span><span class="tag t2">Custo marginal</span></div>
+  </div>
+</div>
+
+<div class="slide key">
+  <div class="slide-num">12</div>
+  <div class="slide-body">
+    <p class="slide-what">O clímax matemático da palestra</p>
+    <p class="slide-title">Otimização — o funil em números (Funil 1 → Funil 4)</p>
+    <div class="numbers">
+      <div class="num"><p class="num-k">Investimento</p><p class="num-v">= R$ 10 mil</p></div>
+      <div class="num"><p class="num-k">Impressões</p><p class="num-v">= 250 mil</p></div>
+      <div class="num hot"><p class="num-k">CTR</p><p class="num-v">1,0 → 1,4%</p></div>
+      <div class="num hot"><p class="num-k">Conv. página</p><p class="num-v">5 → 6%</p></div>
+      <div class="num"><p class="num-k">Faturamento</p><p class="num-v">18,9 → 31,7k</p></div>
+      <div class="num"><p class="num-k">ROAS</p><p class="num-v">1,89 → 3,18</p></div>
+    </div>
+    <div class="say punch">
+      <p>Olhem os quatro funis. Investimento igual nos quatro: dez mil reais. Impressões iguais: duzentas e cinquenta mil. Do Funil 1 para o Funil 4 mudam <em>duas linhas</em> — CTR de 1% para 1,4%, e conversão de página de 5% para 6%. Resultado: faturamento de dezoito mil e novecentos para trinta e um mil setecentos e cinquenta e dois. ROAS de 1,89 para 3,18. <strong>Sessenta e oito por cento a mais, sem um real a mais de mídia.</strong></p>
+      <p>Agora a parte que interessa. Quais são exatamente as duas coisas que a IA deixa você testar vinte vezes mais rápido hoje? Criativo e página. As duas linhas que mais mexem no resultado são as duas onde o custo do teste caiu para perto de zero.</p>
+      <p>É por isso que essa tabela é a coisa mais IA-first dessa apresentação — e ela não menciona IA em lugar nenhum.</p>
+    </div>
+    <p class="why"><b>Por quê</b>Aqui você prova a tese com aritmética em vez de opinião, usando um slide que já estava pronto. É o momento de maior densidade da palestra: guarde trinta segundos de silêncio depois do "sessenta e oito por cento".</p>
+    <p class="why"><b>Se quiser abrir ainda mais</b>Só o CTR (Funil 3) já entrega +40%. A página (Funil 4) soma outros +20% em cima. Dá para dizer: "o criativo sozinho paga o mês. A página é o bônus."</p>
+    <div class="tags"><span class="tag t2">Custo marginal</span><span class="tag t3">Mover o gargalo</span></div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-num">13</div>
+  <div class="slide-body">
+    <p class="slide-what">Tabela de ações · topo do funil</p>
+    <p class="slide-title">Investimento · CPM · CTR</p>
+    <div class="say">
+      <p>Essas listas eu escrevi na mão, ao longo de anos, errando. Hoje elas são o meu <em>prompt</em>. Eu não peço para a IA "melhorar meu CTR" — isso não funciona e devolve genérico. Eu entrego esse checklist, o histórico de criativo da conta e os dados reais, e peço as próximas quinze variações obedecendo essas regras.</p>
+      <p>A diferença entre quem tira valor de IA e quem não tira é essa. Quem tem método, multiplica. Quem não tem, gera lixo mais rápido — e na direção errada.</p>
+    </div>
+    <p class="why"><b>Por quê</b>Reposiciona todo o conteúdo antigo do deck: os frameworks não ficaram obsoletos, eles viraram o insumo. É a fala que faz um gestor experiente na plateia relaxar em vez de se sentir ameaçado.</p>
+    <div class="tags"><span class="tag t1">Trocar o sujeito</span></div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-num">14</div>
+  <div class="slide-body">
+    <p class="slide-what">Tabela de ações · meio do funil</p>
+    <p class="slide-title">Connect rate · Taxa de conversão da página · Lead &gt; MQL</p>
+    <div class="say">
+      <p>Aqui o ganho não é de criatividade, é de matemática. Teste A/B sempre foi limitado por quantas versões dava para construir. Se eu monto seis páginas numa tarde em vez de duas por mês, a minha taxa de aprendizado muda de ordem de grandeza — e é a taxa de aprendizado que produz a curva do Funil 4.</p>
+      <p>E repara no Lead maior que MQL: essa é a linha onde a IA entra melhor hoje. Qualificar e enriquecer o lead na <em>entrada</em>, antes do vendedor gastar uma hora com quem nunca ia comprar.</p>
+    </div>
+    <p class="why"><b>Por quê</b>Amarra o slide 12 ao slide 14 e faz a ponte para o pilar de vendas. "Taxa de aprendizado" é um termo de operador — use.</p>
+    <div class="tags"><span class="tag t2">Custo marginal</span></div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-num">15</div>
+  <div class="slide-body">
+    <p class="slide-what">Tabela de ações · fundo do funil</p>
+    <p class="slide-title">MQL &gt; RM</p>
+    <div class="say">
+      <p>Essa é a passagem onde mais dinheiro vaza, e sempre foi a mais difícil de diagnosticar — porque ela não mora num dashboard. Mora numa conversa. E conversa era caro demais para medir.</p>
+      <p>Isso acabou. Hoje 100% das ligações são transcritas e lidas. Não é amostragem, não é o gestor ouvindo três calls na sexta-feira à tarde. É todas. E quando você lê todas, você para de <em>adivinhar</em> por que o MQL não vira reunião: você lê a frase exata em que a pessoa desistiu.</p>
+    </div>
+    <p class="why"><b>Por quê</b>Melhor exemplo de custo marginal do deck inteiro, porque a plateia sabe na pele que ninguém ouve as gravações. "Não é amostragem, é todas" é a frase que gruda.</p>
+    <p class="why"><b>Novo gargalo</b>"Parou de ser um problema de coleta. Virou um problema de decidir o que fazer com o que você achou."</p>
+    <div class="tags"><span class="tag t2">Custo marginal</span><span class="tag t3">Mover o gargalo</span></div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-num">16</div>
+  <div class="slide-body">
+    <p class="slide-what">Provocação</p>
+    <p class="slide-title">"E se esses anúncios fossem panfletos?"</p>
+    <div class="say">
+      <p>Essa provocação ficou mais dura de responder. Porque agora dá para imprimir dez mil panfletos <em>diferentes</em> pelo mesmo custo de um.</p>
+      <p>E o que acontece quando fazer fica de graça? A média despenca. A internet inteira encheu de panfleto genérico — e o seu está no meio, competindo por atenção com todos eles. O que vale hoje não é a peça. É o ângulo. A IA faz mil variações do seu ângulo. Ela não acha o ângulo por você. Ângulo vem de conversa com cliente.</p>
+    </div>
+    <p class="why"><b>Frase para fechar o slide</b>"IA-first não é fazer mais panfleto. É gastar o tempo que sobrou descobrindo o que escrever nele."</p>
+    <div class="tags"><span class="tag t3">Mover o gargalo</span></div>
+  </div>
+</div>
+
+<div class="slide key">
+  <div class="slide-num">17</div>
+  <div class="slide-body">
+    <p class="slide-what">Exemplo de peça · o momento de demo ao vivo</p>
+    <p class="slide-title">Peça de anúncio pensada como panfleto premium</p>
+    <div class="say punch">
+      <p><span class="beat">Antes de mostrar</span>Essa peça levou [três rodadas de aprovação / uma agência / X dias]. Guarda esse número.</p>
+      <p><span class="beat">Faça ao vivo — 40 segundos</span>Eu vou fazer o seguinte agora, na frente de vocês.</p>
+      <p><span class="beat">Depois de gerar</span>Não é que as três estão prontas. Duas provavelmente estão ruins. O ponto não é qualidade — é que eu acabei de comprar três tentativas pelo preço de zero. E lá na tabela do funil, tentativa é literalmente o que move CTR. Aquele +40% não veio de talento. Veio de volume de tentativa.</p>
+    </div>
+    <p class="why"><b>Por quê</b>Palestra IA-first só é acreditada quando alguma coisa acontece na sala. Um único momento ao vivo vale mais que quinze slides afirmando o mesmo. Faça <em>uma</em> vez, aqui, e não repita.</p>
+    <p class="why"><b>Plano B obrigatório</b>Deixe o resultado pré-gerado num slide oculto logo depois. Wi-Fi de evento cai. Se cair, você diz "gerei isso ontem em quarenta segundos" e segue sem perder o ritmo.</p>
+    <div class="tags"><span class="tag t2">Custo marginal</span></div>
+  </div>
+</div>
+
+<!-- ============ ATO 3 ============ -->
+
+<div class="act">
+  <p class="act-label">Marca</p>
+  <span class="act-range">Slides 18 — 21</span>
+</div>
+
+<div class="slide key">
+  <div class="slide-num">18</div>
+  <div class="slide-body">
+    <p class="slide-what">O argumento estratégico mais forte do deck</p>
+    <p class="slide-title">Marca — ondas de Brand Recall ao longo do tempo</p>
+    <div class="say punch">
+      <p>Aqui está a tese mais importante dessa palestra, e ela é curta.</p>
+      <p>Se a IA derrubou o custo de produzir qualquer coisa — anúncio, página, artigo, vídeo — então tudo que <em>pode</em> ser produzido virou commodity. E o que não pode ser produzido? Lembrança. Confiança. O cliente que chega e já sabe quem você é.</p>
+      <p>Marca era o item que todo mundo cortava primeiro no orçamento, porque não dava para medir no mês. Ela acabou de virar a única coisa que a concorrência não consegue gerar em massa. <strong>Quanto mais barato fica produzir, mais cara fica a marca.</strong></p>
+    </div>
+    <p class="why"><b>Por quê</b>É o argumento que ninguém espera numa palestra de IA e o que mais respeito conquista, porque contraria o clima geral de "produza mais". Também é o que dá coerência ao deck: explica por que o pilar de marca continua no meio de uma palestra IA-first.</p>
+    <div class="tags"><span class="tag t3">Mover o gargalo</span></div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-num">19</div>
+  <div class="slide-body">
+    <p class="slide-what">Referências visuais de marca</p>
+    <p class="slide-title">Exemplos de peças — campanhas de marca</p>
+    <div class="say">
+      <p>Repara no que essas peças têm em comum: nenhuma delas você descreve num prompt e recebe igual. Elas têm <em>decisão</em> dentro. Direção de arte é uma opinião — e opinião é exatamente o que o modelo não tem. Ele tem média. Marca é o oposto de média.</p>
+    </div>
+    <div class="tags"><span class="tag t3">Mover o gargalo</span></div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-num">20</div>
+  <div class="slide-body">
+    <p class="slide-what">Referências visuais de marca</p>
+    <p class="slide-title">Exemplos de peças — continuação</p>
+    <div class="say">
+      <p>Agora onde a IA entra em marca de verdade: não é criando a marca. É <em>mantendo</em> ela idêntica em mil peças, em dez canais, sem o time de design virar gargalo. Consistência sempre foi um problema de volume, e volume a IA resolve.</p>
+      <p>A frase é essa: você não pede identidade para a IA. Você pede obediência à identidade.</p>
+    </div>
+    <p class="why"><b>Por quê</b>Evita que o bloco de marca soe como "IA não serve para marca". Você mostra o uso certo e o uso errado — sinal claro de quem já implantou.</p>
+    <div class="tags"><span class="tag t1">Trocar o sujeito</span></div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-num">21</div>
+  <div class="slide-body">
+    <p class="slide-what">Fechamento do bloco de marca</p>
+    <p class="slide-title">Exemplos de peças — encerramento</p>
+    <div class="say">
+      <p>Fecha marca com uma conta: se todo mundo na sua categoria vai produzir dez vezes mais peça no ano que vem, o custo de atenção sobe para todo mundo junto. A única empresa que não paga esse aumento é a que o cliente já reconhece antes de ler. Isso é orçamento de marca. Não é vaidade, é hedge.</p>
+    </div>
+    <div class="tags"><span class="tag t3">Mover o gargalo</span></div>
+  </div>
+</div>
+
+<!-- ============ ATO 4 ============ -->
+
+<div class="act">
+  <p class="act-label">Pilar · Vendas, cultura e educação</p>
+  <span class="act-range">Slides 22 — 31</span>
+</div>
+
+<div class="slide">
+  <div class="slide-num">22</div>
+  <div class="slide-body">
+    <p class="slide-what">Abertura do pilar</p>
+    <p class="slide-title">Vendas</p>
+    <div class="say">
+      <p>Marketing foi o primeiro time a ser reorganizado pela IA, porque é onde ela é mais visível. Mas vendas vai ser o mais <em>profundo</em>. E o motivo é simples: o ativo de vendas sempre foi informação que ficava na cabeça do vendedor. Agora ela fica no sistema. Isso muda quem é dono do quê.</p>
+    </div>
+    <p class="why"><b>Por quê</b>Frase de transição que sinaliza que a segunda metade não é uma palestra diferente. Também é o tipo de afirmação de segunda ordem — sobre poder e propriedade, não sobre ferramenta — que separa operador de entusiasta.</p>
+    <div class="tags"><span class="tag t1">Trocar o sujeito</span></div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-num">23</div>
+  <div class="slide-body">
+    <p class="slide-what">Citação</p>
+    <p class="slide-title">"Quem não mede, não gerencia"</p>
+    <div class="say punch">
+      <p>Essa frase tem setenta anos e acabou de mudar de significado.</p>
+      <p>Porque durante setenta anos ela veio com uma letra miúda que ninguém lia: você media o que era <em>barato</em> medir. Número de ligações, sim. O que foi dito dentro delas, não. Tempo de resposta, sim. Qualidade da resposta, não.</p>
+      <p>O que era caro medir ficou barato. Conversa, objeção, tom, motivo real da perda. A frase virou: quem não mede não gerencia — e agora você não tem mais desculpa.</p>
+    </div>
+    <p class="why"><b>Por quê</b>Pegar uma frase clássica e mostrar que ela mudou de sentido é o movimento retórico mais eficiente da palestra inteira. Não precisa de dado nenhum e reposiciona você como quem pensa, não quem repete.</p>
+    <div class="tags"><span class="tag t2">Custo marginal</span></div>
+  </div>
+</div>
+
+<div class="slide key">
+  <div class="slide-num">24</div>
+  <div class="slide-body">
+    <p class="slide-what">As três camadas de métrica</p>
+    <p class="slide-title">Dados — atividade, eficiência, resultado</p>
+    <div class="say punch">
+      <p>Olha essas três camadas com olho de IA. Atividade sempre foi fácil: o CRM conta. Resultado sempre foi fácil: o caixa conta. A do meio — eficiência, qualidade do trabalho — essa nunca deu para medir de verdade, porque exigia um humano ouvindo tudo. E ninguém tem humano sobrando para isso.</p>
+      <p>A camada do meio é a que a IA destravou. E não é detalhe: é exatamente ali que mora a explicação de por que dois vendedores com a mesma atividade entregam resultado diferente. A gente sempre chamou isso de "talento" porque não conseguia medir. Agora consegue.</p>
+    </div>
+    <p class="why"><b>Por quê</b>Reinterpreta um slide que já é seu, sem trocar uma palavra dele, e entrega um insight que a plateia não tinha. Esse é o padrão-ouro da adaptação IA-first: mesmo slide, camada nova de significado.</p>
+    <div class="tags"><span class="tag t2">Custo marginal</span><span class="tag t3">Mover o gargalo</span></div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-num">25</div>
+  <div class="slide-body">
+    <p class="slide-what">Citação</p>
+    <p class="slide-title">"Mais que vendedores, eu busco hustlers"</p>
+    <div class="say">
+      <p>Eu preciso atualizar essa frase na frente de vocês. Hustler era quem fazia mais volume que os outros. Volume ficou barato. Hoje hustler é quem faz mais <em>tentativa por hora</em> usando as ferramentas — mesma energia, alavanca diferente.</p>
+      <p>E isso mudou a minha pergunta de entrevista. Não é mais "me conta uma venda difícil". É "me mostra, agora, como você usa IA no seu dia". A resposta separa candidato em trinta segundos, e não é sobre saber a ferramenta. É sobre a pessoa ter curiosidade suficiente para ter procurado sozinha.</p>
+    </div>
+    <p class="why"><b>Por quê</b>Atualizar publicamente a própria frase é honesto e memorável. E dar a pergunta de entrevista entrega algo aplicável na segunda-feira — que é o que a plateia leva para casa.</p>
+    <div class="tags"><span class="tag t1">Trocar o sujeito</span></div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-num">26</div>
+  <div class="slide-body">
+    <p class="slide-what">Cultura de vendas</p>
+    <p class="slide-title">Rituais (daily &amp; weekly) · Dinheirista · Energia · Nunca sou inconveniente</p>
+    <div class="say">
+      <p><span class="beat">Sobre os rituais</span>A daily mudou de conteúdo. Ninguém mais gasta dez minutos contando o que fez ontem — isso o sistema já resumiu antes da reunião começar. A daily virou só decisão. A weekly, igual: chega com a análise pronta e discute a escolha. Se a sua reunião ainda é relatório falado, você está pagando salário para gente ler dados em voz alta.</p>
+    </div>
+    <div class="say punch">
+      <p><span class="beat">Sobre "nunca sou inconveniente"</span>Esse princípio ficou mais difícil e muito mais importante. Porque a IA deixou barato ser inconveniente <em>em escala</em>. A caixa de entrada do seu cliente está sendo destruída por sequência automática genérica, e ele já aprendeu a ignorar tudo que cheira a isso.</p>
+      <p>O que parece ameaça é oportunidade: num mundo de contato automático, o contato que parece humano vira o diferencial. A regra da casa é essa — automatize a preparação, nunca automatize a conversa.</p>
+    </div>
+    <p class="why"><b>Por quê</b>Uma posição com custo: você está dizendo o que <em>não</em> automatizar. Isso é o oposto do discurso padrão de IA e é o que dá autoridade real. Guarde "automatize a preparação, nunca a conversa" como um dos bordões.</p>
+    <div class="tags"><span class="tag t3">Mover o gargalo</span></div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-num">27</div>
+  <div class="slide-body">
+    <p class="slide-what">Áudio</p>
+    <p class="slide-title">"Cultura de vendas gera problema" — ouça o áudio</p>
+    <div class="say">
+      <p><span class="beat">Antes de dar play</span>Presta atenção não no que ele fala, mas em quanto do que ele fala é <em>diagnosticável</em>. Cada frase dessa é um dado que hoje eu extraio de mil ligações automaticamente.</p>
+      <p><span class="beat">Depois do áudio</span>O que vocês acabaram de ouvir é uma amostra de um. Eu tenho isso de toda a operação, toda semana, sem ninguém ouvir nada. É essa a diferença entre ter uma anedota e ter um sistema.</p>
+    </div>
+    <p class="why"><b>Por quê</b>Enquadrar o áudio antes e depois transforma um momento passivo em prova da tese. Sem o enquadramento, é só um áudio engraçado.</p>
+    <div class="tags"><span class="tag t2">Custo marginal</span></div>
+  </div>
+</div>
+
+<div class="slide key">
+  <div class="slide-num">28</div>
+  <div class="slide-body">
+    <p class="slide-what">Cultura · os quatro pilares de time de alta performance</p>
+    <p class="slide-title">Segurança psicológica · Confiabilidade · Estrutura e clareza · Significado do trabalho</p>
+    <div class="say punch">
+      <p>Esses quatro pilares vêm do estudo do Google sobre times de alta performance. Três deles a IA ajuda diretamente. <em>Confiabilidade</em>: ela tira do time o trabalho repetitivo que gera erro. <em>Estrutura e clareza</em>: ela documenta e responde na hora. <em>Significado</em>: ela devolve horas para o trabalho que importa.</p>
+      <p>Mas o primeiro — segurança psicológica — é onde a IA <strong>destrói</strong>, se você fizer errado. Se o seu time achar que a IA está ali para medir ele e cortar, ele esconde como usa. E aí você perde os dois: perde a segurança e perde o ganho, porque ninguém compartilha o que descobriu.</p>
+      <p>Implantação de IA é um problema de cultura antes de ser um problema de ferramenta. Quem inverte essa ordem compra licença e não muda nada.</p>
+    </div>
+    <p class="why"><b>Por quê</b>É a fala mais madura do deck e a que mais diferencia você de quem só demonstra ferramenta. Também responde ao medo real que uma parte da plateia está sentindo em silêncio.</p>
+    <div class="tags"><span class="tag t3">Mover o gargalo</span></div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-num">29</div>
+  <div class="slide-body">
+    <p class="slide-what">Citação</p>
+    <p class="slide-title">"Toda grande empresa, em algum momento, torna-se uma escola"</p>
+    <div class="say">
+      <p>E agora toda grande empresa também vira um <em>conjunto de dados</em>. Porque tudo que você ensina, documenta e padroniza deixou de ser só treinamento de gente — virou treinamento de máquina.</p>
+      <p>O manual que você escreveu para o vendedor novo é literalmente o que alimenta o assistente que responde por ele. Escola e sistema viraram a mesma coisa.</p>
+    </div>
+    <div class="tags"><span class="tag t1">Trocar o sujeito</span></div>
+  </div>
+</div>
+
+<div class="slide key">
+  <div class="slide-num">30</div>
+  <div class="slide-body">
+    <p class="slide-what">Educação</p>
+    <p class="slide-title">Documentação · Pão quentinho · Educação continuada · Conhecimento técnico</p>
+    <div class="say punch">
+      <p>Documentação era a tarefa que ninguém queria fazer, porque ninguém lia. Isso acabou. Documentação hoje é o ativo de maior retorno da empresa, porque ela é o combustível do seu assistente interno.</p>
+      <p>Empresa com processo escrito ganha IA útil no primeiro dia. Empresa sem processo escrito ganha um chatbot que inventa. E olha que a ferramenta é <em>a mesma</em> nas duas. A diferença não está na tecnologia. Está no que tem escrito.</p>
+      <p><strong>A sua IA é tão boa quanto a sua documentação.</strong></p>
+    </div>
+    <p class="why"><b>Sobre o "pão quentinho"</b>"Esse ritual virou obrigatório e semanal, porque a ferramenta muda mais rápido do que o time aprende. Quem descobriu alguma coisa na terça não pode segurar até o mês que vem — nesse mês o ganho já era."</p>
+    <p class="why"><b>Por quê</b>Dá uma razão econômica nova para uma prática que a plateia já sabe que deveria ter e nunca teve. Motivação nova para hábito velho é o que faz gente mudar de comportamento.</p>
+    <div class="tags"><span class="tag t3">Mover o gargalo</span></div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-num">31</div>
+  <div class="slide-body">
+    <p class="slide-what">Monetização da base</p>
+    <p class="slide-title">Mix de produto — com escassez, com garantia, novos produtos para as mesmas pessoas</p>
+    <div class="say">
+      <p>"Novos produtos para as mesmas pessoas" era uma estratégia cara: cada produto novo era um projeto. Ficou barato. Dá para montar, testar e matar uma oferta numa fração do tempo — e isso muda a velocidade com que você monetiza a base que já te conhece.</p>
+      <p>Consequência boa: você extrai muito mais da mesma base. Consequência ruim: o seu concorrente também. Por isso a escassez e a garantia — as duas coisas desse slide — ficaram <em>mais</em> importantes, não menos. São elas que provam que tem gente de verdade atrás, assumindo risco. Num mercado cheio de oferta gerada, quem assume risco se destaca.</p>
+    </div>
+    <div class="tags"><span class="tag t3">Mover o gargalo</span><span class="tag t2">Custo marginal</span></div>
+  </div>
+</div>
+
+<!-- ============ FECHAMENTO ============ -->
+
+<div class="act">
+  <p class="act-label">Fechamento</p>
+  <span class="act-range">Slide 32</span>
+</div>
+
+<div class="slide key">
+  <div class="slide-num">32</div>
+  <div class="slide-body">
+    <p class="slide-what">Encerramento e chamada</p>
+    <p class="slide-title">Max Satiro · Fundador da Sócio Estratégico · @max_satiro</p>
+    <div class="say punch">
+      <p><span class="beat">A tese, fechada</span>Se você lembrar de uma coisa só dessa hora aqui, lembra dessa: a IA não te dá vantagem. Ela <em>tira</em> a vantagem de todo mundo que dependia de executar. O que sobra é o que ela não faz — o seu ângulo, a sua marca, a sua prova, o seu time.</p>
+      <p>Foi disso que essa palestra falou o tempo inteiro. A IA só deixou tudo isso mais urgente.</p>
+      <p><span class="beat">A tarefa</span>Segunda-feira: escolhe <em>uma</em> linha da tabela do funil e coloca a IA para atacar só ela por trinta dias. Uma. Não o funil todo. E me manda o resultado no direct — eu quero ver.</p>
+    </div>
+    <p class="why"><b>Por quê</b>Fecha o arco iniciado no slide 1, devolve o protagonismo à plateia (não à tecnologia) e transforma o CTA de "me segue" em "me mostra o que você fez" — que gera muito mais direct e muito mais material seu para a próxima palestra.</p>
+  </div>
+</div>
+
+<!-- ============ APOIO ============ -->
+
+<section>
+  <h2>Os três bordões</h2>
+  <p class="sect-note">Escolha estes três e repita cada um pelo menos duas vezes. Repetição é o que faz uma palestra ser lembrada por uma ideia em vez de por trinta e duas.</p>
+  <div class="panel">
+    <p class="bordao">"A IA não substitui método. Ela multiplica quem tem — e acelera quem não tem na direção errada."
+      <small>Planta no slide 13, colhe no 30.</small></p>
+    <p class="bordao">"Quanto mais barato fica produzir, mais cara fica a marca."
+      <small>Planta no slide 18, colhe no 21 e no 32.</small></p>
+    <p class="bordao">"Automatize a preparação. Nunca automatize a conversa."
+      <small>Planta no slide 26, colhe no 28.</small></p>
+  </div>
+</section>
+
+<section>
+  <h2>O que não fazer</h2>
+  <div class="closers">
+    <div class="panel warn">
+      <h3>Armadilhas</h3>
+      <ul class="clean no">
+        <li><strong>Não vire palestra de ferramenta.</strong> Cite nomes de ferramenta no máximo três vezes na hora inteira, e sempre grudados num resultado. Lista de ferramenta envelhece em seis semanas e faz você parecer usuário, não estrategista.</li>
+        <li><strong>Não mostre prompt na tela.</strong> Prompt é tática e desvia a atenção para copiar em vez de entender. Se pedirem, ofereça por direct — vira captura de contato.</li>
+        <li><strong>Não cite estatística genérica de mercado.</strong> "87% das empresas vão adotar IA até 2027" não convence ninguém e não é verificável na sala. Um print da sua própria conta vale dez relatórios.</li>
+        <li><strong>Não prometa substituição de gente.</strong> Metade da plateia tem time. A tese vencedora é alavanca, não corte — e é também a mais defensável.</li>
+        <li><strong>Não faça mais de uma demo ao vivo.</strong> Uma é prova. Duas é feira de tecnologia, e a segunda sempre é a que trava.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>Dois slides opcionais</h3>
+      <ul class="clean">
+        <li><strong>Depois do slide 4 — "O que mudou de preço".</strong> Três colunas: <em>Execução</em> (despencou), <em>Julgamento</em> (ficou caro), <em>Marca e prova</em> (ficou o mais caro). É o mapa da palestra inteira num slide, e dá para você apontar de volta para ele em cada pilar.</li>
+        <li><strong>Antes do slide 32 — "Segunda-feira".</strong> Três linhas: uma métrica do funil escolhida, um ritual novo (o pão quentinho semanal), uma coisa que você não vai automatizar. Transforma inspiração em tarefa, e é o slide que a plateia fotografa.</li>
+      </ul>
+      <p style="font-size:14.5px;color:var(--ink-3);margin-top:16px">Nenhum dos dois é obrigatório. As falas acima funcionam com o deck exatamente como ele está hoje.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Roteiro construído sobre os 32 slides de <em>Personalizar_masterclass_marketing_3.pptx</em>, respeitando a estrutura, as citações e a tabela de funil existentes. Os valores da tabela do slide 12 (R$ 10.000 · CTR 1,00% → 1,40% · conversão 5% → 6% · faturamento R$ 18.900 → R$ 31.752 · ROAS 1,89 → 3,18) foram lidos direto do deck; a variação de +68% é aritmética desses números. Substitua os campos entre colchetes pelos seus dados reais antes de subir ao palco.
+</footer>
+
+</div>
