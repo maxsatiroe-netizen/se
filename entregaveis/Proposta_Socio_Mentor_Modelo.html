@@ -689,6 +689,35 @@ body.on-light .chrome .brand .on-light-only{opacity:1}
   .stageflow{padding:var(--s4) var(--s3)}
 }
 
+
+/* ---------- 12. DUAS OPÇÕES DE PAGAMENTO ---------- */
+.paydeck{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4);align-items:stretch}
+.payopt{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:var(--s2);
+  padding:clamp(26px,3vw,40px);border-radius:var(--r-lg);border:1px solid var(--line);
+  background:rgba(18,32,25,.6);transition:transform .35s var(--ease),border-color .35s var(--ease)}
+.payopt:hover{transform:translateY(-4px)}
+.payopt.best{border-color:var(--gold-2);
+  background:radial-gradient(ellipse at 50% 0%,rgba(219,190,122,.22),transparent 62%),rgba(18,32,25,.82);
+  box-shadow:0 30px 64px rgba(0,0,0,.34)}
+.payopt.best::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.po-k{font:600 var(--fs-micro)/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--gold-2)}
+.po-v{font-family:var(--serif);font-weight:400;font-size:clamp(38px,4.6vw,64px);line-height:.95;
+  letter-spacing:-.03em;color:var(--cream);margin:var(--s2) 0 0}
+.payopt.best .po-v{color:var(--gold)}
+.po-c{font-size:var(--fs-small);line-height:1.45;color:var(--muted)}
+.po-save{display:inline-flex;align-self:flex-start;margin-top:var(--s3);padding:8px 14px;
+  border-radius:var(--r-pill);background:linear-gradient(120deg,var(--gold),var(--gold-2));color:var(--ink);
+  font:700 var(--fs-micro)/1 var(--mono);letter-spacing:.07em;text-transform:uppercase}
+.po-note{margin-top:auto;padding-top:var(--s3);border-top:1px solid var(--line);
+  font:600 var(--fs-micro)/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.payterms{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);margin-top:var(--s4)}
+.payterms div{display:flex;flex-direction:column;gap:6px;padding:var(--s3) var(--s4);
+  border-radius:var(--r-sm);border:1px solid var(--line);background:rgba(12,22,16,.45)}
+.payterms span{font:600 var(--fs-micro)/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--gold-2)}
+.payterms b{font-size:var(--fs-small);font-weight:500;color:var(--cream)}
+@media (max-width:860px){.paydeck,.payterms{grid-template-columns:1fr}}
+
 /* ---------- 6. TEMA CLARO ---------- */
 .slide.light{color:var(--ink-l);
   background:radial-gradient(circle at 80% 12%,rgba(219,190,122,.3),transparent 30%),linear-gradient(140deg,#f5f1e8,#e9e2d2)}
@@ -829,8 +858,8 @@ body.on-light .progress{background:linear-gradient(90deg,var(--gold-3),var(--ink
       <p class="lead reveal">180 dias pelo <strong>MPM, o Método Primeiro Milhão</strong>: um raio-x da sua empresa, uma prioridade por vez e alguém de fora cobrando a execução a cada quinze dias. Crescer deixa de depender de esforço e passa a depender de método.</p>
       <div class="hero-stats reveal">
         <div><b>180 dias</b><span>de jornada</span></div>
-        <div><b>1 de 10</b><span>Fundadores</span></div>
-        <div><b>R$ 18 mil</b><span>em vez de R$ 30 mil</span></div>
+        <div><b>Turma de 10</b><span>mentoria em grupo</span></div>
+        <div><b>R$ 20 mil</b><span>à vista ou 6x de R$ 5 mil</span></div>
       </div>
     </div>
     <div class="mark-orbit reveal">
@@ -1084,7 +1113,7 @@ body.on-light .progress{background:linear-gradient(90deg,var(--gold-3),var(--ink
   </div>
 </section>
 
-<!-- OS QUATRO ESTÁGIOS -->
+<!-- 10 · OS QUATRO ESTÁGIOS -->
 <section id="os-quatro-estagios" class="slide" data-chapter="IV. O MPM">
   <div class="aura a1"></div><div class="aura a2"></div>
   <div class="wrap">
@@ -1200,15 +1229,14 @@ body.on-light .progress{background:linear-gradient(90deg,var(--gold-3),var(--ink
     <div class="head">
       <div class="eyebrow reveal">A jornada Sócio Mentor</div>
       <h2 class="display wide reveal">Tudo o que você recebe nos <em>180 dias.</em></h2>
-      <p class="lead reveal">Doze entregáveis em três frentes. O bônus é só do Clube dos 10.</p>
+      <p class="lead reveal">Onze entregáveis em três frentes, todos com a turma reunida.</p>
     </div>
     <div class="tracks">
       <div class="track-col reveal">
-        <div class="track-head"><i>◆</i><div><em>Frente 01</em><h3>Direção e diagnóstico</h3></div><span class="qty">4</span></div>
+        <div class="track-head"><i>◆</i><div><em>Frente 01</em><h3>Direção e diagnóstico</h3></div><span class="qty">3</span></div>
         <div class="deliverable"><i>◎</i><div><b>Diagnóstico inicial</b><span>Duas horas lendo a empresa por inteiro.</span></div></div>
         <div class="deliverable"><i>◆</i><div><b>Plano de ação personalizado</b><span>As prioridades do ciclo, por escrito.</span></div></div>
-        <div class="deliverable"><i>◈</i><div><b>2 encontros mensais com Max</b><span>Decisão discutida com quem já passou por isso.</span></div></div>
-        <div class="deliverable bonus"><i>★</i><div><b>1 call individual de 1h por mês com Max<span class="flag">Bônus</span></b><span>Só você e ele. 6 calls, 6 horas de acesso direto.</span></div></div>
+        <div class="deliverable"><i>◈</i><div><b>2 encontros mensais com Max</b><span>Com a turma reunida e quem já passou por isso.</span></div></div>
       </div>
       <div class="track-col reveal">
         <div class="track-head"><i>⚙</i><div><em>Frente 02</em><h3>Execução e suporte</h3></div><span class="qty">4</span></div>
@@ -1220,7 +1248,7 @@ body.on-light .progress{background:linear-gradient(90deg,var(--gold-3),var(--ink
       <div class="track-col reveal">
         <div class="track-head"><i>◈</i><div><em>Frente 03</em><h3>Comunidade e acesso</h3></div><span class="qty">4</span></div>
         <div class="deliverable"><i>▤</i><div><b>Portal dos Sócios</b><span>Materiais e histórico do ciclo.</span></div></div>
-        <div class="deliverable"><i>◉</i><div><b>Clube dos 10 Fundadores</b><span>Um grupo fechado de 10 empresários no mesmo estágio.</span></div></div>
+        <div class="deliverable"><i>◉</i><div><b>Turma de 10 empresários</b><span>Um grupo fechado, todos no mesmo estágio.</span></div></div>
         <div class="deliverable"><i>◆</i><div><b>Bastidores Pro</b><span>O que acontece por trás da operação.</span></div></div>
         <div class="deliverable"><i>✓</i><div><b>Garantia de 30 dias</b><span>Risco de entrada zerado no primeiro mês.</span></div></div>
       </div>
@@ -1228,33 +1256,33 @@ body.on-light .progress{background:linear-gradient(90deg,var(--gold-3),var(--ink
   </div>
 </section>
 
-<!-- 14 · CLUBE DOS 10 FUNDADORES -->
-<section id="clube-dos-10-fundadores" class="slide" data-chapter="VII. A condição">
+<!-- 14 · A MENTORIA É EM GRUPO -->
+<section id="a-mentoria-e-em-grupo" class="slide" data-chapter="VI. A jornada">
   <div class="aura a1"></div><div class="aura a2"></div><div class="aura a3"></div>
   <div class="wrap">
     <div class="head center">
-      <div class="eyebrow reveal">Clube dos 10 Fundadores</div>
-      <h2 class="display wide reveal">Você não está entrando em uma turma. Está entrando na <em>primeira turma.</em></h2>
-      <p class="lead reveal">O Sócio Mentor abre com dez cadeiras fundadoras. Quem entra agora paga o preço de quem ajuda a construir o padrão — não o de tabela.</p>
+      <div class="eyebrow reveal">O formato</div>
+      <h2 class="display wide reveal">A mentoria acontece <em>em grupo.</em> Dez empresários na mesma turma.</h2>
+      <p class="lead reveal">Não é consultoria individual nem curso gravado. É uma turma fechada que percorre os 180 dias junta, com os mesmos encontros e a mesma cadência.</p>
     </div>
     <div class="trio">
       <div class="effect reveal">
-        <span class="num">01</span><i>◆</i>
-        <h3>Preço de fundador</h3>
-        <p>R$ 18 mil em vez dos R$ 30 mil de tabela. São R$ 12 mil de diferença, travados para o ciclo inteiro de 180 dias.</p>
-        <span class="tag">40% abaixo da tabela</span>
+        <span class="num">01</span><i>◉</i>
+        <h3>Turma de dez</h3>
+        <p>Um grupo fechado de empresários no mesmo estágio. Você vê a trava dos outros nove antes de viver a sua.</p>
+        <span class="tag">Sempre os mesmos dez</span>
       </div>
       <div class="effect reveal">
-        <span class="num">02</span><i>★</i>
-        <h3>Acesso direto ao Max</h3>
-        <p>Uma call individual de 1 hora por mês, além dos encontros da turma. Bônus que só existe para as dez cadeiras fundadoras.</p>
-        <span class="tag">6 calls privadas</span>
+        <span class="num">02</span><i>◈</i>
+        <h3>Encontros coletivos</h3>
+        <p>Os quatro encontros do mês acontecem com a turma reunida: dois com o Max e dois com os tutores.</p>
+        <span class="tag">Quatro por mês</span>
       </div>
       <div class="effect reveal">
-        <span class="num">03</span><i>◉</i>
-        <h3>Grupo de dez</h3>
-        <p>Uma sala fechada com nove outros empresários no mesmo estágio, resolvendo travas parecidas. Troca real, não plateia.</p>
-        <span class="tag">Turma limitada</span>
+        <span class="num">03</span><i>✦</i>
+        <h3>Suporte entre encontros</h3>
+        <p>Grupo no WhatsApp e Customer Success acompanhando, para a dúvida não esperar a próxima reunião.</p>
+        <span class="tag">Durante a semana</span>
       </div>
     </div>
     <div class="seats reveal">
@@ -1262,35 +1290,38 @@ body.on-light .progress{background:linear-gradient(90deg,var(--gold-3),var(--ink
       <span class="seat">2</span><span class="seat">3</span><span class="seat">4</span><span class="seat">5</span>
       <span class="seat">6</span><span class="seat">7</span><span class="seat">8</span><span class="seat">9</span>
       <span class="seat">10</span>
-      <span class="seats-cap">A cadeira destacada pode ser a sua</span>
+      <span class="seats-cap">Uma dessas dez pode ser a sua</span>
     </div>
-    <p class="callout reveal">Fundador é posição, não desconto. São dez cadeiras — e cada uma sai da lista quando é ocupada.</p>
   </div>
 </section>
 
 <!-- 15 · INVESTIMENTO -->
 <section id="investimento" class="slide" data-chapter="VII. A condição">
   <div class="aura a1"></div><div class="aura a2"></div>
-  <div class="wrap price-layout">
-    <div>
+  <div class="wrap">
+    <div class="head">
       <div class="eyebrow reveal">Investimento</div>
-      <h2 class="display reveal">O preço de tabela é R$ 30 mil. <em>O do fundador, não.</em></h2>
-      <p class="lead reveal">Como fundador do Clube dos 10, você entra na jornada completa de 180 dias por <strong>R$ 18 mil</strong>. Mesmo escopo, mesmo acompanhamento, mesma garantia — mais a call individual mensal com o Max, que só as cadeiras fundadoras têm.</p>
-      <p class="lead reveal" style="margin-top:var(--s4)">Sem taxa de entrada e sem surpresa no meio do caminho. O que está escrito aqui é o que vale do primeiro ao último dia do ciclo.</p>
+      <h2 class="display wide reveal">Uma jornada de 180 dias. <em>Duas formas de pagar.</em></h2>
+      <p class="lead reveal">Sem taxa de entrada e sem surpresa no meio do caminho. O que está escrito aqui é o que vale do primeiro ao último dia do ciclo.</p>
     </div>
-    <div class="price-box reveal">
-      <span class="label">Sócio Mentor · 180 dias</span>
-      <span class="was">Tabela <s>R$ 30 mil</s></span>
-      <span class="amount">R$ 18 mil</span>
-      <span class="cond">6x de R$ 3.000 · sem taxa de entrada</span>
-      <span class="save-pill">Economia de R$ 12 mil · Clube dos 10 Fundadores</span>
-      <div class="price-terms">
-        <div><span>Duração</span><b>180 dias</b></div>
-        <div><span>Turma</span><b>10 fundadores</b></div>
-        <div><span>Bônus</span><b>1 call de 1h/mês</b></div>
-        <div><span>Garantia</span><b>30 dias</b></div>
+    <div class="paydeck">
+      <div class="payopt best reveal">
+        <span class="po-k">À vista</span>
+        <span class="po-v">R$ 20 mil</span>
+        <span class="po-c">Pagamento único no início do ciclo, via Pix ou cartão.</span>
+        <span class="po-save">R$ 10 mil a menos que o parcelado</span>
       </div>
-      <p class="price-note"><strong>Garantia padrão da mentoria:</strong> 30 dias. Se nos primeiros 30 dias você concluir que a jornada não é para a sua empresa, devolvemos o valor pago. O risco de entrar é zero — o de continuar como está, não.</p>
+      <div class="payopt reveal">
+        <span class="po-k">Parcelado</span>
+        <span class="po-v">6x de R$ 5 mil</span>
+        <span class="po-c">R$ 30 mil no ciclo, um boleto por mês ao longo dos 180 dias.</span>
+        <span class="po-note">Sem entrada e sem juros</span>
+      </div>
+    </div>
+    <div class="payterms reveal">
+      <div><span>Duração</span><b>180 dias</b></div>
+      <div><span>Formato</span><b>Em grupo · turma de 10</b></div>
+      <div><span>Garantia</span><b>30 dias</b></div>
     </div>
   </div>
 </section>
@@ -1301,15 +1332,15 @@ body.on-light .progress{background:linear-gradient(90deg,var(--gold-3),var(--ink
   <div class="wrap">
     <div class="head">
       <div class="eyebrow reveal">A régua</div>
-      <h2 class="display wide reveal">O que R$ 18 mil compram, <em>por mês.</em></h2>
+      <h2 class="display wide reveal">O que R$ 5 mil por mês <em>compram.</em></h2>
       <p class="lead reveal">A comparação honesta não é com um curso. É com o que você faria com esse dinheiro se não fizesse isso — e o reflexo mais comum é contratar mais uma pessoa.</p>
     </div>
     <div class="mathbox">
       <div class="math-grid">
         <div class="mcol a reveal">
-          <div class="ml">Sócio Mentor · cadeira de fundador</div>
-          <div class="mv">R$ 3 mil<small> / mês</small></div>
-          <div class="md">R$ 18 mil divididos nos 180 dias — <strong>R$ 100 por dia.</strong> Entrega o raio-x, o plano, 4 encontros por mês, tutores, acompanhamento de perto e a call individual com o Max.</div>
+          <div class="ml">Sócio Mentor · 180 dias</div>
+          <div class="mv">R$ 5 mil<small> / mês</small></div>
+          <div class="md">R$ 30 mil divididos nos 180 dias — <strong>R$ 167 por dia</strong>, ou R$ 20 mil à vista. Entrega o raio-x, o plano, 4 encontros por mês, tutores e acompanhamento de perto.</div>
         </div>
         <div class="mvs reveal">versus</div>
         <div class="mcol b reveal">
@@ -1318,7 +1349,7 @@ body.on-light .progress{background:linear-gradient(90deg,var(--gold-3),var(--ink
           <div class="md">Salário de R$ 4 a 6 mil, que com encargos chega nessa faixa. É <strong>uma pessoa só</strong> — e que ainda precisa de um processo pronto para seguir.</div>
         </div>
       </div>
-      <p class="math-note reveal">Metade do custo de um vendedor — e resolve o que o vendedor sozinho não resolve. Contratar braço antes de ter método só multiplica o improviso: a pessoa nova repete o que já não funcionava, e agora o custo é fixo. <strong>Com a garantia abaixo, os primeiros 30 dias não custam nada se você concluir que não é para a sua empresa.</strong></p>
+      <p class="math-note reveal">Custa menos que um vendedor — e resolve o que o vendedor sozinho não resolve. Contratar braço antes de ter método só multiplica o improviso: a pessoa nova repete o que já não funcionava, e agora o custo é fixo. <strong>Com a garantia abaixo, os primeiros 30 dias não custam nada se você concluir que não é para a sua empresa.</strong></p>
       <div class="guarantee reveal">
         <svg class="g-seal" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Garantia de 30 dias">
           <defs>
@@ -1372,7 +1403,7 @@ body.on-light .progress{background:linear-gradient(90deg,var(--gold-3),var(--ink
       <div class="path feat reveal">
         <div class="path-num">03</div>
         <div class="path-title">Entrar no ciclo com uma cadeira externa</div>
-        <p>180 dias para montar uma forma previsível de trazer cliente e a estrutura que sustenta esse volume. <strong>Uma trava por vez, com dono, número e prazo</strong> — mais a call individual todo mês para o que não cabe no grupo. É o único em que, daqui a um ano, a empresa cresce por método e não por sorte.</p>
+        <p>180 dias para montar uma forma previsível de trazer cliente e a estrutura que sustenta esse volume. <strong>Uma trava por vez, com dono, número e prazo</strong>, ao lado de outros nove empresários no mesmo ponto. É o único em que, daqui a um ano, a empresa cresce por método e não por sorte.</p>
         <div class="badge">A escolha que muda de lugar</div>
       </div>
     </div>
@@ -1390,8 +1421,8 @@ body.on-light .progress{background:linear-gradient(90deg,var(--gold-3),var(--ink
     </div>
     <div class="steps">
       <div class="step paper-card reveal">
-        <h4>Retorno sobre a cadeira</h4>
-        <p>Confirmação do interesse em uma das dez cadeiras fundadoras. A condição de <strong>R$ 18 mil</strong> vale enquanto houver cadeira aberta.</p>
+        <h4>Retorno sobre a vaga</h4>
+        <p>Confirmação do interesse em uma das <strong>dez vagas</strong> da turma, enquanto houver vaga aberta.</p>
       </div>
       <div class="step paper-card reveal">
         <h4>Conversa de alinhamento</h4>
@@ -1407,7 +1438,7 @@ body.on-light .progress{background:linear-gradient(90deg,var(--gold-3),var(--ink
       </div>
       <div class="step paper-card reveal">
         <h4>Entrada na cadência</h4>
-        <p>2 encontros mensais com o Max, 2 com os tutores e a call individual de 1 hora do Clube dos Fundadores.</p>
+        <p>Dois encontros mensais com o Max e dois com os tutores, sempre com a turma reunida.</p>
       </div>
       <div class="step paper-card reveal">
         <h4>Revisão do ciclo</h4>
